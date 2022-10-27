@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 레퍼런스 북 : 구조 관련 요소</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dracula.css">
+    <!-- 구글 아이콘 -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="#">라인 중학교 1학년 코딩반</a></h1>
+        <span>이름: 김민정</span>
+    </header>
+    <!-- //header -->
+
+    <main id="main">
+        <header class="main_header">
+            <h2>HTML <em>레퍼런스 북</em></h2>
+        </header>
+        <nav class="main_menu">
+            <ul>
+                <li><a href="alphabet.html">알파벳</a></li>
+                <li><a href="basic.html">기초 문법</a></li>
+                <li><a href="block.html">블록 구조/인라인 구조</a></li>
+                <li><a href="web.html">웹표준/웹접근성/웹호환성</a></li>
+                <li><a href="sementic.html">시멘틱 태그</a></li>
+                <li><a href="seo.html">검색엔진 시스템(SE0)</a></li>
+                <li class="active"><a href="structure.html">구조 관련 요소</a></li>
+            </ul>
+            <ul>
+                <li><a href="layout01.html">레이아웃01</a></li>
+                <li><a href="layout02.html">레이아웃02</a></li>
+                <li><a href="layout03.html">레이아웃03</a></li>
+                <li><a href="layout04.html">레이아웃04</a></li>
+                <li><a href="layout05.html">레이아웃05</a></li>
+            </ul>
+        </nav>
+        <div class="main_refer">
+            <div class="document">
+                <h2 class="t_tit">구조 관련 요소</h2>
+                <p class="t_desc">기존 HTML에서는 콘텐츠의 구조를 구분할 수 있는 시멘틱한 요소가 제공되지 않았지만, HTML5에서는 구조를 설계할 수 있는 main, nav,
+                    section, article, aside, header, footer 등 다양한 구조 관련 요소가 새롭게 추가되었습니다.</p>
+                <hr>
+                <h3 class="t_tit2">구조 관련 요소</h3>
+                <table class="t_table">
+                    <colgroup>
+                        <col width="10%">
+                        <col width="15%">
+                        <col>
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>요소 유형</th>
+                            <th>태그명</th>
+                            <th>태그의 의미 및 특징</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td rowspan="12" class="ce">블록 레벨 요소</td>
+                            <td rowspan="2" class="ce">&lt;header&gt;<br>&lt;/header&gt;</td>
+                            <td>1. HTML 문서의 헤더 영역을 의미하는 태그로, 제목이나 내비게이션, 검색 등의 내용들을 포함할 수 있습니다.</td>
+                        </tr>
+                        <tr>
+                            <td>2. 텍스트, 인라인 요소, 블록 레벨 요소를 포함할 수 있지만 &lt;header&gt;, &lt;footer&gt; 태그는 포함할 수 없습니다.</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2" class="ce">&lt;section&gt;<br>&lt;/section&gt;</td>
+                            <td>1. HTML 문서에서 맥락이 같은 요소들을 주제별로 그룹화해주는 태그이며, 섹션 주제에 대한 제목 요소를 포함하는 것이 좋습니다.</td>
+                        </tr>
+                        <tr>
+                            <td>2. 텍스트, 인라인 요소, 블록 레벨 요소를 포함할 수 있습니다.</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2" class="ce">&lt;footer&gt;<br>&lt;/footer&gt;</td>
+                            <td>1. HTML 문서의 푸터 영역을 의미하는 태그로, 섹션 작성자나 저작권에 대한 정보, 관련된 문서의링크를 포함할 수 있습니다.</td>
+                        </tr>
+                        <tr>
+                            <td>2. 텍스트, 인라인 요소, 블록 레벨 요소를 포함할 수 있지만 &lt;header&gt;, &lt;footer&gt; 태그는 포함할 수 없습니다.</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2" class="ce">&lt;nav&gt;<br>&lt;/nav&gt;</td>
+                            <td>1. HTML 문서의 메인 메뉴나 목차 등을 정의해주는 태그입니다.</td>
+                        </tr>
+                        <tr>
+                            <td>2. 텍스트, 인라인 요소, 블록 레벨 요소를 포함할 수 있습니다.</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2" class="ce">&lt;article&gt;<br>&lt;/article&gt;</td>
+                            <td>1. HTML 문서 내에서 독립적으로 배포 또는 재사용이 가능한 게시물, 뉴스 기사, 블로그 포스팅 등을 의미하는 태그이며,
+                                제목 요소를 포함하는 것이 좋습니다.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2. 텍스트, 인라인 요소, 블록 레벨 요소를 포함할 수 있습니다.</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2" class="ce">&lt;aside&gt;<br>&lt;/aside&gt;</td>
+                            <td>1. 메인 콘텐츠와 직접적으로 관련이 없는 영역을 의미하는 태그이며, HTML 문서의 오른쪽이나 왼쪽의 사이드 메뉴나 광고 등의 영역으로 사용됩니다.</td>
+                        </tr>
+                        <tr>
+                            <td>2. 텍스트, 인라인 요소, 블록 레벨 요소를 포함할 수 있습니다.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <hr>
+                <h3 class="t_tit2">구조 관련 요소 활용하기 : HTML</h3>
+                <p class="t_desc">Figma를 통해 다음과 같은 레이아웃을 제작했습니다. 구조 관련 요소를 사용하여
+                    해당 레이아웃을 코딩해 보도록 하겠습니다.
+                    <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450"
+                        src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAKeQMu6bAhxrUrpKB0QAEH%2F%25EB%25A0%2588%25EC%259D%25B4%25EC%2595%2584%25EC%259B%2583%3Fnode-id%3D954%253A2"
+                        allowfullscreen></iframe>
+                </p>
+                <details>
+                    <summary>HTML 소스 보기</summary>
+                    <div class="t_code">
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;구조 관련 요소&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="container"&gt;
+        <i>&lt;header&gt;</i>
+            &lt;h1&gt;&lt;a href="#"&gt;반응형웹&lt;/a&gt;&lt;/h1&gt;
+            <i>&lt;nav&gt;</i>
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;MENU01&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;MENU02&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;MENU03&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;MENU04&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;MENU05&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            <i>&lt;/nav&gt;</i>
+        <i>&lt;/header&gt;</i>
+        &lt;div class="section"&gt;
+            <i>&lt;section&gt;</i>
+                &lt;h2&gt;콘텐츠 그룹01&lt;/h2&gt;
+            <i>&lt;/section&gt;</i>
+            <i>&lt;section&gt;</i>
+                &lt;h2&gt;콘텐츠 그룹02&lt;/h2&gt;
+            <i>&lt;/section&gt;</i>
+            <i>&lt;article&gt;</i>
+                &lt;h2&gt;주요 기사&lt;/h2&gt;
+            <i>&lt;/article&gt;</i>
+            <i>&lt;aside&gt;</i>광고<i>&lt;/aside&gt;</i>
+        &lt;/div&gt;
+        <i>&lt;footer&gt;</i>
+            &lt;address&gt;경기도 안산시 단원구 고잔동 어딘가 031)234-5678 mo0647@naver.com&lt;/address&gt;
+            &lt;p&gt;저작권이 뭐지?&lt;/p&gt;
+        <i>&lt;/footer&gt;</i>
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></code>
+                    </div>
+                </details>
+                <details>
+                    <summary>결과보기</summary>
+                    <div>
+                        <img src="img/structure.jpg">
+                    </div>
+                </details>
+                <br>
+                <p class="t_desc">구조 관련 요소를 사용하여도 HTML만을 이용해 작업하면, 레이아웃이 나타나지 않습니다.
+                    CSS로 스타일 속성을 추가해 주도록 하겠습니다.
+                </p>
+                <hr>
+                <h3 class="t_tit2">구조 관련 요소 활용하기 : CSS</h3>
+                <p class="t_desc">flex 속성을 사용하기 위해 article과 aside의 부모 div 박스를 만들어 작업했습니다. 결과는 다음과 같습니다.</p>
+                
+                <details>
+                    <summary>CSS 소스 보기</summary>
+                    <div class="t_code">
+<pre><code class="language-css">/* reset */
+* {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    list-style-type: none;
+    font-size: 20px;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-size: 20px;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+
+/* container */
+body {
+    background-color: #FFEBEB;
+}
+.container {
+    width: 1160px;
+    background-color: #FFEBEB;
+    margin: 120px auto;
+    height: 905px;
+}
+
+/* header */
+header {
+    width: 1160px;
+    height: 200px;
+    background-color: #FF8686;
+    margin-bottom: 30px;
+    display: flex;
+    position: relative
+}
+header > h1 {
+    width: 150px;
+    height: 150px;
+    background-color: #FFB7B7;
+    line-height: 150px;
+    text-align: center;
+    margin: 25px;
+}
+header > span {
+    width: 120px;
+    height: 25px;
+    background-color: #000;
+    color: white;
+    text-align: center;
+    line-height: 25px;
+    position: absolute;
+    top: 40px;
+    left: 520px;
+}
+header > nav {
+    width: 930px;
+    height: 75px;
+    background-color: #FFB7B7;
+    margin-top: 100px;
+}
+header > nav > ul {
+    display: flex;
+    justify-content: space-around;
+    line-height: 75px;
+}
+
+/* section */
+.section {
+    width: 1160px;
+    height: 475px;
+    background-color: #FF8686;
+    margin-bottom: 30px;
+    display: flex;
+    position: relative;
+}
+.section > span {
+    width: 120px;
+    height: 25px;
+    background-color: #000;
+    color: white;
+    text-align: center;
+    line-height: 25px;
+    position: absolute;
+}
+.section > section {
+    width: 355px;
+    height: 425px;
+    background-color: #FFB7B7;
+    margin: 25px 0 0 25px;
+    line-height: 425px;
+    text-align: center;
+}
+.section article {
+    width: 350px;
+    height: 200px;
+    background-color: #ffb7b7;
+    margin: 25px;
+    text-align: center;
+    line-height: 200px;
+}
+.section aside {
+    width: 350px;
+    height: 200px;
+    background-color: #ffb7b7;
+    margin: 25px;
+    text-align: center;
+    line-height: 200px;
+}
+
+/* footer */
+footer {
+    width: 1160px;
+    height: 170px;
+    background-color: #FF8686;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+}
+footer span {
+    width: 120px;
+    height: 25px;
+    background-color: #000;
+    color: white;
+    text-align: center;
+    line-height: 25px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+footer address {
+    width: 930px;
+    height: 55px;
+    background-color: #ffb7b7;
+    line-height: 55px;
+    font-style: normal;
+    margin-top: 25px;
+    margin-right: 30px;
+    padding-left: 5px;
+}
+footer p {
+    width: 930px;
+    height: 55px;
+    background-color: #ffb7b7;
+    line-height: 55px;
+    margin-right: 30px;
+    margin-bottom: 25px;
+    padding-left: 5px;
+}</code></pre>
+                    </div>
+                </details>
+                <br>
+                <div class="t_iframe" style="min-height: 1000px; padding-top: 0px;">
+                    <iframe src="https://mj0614k.github.io/Coding/html/structure_result.html"></iframe>
+                </div>
+                <!-- <div class="t_link">
+                    <a href="https://github.com/mj0614k/Coding/blob/main/html/structure_result.html">원본 소스 보기</a>
+                    <a href="https://mj0614k.github.io/Coding/html/structure_result">원본 사이트 보기</a>
+                </div> -->
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

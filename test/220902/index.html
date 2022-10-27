@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>롯데월드 사이트</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="container nexon">
+        <header id="header">
+            <div class="header__logo">
+                <a href="#"><span></span></a>
+            </div>
+            <nav class="header__menu">
+                <ul>
+                    <li><a href="#">즐길거리</a></li>
+                    <li><a href="#">요금/우대혜택</a></li>
+                    <li><a href="#">참여프로그램</a></li>
+                    <li><a href="#">이용가이드</a></li>
+                    <li><a href="#">소통서비스</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main id="main">
+            <div class="slider__wrap">
+                <div class="slider__img">
+                    <div class="slider__inner">
+                        <div class="slider">
+                            <img src="assets/img/slide01.jpg" alt="이벤트 이미지">
+                        </div>
+                        <div class="slider">
+                            <img src="assets/img/slide02.jpg" alt="이벤트 이미지">
+                        </div>
+                        <div class="slider">
+                            <img src="assets/img/slide03.jpg" alt="이벤트 이미지">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main__menu">
+                <div class="notice">
+                    <div class="notice__title">
+                        <ul>
+                            <div class="title">
+                                <li class="title01">롯데월드 소식</li>
+                                <li>|</li>
+                                <li class="title02">뉴스ㆍ공지</li>
+                            </div>
+                            <div class="title__more">
+                                <li class="more">
+                                    <a href="#">
+                                        더보기
+                                        <img src="assets/img/icon01.png" alt="더보기">
+                                    </a>
+                                </li>
+                            </div>
+                        </ul>
+                    </div>
+                    <div class="notice__cont">
+                        <ul>
+                            <div class="notice__cont__title">
+                                <li>그럴싸진관 미라클</li>
+                                <li>2018.11.19</li>
+                            </div>
+                            <div class="notice__cont__title">
+                                <li>드림스테이지 '힘내 소중한 너'</li>
+                                <li>2018.11.20</li>
+                            </div>
+                            <div class="notice__cont__title">
+                                <li>'힘내 소중한 너' 음원 발매</li>
+                                <li>2018.11.13</li>
+                            </div>
+                            <div class="notice__cont__title">
+                                <li>이용 요금 조정 안내</li>
+                                <li>2018.11.12</li>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+                <div class="banner">
+                    <img src="assets/img/banner01.jpg" alt="배너: 롯데 ON으로 혜택 받기">
+                </div>
+            </div>
+            <div class="main__bottom">
+                <h2>특별한 경험</h2>
+                <div class="bottom__img">
+                    <div class="img">
+                        <img src="assets/img/banner_bottom_01.jpg" alt="놀이기구 사진">
+                        <p>연간회원 안내</p>
+                    </div>
+                    <div class="img">
+                        <img src="assets/img/banner_bottom_02.jpg" alt="놀이기구 사진">
+                        <p>프리미엄 투어</p>
+                    </div>
+                    <div class="img">
+                        <img src="assets/img/banner_bottom_03.jpg" alt="놀이기구 사진">
+                        <p>공연참여 프로그램</p>
+                    </div>
+                    <div class="img">
+                        <img src="assets/img/banner_bottom_04.jpg" alt="놀이기구 사진">
+                        <p>단체 프로그램</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer id="footer">
+            <p>서울특별시 송파구 올림픽로 240 호텔롯데 롯데월드 | 대표자 : 박동기</p>
+            <p>사업자등록번호: 219-85-00014 | 통신판매업신고번호: 송파 제5513호 | 전화: 1661-2000</p>
+            <p class="copy">COPYRIGHT 2018 LOTTEWORLD.ALL RIGHTS RESERVED.</p>
+        </footer>
+    </div>
+    <script>
+        sliderInner = document.querySelector(".slider__inner");
+        slider = document.querySelectorAll(".slider")
+        let currentIndex = 0;
+
+        sliderInner.style.transition = "all 0.6s";
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % slider.length;
+
+            sliderInner.style.transform = "translateX("+ -960 * currentIndex +"px)";
+        }, 2000);
+    </script>
+</body>
+</html>

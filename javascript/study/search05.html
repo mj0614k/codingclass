@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>자바스크립트 : 검색 효과</title>
+
+        <link rel="stylesheet" href="../assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+
+    <body>
+        <header id="header">
+            <h1><a href="../index.html">Javascript</a></h1>
+        </header>
+        <!-- //header -->
+
+        <main id="main">
+            <div class="document">
+                <h2 class="t_tit">자바스크립트 : 검색 효과 : filter()</h2>
+                <p class="t_desc">
+                    자바스크립트의 다양한 효과들 중, 해당하는 문자열을 찾을 수 있는 검색 효과입니다.
+                    이번에는 filter() 메서드를 사용하여, 별점을 클릭하면 그 개수에 해당하는 속성들이
+                    나타나도록 작업해 보겠습니다.
+                </p>
+                <hr />
+                <h2 class="t_tit2">1. 속성 작성하기</h2>
+                <div class="t_code">
+                    <pre><code class="language-js">const cssProperty = [
+    { star: 0, name: "accent-color", desc: "특정 요소에 색상을 지정할 때 사용됩니다." },
+    { star: 1, name: "align-content", desc: "콘텐츠 아이템의 상하관계 정렬 상태를 설정합니다." },
+    { star: 2, name: "align-items", desc: "콘텐츠 아이템의 내부 상하관계 정렬 상태를 설정합니다." },
+    { star: 3, name: "align-self", desc: "개별적인 콘텐츠 아이템의 정렬 상태를 설정합니다." },
+    { star: 4, name: "all", desc: "요소의 속성을 초기화 또는 상속을 설정합니다." },
+    { star: 5, name: "animation", desc: "애니메이션과 관련된 속성을 일괄적으로 설정합니다." },
+    { star: 0, name: "animation-delay", desc: "애니메이션 지연 시간을 설정합니다." },
+    { star: 1, name: "animation-direction", desc: "애니메이션 움직임 방향을 설정합니다." },
+    { star: 2, name: "animation-duration", desc: "애니메이션 움직임 시간을 설정합니다." },
+    { star: 3, name: "animation-fill-mode", desc: "애니메이션이 끝난 후의 상태를 설정합니다." },
+    { star: 4, name: "animation-iteration-count", desc: "애니메이션의 반복 횟수를 설정합니다." },
+    { star: 5, name: "animation-name", desc: "애니메이션 keyframe 이름을 설정합니다." },
+    { star: 0, name: "animation-play-state", desc: "애니메이션 진행상태를 설정 합니다." },
+    { star: 1, name: "animation-timeline", desc: "x" },
+    { star: 2, name: "animation-timing-function", desc: "애니메이션 움직임의 속도를 설정 합니다." }
+    // 생략
+];
+</code></pre>
+                </div>
+                <p class="t_box">
+                    먼저, 속성들을 스크립트로 작성해 줍니다. 이번에는 별점 star값을 추가하였습니다.
+                    중요도를 의미합니다.
+                </p>
+                <h2 class="t_tit2">2. 선택자 만들기</h2>
+                <div class="t_code">
+                    <pre><code class="language-js">const searchList = document.querySelector(".search__list ul");
+const searchClick = document.querySelectorAll(".search__click ul:nth-child(1) li");
+const searchClick2 = document.querySelectorAll(".search__click ul:nth-child(2) li");
+let count = 0;</code></pre>
+                </div>
+                <p class="t_box">
+                    이제 선택자를 만들어 줍니다. 각각 속성들을 출력할 ul, 별점 리스트들, count는
+                    검색 결과 수를 나타냅니다.
+                </p>
+                <h2 class="t_tit2">3. 속성 출력하기</h2>
+                <div class="t_code">
+                    <pre><code class="language-js">function updateList(list) {
+    listCSS = "";
+    for (const data of list) {
+        if (data.star == 0) {
+            listCSS += `&lt;li&gt;${data.name} : ${data.desc} &lt;em&gt;🌚🌚🌚🌚🌚&lt;/em&gt;&lt;/li&gt;`;
+        }
+        if (data.star == 1) {
+            listCSS += `&lt;li&gt;${data.name} : ${data.desc} &lt;em&gt;🌝🌚🌚🌚🌚&lt;/em&gt;&lt;/li&gt;`;
+        }
+        if (data.star == 2) {
+            listCSS += `&lt;li&gt;${data.name} : ${data.desc} &lt;em&gt;🌝🌝🌚🌚🌚&lt;/em&gt;&lt;/li&gt;`;
+        }
+        if (data.star == 3) {
+            listCSS += `&lt;li&gt;${data.name} : ${data.desc} &lt;em&gt;🌝🌝🌝🌚🌚&lt;/em&gt;&lt;/li&gt;`;
+        }
+        if (data.star == 4) {
+            listCSS += `&lt;li&gt;${data.name} : ${data.desc} &lt;em&gt;🌝🌝🌝🌝🌚&lt;/em&gt;&lt;/li&gt;`;
+        }
+        if (data.star == 5) {
+            listCSS += `&lt;li&gt;${data.name} : ${data.desc} &lt;em&gt;🌝🌝🌝🌝🌝&lt;/em&gt;&lt;/li&gt;`;
+        }
+    }
+    searchList.innerHTML = listCSS;
+}
+updateList(cssProperty);
+</code></pre>
+                </div>
+                <p class="t_box">
+                    속성을 출력하기 위해 함수를 만들어 줍니다. star값에 따라 별점 이모지를 삽입해
+                    줍니다. 별점 이모지가 삽입된 각각의 목록들은 listCSS 안에 하나씩 추가됩니다.
+                    모든 목록이 추가된 listCSS는 searchList 안에 삽입됩니다.
+                </p>
+                <h2 class="t_tit2">4. click 이벤트 만들기</h2>
+                <h3 class="t_tit3">4-1) 클릭한 별점에 해당하는 속성만 보여주기</h3>
+                <div class="t_code">
+                    <pre><code class="language-js">searchClick.forEach((star) => {
+    star.addEventListener("click", () => {
+        const target = star.dataset.star;
+
+        const filterList = cssProperty.filter((data) => data.star == target);
+        count = filterList.length;
+        document.querySelector(".num2").innerHTML = count;
+
+        updateList(filterList);
+    });
+});
+</code></pre>
+                </div>
+                <p class="t_box">먼저, star의 값(0, 1, 2, 3, 4, 5 존재)을 가져와야 합니다. target 변수 안에 넣어 줍니다. <br>
+                filterList는 data.star의 값이 target과 같은지 확인하고, 같은 값을 가진 데이터만 출력해 줍니다.
+                이 때, filterList의 갯수는 검색 결과의 수와 같습니다.<br>
+                스크립트를 모두 작성했다면, filterList의 데이터를 updateList로 전송합니다.</p>
+                <h3 class="t_tit3">4-2) 클릭한 별점 이상에 해당하는 속성만 보여주기</h3>
+                <div class="t_code">
+                    <pre><code class="language-js">searchClick2.forEach((star) => {
+    star.addEventListener("click", () => {
+        const target = star.dataset.star;
+
+        const filterList = cssProperty.filter((data) => data.star >= target);
+        count = filterList.length;
+        document.querySelector(".num2").innerHTML = count;
+
+        updateList(filterList);
+    });
+});
+</code></pre>
+                </div>
+                <p class="t_box">별점 1개 이상, 별점 2개 이상 등 클릭한 별점 갯수 이상에 해당하는 속성만 보여줄 수도 있습니다. 
+                    위와 동일하지만, filter 메서드에서 연산자를 >=로 바꾸어만 주면 됩니다.<br>
+                </p>
+                <h2 class="t_tit2">5. 전체 속성 수 출력하기</h2>
+                <div class="t_code">
+                    <pre><code class="language-js">document.querySelector(".num").innerHTML = cssProperty.length;</code></pre>
+                </div>
+                <p class="t_box">
+                    마지막으로, 전체 속성 수를 출력해 줍니다.
+                </p>
+                <hr />
+                <h2 class="t_tit2">결과</h2>
+                <p class="t_desc">?? 아ㅋㅋ;;;;; 학원 컴퓨터로는 귀여웠던 달님이 제 벌레같은 LG 노트북에서는 또도가스로 보이네요... 여러분들은 어떻게 보이시나요...</p>
+                <img src="https://github.com/mj0614k/Coding/blob/main/assets/tistory/search05_img01.jpg?raw=true" alt="">
+                <div class="t_iframe" style="min-height: 1000px; padding-top: 0px">
+                    <iframe
+                        src="https://mj0614k.github.io/Coding/javascript/effect/searchEffect05.html"
+                    ></iframe>
+                </div>
+
+                <div class="t_link">
+                    <a
+                        href="https://github.com/mj0614k/Coding/blob/main/javascript/effect/searchEffect05.html"
+                        >원본 소스 보기</a
+                    >
+                    <a href="https://mj0614k.github.io/Coding/javascript/effect/searchEffect05"
+                        >원본 사이트 보기</a
+                    >
+                </div>
+            </div>
+        </main>
+        <!-- //main -->
+
+        <footer id="footer">
+            <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+        </footer>
+        <!-- //footer -->
+
+        <script src="../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>

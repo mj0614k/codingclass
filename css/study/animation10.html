@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CSS 애니메이션 : 통통 튀는 글자</title>
+
+        <link rel="stylesheet" href="../../javascript/assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+
+    <body>
+        <main id="main">
+            <div class="document">
+                <h2 class="t_tit">CSS 애니메이션 : 마우스를 따라가는 눈알</h2>
+                <p class="t_desc">
+                    오늘은 마우스를 따라 눈알이 빙글빙글 돌아가는 애니메이션을 만들어 보도록
+                    하겠습니다. 작업해볼 애니메이션은 다음과 같습니다.
+                </p>
+                <p
+                    class="codepen"
+                    data-height="639"
+                    data-default-tab="result"
+                    data-slug-hash="vYjWraW"
+                    data-user="mj0614k"
+                    style="
+                        height: 639px;
+                        box-sizing: border-box;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border: 2px solid;
+                        margin: 1em 0;
+                        padding: 1em;
+                    "
+                >
+                    <span
+                        >See the Pen <a href="https://codepen.io/mj0614k/pen/vYjWraW"> eye</a> by
+                        mj0614k (<a href="https://codepen.io/mj0614k">@mj0614k</a>) on
+                        <a href="https://codepen.io">CodePen</a>.</span
+                    >
+                </p>
+                <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+                <hr />
+                <h2 class="t_tit2">1. HTML 소스</h2>
+                <div class="t_code">
+                    <pre><code class="language-html">&lt;div class="wrapper"&gt;
+    &lt;div class="card"&gt;
+        &lt;div class="me"&gt;
+            &lt;div class="eye"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="text"&gt;EYE&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                </div>
+                <p class="t_desc">
+                    wrapper 안에 card, card 안에 me와 text, me 안에 eye 클래스를 가진 div 박스를
+                    만들어 줍니다. text는 자유롭게 작성합니다.
+                </p>
+                <h2 class="t_tit2">2. CSS 소스</h2>
+                <div class="t_code">
+                    <pre><code class="language-css">* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
+.wrapper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 369px;
+    height: 547px;
+    transform-style: preserve-3d;
+    transform: translate(-50%, -50%);
+}
+
+.me {
+    position: absolute;
+    width: 369px;
+    height: 547px;
+    transform: translatez(80px) scale(0.8);
+}
+
+.me::before, .me::after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 10px;
+    background: url(https://slack-imgs.com/?c=1&o1=ro&url=http%3A%2F%2Fwww.supah.it%2Fdribbble%2F006%2Fprofile.png) no-repeat 0 0;
+}
+
+.me::after {
+    height: 30px;
+    top: auto;
+    bottom: -15px;
+    filter: blur(15px);
+    background-size: 100% 30px;
+    border-radius: 100px;
+}
+
+.eye, .eye::before {
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    top: 175px;
+    left: 119px;
+    z-index: -1;
+    background: url(http://www.supah.it/dribbble/006/eye.png);
+}
+
+.eye::before {
+    content: '';
+    top: -3px;
+    left: 99px;
+}
+
+.text {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    width: 390px;
+    height: 595px;
+    transform: translatez(150px) translatex(-11px) translatey(-26px) scale(0.55);
+    border: 3px solid #fff;
+    text-align: center;
+    font-size: 35px;
+    line-height: 1000px;
+    color: #fff;
+    opacity: 0.3;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.36) 39%, rgba(255,255,255,0) 51%, #000 100%)
+}
+
+.text::after {
+    content: 'moving';
+    width: 100%;
+    position: absolute;
+    bottom: 22px;
+    left: 0;
+    z-index: 1;
+    line-height: 1;
+    font-size: 24px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 29px;
+    text-indent: 20px;
+}
+</code></pre>
+                </div>
+                <p class="t_desc">이미지의 프레임을 만들고, 각각의 이미지 위치를 조정해 줍니다.</p>
+                <h2 class="t_tit2">3. JAVASCRIPT 소스</h2>
+                <div class="t_code">
+                    <pre><code class="language-js">const wrap = document.querySelector('.wrapper');
+const eye = document.querySelector('.eye');
+const speed = 1;
+let x = 0;
+let y = 0;
+let followX = 0;
+let followY = 0;
+
+function animate() {
+  x += (followX - x) * speed;
+  y += (followY - y) * speed;
+  eye.style.transform = `translate(${-x}px, ${-y}px)`;
+  wrap.style.transform = `translate(-50%, -50%) perspective(600px) rotateX(${-y}deg) rotateY(${-x}deg)`;
+  requestAnimationFrame(animate);
+}
+
+window.addEventListener('mousemove', (e) => {
+  let mouseX = Math.max(-100, Math.min(100,window.innerWidth / 2 - e.clientX));
+  let mouseY = Math.max(-100, Math.min(100,window.innerHeight / 2 - e.clientY));
+  
+  followX = (12 * mouseX) / 100;
+  followY = (10 * mouseY) / 100;
+});
+
+window.addEventListener('keydown', (e) => {
+  switch(e.keyCode) {
+    case 37: followX = 12; break; //좌
+    case 38: followY = 10; break; //상
+    case 39: followX = -12; break; //우
+    case 40: followY = -10; break; //하
+    default: break;
+  }
+})
+
+animate();
+</code></pre>
+                </div>
+                <p class="t_desc">
+                    keydown 이벤트는 방향키를 눌렀을 때 눈알이 해당 방향을 바라보도록 작업해
+                    주었습니다.
+                </p>
+                <p class="t_desc">
+                    위의 HTML, CSS, JAVASCRIPT 소스를 합치면 애니메이션이 완성됩니다. 솔직히
+                    징그럽네요...
+                </p>
+            </div>
+        </main>
+        <!-- //main -->
+
+        <footer id="footer">
+            <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+        </footer>
+        <!-- //footer -->
+
+        <script src="../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>

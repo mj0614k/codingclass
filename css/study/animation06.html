@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CSS 애니메이션 : 일렁이는 애니메이션</title>
+
+        <link rel="stylesheet" href="../../javascript/assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+
+    <body>
+        <main id="main">
+            <div class="document">
+                <h2 class="t_tit">CSS 애니메이션 : 카드 뒤집기 애니메이션</h2>
+                <p class="t_desc">
+                    오늘은 마우스를 오버했을 때 이미지가 뒤집히는 듯한 애니메이션이 나타나도록
+                    작업해 보겠습니다. 작업해볼 애니메이션은 다음과 같습니다.
+                </p>
+                <p
+                    class="codepen"
+                    data-height="500"
+                    data-default-tab="result"
+                    data-slug-hash="PoejGKR"
+                    data-user="mj0614k"
+                    style="
+                        height: 300px;
+                        box-sizing: border-box;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border: 2px solid;
+                        margin: 1em 0;
+                        padding: 1em;
+                    "
+                >
+                    <span
+                        >See the Pen
+                        <a href="https://codepen.io/mj0614k/pen/PoejGKR"> hoveranimation</a> by
+                        mj0614k (<a href="https://codepen.io/mj0614k">@mj0614k</a>) on
+                        <a href="https://codepen.io">CodePen</a>.</span
+                    >
+                </p>
+                <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+                <hr />
+                <h2 class="t_tit2">1. HTML 소스</h2>
+                <div class="t_code">
+                    <pre><code class="language-html">&lt;div class="hover__wrap"&gt;
+    &lt;div class="hover__updown"&gt;
+        &lt;figure class="front"&gt;
+            &lt;img src="img01"&gt;
+            &lt;figcaption&gt;
+                &lt;h3&gt;Mouse Hover Effect&lt;/h3&gt;
+                &lt;p&gt;마우스를 올리면 Up&lt;/p&gt;
+            &lt;/figcaption&gt;
+        &lt;/figure&gt;
+        &lt;figure class="back"&gt;
+            &lt;img src="img02"&gt;
+            &lt;figcaption&gt;
+                &lt;h3&gt;Mouse Hover Effect&lt;/h3&gt;
+                &lt;p&gt;마우스를 내리면 Down&lt;/p&gt;
+            &lt;/figcaption&gt;
+        &lt;/figure&gt;
+    &lt;/div&gt;
+    &lt;div class="hover__leftright"&gt;
+        &lt;figure class="front"&gt;
+            &lt;img src="img03"&gt;
+            &lt;figcaption&gt;
+                &lt;h3&gt;Mouse Hover Effect&lt;/h3&gt;
+                &lt;p&gt;마우스를 올리면 to Right&lt;/p&gt;
+            &lt;/figcaption&gt;
+        &lt;/figure&gt;
+        &lt;figure class="back"&gt;
+            &lt;img src="img04"&gt;
+            &lt;figcaption&gt;
+                &lt;h3&gt;Mouse Hover Effect&lt;/h3&gt;
+                &lt;p&gt;마우스를 내리면 to Left&lt;/p&gt;
+            &lt;/figcaption&gt;
+        &lt;/figure&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                </div>
+                <p class="t_desc">
+                    HTML 소스는 전체에 해당하는 hover__wrap 안에 hover__updown, hover__leftright 두
+                    개의 div 박스를 만들어 줍니다. 그 안에는 각각 앞, 뒤에 해당하는 이미지를
+                    삽입하고, figcaption 태그 안에 제목과 설명을 작성해 주면 됩니다.
+                </p>
+                <h2 class="t_tit2">2. CSS 소스</h2>
+                <div class="t_code">
+                    <pre><code class="language-css">.hover__wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.hover__wrap > div {
+    max-width: 400px;
+    margin: 3%;
+    position: relative;
+    perspective: 1000px;
+}
+.hover__wrap > div img {
+    width: 100%;
+    border: 10px solid #F0F8FF;
+    box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.2);
+    box-sizing: border-box;
+    vertical-align: top;
+}
+.hover__wrap > div .front {
+    transition: transform 1s;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+}
+.hover__wrap > div .back {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+}
+.hover__wrap > div figcaption {
+    background: rgba(0, 0, 0, 0.4);
+    color: #F8F8FF;
+    padding: 10px;
+    text-align: center;
+    line-height: 1.5;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) translateZ(100px);
+    width: 60%;
+    backface-visibility: hidden;
+}
+
+/* hover effect */
+.hover__updown .front {
+    transform: rotateX(0deg);
+}
+.hover__updown:hover .front {
+    transform: rotateX(180deg);
+}
+.hover__updown .back {
+    transform: rotateX(-180deg);
+}
+.hover__updown:hover .back {
+    transform: rotateX(0deg);
+}
+.hover__leftright .front {
+    transform: rotateY(0deg);
+}
+.hover__leftright:hover .front {
+    transform: rotateY(180deg);
+}
+.hover__leftright .back {
+    transform: rotateY(-180deg);
+}
+.hover__leftright:hover .back {
+    transform: rotateY(0deg);
+}
+</code></pre>
+                </div>
+                <p class="t_desc">
+                    hover__wrap에는 flex 속성을 이용하여 이미지들을 가운데 정렬해 줍니다.
+                    <br />
+                    <i>prespective</i> 속성은 CSS로 3D 효과를 주기 위해서 가장 중요한 것으로, 이
+                    속성을 사용하면 <i>원근감</i>을 줄 수 있습니다. 값이 작을수록 가깝게 보이고,
+                    클수록 멀게 보입니다.
+                    <br />
+                    <i>backface-visibility</i> 속성은 요소의 뒤쪽에서 앞면이 보이게 할지 정하는
+                    속성입니다. 이 속성에 hidden 값을 부여함으로써, 요소가 뒤집혔을 때 보이지 않게
+                    숨기고, 뒤에 있던 요소인 back 이미지가 보이게 되는 것입니다.
+                    <br />
+                    body의 그라데이션 소스는 생략했습니다. 자세한 소스는 코드펜을 참고해 주세요.
+                </p>
+                <p class="t_desc">
+                    위의 HTML, CSS 소스를 합치면 애니메이션이 완성됩니다. 이번에는 간단하지
+                    않습니다. 예쁘죠?
+                </p>
+            </div>
+        </main>
+        <!-- //main -->
+
+        <footer id="footer">
+            <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+        </footer>
+        <!-- //footer -->
+
+        <script src="../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>

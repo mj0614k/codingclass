@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 검색 효과</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="../index.html">Javascript</a></h1>
+    </header>
+    <!-- //header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">자바스크립트 : 검색 효과 : charAt()</h2>
+            <p class="t_desc">
+                자바스크립트의 다양한 효과들 중, 해당하는 문자열을 찾을 수 있는 검색 효과입니다.
+                이번에는 charAt() 메서드를 이용하여 CSS의 다양한 속성을 검색할 수 있는 웹사이트를 작업해 보도록 하겠습니다.
+            </p>
+            <hr>
+            <h2 class="t_tit2">HTML 소스</h2>
+            <p class="t_desc">HTML로 뼈대를 먼저 잡아주었습니다. 헤더 영역에는 내비게이션 메뉴를, 메인 영역에는 알파벳 선택창, 하위 목록들을 작성해 주었습니다.
+                각 알파벳이 쓰인 버튼을 클릭하면, 해당하는 알파벳으로 시작하는 속성들이 목록에 나타납니다.
+                아래 소스는 메인 영역의 HTML 소스로, 나머지 영역의 소스는 하단의 '원본 소스 보기' 버튼을 클릭하면 확인할 수 있습니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-html">&lt;div class="search__wrap"&gt;
+    &lt;span&gt;charAt()를 이용하여 검색하기&lt;/span&gt;
+    &lt;h1&gt;CSS 속성 첫글자 검색하기&lt;/h1&gt;
+    &lt;div class="search__info"&gt;
+        &lt;div class="keyword"&gt;
+            &lt;span&gt;a&lt;/span&gt;
+            &lt;span&gt;b&lt;/span&gt;
+            &lt;span&gt;c&lt;/span&gt;
+            &lt;span&gt;d&lt;/span&gt;
+            &lt;span&gt;e&lt;/span&gt;
+            &lt;span&gt;f&lt;/span&gt;
+            &lt;span&gt;g&lt;/span&gt;
+            &lt;span&gt;h&lt;/span&gt;
+            &lt;span&gt;i&lt;/span&gt;
+            &lt;span&gt;j&lt;/span&gt;
+            &lt;span&gt;k&lt;/span&gt;
+            &lt;span&gt;l&lt;/span&gt;
+            &lt;span&gt;m&lt;/span&gt;
+            &lt;span&gt;n&lt;/span&gt;
+            &lt;span&gt;o&lt;/span&gt;
+            &lt;span&gt;p&lt;/span&gt;
+            &lt;span&gt;q&lt;/span&gt;
+            &lt;span&gt;r&lt;/span&gt;
+            &lt;span&gt;s&lt;/span&gt;
+            &lt;span&gt;t&lt;/span&gt;
+            &lt;span&gt;u&lt;/span&gt;
+            &lt;span&gt;v&lt;/span&gt;
+            &lt;span&gt;w&lt;/span&gt;
+            &lt;span&gt;x&lt;/span&gt;
+            &lt;span&gt;y&lt;/span&gt;
+            &lt;span&gt;z&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div&gt;전체 속성 갯수 : &lt;span class="num"&gt;0&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="search__list"&gt;
+        &lt;div class="css"&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;strong&gt;accent-color&lt;/strong&gt; : 특정 요소에 색상을 지정할 때 사용됩니다.&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;align-content&lt;/strong&gt; : 콘텐츠 아이템의 상하관계 정렬 상태를 설정합니다.&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;align-items&lt;/strong&gt; : 콘텐츠 아이템의 내부 상하관계 정렬 상태를 설정합니다.&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;align-self&lt;/strong&gt; : 개별적인 콘텐츠 아이템의 정렬 상태를 설정합니다.&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;all&lt;/strong&gt; : 요소의 속성을 초기화 또는 상속을 설정합니다.&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;animation&lt;/strong&gt; : 애니메이션과 관련된 속성을 일괄적으로 설정합니다.&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;animation-delay&lt;/strong&gt; : 애니메이션 지연 시간을 설정합니다.&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;animation-direction&lt;/strong&gt; : 애니메이션 움직임 방향을 설정합니다.&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;animation-duration&lt;/strong&gt; : 애니메이션 움직임 시간을 설정합니다.&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;animation-fill-mode&lt;/strong&gt; : 애니메이션이 끝난 후의 상태를 설정합니다.&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;animation-iteration-count&lt;/strong&gt; : 애니메이션의 반복 횟수를 설정합니다.&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;animation-name&lt;/strong&gt; : 애니메이션 keyframe 이름을 설정합니다.&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;animation-play-state&lt;/strong&gt; : 애니메이션 진행상태를 설정 합니다.&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;animation-timeline&lt;/strong&gt; : x&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;animation-timing-function&lt;/strong&gt; : 애니메이션 움직임의 속도를 설정 합니다.&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;appearance&lt;/strong&gt; : 운영체제 및 브라우저에 기본적으로 설정되어 있는 테마를 기반으로 요소를 표현합니다.&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;aspect-ratio&lt;/strong&gt; : 요소의 크기를 비율대로 조정할 수 있게 합니다.&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;backdrop-filter&lt;/strong&gt; : 요소 뒤 영역에 흐림이나 색상 시프트 등 그래픽 효과를 적용할 수 있는 속성입니다.&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;backface-visibility&lt;/strong&gt; : 입체적인 모습의 뒷면의 가시성을 결정하는 속성이다.&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;background&lt;/strong&gt; : 백그라운드 속성을 일괄적으로 설정 합니다.&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;background-attachment&lt;/strong&gt; : 배경 이미지의 고정 여부를 설정 합니다.&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;background-blend-mode&lt;/strong&gt; : 배경을 혼합했을 때 그래픽 효과를 설정 합니다.&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;background-clip&lt;/strong&gt; : 백그라운드 이미지의 위치 기준점을 설정 합니다.&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;background-color&lt;/strong&gt; : 백그라운드 색을 설정 합니다.&lt;/li&gt;
+                // 이하생략...
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+            </div>
+            <h2 class="t_tit2">CSS 소스</h2>
+            <p class="t_desc">CSS로 스타일 속성을 추가해 주었습니다. 폰트는 티몬, 에스코어 드림을 사용했습니다. 마찬가지로, 메인 영역의 CSS 소스입니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-css">#main {
+    margin: 50px 10px;
+}
+
+.search__wrap {
+    max-width: 1400px;
+    margin: 0 auto;
+    border: 3px solid var(--htmlColor);
+    border-radius: 20px;
+    background-color: #f1f3f6;
+    padding: 30px;
+    text-align: center;
+}
+
+.search__wrap>span {
+    font-size: 20px;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.search__wrap>h1 {
+    font-family: 'Tmon';
+    color: var(--htmlColor);
+    font-size: 6vw;
+    margin-bottom: 10px;
+}
+
+.search__box {
+    margin-bottom: 20px;
+}
+
+.search__box label {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+}
+
+.search__box input {
+    border: 2px solid var(--htmlColor);
+    padding: 15px 40px;
+    width: 70%;
+    border-radius: 50px;
+    font-size: 20px;
+}
+
+.search__list li {
+    text-align: left;
+    line-height: 1.7;
+}
+
+.search__list li.hide {
+    display: none;
+}
+
+.search__list li.show {
+    display: block;
+}
+
+.search__info {
+    text-align: right;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px dashed var(--htmlColor);
+}
+
+.search__info .type {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.search__info .keyword {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.search__info .keyword span {
+    border-bottom: 2px solid var(--htmlColor);
+    border-radius: 5px;
+    padding: 10px;
+    display: inline-block;
+    margin-bottom: 4px;
+    font-weight: 500;
+}
+
+.search__info .keyword span:hover {
+    background-color: var(--htmlColor);
+    color: #fff;
+    cursor: pointer;
+}
+</code></pre>
+            </div>
+            <h2 class="t_tit2">JAVASCRIPT 소스</h2>
+            <p class="t_desc">대망의 JAVASCIPRT 소스입니다. 각각의 알파벳들, 속성 목록 리스트의 선택자를 먼저 만들어 주었습니다.
+                사용자가 클릭한 알파벳의 값(searchWord)과 속성의 이름(cssName)을 비교하여, 속성 이름의 첫 글자와 알파벳의 값이
+                같으면 hide 클래스를 숨기고, 다르면 hide 클래스를 추가시키는 방법으로 작업하였습니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">// 선택자
+const searchKeyword = document.querySelectorAll(".search__info .keyword span")  // 알파벳
+const searchList = document.querySelectorAll(".search__list ul li")  // 목록 리스트
+const searchInfo = document.querySelector(".search__info .num")
+
+// 속성 갯수 구하기
+searchInfo.textContent = searchList.length;
+
+searchKeyword.forEach( el => {
+    el.addEventListener("click", () => {
+        const searchWord = el.innerText;  // 사용자가 클릭한 알파벳
+        // console.log(searchWord);
+
+        searchList.forEach(el => {
+            const cssName = el.querySelector("strong").innerText;  // CSS 속성의 텍스트
+            // console.log(cssName)
+
+            // 알파벳 첫글자 == CSS 속성의 첫글자
+            if(searchWord.charAt(0) === cssName.charAt(0)){
+                el.classList.remove("hide");
+            } else {
+                el.classList.add("hide");
+            }
+        });
+    })
+});
+</code></pre>
+            </div>
+            <hr>
+            <h2 class="t_tit2">결과</h2>
+            <div class="t_iframe" style="min-height: 1000px; padding-top: 0px;">
+                <iframe src="https://mj0614k.github.io/Coding/javascript/effect/searchEffect03.html"></iframe>
+            </div>
+
+            <div class="t_link">
+                <a href="https://github.com/mj0614k/Coding/blob/main/javascript/effect/searchEffect03.html">원본 소스 보기</a>
+                <a href="https://mj0614k.github.io/Coding/javascript/effect/searchEffect03">원본 사이트 보기</a>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

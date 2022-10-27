@@ -1,0 +1,241 @@
+/* scroll */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1f224a26;
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #011d3f;
+    border-radius: 20px;
+}
+
+.music__wrap {
+    z-index: 10;
+    display: none;
+}
+.music__inner {
+    width: 450px;
+    background: #011d3f;
+    position: absolute;
+    right: 100px;
+    top: 100px;
+    padding: 0 10px 10px 10px;
+}
+.music__header {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+}
+.music__header h2 {
+    font-size: 14px;
+}
+.music__contents {
+    background: #c4c4c4;
+    width: 100%;
+}
+.music__view {
+    display: flex;
+    padding: 20px;
+}
+.music__view .img {
+    width: 30%;
+}
+.music__view .img img {
+    width: 100%;
+}
+.music__view .title {
+    width: 70%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #011d3f;
+}
+.music__view .title h3 {
+    margin-bottom: 5px;
+    font-size: 28px;
+    line-height: 1.2;
+}
+.music__view .title p {
+    color: rosybrown;
+}
+.music__control {
+    width: 100%;
+    height: 100px;
+    padding: 0 20px 20px 20px;
+}
+.music__control .volume {
+    color: #011d3f;
+    text-align: right;
+}
+.music__control .progress {
+    width: 100%;
+    height: 6px;
+    background: #011d3f;
+    border-radius: 5px;
+}
+.music__control .progress .bar {
+    width: 0%;
+    height: inherit;
+    background: rosybrown;
+    border-radius: 5px;
+}
+.music__control .progress .timer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 3px;
+    color: #011d3f;
+}
+.music__control .control {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 30px;
+}
+.music__control .control .repeat {
+    width: 24px;
+    height: 24px;
+    background-image: url(../img/effect_icon07.svg);
+    background-position: -124px;
+    background-size: 200px;
+    background-repeat: no-repeat;
+}
+.music__control .control .repeat_one {
+    width: 24px;
+    height: 24px;
+    background-image: url(../img/effect_icon07.svg);
+    background-position: -150px;
+    background-size: 200px;
+    background-repeat: no-repeat;
+}
+.music__control .control .shuffle {
+    width: 24px;
+    height: 24px;
+    background-image: url(../img/effect_icon07.svg);
+    background-position: -175px;
+    background-size: 200px;
+    background-repeat: no-repeat;
+}
+.music__control .control .prev {
+    width: 24px;
+    height: 24px;
+    background-image: url(../img/effect_icon07.svg);
+    background-size: 200px;
+    background-repeat: no-repeat;
+    background-position: -50px;
+}
+.music__control .control .next {
+    width: 24px;
+    height: 24px;
+    background-image: url(../img/effect_icon07.svg);
+    background-size: 200px;
+    background-repeat: no-repeat;
+    background-position: -75px;
+}
+.music__control .control .play {
+    width: 24px;
+    height: 24px;
+    background-image: url(../img/effect_icon07.svg);
+    background-size: 200px;
+    background-repeat: no-repeat;
+    background-position: 0px;
+}
+.music__control .control .stop {
+    width: 24px;
+    height: 24px;
+    background-image: url(../img/effect_icon07.svg);
+    background-size: 200px;
+    background-repeat: no-repeat;
+    background-position: -27px;
+}
+.music__control .control .list {
+    width: 24px;
+    height: 24px;
+    background-image: url(../img/effect_icon07.svg);
+    background-size: 200px;
+    background-repeat: no-repeat;
+    background-position: -100px;
+}
+.music__control .control .volumeUp {
+    width: 24px;
+    height: 24px;
+    background-image: url(../img/effect_icon09.svg);
+}
+.music__control .control .volumeDown {
+    width: 24px;
+    height: 24px;
+    background-image: url(../img/effect_icon09.svg);
+    background-position: -24px;
+}
+.music__footer {
+    background-color: #c4c4c4;
+}
+.music__list {
+    padding: 20px;
+    padding-top: 0px;
+    display: none;
+}
+.music__list.show {
+    display: block;
+}
+.music__list h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    border-top: 2px solid #011d3f;
+    padding-top: 10px;
+}
+.music__list h3 .list {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: url(../img/effect_icon07.svg) no-repeat;
+    margin-right: 5px;
+    background-position: -100px 0;
+    vertical-align: -5px;
+    background-size: 200px;
+}
+.music__list h3 .close {
+    float: right;
+    background: url(../img/effect_icon08.svg) no-repeat;
+    width: 24px;
+    height: 24px;
+    background-size: 24px;
+}
+.music__list ul {
+    max-height: 200px;
+    overflow-y: scroll;
+}
+.music__list li {
+    border-bottom: 1px solid #011d3f;
+    list-style: none;
+    position: relative;
+    padding: 5px 0;
+}
+.music__list li.playing {
+    color: rosybrown;
+}
+.music__list li strong {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+.music__list li em {
+    font-style: normal;
+    font-size: 14px;
+}
+.music__list li span {
+    position: absolute;
+    right: 0;
+    top: 5px;
+    font-size: 16px;
+}

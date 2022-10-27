@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카드 유형02</title>
+    <style>
+        /* fonts */
+        @import url('https://webfontworld.github.io/gmarket/GmarketSans.css');
+
+        .gmark {
+            font-family: 'GmarketSans';
+            font-weight: 500;
+        }
+
+        /* reset */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: normal;
+        }
+
+        /* common */
+        .container {
+            width: 1160px;
+            padding: 0 20px;
+            margin: 0 auto;
+            min-width:1160px;
+        }
+
+        .section {
+            padding: 120px 0;
+        }
+
+        .section>h2 {
+            font-size: 50px;
+            line-height: 1;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .section>p {
+            font-size: 22px;
+            font-weight: 300;
+            color: #666;
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        /* ir 효과(이미지 대체 효과 == alt) */
+        /* 눈에 보이지 않지만, 스크린 리더기에서 읽히게 하는 효과 */
+        .ir {
+            display: block;
+            overflow: hidden;
+            font-size: 0;
+            line-height: 0;
+            text-indent: -9999px;
+        }
+
+        /* cardType02 */
+        .card__inner {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .card__inner .card {
+            width: 24%;
+            position: relative;
+        }
+        .card__inner .card:first-child{
+            margin-bottom: 50px;
+        }
+
+        .card__inner .card img {
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+        .card__inner .card .tit {
+            font-size: 28px;
+            margin-bottom: 10px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            padding-right: 20px;
+        }
+        .card__inner .card .desc {
+            font-size: 18px;
+            font-weight: 300;
+            color: #666;
+            line-height: 1.4;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3; 
+            -webkit-box-orient: vertical;
+        }
+        .card__inner .card .more{
+            width: 24px;
+            height: 24px;
+            background-image: url(img/card_arrow02.svg);
+            display: block;
+            position: absolute;
+            right: 0;
+            top: 230px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <section id="cardType02" class="card__wrap gmark section gray">
+        <h2>세상의 맛있는 음식들</h2>
+        <p>
+            제목은 세상의 맛있는 음식들이라고 거창하게 지었지만,<br>
+            지금 당장 제가 먹고 싶은 음식들입니다.
+        </p>
+        <div class="card__inner container">
+            <article class="card">
+                <img src="img/card02_bg01.jpg" alt="치킨">
+                <h3 class="tit">치킨</h3>
+                <p class="desc">세상에는 맛있는 음식들이 참 많이 있습니다. 왜 지금은 아무것도 먹지 못하고 있는지 한스럽습니다. 배가 너무 고픈데요.</p>
+                <a href="#" class="more ir"><span>더보기</span></a>
+            </article>
+            <article class="card">
+                <img src="img/card02_bg02.jpg" alt="케이크">
+                <h3 class="tit">케이크</h3>
+                <p class="desc">세상에는 맛있는 음식들이 참 많이 있습니다. 왜 지금은 아무것도 먹지 못하고 있는지 한스럽습니다. 배가 너무 고픈데요.</p>
+                <a href="#" class="more ir"><span>더보기</span></a>
+            </article>
+            <article class="card">
+                <img src="img/card02_bg03.jpg" alt="파스타">
+                <h3 class="tit">파스타</h3>
+                <p class="desc">세상에는 맛있는 음식들이 참 많이 있습니다. 왜 지금은 아무것도 먹지 못하고 있는지 한스럽습니다. 배가 너무 고픈데요.</p>
+                <a href="#" class="more ir"><span>더보기</span></a>
+            </article>
+            <article class="card">
+                <img src="img/card02_bg04.jpg" alt="딸기 라떼">
+                <h3 class="tit">딸기 라떼</h3>
+                <p class="desc">세상에는 맛있는 음식들이 참 많이 있습니다. 왜 지금은 아무것도 먹지 못하고 있는지 한스럽습니다. 배가 너무 고픈데요.</p>
+                <a href="#" class="more ir"><span>더보기</span></a>
+            </article>
+            <article class="card">
+                <img src="img/card02_bg05.jpg" alt="햄버거">
+                <h3 class="tit">햄버거</h3>
+                <p class="desc">세상에는 맛있는 음식들이 참 많이 있습니다. 왜 지금은 아무것도 먹지 못하고 있는지 한스럽습니다. 배가 너무 고픈데요.</p>
+                <a href="#" class="more ir"><span>더보기</span></a>
+            </article>
+            <article class="card">
+                <img src="img/card02_bg06.jpg" alt="핫케이크">
+                <h3 class="tit">핫케이크</h3>
+                <p class="desc">세상에는 맛있는 음식들이 참 많이 있습니다. 왜 지금은 아무것도 먹지 못하고 있는지 한스럽습니다. 배가 너무 고픈데요.</p>
+                <a href="#" class="more ir"><span>더보기</span></a>
+            </article>
+            <article class="card">
+                <img src="img/card02_bg07.jpg" alt="피자">
+                <h3 class="tit">피자</h3>
+                <p class="desc">세상에는 맛있는 음식들이 참 많이 있습니다. 왜 지금은 아무것도 먹지 못하고 있는지 한스럽습니다. 배가 너무 고픈데요.</p>
+                <a href="#" class="more ir"><span>더보기</span></a>
+            </article>
+            <article class="card">
+                <img src="img/card02_bg08.jpg" alt="튀김">
+                <h3 class="tit">튀김</h3>
+                <p class="desc">세상에는 맛있는 음식들이 참 많이 있습니다. 왜 지금은 아무것도 먹지 못하고 있는지 한스럽습니다. 배가 너무 고픈데요.</p>
+                <a href="#" class="more ir"><span>더보기</span></a>
+            </article>
+        </div>
+    </section>
+</body>
+</html>

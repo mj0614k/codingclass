@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CSS : 이미지 스프라이트</title>
+
+        <link rel="stylesheet" href="../../javascript/assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+
+    <body>
+        <header id="header">
+            <h1><a href="#">CSS 애니메이션 만들기 : 기초 애니메이션</a></h1>
+        </header>
+        <!-- //header -->
+
+        <main id="main">
+            <div class="document">
+                <h2 class="t_tit">CSS 애니메이션 만들기 : 기초 애니메이션</h2>
+                <p class="t_desc">오늘은 CSS의 다양한 애니메이션과 관련된 속성을 알아보고, 기초적인 애니메이션을 만들어 보도록 하겠습니다.</p>
+                <hr>
+                <!-- Intro0 -->
+                <h2 class="t_tit2">ANIMATION</h2>
+                <table class="t_table">
+                    <colgroup>
+                        <col width="30%">
+                        <col width="70%">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>종류</th>
+                            <th>예시</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="ce">animation-name</td>
+                            <td>@keyframe에 지정된 이름을 설정합니다.</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">animation-duration</td>
+                            <td>애니메이션이 실행되는 시간을 설정합니다.</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">animation-timing-function</td>
+                            <td>애니메이션 키프레임 움직임을 설정합니다.</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">animation-delay</td>
+                            <td>애니메이션이 시작되기 전까지 시간을 설정합니다.</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">animation-iteration</td>
+                            <td>애니메이션 반복 횟수를 설정합니다.</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">animation-derection</td>
+                            <td>애니메이션 방향을 설정합니다.</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">animation-fill-mode</td>
+                            <td>애니메이션 끝나고 난 뒤 어떤 값을 적용할지 설정합니다.</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">animation-play-state</td>
+                            <td>애니메이션 실행 상태를 설정합니다.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h2 class="t_tit2">TRANSITION</h2>
+                <table class="t_table">
+                    <colgroup>
+                        <col width="30%">
+                        <col width="70%">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>종류</th>
+                            <th>예시</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="ce">transition-property</td>
+                            <td>트렌지션을 적용할 CSS 속성 대상을 설정합니다.</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">transition-druation</td>
+                            <td>트렌지션 작동시간을 설정합니다.</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">transition-timing-function</td>
+                            <td>트렌지션 움직임 효과를 설정합니다.</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">transition-delay</td>
+                            <td>트렌지션이 시작되기 전까지 시간을 설정합니다.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h2 class="t_tit2">TIMING-FUNCTION</h2>
+                <table class="t_table">
+                    <colgroup>
+                        <col width="30%">
+                        <col width="70%">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>종류</th>
+                            <th>예시</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="ce">linear</td>
+                            <td>일정한 간격으로 설정합니다.</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">ease</td>
+                            <td>처음에는 서서히 가속하고 마지막 부분에서 급격히 감속합니다.</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">ease-in</td>
+                            <td>처음에는 천천히 시작하고 마지막에 가속합니다.</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">ease-out</td>
+                            <td>처음에는 최대 속도로 시작하고 마지막에 감속합니다.</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">ease-in-out</td>
+                            <td>처음에는 제로 속도로 시작하고, 중간 지점에서 최고 속도로 움직이고, 마지막 부분에서 서서히 감속합니다.</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">step-start</td>
+                            <td>애니메이션을 시작점에서 설정합니다.</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">step-end</td>
+                            <td>애니메이션을 끝점에서 설정합니다.</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">steps(int, start/end)</td>
+                            <td>애니메이션을 단계별을 설정합니다.</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">cubic-bezier(n,n,n,n)</td>
+                            <td>버지니아 곡선 값을 만들어서 설정합니다.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- //Intro0 -->
+                <hr>
+                <h2 class="t_tit2">애니메이션 활용 예제</h2>
+                <!-- 1 -->
+                <p class="codepen" data-height="700" data-default-tab="html,result" data-slug-hash="yLjYZpJ" data-user="mj0614k" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                    <span>See the Pen <a href="https://codepen.io/mj0614k/pen/yLjYZpJ">
+                    cssani01</a> by mj0614k (<a href="https://codepen.io/mj0614k">@mj0614k</a>)
+                    on <a href="https://codepen.io">CodePen</a>.</span>
+                  </p>
+                  <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+                  <!-- 2 -->
+                  <p class="codepen" data-height="700" data-default-tab="html,result" data-default-tab="html,result" data-slug-hash="vYjNbRQ" data-user="mj0614k" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                    <span>See the Pen <a href="https://codepen.io/mj0614k/pen/vYjNbRQ">
+                    cssani02</a> by mj0614k (<a href="https://codepen.io/mj0614k">@mj0614k</a>)
+                    on <a href="https://codepen.io">CodePen</a>.</span>
+                  </p>
+                  <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+                  <!-- 3 -->
+                  <p class="codepen" data-height="700" data-default-tab="html,result" data-slug-hash="xxjwMaY" data-user="mj0614k" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                    <span>See the Pen <a href="https://codepen.io/mj0614k/pen/xxjwMaY">
+                    cssani03</a> by mj0614k (<a href="https://codepen.io/mj0614k">@mj0614k</a>)
+                    on <a href="https://codepen.io">CodePen</a>.</span>
+                  </p>
+                  <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+                  <!-- 4 -->
+                  <p class="codepen" data-height="700" data-default-tab="html,result" data-slug-hash="QWrjYJy" data-user="mj0614k" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                    <span>See the Pen <a href="https://codepen.io/mj0614k/pen/QWrjYJy">
+                    cssani04</a> by mj0614k (<a href="https://codepen.io/mj0614k">@mj0614k</a>)
+                    on <a href="https://codepen.io">CodePen</a>.</span>
+                  </p>
+                  <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+                  <!-- 5 -->
+                  <p class="codepen" data-height="700" data-default-tab="html,result" data-slug-hash="JjvYxwv" data-user="mj0614k" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                    <span>See the Pen <a href="https://codepen.io/mj0614k/pen/JjvYxwv">
+                    cssani05</a> by mj0614k (<a href="https://codepen.io/mj0614k">@mj0614k</a>)
+                    on <a href="https://codepen.io">CodePen</a>.</span>
+                  </p>
+                  <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+                  <!-- 6 -->
+                  <p class="codepen" data-height="700" data-default-tab="html,result" data-slug-hash="abGvXXq" data-user="mj0614k" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                    <span>See the Pen <a href="https://codepen.io/mj0614k/pen/abGvXXq">
+                    cssani06</a> by mj0614k (<a href="https://codepen.io/mj0614k">@mj0614k</a>)
+                    on <a href="https://codepen.io">CodePen</a>.</span>
+                  </p>
+                  <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+                  <!-- 7 -->
+                  <p class="codepen" data-height="700" data-default-tab="html,result" data-slug-hash="VwxvgNq" data-user="mj0614k" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                    <span>See the Pen <a href="https://codepen.io/mj0614k/pen/VwxvgNq">
+                    cssani07</a> by mj0614k (<a href="https://codepen.io/mj0614k">@mj0614k</a>)
+                    on <a href="https://codepen.io">CodePen</a>.</span>
+                  </p>
+                  <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+                  <!-- 8 -->
+                  <p class="codepen" data-height="700" data-default-tab="html,result" data-slug-hash="vYjNbwP" data-user="mj0614k" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                    <span>See the Pen <a href="https://codepen.io/mj0614k/pen/vYjNbwP">
+                    cssani08</a> by mj0614k (<a href="https://codepen.io/mj0614k">@mj0614k</a>)
+                    on <a href="https://codepen.io">CodePen</a>.</span>
+                  </p>
+                  <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+            </div>
+        </main>
+        <!-- //main -->
+
+        <footer id="footer">
+            <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+        </footer>
+        <!-- //footer -->
+
+        <script src="../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>

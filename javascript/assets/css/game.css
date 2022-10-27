@@ -1,0 +1,436 @@
+@import url("https://webfontworld.github.io/neodgm/NeoDunggeunmo.css");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "NeoDunggeunmo";
+  font-weight: normal;
+  cursor: none;
+}
+body {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+#header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 30px;
+  background-color: rosybrown;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #011d3f;
+  padding: 0 10px;
+}
+#header h1 {
+  font-size: 20px;
+  padding: 5px;
+  color: #011d3f;
+}
+#footer {
+  z-index: 20;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  background-color: rosybrown;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #011d3f;
+  padding: 5px 10px;
+  text-align: center;
+}
+#footer .agent {
+}
+.mac #footer {
+}
+.window #footer {
+}
+.mouse__cursor {
+  z-index: 2001;
+  position: absolute;
+  left: 0;
+  top: 0;
+  user-select: none;
+  pointer-events: none;
+}
+.icon1 {
+  position: absolute;
+  left: 100px;
+  top: 100px;
+  width: 54px;
+}
+.icon img {
+  width: 100%;
+}
+.icon span {
+  display: block;
+  background: #000;
+  color: white;
+  font-size: 14px;
+  padding: 2px;
+  white-space: nowrap;
+  text-align: center;
+}
+.icon2 {
+  position: absolute;
+  left: 100px;
+  top: 200px;
+  width: 54px;
+}
+.icon3 {
+  position: absolute;
+  left: 100px;
+  top: 300px;
+  width: 54px;
+}
+.icon4 {
+  position: absolute;
+  left: 100px;
+  top: 400px;
+  width: 54px;
+}
+.icon5 {
+  position: absolute;
+  left: 100px;
+  top: 500px;
+  width: 54px;
+}
+.icon6 {
+  position: absolute;
+  left: 100px;
+  top: 600px;
+  width: 54px;
+}
+
+@media (max-width: 600px) {
+  #header {
+    text-align: center;
+    width: 100%;
+  }
+  #header h1 {
+    line-height: 1.4;
+  }
+}
+
+/* modal__wrap */
+.modal__btn {
+  color: black;
+  background-color: #fff;
+  border-radius: 50px;
+  display: inline-block;
+  padding: 10px 20px;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.modal__btn:hover {
+  background-color: black;
+  color: #fff;
+}
+
+.modal__cont {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.3);
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0);
+}
+
+.modal__box {
+  width: 80%;
+  height: 80vh;
+  border-radius: 0.6rem;
+  background-color: #fff;
+  box-shadow: 0 10px 20px -5px hsl(180deg 2% 10%);
+  transform: scale(0);
+}
+
+.modal__box .title {
+  padding-inline: 1rem;
+  cursor: grab;
+  background-color: hsl(180 2% 10%);
+  display: flex;
+  align-items: center;
+  color: #fff;
+  height: 50px;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.modal__box .title .plus {
+  background: #282b2e;
+  padding: 0.5rem 0.5rem 0.3rem 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.modal__box .title .dot {
+  width: 15px;
+  height: 15px;
+  background-color: #cc7832;
+  display: inline-block;
+  border-radius: 50%;
+  position: relative;
+  margin-left: 25px;
+}
+
+.modal__box .title .dot::before {
+  content: "";
+  position: absolute;
+  left: 25px;
+  top: 0;
+  width: 15px;
+  height: 15px;
+  background-color: #6a8759;
+  border-radius: 50%;
+}
+
+.modal__box .title .dot::after {
+  content: "";
+  position: absolute;
+  right: 25px;
+  top: 0;
+  width: 15px;
+  height: 15px;
+  background-color: #b30000;
+  border-radius: 50%;
+}
+
+.modal__box .title .tabs {
+  display: flex;
+  margin-left: 45px;
+}
+
+.modal__box .title .tabs > div {
+  color: hsl(39 33% 66%);
+  background-color: hsl(22 7% 29%);
+  padding: 0.35rem 0.7rem 0.25rem 0.8rem;
+  margin-right: 0.65rem;
+  display: flex;
+  align-items: center;
+  border-radius: 0.4rem;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.modal__box .title .tabs > div em {
+  font-style: normal;
+}
+
+.modal__box .title .tabs > div.active {
+  background-color: #1f224a;
+}
+
+.modal__box .title .tabs > div .favicon {
+  margin-right: 0.4rem;
+  margin-top: 0.2rem;
+}
+
+.modal__box .title .tabs > div .close {
+  margin-left: 5rem;
+}
+
+.modal__box .cont {
+  background-color: #282936;
+  height: 100%;
+  box-sizing: border-box;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+
+.modal__box .cont > div {
+  display: none;
+}
+
+.modal__box .cont > div.active {
+  display: block;
+  height: 100%;
+}
+
+.modal__cont .cont .iframe {
+  /* position: absolute; */
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.modal__cont .cont .iframe iframe {
+  width: 100%;
+  /* position: relative;
+    left: -225px;
+    top: -60px; */
+  height: 100vh;
+  border: none;
+}
+
+.modal__cont .cont .iframe.blind {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+}
+
+.modal__close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  padding: 0.5rem 0.4rem 0.25rem 0.4rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+  opacity: 0;
+}
+
+.modal__close:hover {
+  background-color: #292c61;
+}
+
+.modal__close svg {
+  color: #fff;
+}
+
+/* 모달 애니메이션 */
+/* animation: zoom 0s 0s 작업했을 때 앞은 애니메이션 시간, 뒤는 딜레이 시간 */
+
+.modal__cont.show {
+  /* 전체 배경 */
+  animation: foldOut 1s ease forwards;
+}
+.modal__cont.show .modal__box {
+  /* 스크립트 박스 */
+  animation: zoomOut 0.5s 1s ease forwards;
+}
+.modal__cont.show .modal__close {
+  /* 닫기 버튼 */
+  animation: opacityOut 0.5s 1.5s ease forwards;
+}
+
+.modal__cont.show.hide {
+  animation: foldIn 0.3s 0.5s ease backwards;
+}
+
+.modal__cont.show.hide .modal__box {
+  animation: zoomIn 0.5s ease forwards;
+}
+
+.modal__cont.show.hide .modal__close {
+  animation: opacityIn 0.5s ease forwards;
+}
+
+/* scroll */
+.modal__box ::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.modal__box ::-webkit-scrollbar-track {
+  background: #1f224a26;
+}
+
+.modal__box ::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 20px;
+}
+
+.modal__box ::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* scaleX, scaleY : Line을 그리며 커지는 애니메이션 */
+@keyframes foldOut {
+  0% {
+    transform: scaleX(0) scaleY(0.001);
+  }
+
+  50% {
+    transform: scaleX(1) scaleY(0.001);
+  }
+
+  100% {
+    transform: scaleX(1) scaleY(1);
+  }
+}
+
+@keyframes foldIn {
+  0% {
+    transform: scaleX(1) scaleY(1);
+  }
+
+  50% {
+    transform: scaleX(1) scaleY(0.001);
+  }
+
+  100% {
+    transform: scaleX(0) scaleY(0.001);
+  }
+}
+
+@keyframes zoomOut {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes opacityOut {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes opacityIn {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* 미디어쿼리 */
+@media (max-width: 1345px) {
+}
+
+@media (max-width: 600px) {
+  #header {
+    text-align: center;
+    width: 100%;
+  }
+  #header h1 {
+    line-height: 1.4;
+  }
+  .modal__box {
+    width: 96%;
+  }
+}

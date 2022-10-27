@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 퀴즈 효과</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="../index.html">Javascript</a></h1>
+    </header>
+    <!-- //header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">자바스크립트 : 퀴즈 효과 : 슬라이드 형식</h2>
+            <p class="t_desc">
+                자바스크립트의 다양한 효과들 중, 퀴즈를 맞힐 수 있는 퀴즈 효과입니다.
+                그 중에서도, 객관식 정답을 선택하고, '다음 문제' 버튼을 누르면 다음 문제로 이동하는
+                슬라이드 형식으로 퀴즈를 작업했습니다.
+            </p>
+            <hr>
+            <h3 class="t_tit2">객관식(여러 문제) 유형 : 슬라이드 형식</h3>
+            <p class="t_desc">
+                예시는 웹디자인기능사의 필기 시험 문제입니다. 문제의 정답을 맞히면 문구가 나타나며 강아지 애니메이션이
+                기뻐하고, 정답을 맞히지 못하면 슬퍼하는 애니메이션으로 입력값에 따라 다른 결과가 나타납니다.
+                문제를 다 푼 뒤 '정답 확인하기' 버튼을 클릭하면 맞힌 문제의 갯수와 점수, 합/불합격 여부가 나타납니다.
+            </p>
+            <div class="t_iframe" style="min-height: 1000px; padding-top: 0px;">
+                <iframe src="https://mj0614k.github.io/Coding/javascript/effect/quizEffect06.html"></iframe>
+            </div>
+            <div class="t_code">
+<pre><code class="language-js">// 문제 정보
+const quizInfo = [
+    {
+        answerType: "웹디자인기능사 2013년 01회",
+        answerNum: "6",
+        answerAsk: "서로 다른 색끼리의 영향으로 인하여 밝은 색은 더 밝게 어두운 색은 더 어둡게 보이는 대비는?",
+        answerChoice: [
+            "색상대비",
+            "명도대비",
+            "채도대비",
+            "계시대비"
+        ],
+        answerResult: "명도대비",
+        answerEx: "어둡고 밝다라는 언급은 명도를 의심하셔야 됩니다."
+    },
+    {
+        answerType: "웹디자인기능사 2013년 01회",
+        answerNum: "7",
+        answerAsk: "디자인 원리 중 율동(Rhythm)에 해당하지 않는 것은?",
+        answerChoice: [
+            "비례",
+            "반복",
+            "강조",
+            "점이"
+        ],
+        answerResult: "비례",
+        answerEx: "율동의 효과는 강한 힘과 약한 힘이 '규칙적'으로 생겨나는 '움직임' 입니다. 비례랑은 상관없습니다."
+    },
+    {
+        answerType: "웹디자인기능사 2013년 01회",
+        answerNum: "8",
+        answerAsk: "어둠이 시작될 때 물체의 상이 흐리게 나타나는 현상과 가장 관계가 깊은 것은?",
+        answerChoice: [
+            "색순응",
+            "푸르킨예 현상",
+            "박명시",
+            "조건등색"
+        ],
+        answerResult: "박명시",
+        answerEx: "명순응은 어두운 -> 밝은곳 갈 때 눈의 적응 암순응은 밝은 -> 어두운 곳 갈 때 눈의 적응입니다. 박명시란 그 중간에 눈의 적응입니다. 그 상태에선 물체가 흐리게 보여요"
+    },
+    {
+        answerType: "웹디자인 기능사 2013년 01회",
+        answerNum: 11,
+        answerAsk: "스파트(spot) 광고에 대한 설명이 옳은 것은?",
+        answerChoice: [
+            "전국 방송망으로 방송국에서 전국에 실시하는 광고",
+            "일정시간을 정해 30초 CM 10개를 계속 방송하는 형태",
+            "지역 방송국에 제한되어 방송하는 것",
+            "프로그램과 프로그램 사이에 광고를 삽입하는 것",
+        ],
+        answerResult: "프로그램과 프로그램 사이에 광고를 삽입하는 것",
+        answerEx: "기억해주세요 spot 광고란 '라디오나 텔레비전 방송에서, 프로그램 사이 또는 프로그램 진행 중에 아주 짧게 나가는 광고' 입니다.",
+    },
+    {
+        answerType: "웹디자인 기능사 2013년 01회",
+        answerNum: 15,
+        answerAsk: "다음 중 굿 디자인(Good Design)의 조건이 아닌 것은?",
+        answerChoice: [
+            "심미성",
+            "독창성",
+            "대중성",
+            "경제성",
+        ],
+        answerResult: "대중성",
+        answerEx: "굿디자인 4가지 외우세요 : 심미성, 독창성, 합목적성, 경제성 입니다.",
+    }
+]
+
+const quizType = document.querySelector(".quiz__type")  // 퀴즈 유형
+const quizQuestion = document.querySelector(".quiz__question");  // 문제 번호, 질문
+const quizSelects = document.querySelector(".quiz__selects")  // 객관식 보기
+const quizResult = document.querySelector(".quiz__answer .result")  // 퀴즈 해설
+const quizConfirm = document.querySelector(".quiz__answer .confirm")  // 정답 확인 버튼
+const quizView = document.querySelector(".quiz__view")  // 강아지
+    
+let quizCount = 0;
+let quizScore = 0;  // 맞힌 문제 갯수
+
+const updateQuiz = (index) =&gt; {  // 퀴즈 유형, 문제, 보기 순으로 템플릿 문자열을 활용해 각각의 문제를 삽입했습니다.
+    const quizTag = `
+        &lt;div&gt;${quizInfo[index].answerType}&lt;/div&gt;
+    `;
+    const questionTag = `
+        &lt;span class="number"&gt;${quizInfo[index].answerNum}. &lt;/span&gt;
+        &lt;div class="ask"&gt;${quizInfo[index].answerAsk}&lt;/div&gt;
+    `;
+    const choiceTag = `
+        &lt;label for="select1"&gt;
+            &lt;input type="radio" class="select" id="select1" name="select" value="1"&gt;
+            &lt;span class="choice"&gt;${quizInfo[index].answerChoice[0]}&lt;/span&gt;
+        &lt;/label&gt;
+        &lt;label for="select2"&gt;
+            &lt;input type="radio" class="select" id="select2" name="select" value="2"&gt;
+            &lt;span class="choice"&gt;${quizInfo[index].answerChoice[1]}&lt;/span&gt;
+        &lt;/label&gt;
+        &lt;label for="select3"&gt;
+            &lt;input type="radio" class="select" id="select3" name="select" value="3"&gt;
+            &lt;span class="choice"&gt;${quizInfo[index].answerChoice[2]}&lt;/span&gt;
+        &lt;/label&gt;
+        &lt;label for="select4"&gt;
+            &lt;input type="radio" class="select" id="select4" name="select" value="4"&gt;
+            &lt;span class="choice"&gt;${quizInfo[index].answerChoice[3]}&lt;/span&gt;
+        &lt;/label&gt;
+    `;
+
+    // 문제 출력
+    quizType.innerHTML = quizInfo[index].answerType;  // 퀴즈 유형
+    quizQuestion.innerHTML = questionTag;  // 번호, 질문
+    quizSelects.innerHTML = choiceTag;  // 보기
+    quizResult.innerHTML = quizInfo[index].answerEx;  // 퀴즈 해설
+
+    const quizChoice = quizSelects.querySelectorAll(".choice");
+
+    for(let i=0; i&lt;quizChoice.length; i++){
+        quizChoice[i].setAttribute("onclick", "choiceSelected(this)")
+    }
+
+    // 문제, 해설 숨기기
+    quizResult.style.display = "none";
+    quizConfirm.style.display = "none";
+}
+updateQuiz(quizCount);
+
+const choiceSelected = (answer) =&gt; {
+    let userAnswer = answer.textContent;  // 사용자가 체크한 정답
+    let currentAnswer = quizInfo[quizCount].answerResult;  // 문제의 정답
+    if(userAnswer == currentAnswer){
+        quizView.classList.add("like");
+        quizScore++;
+    } else {
+        quizView.classList.add("dislike");
+        quizResult.style.display = "block";
+    }
+    quizConfirm.style.display = "block";
+}
+
+// 정답 확인 버튼
+const answerQuiz = () =&gt; {
+    totalScore = quizScore * 100 / quizInfo.length;  // 점수 계산하기
+    if(quizInfo.length -1 == quizCount){
+        if(totalScore >= 60){
+            quizConfirm.textContent = `총 ${quizInfo.length}문제 중에 ${quizScore}문제를 맞혔습니다. ${totalScore}점입니다. 합격입니다!`
+        } else {
+            quizConfirm.textContent = `총 ${quizInfo.length}문제 중에 ${quizScore}문제를 맞혔습니다. ${totalScore}점입니다. 불합격입니다.`
+        }
+    }
+    
+    quizCount++;
+    updateQuiz(quizCount);
+    quizView.classList.remove("like", "dislike");
+    // 마지막 문제
+}
+
+quizConfirm.addEventListener("click", answerQuiz);
+</code></pre>
+            </div>
+            <div class="t_link">
+                <a href="https://github.com/mj0614k/Coding/blob/main/javascript/effect/quizEffect06.html">원본 소스 보기</a>
+                <a href="https://mj0614k.github.io/Coding/javascript/effect/quizEffect06">원본 사이트 보기</a>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

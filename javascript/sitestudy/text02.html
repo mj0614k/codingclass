@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레이아웃(Layout) : 텍스트 유형02</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="../index.html">레이아웃 : 텍스트 유형02</a></h1>
+    </header>
+    <!-- //header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">레이아웃 : 텍스트 유형02</h2>
+            <p class="t_desc">
+                다음과 같은 텍스트 유형의 레이아웃을 작업해 보도록 하겠습니다.
+            </p>
+            <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F1tYdOqQlGJDcMVaann5iJt%2F%25EC%2582%25AC%25EC%259D%25B4%25ED%258A%25B8-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0%3Fnode-id%3D206%253A1711" allowfullscreen></iframe>
+            <h2 class="t_tit2">HTML 소스</h2>
+            <p class="t_desc">먼저, 컨테이너 박스 안에 title과 contents 박스를 만들어준 뒤, section 클래스에 display: flex, space-between 속성을 추가해
+                레이아웃을 배치했습니다. title 안에는 sub title 상자, title, desc를 만들어 주었습니다.
+                contents는 top과 bottom으로 나누어, 각각 두 개의 card가 배치되도록 작업해 주었습니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-html">&lt;section id="textType02" class="container section gmark"&gt;
+    &lt;div id="title"&gt;
+        &lt;p class="title__sub"&gt;TEXT TYPE02&lt;/p&gt;
+        &lt;h2 class="title__title"&gt;귀여운 동물들 전문과정&lt;/h2&gt;
+        &lt;p class="title__desc"&gt;세상의 귀여운 댕댕이... 귀여운 고양이...
+            귀여운 다람쥐... 귀여운 고라니... 
+            귀여운 알파카... 귀여운 고릴라...&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div id="contents"&gt;
+        &lt;div class="card__top"&gt;   
+            &lt;div class="card right"&gt;
+                &lt;div class="icon"&gt;&lt;/div&gt;
+                &lt;h2 class="card__title"&gt;세상의 귀여운 댕댕이&lt;/h2&gt;
+                &lt;p class="card__desc"&gt;귀, 귀, 귀 자로 끝나는 말은 왼쪽 귀, 오른쪽 귀, 내 귀, 남의 귀, 강아지 귀, 고양이 귀, 고라니 귀, 알파카 귀, 고릴라 귀, 그리고 또... 세줄효과 넣어서 더 써야 하는데...&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="card"&gt;
+                &lt;div class="icon icon02"&gt;&lt;/div&gt;
+                &lt;h2 class="card__title"&gt;세상의 귀여운 고양이&lt;/h2&gt;
+                &lt;p class="card__desc"&gt;귀, 귀, 귀 자로 끝나는 말은 왼쪽 귀, 오른쪽 귀, 내 귀, 남의 귀, 강아지 귀, 고양이 귀, 고라니 귀, 알파카 귀, 고릴라 귀, 그리고 또... 세줄효과 넣어서 더 써야 하는데...&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="card__bottom"&gt;
+            &lt;div class="card right"&gt;
+                &lt;div class="icon icon03"&gt;&lt;/div&gt;
+                &lt;h2 class="card__title"&gt;세상의 귀여운 다람쥐&lt;/h2&gt;
+                &lt;p class="card__desc"&gt;귀, 귀, 귀 자로 끝나는 말은 왼쪽 귀, 오른쪽 귀, 내 귀, 남의 귀, 강아지 귀, 고양이 귀, 고라니 귀, 알파카 귀, 고릴라 귀, 그리고 또... 세줄효과 넣어서 더 써야 하는데...&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="card"&gt;
+                &lt;div class="icon icon04"&gt;&lt;/div&gt;
+                &lt;h2 class="card__title"&gt;세상의 귀여운 고라니&lt;/h2&gt;
+                &lt;p class="card__desc"&gt;귀, 귀, 귀 자로 끝나는 말은 왼쪽 귀, 오른쪽 귀, 내 귀, 남의 귀, 강아지 귀, 고양이 귀, 고라니 귀, 알파카 귀, 고릴라 귀, 그리고 또... 세줄효과 넣어서 더 써야 하는데...&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+</code></pre></div>
+<h2 class="t_tit2">CSS 소스</h2>
+<p class="t_desc">폰트는 지마켓 산스를 사용하였고, flex를 이용하여 각각의 카드들을 배치해 주었습니다.
+    아이콘은 이미지 스프라이트 형식으로 작업해 주었고, 아이콘에 담긴 의미는 특별히 없기 때문에 ir효과는 생략했습니다.
+    card의 각각의 desc 박스에는 세 줄 효과를 추가해 주었습니다.
+</p>
+<div class="t_code">
+<pre><code class="language-css">#title {
+    width: 308px;
+}
+#title .title__sub {
+    font-size: 12px;
+    background-color: #FF0000;
+    color: white;
+    width: 152px;
+    height: 24px;
+    border-radius: 20px;
+    text-align: center;
+    line-height: 24px;
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+#title .title__title {
+    font-weight: bold;
+    line-height: 120%;
+    font-size: 50px;
+    margin-bottom: 35px;
+}
+#title .title__desc {
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 140%;
+}
+#contents {
+    display: flex;
+    flex-direction: column;
+}
+#contents .card__top {
+    display: flex;
+    margin-bottom: 30px;
+}
+#contents .card__bottom {
+    display: flex;
+}
+#contents .card {
+    width: 394px;
+    height: 209px;
+}
+#contents .card.right {
+    margin-right: 20px;
+}
+#contents .card .icon {
+    width: 60px;
+    height: 60px;
+    background: url(img/text01_icon01.svg);
+    margin-left: 20px;
+    margin-bottom: 10px;
+    border-radius: 50%;
+}
+#contents .card .icon.icon02 {
+    background-position-x: -60px;
+}
+#contents .card .icon.icon03 {
+    background-position-x: -120px;
+}
+#contents .card .icon.icon04 {
+    background-position-x: -300px;
+}
+#contents .card .card__title {
+    margin-left: 20px;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+#contents .card .card__desc {
+    margin-left: 20px;
+    font-size: 18px;
+    line-height: 140%;
+    color: #666;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; 
+    -webkit-box-orient: vertical;
+}
+</code></pre></div>
+            <h2 class="t_tit2">결과</h2>
+            <div class="t_iframe" style="min-height: 720px; padding-top: 0px;">
+                <iframe src="https://mj0614k.github.io/Coding/site/textType/textType02.html"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://github.com/mj0614k/Coding/blob/main/site/textType/textType02.html">원본 소스 보기</a>
+                <a href="https://mj0614k.github.io/Coding/site/textType/textType02">원본 사이트 보기</a>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,129 @@
+.memory__wrap {
+  display: none;
+}
+.memory__inner {
+  width: 700px;
+  height: 700px;
+  background: rgb(212, 212, 212);
+  position: absolute;
+  left: 300px;
+  top: 100px;
+  border-radius: 20px;
+  animation: flicker 1.5s infinite alternate;
+}
+.memory__start h3 {
+  font-size: 50px;
+}
+.memory__start p {
+  font-size: 48px;
+}
+.memory__card {
+  padding: 30px;
+  display: none;
+}
+.memory__card .cards {
+  gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.memory__card .cards li {
+  list-style: none;
+  width: 150px;
+  height: 150px;
+  position: relative;
+  transform-style: preserve-3d;
+  perspective: 500px;
+}
+.memory__card .cards li img {
+  width: 100%;
+}
+.memory__card .cards li .back img {
+  padding: 20px;
+}
+.memory__card .cards li .view {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: white;
+  /* 뒷면 안보여주깅 */
+  backface-visibility: hidden;
+  border-radius: 20px;
+  padding: 10%;
+  transition: all 0.5s;
+  /* user-select: none; */
+  pointer-events: none;
+}
+.memory__card .cards li .front {
+  transform: rotateY(0deg);
+}
+.memory__card .cards li .back {
+  transform: rotateY(-180deg);
+}
+.memory__card .cards li.flip .front {
+  transform: rotateY(180deg);
+}
+.memory__card .cards li.flip .back {
+  transform: rotateY(0deg);
+}
+.memory__card .cards li.shakeX {
+  animation: shakeX 1s 1;
+}
+.memory__card .cards li.shakeY {
+  animation: shakeY 1s 1;
+}
+
+@keyframes flicker {
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
+    box-shadow: 0 0 0.5rem #fff, inset 0 0 0.5rem #fff, 0 0 2rem gray,
+      inset 0 0 2rem gray, 0 0 4rem gray, inset 0 0 4rem gray;
+  }
+}
+@keyframes shakeX {
+  from,
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translate3d(-10px, 0, 0);
+  }
+
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translate3d(10px, 0, 0);
+  }
+}
+@keyframes shakeY {
+  from,
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translate3d(0, -10px, 0);
+  }
+
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translate3d(0, 10px, 0);
+  }
+}

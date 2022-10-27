@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>자바스크립트 : 검색 효과</title>
+
+        <link rel="stylesheet" href="../assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+
+    <body>
+        <header id="header">
+            <h1><a href="../index.html">Javascript</a></h1>
+        </header>
+        <!-- //header -->
+
+        <main id="main">
+            <div class="document">
+                <h2 class="t_tit">자바스크립트 : 검색 효과 : find()</h2>
+                <p class="t_desc">
+                    자바스크립트의 다양한 효과들 중, 해당하는 문자열을 찾을 수 있는 검색 효과입니다.
+                    이번에는 find() 메서드를 사용하여 속성을 검색하고, 검색하면 해당하는 설명이
+                    나타나도록 작업해 보겠습니다.
+                </p>
+                <hr />
+                <h2 class="t_tit2">1. 속성 출력하기</h2>
+                <div class="t_code">
+                    <pre><code class="language-js">const cssProperty = [
+    { name: "accent-color", desc: "특정 요소에 색상을 지정할 때 사용됩니다." },
+    { name: "align-content", desc: "콘텐츠 아이템의 상하관계 정렬 상태를 설정합니다." },
+    { name: "align-items", desc: "콘텐츠 아이템의 내부 상하관계 정렬 상태를 설정합니다." },
+    { name: "align-self", desc: "개별적인 콘텐츠 아이템의 정렬 상태를 설정합니다." },
+    { name: "all", desc: "요소의 속성을 초기화 또는 상속을 설정합니다." },
+    { name: "animation", desc: "애니메이션과 관련된 속성을 일괄적으로 설정합니다." },
+    { name: "animation-delay", desc: "애니메이션 지연 시간을 설정합니다." },
+    { name: "animation-direction", desc: "애니메이션 움직임 방향을 설정합니다." },
+    { name: "animation-duration", desc: "애니메이션 움직임 시간을 설정합니다." },
+    { name: "animation-fill-mode", desc: "애니메이션이 끝난 후의 상태를 설정합니다." },
+    { name: "animation-iteration-count", desc: "애니메이션의 반복 횟수를 설정합니다." },
+    { name: "animation-name", desc: "애니메이션 keyframe 이름을 설정합니다." },
+    { name: "animation-play-state", desc: "애니메이션 진행상태를 설정 합니다." },
+    { name: "animation-timeline", desc: "x" },
+    { name: "animation-timing-function", desc: "애니메이션 움직임의 속도를 설정 합니다." }
+    // 생략
+];
+</code></pre>
+                </div>
+                <p class="t_box">
+                    이번에는 위와 같이 배열과 객체를 사용하여 속성을 스크립트로 작성해 주었습니다.
+                </p>
+                <div class="t_code">
+                    <pre><code class="language-js">const searchList = document.querySelector(".search__list");
+const searchNum = document.querySelector(".search__info .num"); // 속성 갯수 입력 상자
+                        
+cssProperty.map((element, index) => {
+    searchList.innerHTML += `&lt;span&gt;${element.name}&lt;/span&gt;`;
+    searchNum.innerHTML = index + 1;
+});</code></pre>
+                </div>
+                <p class="t_box">
+                    작성한 속성들을 HTML 안에 삽입해 줍니다. 전체 속성 수도 보너스로 출력해 줍니다.
+                </p>
+                <h2 class="t_tit2">2. keyup 이벤트 만들기</h2>
+                <div class="t_code">
+                    <pre><code class="language-js">const searchBox = document.querySelector(".search__box input"); // 검색창
+const searchDesc = document.querySelector(".search__desc"); // 속성 설명
+
+searchBox.addEventListener("keyup", () => {
+    let searchWord = searchBox.value;
+    findProperty(searchWord);
+});
+</code></pre>
+                </div>
+                <p class="t_box">
+                    검색창에 키워드를 입력했을 때, 키워드와 일치하는 속성의 설명이 나타나도록 작업해
+                    봅시다.<br />먼저, searchBox에 어떠한 값이 입력되었는지 알아야 합니다. value는
+                    그 값을 불러올 때 사용합니다.<br />
+                    value를 불러왔다면, 그 값이 속성명과 일치하는지 확인하고, 일치한다면 설명을
+                    불러와야 합니다. 그 과정은 findProperty라는 매개변수 함수 안에서 작업하도록
+                    하겠습니다.
+                </p>
+                <div class="t_code">
+                    <pre><code class="language-js">function findProperty(searchData) {
+    const targetData = cssProperty.find((data) => data.name === searchData);
+
+    if (targetData == null || targetData == undefined) {
+        searchDesc.textContent = "해당 속성은 존재하지 않습니다. 다시 검색해 주세요.";
+        return; // '종료' 의미의 return
+    }
+
+    searchDesc.textContent = targetData.desc;
+}
+</code></pre>
+                </div>
+                <p class="t_box">
+                    find()는 배열 요소를 검색하고, 해당하는 요소를 반환하는 메서드입니다.<br />
+                    즉, 두번째 라인의 스크립트는 cssProperty 배열 내의 각각의 객체에서 name 값을
+                    찾고, 그것을 searchData와 비교하는 것입니다. 일치하는 값이 없으면 결과 없음
+                    알림을 출력하고, 값이 있으면 cssProperty 배열 내에서 해당하는 desc 값을
+                    출력합니다. <br />
+                    참고로, 여기에서 return은 <i>종료</i>의 의미로 사용됩니다.
+                </p>
+                <h2 class="t_tit2">3. click 이벤트 만들기</h2>
+                <div class="t_code">
+                    <pre><code class="language-js">const searchcss = document.querySelectorAll(".search__list span"); // 속성 목록
+searchcss.forEach((e, i) => {
+    e.addEventListener("click", () => {
+        searchDesc.textContent = cssProperty[i].desc;
+    });
+});
+</code></pre>
+                </div>
+                <p class="t_box">
+                    보너스로, 속성을 클릭했을 때에도 해당하는 설명이 나타나도록 작업해 보겠습니다.
+                    각각의 속성 목록에 대한 선택자를 만들고, click 이벤트를 만들어 줍니다.
+                    cssProperty는 배열이므로, 해당하는 인덱스의 desc 값을 출력하도록 작업해 주면
+                    됩니다.
+                </p>
+                <hr />
+                <h2 class="t_tit2">결과</h2>
+                <div class="t_iframe" style="min-height: 1000px; padding-top: 0px">
+                    <iframe
+                        src="https://mj0614k.github.io/Coding/javascript/effect/searchEffect04.html"
+                    ></iframe>
+                </div>
+
+                <div class="t_link">
+                    <a
+                        href="https://github.com/mj0614k/Coding/blob/main/javascript/effect/searchEffect04.html"
+                        >원본 소스 보기</a
+                    >
+                    <a href="https://mj0614k.github.io/Coding/javascript/effect/searchEffect04"
+                        >원본 사이트 보기</a
+                    >
+                </div>
+            </div>
+        </main>
+        <!-- //main -->
+
+        <footer id="footer">
+            <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+        </footer>
+        <!-- //footer -->
+
+        <script src="../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>

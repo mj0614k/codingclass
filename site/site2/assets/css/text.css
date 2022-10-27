@@ -1,0 +1,127 @@
+/* textType02 */
+#textType.section {
+    display: flex;
+    justify-content: space-between;
+}
+
+#title {
+    width: 308px;
+}
+
+#title .title__sub {
+    font-size: 14px;
+    background-color: #FF0000;
+    color: white;
+    width: 150px;
+    height: 24px;
+    border-radius: 20px;
+    text-align: center;
+    line-height: 24px;
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+#title .title__title {
+    font-weight: bold;
+    line-height: 120%;
+    font-size: 50px;
+    margin-bottom: 35px;
+    word-break: keep-all;
+}
+#title .title__desc {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 140%;
+    word-break: keep-all;
+}
+#contents {
+    display: flex;
+    flex-direction: column;
+}
+#contents .card__top {
+    display: flex;
+    margin-bottom: 30px;
+}
+#contents .card__bottom {
+    display: flex;
+}
+#contents .card {
+    width: 394px;
+    height: 209px;
+}
+#contents .card.right {
+    margin-right: 20px;
+}
+#contents .card .icon {
+    width: 60px;
+    height: 60px;
+    background: url(../img/text01_icon01.svg);
+    margin-left: 20px;
+    margin-bottom: 10px;
+    border-radius: 50%;
+}
+#contents .card .icon.icon02 {
+    background-position-x: -60px;
+}
+#contents .card .icon.icon03 {
+    background-position-x: -120px;
+}
+#contents .card .icon.icon04 {
+    background-position-x: -300px;
+}
+#contents .card .card__title {
+    margin-left: 20px;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+#contents .card .card__desc {
+    margin-left: 20px;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 150%;
+    color: #666;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; 
+    -webkit-box-orient: vertical;
+}
+
+@media(max-width: 1100px) {
+    #textType.section {
+        display: block;
+    }
+    #title {
+        width: 100%;
+    }
+    #title .title__sub {
+        margin: 0 auto 10px auto;
+    }
+    #title .title__title {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    #title .title__desc {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    #contents {
+        display: flex;
+        flex-direction: column;
+    }
+    #contents .card {
+        width: 100%;
+        padding: 0px;
+    }
+}
+@media (max-width: 768px) {
+    #contents .card .card__title {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    #contents .card .card__desc {
+        font-size: 14px;
+    }
+    #contents .card__top {
+        margin-bottom: 0px;
+    }
+}

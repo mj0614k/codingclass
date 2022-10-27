@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>레이아웃(Layout) : 슬라이드 유형01</title>
+
+        <link rel="stylesheet" href="../assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+
+    <body>
+        <header id="header">
+            <h1><a href="../index.html">레이아웃 : 전체 사이트 유형01</a></h1>
+        </header>
+        <!-- //header -->
+
+        <main id="main">
+            <div class="document">
+                <h2 class="t_tit">레이아웃 : 전체 사이트 유형01</h2>
+                <p class="t_desc">지금까지 카드 유형, 텍스트 유형, 이미지/텍스트 유형 등 다양한 유형의 레이아웃을 작업해 보았습니다. 이번에는 작업했던 유형들을 모두 한 곳에 모아 전체적인 사이트 한 페이지를 만들고, 미디어 쿼리까지 작업해 보도록 하겠습니다.</p>
+                <hr />
+                <h2 class="t_tit2">HTML 소스</h2>
+                <p class="t_desc">
+                    HTML 소스는 지금까지 작업한 모든 것들을 한 곳에 모은 것과 같습니다. 헤더 메뉴는 웹에서는 일반적인 메뉴 형태로, 모바일에서는 햄버거 메뉴로 작업해 주었습니다. 각 메뉴를 클릭했을 때, 각각의 위치로 이동할 수 있도록 각 영역은 section 태그로 작업해 주었습니다. 슬라이드 영역을 다시 작업해준 이유는 swiper를 사용하기 위함입니다. 드래그를 통한 이미지 슬라이드 효과를 사용하기 위해
+                    swiper를 이용했고, swiper의 style에 맞추어 클래스를 새롭게 부여해 주었습니다.
+                </p>
+                <details>
+                    <summary>HTML</summary>
+                    <div class="t_code">
+                        <pre><code class="language-html">&lt;div id="skip"&gt;
+    &lt;a href="#"&gt;헤더 영역 바로가기&lt;/a&gt;
+    &lt;a href="#"&gt;슬라이드 영역 바로가기&lt;/a&gt;
+    &lt;a href="#"&gt;이미지 영역 바로가기&lt;/a&gt;
+    &lt;a href="#"&gt;이미지/텍스트 영역 바로가기&lt;/a&gt;
+    &lt;a href="#"&gt;카드 영역 바로가기&lt;/a&gt;
+    &lt;a href="#"&gt;배너 영역 바로가기&lt;/a&gt;
+    &lt;a href="#"&gt;텍스트 영역 바로가기&lt;/a&gt;
+    &lt;a href="#"&gt;푸터 영역 바로가기&lt;/a&gt;
+&lt;/div&gt;
+&lt;!-- //skip (for 웹표준 준수) --&gt;
+
+&lt;!-- header --&gt;
+&lt;header id="headerType" class="header__wrap nexon"&gt;
+    &lt;div class="header__inner"&gt;
+        &lt;div class="header__logo"&gt;
+            &lt;a href="#"&gt;CUTE&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;nav class="header__menu"&gt;
+            &lt;ul&gt;
+                &lt;li class="active"&gt;&lt;a href="#sliderType"&gt;MAIN&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#imageType"&gt;DOG&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#imgTextType"&gt;CAT&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#cardType"&gt;MORE&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#bannerType"&gt;BANNER&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#textType"&gt;ETC&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#footerType"&gt;FOOTER&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/nav&gt;
+        &lt;div class="header__member"&gt;
+            &lt;a href="#"&gt;로그인&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/header&gt;
+&lt;!-- //header --&gt;
+
+&lt;section id="sliderType" class="slider__wrap"&gt;
+    &lt;h2 class="blind"&gt;슬라이드 영역&lt;/h2&gt;
+    &lt;div class="slider__inner"&gt;
+        &lt;!-- &lt;div class="slider"&gt;
+                &lt;div class="slider__img"&gt;
+                    &lt;div class="desc"&gt;
+                        &lt;span&gt;ANIMAL&lt;/span&gt;
+                        &lt;h3&gt;CUTE ANIMAL&lt;/h3&gt;
+                        &lt;p&gt;
+                            숙제에 지친 이들을 위한 힐링 공간입니다.&lt;br /&gt;
+                            귀여운 동물들을 보며 잠시나마 현실도피를 합시다.
+                        &lt;/p&gt;
+                        &lt;div class="btn"&gt;
+                            &lt;a href="#"&gt;자세히 보기&lt;/a&gt;
+                            &lt;a href="#" class="black"&gt;사이트 보기&lt;/a&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="slider__arrow"&gt; --&gt;
+        &lt;!-- blind는 단순 글자 숨김, ir은 이미지의 alt효과 대체 --&gt;
+        &lt;!-- &lt;a href="#" class="left"&gt;&lt;span class="ir"&gt;이전 이미지&lt;/span&gt;&lt;/a&gt;
+                    &lt;a href="#" class="right"&gt;&lt;span class="ir"&gt;다음 이미지&lt;/span&gt;&lt;/a&gt;
+                &lt;/div&gt;
+                &lt;div class="slider__dot"&gt;
+                    &lt;a href="#" class="dot active"&gt;&lt;span class="ir"&gt;1&lt;/span&gt;&lt;/a&gt;
+                    &lt;a href="#" class="dot"&gt;&lt;span class="ir"&gt;2&lt;/span&gt;&lt;/a&gt;
+                    &lt;a href="#" class="dot"&gt;&lt;span class="ir"&gt;3&lt;/span&gt;&lt;/a&gt;
+                    &lt;a href="#" class="play"&gt;&lt;span class="ir"&gt;플레이&lt;/span&gt;&lt;/a&gt;
+                    &lt;a href="#" class="stop"&gt;&lt;span class="ir"&gt;정지&lt;/span&gt;&lt;/a&gt;
+                &lt;/div&gt;
+            &lt;/div&gt; --&gt;
+        &lt;div class="swiper mySwiper"&gt;
+            &lt;div class="swiper-wrapper"&gt;
+                &lt;div class="swiper-slide"&gt;
+                    &lt;div class="desc"&gt;
+                        &lt;span&gt;ANIMAL&lt;/span&gt;
+                        &lt;h3&gt;CUTE ANIMAL&lt;/h3&gt;
+                        &lt;p&gt;
+                            숙제에 지친 이들을 위한 힐링 공간입니다.&lt;br /&gt;
+                            귀여운 동물들을 보며 잠시나마 현실도피를 합시다.
+                        &lt;/p&gt;
+                        &lt;div class="btn"&gt;
+                            &lt;a href="#"&gt;자세히 보기&lt;/a&gt;
+                            &lt;a href="#" class="black"&gt;사이트 보기&lt;/a&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="swiper-slide"&gt;
+                    &lt;div class="desc"&gt;
+                        &lt;span&gt;ANIMAL&lt;/span&gt;
+                        &lt;h3&gt;CUTE ANIMAL&lt;/h3&gt;
+                        &lt;p&gt;
+                            숙제에 지친 이들을 위한 힐링 공간입니다.&lt;br /&gt;
+                            귀여운 동물들을 보며 잠시나마 현실도피를 합시다.
+                        &lt;/p&gt;
+                        &lt;div class="btn"&gt;
+                            &lt;a href="#"&gt;자세히 보기&lt;/a&gt;
+                            &lt;a href="#" class="black"&gt;사이트 보기&lt;/a&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="swiper-slide"&gt;
+                    &lt;div class="desc"&gt;
+                        &lt;span&gt;ANIMAL&lt;/span&gt;
+                        &lt;h3&gt;CUTE ANIMAL&lt;/h3&gt;
+                        &lt;p&gt;
+                            숙제에 지친 이들을 위한 힐링 공간입니다.&lt;br /&gt;
+                            귀여운 동물들을 보며 잠시나마 현실도피를 합시다.
+                        &lt;/p&gt;
+                        &lt;div class="btn"&gt;
+                            &lt;a href="#"&gt;자세히 보기&lt;/a&gt;
+                            &lt;a href="#" class="black"&gt;사이트 보기&lt;/a&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="swiper-pagination"&gt;&lt;/div&gt;
+            &lt;div class="swiper-button-next"&gt;&lt;/div&gt;
+            &lt;div class="swiper-button-prev"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+&lt;!-- //sliderType --&gt;
+
+&lt;section id="imageType" class="card__wrap nexon section"&gt;
+    &lt;h2&gt;귀여운 댕댕이&lt;/h2&gt;
+    &lt;p&gt;뭐니뭐니해도 귀여운 동물 하면 강아지죠. 우선 강아지들을 보세요.&lt;/p&gt;
+    &lt;div class="image__inner container"&gt;
+        &lt;div class="image img1"&gt;
+            &lt;h3 class="image__title"&gt;Shih Tzu&lt;/h3&gt;
+            &lt;p class="image__desc"&gt;
+                표정이 약간 멍청해 보이는 게 정말 귀엽습니다.&lt;br /&gt;
+                실제로도 멍청할 것 같습니다.
+            &lt;/p&gt;
+            &lt;a class="image__btn" href="#" title="자세히 보기"&gt;
+                &lt;div class="more"&gt;자세히 보기&lt;/div&gt;
+            &lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class="image img2"&gt;
+            &lt;h3 class="image__title"&gt;French Bulldog&lt;/h3&gt;
+            &lt;p class="image__desc"&gt;
+                볼수록 매력있는 견종입니다.&lt;br /&gt;
+                침을 아주 줄줄 흘린다고 합니다.
+            &lt;/p&gt;
+            &lt;a class="image__btn blue" href="#" title="자세히 보기"&gt;
+                &lt;div class="more"&gt;자세히 보기&lt;/div&gt;
+            &lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+&lt;!-- //imageType --&gt;
+
+&lt;section id="imgTextType" class="imgText__wrap nexon section"&gt;
+    &lt;h2 class="blind"&gt;고양이가 빠지면 섭하다&lt;/h2&gt;
+    &lt;div class="imgText__inner container"&gt;
+        &lt;div class="imgText__txt"&gt;
+            &lt;span&gt;고양이 영역&lt;/span&gt;
+            &lt;h3&gt;고양이가 빠지면 섭하다&lt;/h3&gt;
+            &lt;p&gt;고양이가 성격은 나쁘다지만, &lt;br /&gt;강아지들도 다 좋은 녀석들만은 아니잖아요.&lt;/p&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Persian&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Siamese&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Sphynx&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;ragdoll&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Scottish Fold&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Turkish angora&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+        &lt;div class="imgText__img img1"&gt;
+            &lt;a href="#"&gt;옷자락 물어뜯기기&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class="imgText__img img2"&gt;
+            &lt;a class="blue" href="#"&gt;냥냥펀치 후드려 맞기&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+&lt;!-- //imgTextType --&gt;
+
+&lt;section id="cardType" class="card__wrap nexon section"&gt;
+    &lt;h2&gt;More Cute Animal&lt;/h2&gt;
+    &lt;p&gt;더 다양한 동물을 원하시나요? 어떤 동물을 좋아하세요?&lt;/p&gt;
+    &lt;div class="card__inner container"&gt;
+        &lt;article class="card"&gt;
+            &lt;figure class="card__header"&gt;
+                &lt;img src="assets/img/card_bg01.jpg" alt="돌고래" /&gt;
+            &lt;/figure&gt;
+            &lt;div class="card__body"&gt;
+                &lt;h3 class="tit"&gt;Dolphin&lt;/h3&gt;
+                &lt;p class="desc"&gt;돌고래가 그렇게 영악한 동물이라고 하죠. 근데 사실 그 커다란 바닷속에 멍청한 물고기들 사이에서
+                저만 똑똑한 돌고래라면 저라도 다른 물고기들을 장난감으로 생각할 것 같습니다. 지가 바다의 왕이야 뭐야...
+                좋은 동물인지 나쁜 동물인지 헷갈리네요.&lt;/p&gt;
+                &lt;a class="brn" href="#"&gt; 더보기 &lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/article&gt;
+        &lt;article class="card"&gt;
+            &lt;figure class="card__header"&gt;
+                &lt;img src="assets/img/card_bg02.jpg" alt="라쿤" /&gt;
+            &lt;/figure&gt;
+            &lt;div class="card__body"&gt;
+                &lt;h3 class="tit"&gt;Raccoon&lt;/h3&gt;
+                &lt;p class="desc"&gt;라쿤인지 너구리인지 구별 방법은 있다지만 굳이 따지고 싶지는 않네요. 라쿤의 매력포인트는 역시 발바닥이죠.
+                라쿤 카페에서 악수하다가 팔찌를 빼앗겼던 안 좋은 기억이 떠오르네요. 저는 팔찌를 끼면 안 되나 봅니다.&lt;/p&gt;
+                &lt;a class="brn" href="#"&gt; 더보기 &lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/article&gt;
+        &lt;article class="card"&gt;
+            &lt;figure class="card__header"&gt;
+                &lt;img src="assets/img/card_bg03.jpg" alt="돼지" /&gt;
+            &lt;/figure&gt;
+            &lt;div class="card__body"&gt;
+                &lt;h3 class="tit"&gt;Pig&lt;/h3&gt;
+                &lt;p class="desc"&gt;아기 돼지는 참 귀엽네요. 제가 최근에 혐오스러운 돼지 머리 사진을 보고, 환장하던 순댓국을 몇 달째 끊고 있습니다.
+                제가 비위가 나쁜 편은 아닌데 진짜... 궁금하시면, 아래 더보기를 클릭하시면 아무것도 안 나옵니다.&lt;/p&gt;
+                &lt;a class="brn" href="#"&gt; 더보기 &lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/article&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+&lt;!-- //cardType --&gt;
+
+&lt;section id="bannerType" class="banner__wrap nexon"&gt;
+    &lt;h2 class="blind"&gt;배너 영역&lt;/h2&gt;
+    &lt;div class="banner__inner"&gt;
+        &lt;h3 class="title"&gt;잘 보셨나요?&lt;/h3&gt;
+        &lt;p class="desc"&gt;
+            이제 현실을 직시하시고, 아래의 주소를 눌러 깃허브로 이동하세요.
+            &lt;a href="#" title="깃허브 페이지로 이동"&gt;github.com&lt;/a&gt;
+        &lt;/p&gt;
+        &lt;span class="small"&gt;Get out and do homework!&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+&lt;!-- //bannerType --&gt;
+
+&lt;section id="textType" class="text__Wrap nexon section"&gt;
+    &lt;span&gt;글로는 표현하기 힘든 귀여움&lt;/span&gt;
+    &lt;h2&gt;네 발 달린 동물들은 다 귀엽다&lt;/h2&gt;
+    &lt;div class="text__inner container"&gt;
+        &lt;div class="text t1"&gt;
+            &lt;h3 class="text__title"&gt;Sloth&lt;/h3&gt;
+            &lt;p class="text__desc"&gt;남아메리카, 중앙 아메리카의 열대림에 서식하는 동물입니다. 생애의 대부분을 나무에 매달려 보낸다고 합니다.
+            주*피아가 생각납니다. 못생긴 녀석...&lt;/p&gt;
+            &lt;a class="text__btn" href="#"&gt;더보기&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class="text t2"&gt;
+            &lt;h3 class="text__title"&gt;Chameleon&lt;/h3&gt;
+            &lt;p class="text__desc"&gt;변화하는 몸의 색이 특징인 동물입니다. 세계 개체 수의 절반이 마다가스카르 섬에 산다고 합니다.
+            세계 개체 수는 어떻게 측정했을까요? 괜히 이런 게 궁금합니다.&lt;/p&gt;
+            &lt;a class="text__btn" href="#"&gt;더보기&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class="text t3"&gt;
+            &lt;h3 class="text__title"&gt;Meerkat&lt;/h3&gt;
+            &lt;p class="text__desc"&gt;남아프리카 공화국과 앙골라 사막에 서식합니다. 두 손을 모으고 태양열을 흡수한다고 합니다.
+            미어캣 울음소리 들어보셨나요? 약간 충격적입니다.&lt;/p&gt;
+            &lt;a class="text__btn" href="#"&gt;더보기&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class="text t4"&gt;
+            &lt;h3 class="text__title"&gt;Koala&lt;/h3&gt;
+            &lt;p class="text__desc"&gt;호주에 서식하는 유대류입니다. 무리를 만들지 않고 혼자 생활한다고 합니다. 그냥 친구가 없는 건 아닐까요?
+            이건 어쩌면... 제 이야기일지도 모릅니다.&lt;/p&gt;
+            &lt;a class="text__btn" href="#"&gt;더보기&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class="text t5"&gt;
+            &lt;h3 class="text__title"&gt;Penguin&lt;/h3&gt;
+            &lt;p class="text__desc"&gt;펭귄은 펭귄목 펭귄과에 속하는 날지 못하는 새의 총칭입니다. 무리에서 생활하는 사회성있는 동물로 유명합니다.
+            코알라와는 아주 정반대네요. 인싸 동물.&lt;/p&gt;
+            &lt;a class="text__btn" href="#"&gt;더보기&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class="text t6"&gt;
+            &lt;h3 class="text__title"&gt;Alpaca&lt;/h3&gt;
+            &lt;p class="text__desc"&gt;알파카는 본래 집단 생활을 하는 동물이라 키울 때는 반드시 두마리 짝을 만들어서 키워야 한다고 합니다.
+            얘가 그 침 뱉는 애 맞죠? 더럽게 침을...&lt;/p&gt;
+            &lt;a class="text__btn" href="#"&gt;더보기&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+&lt;!-- //textType --&gt;
+
+&lt;!-- footer --&gt;
+&lt;section id="footerType" class="footer__wrap nexon section"&gt;
+    &lt;h2 class="blind"&gt;푸터 영역&lt;/h2&gt;
+    &lt;div class="footer__inner container"&gt;
+        &lt;div class="footer__menu"&gt;
+            &lt;div&gt;
+                &lt;h3&gt;CUTE&lt;/h3&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;MAIN&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;DOG&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;CAT&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;BANNER&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;ETC&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+                &lt;h3&gt;DOG&lt;/h3&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;Shih Tzu&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;French Bulldog&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+                &lt;h3&gt;CAT&lt;/h3&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;Bite&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;Punch&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+                &lt;h3&gt;MORE&lt;/h3&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;Dolphin&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;Raccoon&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;Pig&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+                &lt;h3&gt;ETC&lt;/h3&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;Sloth&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;Chameleon&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;Meerkat&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;Koala&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;Penguin&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;Alpaca&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="footer__right"&gt;
+            2022 mo0647. Portfolio is Power&lt;br /&gt;
+            All rights reserved.
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+&lt;!-- //footer --&gt;
+</code></pre>
+                    </div>
+                </details>
+                <h2 class="t_tit2">CSS 소스</h2>
+                <p class="t_desc">CSS는 공통적 스타일 시트인 fonts, reset, common을 먼저 작업해 주고, 각각의 섹션별로 스타일 시트를 개별적으로 작업해 주었습니다.</p>
+                <details>
+                    <summary>header</summary>
+                    <div class="t_code">
+                        <pre><code class="language-css">.header__inner {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #ccc;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10000;
+    background: #fff;
+}
+.header__logo {
+    width: 15%;
+    font-size: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.header__logo em {
+    font-size: 18px;
+    font-weight: 400;
+}
+.header__menu {
+    width: 70%;
+    text-align: center;
+}
+.header__menu li {
+    display: inline;
+}
+.header__menu li a {
+    padding: 13px 30px;
+    margin: 0 5px;
+    transition: background-color 0.3s;
+}
+.header__menu li a:hover,
+.header__menu li.active a {
+    border-bottom: 5px solid black;
+}
+.header__member {
+    width: 15%;
+    text-align: right;
+}
+.header__member a {
+    font-size: 16px;
+    border: 1px solid #000;
+    padding: 10px 30px;
+    border-radius: 50px;
+    transition: all 0.3s;
+}
+.header__member a:hover {
+    background-color: #000;
+    color: #fff;
+}
+.header__ham {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 1000;
+    width: 50px;
+    height: 50px;
+    display: none;
+    cursor: pointer;
+}
+.header__ham span {
+    display: block;
+    background: #000;
+    width: 30px;
+    height: 2px;
+    border-radius: 3px;
+    margin-left: 10px;
+    margin-top: 5px;
+    transition: 0.25s margin 0.25s, 0.25s transform;
+}
+.header__ham span:nth-child(1) {
+    margin-top: 18px;
+}
+.header__ham.active span {
+    transition: 0.25s margin, 0.25s transform 0.25s;
+}
+.header__ham.active span:nth-child(1) {
+    margin-top: 25px;
+    margin-bottom: -7px;
+    transform: rotate(45deg);
+}
+.header__ham.active span:nth-child(2) {
+    transform: rotate(45deg);
+}
+.header__ham.active span:nth-child(3) {
+    margin-top: -2px;
+    transform: rotate(135deg);
+}
+
+/* media */
+@media (max-width: 1300px) {
+    .header__ham {
+        display: block;
+    }
+    .header__menu {
+        position: fixed;
+        right: -100%;
+        top: 70px;
+        width: auto;
+        padding: 10px;
+        text-align: center;
+        background-color: #fff;
+        transition: right 0.4s ease-in;
+    }
+    .header__menu.overlay {
+        right: 0;
+    }
+    .header__menu li {
+        display: block;
+        padding: 10px;
+        margin: 10px;
+    }
+    .header__menu li a {
+        font-size: 22px;
+        opacity: 0;
+    }
+    .header__menu.overlay li a {
+        opacity: 1;
+    }
+    .header__member {
+        margin-right: 50px;
+        width: 50%;
+    }
+    .header__logo {
+        width: 50%;
+    }
+    .header__menu li a:hover,
+    .header__menu li.active a {
+        border-bottom: 2px solid black;
+    }
+}
+@media (max-width: 600px) {
+    .header__menu li a {
+        font-size: 3vw;
+        opacity: 0;
+    }
+}
+</code></pre>
+                    </div>
+                </details>
+                <details>
+                    <summary>Slider</summary>
+                    <div class="t_code">
+                        <pre><code class="language-css">.swiper-slide {
+    background: url(../img/slider01_bg01.jpg) no-repeat center / cover;
+}
+.swiper-slide .desc {
+    width: 1160px;
+    margin: 0 auto;
+    padding: 100px 0px;
+}
+.swiper-slide .desc span {
+    font-size: 16px;
+    background-color: #000;
+    color: white;
+    padding: 1px 14px 0 14px;
+    border-radius: 30px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+.swiper-slide .desc h3 {
+    font-size: 110px;
+    font-weight: 500;
+    line-height: 1;
+    color: white;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    margin-left: -8px;
+}
+.swiper-slide .desc p {
+    font-size: 20px;
+    font-weight: 300;
+    color: #fff;
+    line-height: 1.35;
+    margin-bottom: 130px;
+}
+.swiper-slide .desc .btn {
+}
+.swiper-slide .desc .btn a {
+    font-size: 16px;
+    background-color: #fff;
+    padding: 11px 50px;
+    display: inline-block;
+}
+.swiper-slide .desc .btn a.black {
+    background: #000;
+    color: #fff;
+}
+.swiper-button-next,
+.swiper-button-prev {
+    width: 30px !important;
+    height: 56px !important;
+    background-image: url(../img/slider01_icon.svg);
+}
+.swiper-button-next {
+    background-position: -50px 0px;
+}
+.swiper-button-next:after,
+.swiper-button-prev:after {
+    opacity: 0;
+}
+.swiper-pagination-bullet {
+    width: 16px !important;
+    height: 16px !important;
+}
+.swiper-pagination-bullet-active {
+    background-position: 0px -70px !important;
+}
+
+/* media */
+@media (max-width: 1280px) {
+    .swiper-slide .desc h3 {
+        font-size: 70px;
+    }
+    .swiper-slide .desc {
+        width: 100%;
+        text-align: center;
+    }
+}
+@media (max-width: 600px) {
+    .swiper-slide .desc h3 {
+        font-size: 42px;
+    }
+    .swiper-slide .desc {
+        margin: 0 auto;
+        padding: 100px 20px;
+        box-sizing: border-box;
+    }
+    .swiper-slide .desc p {
+        font-size: 16px;
+    }
+}
+</code></pre>
+                    </div>
+                </details>
+                <details>
+                    <summary>Image</summary>
+                    <div class="t_code">
+                        <pre><code class="language-css">.image__inner {
+    display: flex;
+    justify-content: space-between;
+}
+.image {
+    width: 49%;
+    color: white;
+    padding: 200px 30px 30px 30px;
+    box-sizing: border-box;
+}
+.image.img1 {
+    background: url(../img/img01_bg01.jpg) no-repeat center / cover;
+}
+.image.img2 {
+    background: url(../img/img01_bg02.jpg) no-repeat center / cover;
+}
+.image__title {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+.image__desc {
+    font-size: 18px;
+    font-weight: 300;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+.image__btn {
+    font-size: 16px;
+    color: #fff;
+    background: #e86e47;
+    padding: 10px 20px;
+    display: inline-block;
+}
+.image__btn.blue {
+    background: #00a8e5;
+}
+@media (max-width: 768px) {
+    .image__inner {
+        flex-direction: column;
+    }
+    .image {
+        width: 100%;
+    }
+    .image__title {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+    .image__desc {
+        font-size: 16px;
+    }
+}
+</code></pre>
+                    </div>
+                </details>
+                <details>
+                    <summary>Image/Text</summary>
+                    <div class="t_code">
+                        <pre><code class="language-css">.imgText__inner {
+    display: flex;
+    justify-content: space-between;
+}
+.imgText__inner > div {
+    width: 32%;
+    height: 500px;
+}
+.imgText__txt span {
+    font-size: 16px;
+    color: #666;
+    text-decoration: underline;
+    text-underline-position: under;
+    margin-bottom: 20px;
+    display: block;
+}
+.imgText__txt h3 {
+    font-size: 50px;
+    font-weight: 500;
+    word-break: keep-all;
+    line-height: 1.4;
+    margin-bottom: 20px;
+}
+.imgText__txt p {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.5;
+    color: #666;
+    margin-bottom: 10px;
+    word-break: keep-all;
+}
+.imgText__txt ul {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.6;
+}
+.imgText__txt ul li {
+    position: relative;
+    padding-left: 20px;
+}
+.imgText__txt ul li a {
+    color: #666;
+}
+.imgText__txt ul li::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    position: absolute;
+    left: 5px;
+    top: 9px;
+    background-color: #666;
+}
+.imgText__img {
+    border-radius: 10px;
+    position: relative;
+}
+.imgText__img a {
+    background-color: #7c2b39;
+    color: #fff;
+    font-size: 20px;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    padding: 20px 30px;
+    box-sizing: border-box;
+    display: inline-block;
+}
+.imgText__img a.blue {
+    background-color: #2b387c;
+}
+.imgText__img.img1 {
+    background: url(../img/imgText01_bg01.jpg) no-repeat center / cover;
+}
+.imgText__img.img2 {
+    background: url(../img/imgText01_bg02.jpg) no-repeat center / cover;
+}
+
+@media(max-width:768px) {
+    .imgText__txt h3 {
+        font-size: 42px;
+    }
+    .imgText__txt span {
+        display: none;
+    }
+    .imgText__inner {
+        display: block;
+    }
+    .imgText__inner > div:first-child {
+        width: 100%;
+        height: 400px;
+        text-align: center;
+    }
+    .imgText__inner > div:nth-child(2), 
+    .imgText__inner > div:nth-child(3){
+        width: 50%;
+        height: 500px;
+        float: left;
+        margin-bottom: 150px;
+        
+        border-radius: 0px;
+    }
+    .imgText__txt ul li::before {
+        display: none;
+    }
+    .imgText__img a {
+        font-size: 14px;
+    }
+}
+</code></pre>
+                    </div>
+                </details>
+                <details>
+                    <summary>Card</summary>
+                    <div class="t_code">
+                        <pre><code class="language-css">#cardType img {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.card__inner {
+    display: flex;
+    justify-content: space-between;
+}
+.card {
+    width: 32%;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+}
+.card__body {
+    padding: 24px;
+}
+.card__body .tit {
+    color: black;
+    font-size: 24px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding-right: 20px;
+}
+.card__body .desc {
+    font-size: 18px;
+    line-height: 1.4;
+    color: #666;
+    margin-bottom: 20px;
+    font-weight: 300;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+.card__body a {
+    text-decoration: underline;
+}
+
+@media (max-width: 784px) {
+    .card__inner {
+        flex-direction: column;
+        align-items: center;
+    }
+    .card {
+        width: 100%;
+        border-radius: 0px;
+    }
+    #cardType img {
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+    }
+    .card__body .desc {
+        font-size: 16px;
+    }
+}
+</code></pre>
+                    </div>
+                </details>
+                <details>
+                    <summary>Banner</summary>
+                    <div class="t_code">
+                        <pre><code class="language-css">.banner__inner {
+    background-image: url(../img/banner01_bg01.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    padding: 120px 0;
+    color: black;
+}
+.banner__inner .title {
+    font-size: 50px;
+    line-height: 1;
+    font-weight: 500;
+    margin-bottom: 40px;
+}
+.banner__inner .desc {
+    font-size: 24px;
+    line-height: 1.5;
+    font-weight: 300;
+    margin-bottom: 70px;
+    word-break: keep-all;
+}
+.banner__inner .desc a {
+    color: black;
+    display: block;
+}
+.banner__inner .desc a:hover {
+    text-decoration: underline;
+}
+.banner__inner .small {
+    font-size: 16px;
+    text-decoration: underline;
+}
+@media(max-width: 786px) {
+    .banner__inner .title {
+        font-size: 42px;
+    }
+    .banner__inner .desc {
+        font-size: 18px;
+    }
+}
+</code></pre>
+                    </div>
+                </details>
+                <details>
+                    <summary>Text</summary>
+                    <div class="t_code">
+                        <pre><code class="language-css">.text__inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.text {
+    width: 32%;
+    margin-bottom: 2%;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    transition: background 0.4s;
+}
+.text:hover {
+    background: #f5f5f5;
+}
+.text:hover .text__title{
+    color: #000;
+}
+.text__title {
+    font-size: 24px;
+    line-height: 1;
+    margin-bottom: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    position: relative;
+    padding-top: 75px;
+}
+.text__title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: url(../img/text01_icon01.svg);
+}
+.text.t1 .text__title::before {
+    background-position: 0 0;
+}
+.text.t2 .text__title::before {
+    background-position: -60px 0;
+}
+.text.t3 .text__title::before {
+    background-position: -120px 0;
+}
+.text.t4 .text__title::before {
+    background-position: -180px 0;
+}
+.text.t5 .text__title::before {
+    background-position: -240px 0;
+}
+.text.t6 .text__title::before {
+    background-position: -300px 0;
+}
+.text__desc {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; 
+    -webkit-box-orient: vertical;
+    color: #666;
+    margin-bottom: 20px;
+}
+.text__btn {
+    font-size: 16px;
+    line-height: 1;
+    text-decoration: underline;
+    color: #666;
+}
+
+@media(max-width: 768px){
+    #textType > span {
+        display: none;
+    }
+    .text__desc {
+        font-size: 16px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 4; 
+        -webkit-box-orient: vertical;
+    }
+    .text {
+        width: 50%;
+        margin-bottom: 0px;
+        padding: 10px;
+    }
+}
+</code></pre>
+                    </div>
+                </details>
+                <details>
+                    <summary>Footer</summary>
+                    <div class="t_code">
+                        <pre><code class="language-css">.footer__wrap {
+    background-color: #f5f5f5;
+    width: 100%;
+    padding: 50px 0;
+}
+.footer__menu {
+    display: flex;
+    margin-bottom: 30px;
+    justify-content: center;
+}
+.footer__menu > div {
+    width: 185%;
+    text-align: center;
+}
+.footer__menu div h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #000;
+}
+.footer__menu div li a {
+    margin-bottom: 10px;
+    display: block;
+    font-size: 14px;
+    color: #666;
+}
+.footer__right {
+    border-top: 1px solid #d9d9d9;
+    text-align: center;
+    padding-top: 40px;
+    color: #666;
+    line-height: 1.5;
+}
+@media (max-width: 960px) {
+    .footer__menu {
+        display: none;
+    }
+    .footer__right {
+        padding-top: 0;
+        border-top: 0;
+    }
+    .footer__wrap {
+        padding: 40px 0;
+    }
+}
+</code></pre>
+                    </div>
+                </details>
+                <h2 class="t_tit2">JAVASCRIPT 소스</h2>
+                <p class="t_desc">자바스크립트 소스는 다음과 같습니다.</p>
+                <div class="t_code">
+                    <pre><code class="language-js">//swiper
+var swiper = new Swiper(".mySwiper", {
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+    autoplay: {
+        delay: 2000,
+        disableOnInteraction: false, /* 슬라이드를 드래그하면 정지되는 버그 제거 */
+    },
+    pagination: {
+        el: ".swiper-pagination",
+        type: "bullets",
+        clickable: true,
+    },
+});
+
+// 선택자
+const btnStop = document.querySelector(".swiper-button-stop");
+const btnStart = document.querySelector(".swiper-button-play");
+const btnHam = document.querySelector(".header__ham");
+const btnMenu = document.querySelector(".header__menu");
+
+// swiper에서 재생 버튼을 누르면 슬라이드 재생, 재생 버튼 숨김, 정지 버튼 나타남
+// swiper에서 정지 버튼을 누르면 슬라이드 정지, 정지 버튼 숨김, 재생 버튼 나타남
+btnStart.style.display = "none";
+btnStop.addEventListener("click", () => {
+    swiper.autoplay.stop();
+    btnStart.style.display = "block";
+    btnStop.style.display = "none";
+});
+btnStart.addEventListener("click", () => {
+    swiper.autoplay.start();
+    btnStart.style.display = "none";
+    btnStop.style.display = "block";
+});
+
+// 햄버거를 클릭하면 메뉴가 나타나도록 설정
+btnHam.addEventListener("click", () => {
+    btnHam.classList.toggle("active");
+    btnMenu.classList.toggle("overlay");
+});
+
+// 패럴랙스 효과
+window.addEventListener("scroll", () => {
+    let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
+    document.querySelectorAll("section").forEach((el, i) => {
+        if (scrollTop > el.offsetTop - 500) {
+            document.querySelectorAll(".header__menu ul li").forEach((li) => {
+                li.classList.remove("active");
+            });
+            document.querySelector(".header__menu ul li:nth-child(" + (i + 1) + ")").classList.add("active");
+        }
+    });
+});
+
+// 메뉴 이동 시 부드럽게~
+document.querySelectorAll(".header__inner li a").forEach((li) => {
+    li.addEventListener("click", (e) => {
+        e.preventDefault();
+        document.querySelector(li.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+        });
+    });
+});
+</code></pre>
+                </div>
+                <hr />
+                <h2 class="t_tit2">결과 : Web</h2>
+                <div class="t_iframe" style="margin: 0 auto; min-height: 800px; padding-top: 0px">
+                    <iframe src="https://mj0614k.github.io/Coding/site/site1/index.html"></iframe>
+                </div>
+                <h2 class="t_tit2">결과 : Media</h2>
+                <div class="t_iframe" style="margin: 0 auto; min-height: 500px; max-width: 480px; padding-top: 0px">
+                    <iframe src="https://mj0614k.github.io/Coding/site/site1/index.html"></iframe>
+                </div>
+                <div class="t_link">
+                    <a href="https://github.com/mj0614k/Coding/blob/main/site/site1/index.html">원본 소스 보기</a>
+                    <a href="https://mj0614k.github.io/Coding/site/site1/index.html">원본 사이트 보기</a>
+                </div>
+            </div>
+        </main>
+        <!-- //main -->
+
+        <footer id="footer">
+            <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+        </footer>
+        <!-- //footer -->
+
+        <script src="../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>

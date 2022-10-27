@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>자바스크립트 : 검색 효과</title>
+
+        <link rel="stylesheet" href="../assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+
+    <body>
+        <header id="header">
+            <h1><a href="../index.html">Javascript</a></h1>
+        </header>
+        <!-- //header -->
+
+        <main id="main">
+            <div class="document">
+                <h2 class="t_tit">자바스크립트 : 검색 효과 : sort(), reverse()</h2>
+                <p class="t_desc">
+                    자바스크립트의 다양한 효과들 중, 검색 효과입니다.
+                    이번에는 sort(), reverse() 메서드를 사용하여, 오름차순, 내림차순, 알파벳순 등
+                    속성들이 다양한 방법으로 정렬되도록 작업해 보겠습니다.
+                </p>
+                <hr />
+                <h2 class="t_tit2">1. 속성 작성하기</h2>
+                <div class="t_code">
+<pre><code class="language-js">const cssProperty = [
+    { num: 1, name: "accent-color", desc: " 요소의 강조 색상을 지정합니다. " },
+    { num: 2, name: "align-content", desc: " 콘텐츠 사이와 콘텐츠 주위 빈 공간을 플렉스 박스'의 교차축 또는 그리드의 블록 축을 따라 배치하는 방식을 결정합니다." },
+    { num: 3, name: "align-items", desc: " 교차축에서 아이템 정렬 하는 속성입니다. 주로 flex에서 item들을 정렬할 때 사용됩니다." },
+    { num: 4, name: "align-self", desc: " 특정 item의 정렬을 따로 하고 싶을 때 사용합니다." },
+    { num: 5, name: "all", desc: " CSS 사용자 지정 속성을 제외한 모든 속성을 초기화합니다. 초깃값, 상속값, 아니면 다른 스타일시트 출처의 값로 설정할 수 있습니다." },
+    { num: 6, name: "animation", desc: " 애니메이션과 관련된 속성을 일괄적로 처리합니다." },
+    { num: 7, name: "animation-delay", desc: " 애니메이션 지연 시간을 설정합니다." },
+    { num: 8, name: "animation-direction", desc: " 애니메이션 움직임 방향을 설정합니다." },
+    { num: 9, name: "animation-duration", desc: " 애니메이션 움직인 시간을 설정합니다." },
+    { num: 10, name: "animation-fill-mode", desc: " 애니메이션이 끝난 후의 상태를 설정합니다." },
+    { num: 11, name: "animation-iteration-count", desc: " 애니메이션의 반복 횟수를 설정합니다." },
+    { num: 12, name: "animation-name", desc: " 애니메이션 keyframe 이름을 설정합니다." },
+    { num: 13, name: "animation-play-state", desc: " 애니메이션 진행상태를 설정합니다." },
+    { num: 14, name: "animation-timeline", desc: " 애니메이션의 타임라인을 설정합니다." },
+    { num: 15, name: "animation-timing-function", desc: " 애니메이션 움직임의 속도를 설정합니다." }
+    // 생략
+]
+</code></pre>
+                </div>
+                <p class="t_box">
+                    먼저, 속성들을 스크립트로 작성해 줍니다. 이번에는 num을 추가하여, 각 속성에 번호를 입력해 주었습니다.
+                </p>
+                <h2 class="t_tit2">2. 속성 출력하기</h2>
+                <div class="t_code">
+<pre><code class="language-js">const cssList = document.querySelector(".search__list .line");
+const updateList = () => {
+    let listCSS = "";
+    cssProperty.forEach((data, index) => {
+        listCSS += `${data.num}. ${data.name} : ${data.desc}`;
+    });
+    cssList.innerHTML = listCSS;
+}
+updateList();
+</code></pre>
+                </div>
+                <p class="t_box">
+                    listCSS라는 빈 문자열 안에
+                    forEach를 사용하여 작성했던 배열 속 각 속성의 번호, 이름, 설명을 추가해 준 뒤,
+                    innerHTML로 출력해 주었습니다.
+                </p>
+                <h2 class="t_tit2">3. 반대로 정렬하기</h2>
+                <div class="t_code">
+                    <pre><code class="language-js">document.querySelector(".btn1").addEventListener("click", (e) => {
+    e.preventDefault();
+    cssProperty.reverse();
+    updateList();
+});
+</code></pre>
+                </div>
+                <p class="t_box">
+                    btn1은 '반대로 정렬하기' 버튼을 의미합니다. 간단하게, reverse() 메서드를 사용해주면 됩니다.
+                </p>
+                <h2 class="t_tit2">4. 오름차순, 내림차순 정렬하기</h2>
+                <div class="t_code">
+<pre><code class="language-js">document.querySelector(".btn2").addEventListener("click", (e) => {
+    e.preventDefault();
+    cssProperty.sort((a,b) => {
+        return a.num - b.num;
+    });
+    updateList();
+});
+document.querySelector(".btn3").addEventListener("click", (e) => {
+    e.preventDefault();
+    cssProperty.sort((a,b) => {
+        return b.num - a.num;
+    });
+    updateList();
+});
+</code></pre>
+                </div>
+                <p class="t_box">
+                    btn2는 '내림차순 정렬하기', btn3은 '오름차순 정렬하기' 버튼을 의미합니다.
+                    위와 같이 sort() 메서드를 사용하여 간단하게 작업할 수 있습니다.
+                </p>
+                <h2 class="t_tit2">5. 알파벳순 정렬하기</h2>
+                <div class="t_code">
+                    <pre><code class="language-js">document.querySelector(".btn4").addEventListener("click", (e) => {
+    e.preventDefault();
+    cssProperty.sort((a, b) => {
+        let x = a.name;
+        let y = b.name;
+        return x.localeCompare(y);
+    });
+    updateList();
+});
+document.querySelector(".btn5").addEventListener("click", (e) => {
+    e.preventDefault();
+    cssProperty.sort((a, b) => {
+        let x = a.name;
+        let y = b.name;
+        return y.localeCompare(x);
+    });
+    updateList();
+});
+</code></pre>
+                </div>
+                <p class="t_box">
+                    btn4는 '알파벳순(a-z) 정렬하기', btn5는 '알파벳순(z-a) 정렬하기' 버튼을 의미합니다.
+                    알파벳 정렬의 경우, 문자열을 비교하는 localeCompare() 메서드를 사용하여 위와 같이 작업할 수 있습니다.
+                </p>
+                <h2 class="t_tit2">6. 랜덤 정렬하기</h2>
+                <div class="t_code">
+                    <pre><code class="language-js">document.querySelector(".btn6").addEventListener("click", (e) => {
+    e.preventDefault();
+    for(let i=cssProperty.length-1; i>=0; i--){
+        const randomIndex = Math.floor(Math.random() * (i+1));
+        [cssProperty[i], cssProperty[randomIndex]] = [cssProperty[randomIndex], cssProperty[i]];
+        cssProperty.innerHTML += cssProperty[i]
+    }
+    updateList();
+});</code></pre>
+                </div>
+                <p class="t_box">
+                    마지막으로, btn6은 '랜덤 정렬하기' 버튼을 의미합니다. 위 방법은
+                    <i>피셔 예이츠 알고리즘</i>을 이용한 방법입니다. <br>
+                    Math.random() 메서드를 사용하면 0에서 1 사이의 난수를 무작위로 출력합니다.
+                    우리는 정수의 값이 필요하기 때문에, cssProperty의 길이만큼 곱해준 뒤, 소수점을 제거해 줍니다.<br>
+                    그러나 randomIndex를 그대로 출력하면 중복된 값이 발생하게 됩니다. 따라서
+                    <i>객체구조분해할당</i>을 이용해 중복된 값을 제거해 줍니다. 모르겠다면 그냥 외우면 됩니다.
+                </p>
+                <hr />
+                <h2 class="t_tit2">결과</h2>
+                <div class="t_iframe" style="min-height: 1000px; padding-top: 0px">
+                    <iframe
+                        src="https://mj0614k.github.io/Coding/javascript/effect/searchEffect06.html"
+                    ></iframe>
+                </div>
+
+                <div class="t_link">
+                    <a
+                        href="https://github.com/mj0614k/Coding/blob/main/javascript/effect/searchEffect06.html"
+                        >원본 소스 보기</a
+                    >
+                    <a href="https://mj0614k.github.io/Coding/javascript/effect/searchEffect06"
+                        >원본 사이트 보기</a
+                    >
+                </div>
+            </div>
+        </main>
+        <!-- //main -->
+
+        <footer id="footer">
+            <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+        </footer>
+        <!-- //footer -->
+
+        <script src="../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>

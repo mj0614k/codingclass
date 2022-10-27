@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>구조 관련 요소</title>
+    <style>
+        /* reset */
+        * {
+            margin: 0;
+            padding: 0;
+            font-weight: normal;
+            list-style-type: none;
+            font-size: 20px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-size: 20px;
+        }
+
+        body {
+            background-color: #FFEBEB;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        /* container */
+        .container {
+            width: 1160px;
+            background-color: #FFEBEB;
+            margin: 120px auto;
+            height: 905px;
+        }
+
+        /* header */
+        header {
+            width: 1160px;
+            height: 200px;
+            background-color: #FF8686;
+            margin-bottom: 30px;
+            display: flex;
+            position: relative
+        }
+        header > h1 {
+            width: 150px;
+            height: 150px;
+            background-color: #FFB7B7;
+            line-height: 150px;
+            text-align: center;
+            margin: 25px;
+        }
+        header > span {
+            width: 120px;
+            height: 25px;
+            background-color: #000;
+            color: white;
+            text-align: center;
+            line-height: 25px;
+            position: absolute;
+            top: 40px;
+            left: 520px;
+        }
+        header > nav {
+            width: 930px;
+            height: 75px;
+            background-color: #FFB7B7;
+            margin-top: 100px;
+        }
+        header > nav > ul {
+            display: flex;
+            justify-content: space-around;
+            line-height: 75px;
+        }
+
+        /* section */
+        .section {
+            width: 1160px;
+            height: 475px;
+            background-color: #FF8686;
+            margin-bottom: 30px;
+            display: flex;
+            position: relative;
+        }
+        .section > span {
+            width: 120px;
+            height: 25px;
+            background-color: #000;
+            color: white;
+            text-align: center;
+            line-height: 25px;
+            position: absolute;
+        }
+        .section > section {
+            width: 355px;
+            height: 425px;
+            background-color: #FFB7B7;
+            margin: 25px 0 0 25px;
+            line-height: 425px;
+            text-align: center;
+        }
+
+        .section article {
+            width: 350px;
+            height: 200px;
+            background-color: #ffb7b7;
+            margin: 25px;
+            text-align: center;
+            line-height: 200px;
+        }
+
+        .section aside {
+            width: 350px;
+            height: 200px;
+            background-color: #ffb7b7;
+            margin: 25px;
+            text-align: center;
+            line-height: 200px;
+        }
+
+        /* footer */
+        footer {
+            width: 1160px;
+            height: 170px;
+            background-color: #FF8686;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            align-items: center;
+            position: relative;
+        }
+        footer span {
+            width: 120px;
+            height: 25px;
+            background-color: #000;
+            color: white;
+            text-align: center;
+            line-height: 25px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        footer address {
+            width: 930px;
+            height: 55px;
+            background-color: #ffb7b7;
+            line-height: 55px;
+            font-style: normal;
+            margin-top: 25px;
+            margin-right: 30px;
+            padding-left: 5px;
+        }
+        footer p {
+            width: 930px;
+            height: 55px;
+            background-color: #ffb7b7;
+            line-height: 55px;
+            margin-right: 30px;
+            margin-bottom: 25px;
+            padding-left: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1><a href="#">반응형웹</a></h1>
+            <span>header</span>
+            <nav>
+                <ul>
+                    <li><a href="#">MENU01</a></li>
+                    <li><a href="#">MENU02</a></li>
+                    <li><a href="#">MENU03</a></li>
+                    <li><a href="#">MENU04</a></li>
+                    <li><a href="#">MENU05</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="section">
+            <span>div</span>
+            <section>
+                <h2>콘텐츠 그룹01</h2>
+            </section>
+            <section>
+                <h2>콘텐츠 그룹02</h2>
+            </section>
+            <div class="section__sub">
+                <article>
+                    <h2>주요 기사</h2>
+                </article>
+                <aside>광고</aside>
+            </div>
+        </div>
+        <footer>
+            <span>footer</span>
+            <address>경기도 안산시 단원구 고잔동 어딘가 031)234-5678 mo0647@naver.com</address>
+            <p>저작권이 뭐지?</p>
+        </footer>
+    </div>
+</body>
+
+</html>

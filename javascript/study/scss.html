@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>자바스크립트 : 기본 규칙</title>
+
+        <link rel="stylesheet" href="../assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+
+    <body>
+        <header id="header">
+            <h1><a href="../index.html">Javascript</a></h1>
+        </header>
+        <!-- //header -->
+
+        <main id="main">
+            <div class="document">
+                <h2 class="t_tit">SCSS 설치 및 설정 방법</h2>
+                <p class="t_desc">
+                    <i>SCSS</i>란, 코드의 재활용성을 올리고, 가독성을 올리는 등 CSS에서 보이던
+                    단점을 보완하고, 개발의 효율을 올리기 위해 등장한 CSS Preprocessor입니다. SCSS의
+                    기능에 대하여 더 자세히 알고 싶으시다면,
+                    <a
+                        href="https://mo0647.tistory.com/entry/CSS-SCSS-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0?category=990330"
+                        >여기</a
+                    >를 클릭해 주세요.<br />
+                    오늘은 VSCode에서 SCSS를 사용하기 위한 설치 및 설정 방법을 알아보도록
+                    하겠습니다.
+                </p>
+                <hr />
+                <h3 class="t_tit2">1. SASS 설치</h3>
+                <img
+                    src="https://github.com/mj0614k/Coding/blob/main/assets/tistory/ERROR/error02_study_01.jpg?raw=true"
+                    alt=""
+                />
+                <p class="t_desc">
+                    먼저, 확장 프로그램(Extenstion, 단축키 Ctrl + Shift + X)에서 Sass를 설치해
+                    줍니다.
+                </p>
+                <img
+                    src="https://github.com/mj0614k/Coding/blob/main/assets/tistory/ERROR/error02_study_02.jpg?raw=true"
+                    alt=""
+                />
+                <p class="t_desc">
+                    하나 더 설치해 줍시다. Live Sass Compiler는 실시간으로 CSS를 Scss로 컴파일해
+                    줍니다.
+                </p>
+                <img
+                    src="https://github.com/mj0614k/Coding/blob/main/assets/tistory/ERROR/error02_study_03.jpg?raw=true"
+                    alt=""
+                />
+                <p class="t_desc">
+                    위와 같이 Scss 파일을 만들었을 때, VSCode의 하단에 나타나는
+                    <i>Watch Sass</i> 문구를 통해 정상적으로 설치되었는지 확인할 수 있습니다.
+                </p>
+                <h3 class="t_tit2">2. 설정 방법</h3>
+                <p class="t_desc">
+                    Sass는 설치 후 바로 사용할 수 있지만, 더 편리한 사용을 위해 설정을 변경할 수도
+                    있습니다. 그 방법을 알아봅시다.
+                </p>
+                <img
+                    src="https://github.com/mj0614k/Coding/blob/main/assets/tistory/ERROR/error02_study_04.jpg?raw=true"
+                    alt=""
+                />
+                <p class="t_desc">
+                    단축키 F1을 누른 후, 위와 같이 json을 검색하면 확장 프로그램의 세팅을 할 수 있는
+                    settings.json을 찾을 수 있습니다.
+                </p>
+                <h3 class="t_tit3">2-1) Map 파일 설정</h3>
+                <div class="t_code">
+                    <pre><code class="language-json">"liveSassCompile.settings.generateMap": false
+</code></pre>
+                </div>
+                <p class="t_desc">
+                    설정 없이 Scss를 CSS로 컴파일할 때, 자동으로 Map 파일이 함께 생성되는 것을 알 수
+                    있습니다. 위 코드를 settings.json에 입력하면, 더 이상 Map 파일을 생성하지
+                    않습니다.
+                </p>
+                <h3 class="t_tit3">2-2) CSS 파일 경로 설정</h3>
+                <div class="t_code">
+                    <pre><code class="language-json">"liveSassCompile.settings.formats": [
+    {
+        "format": "compressed",
+        "extensionName": ".min.css",
+        "savePath": "~/../css/"
+    }
+]</code></pre>
+                </div>
+                <p class="t_desc">
+                    위 코드를 입력하여 저장되는 CSS 파일에 대한 설정을 변경할 수 있습니다.
+                    extensionName에는 min.css를 입력했는데, 이것은 공백과 줄바꿈을 제거하여 용량을
+                    줄인 CSS 파일입니다. savePath에는 CSS 파일이 저장되고자 하는, 원하는 경로를
+                    입력하면 됩니다.
+                </p>
+            </div>
+        </main>
+        <!-- //main -->
+
+        <footer id="footer">
+            <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+        </footer>
+        <!-- //footer -->
+
+        <script src="../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>

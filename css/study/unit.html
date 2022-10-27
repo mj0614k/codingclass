@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 단위</title>
+    <link rel="stylesheet" href="../../javascript/assets/css/style.css">
+</head>
+<body>
+    <header id="header">
+        <h1>CSS</h1>
+        <nav>
+            <ul>
+                <li><a href="#">기초</a></li>
+                <li><a href="#">주제</a></li>
+                <li><a href="#">알파벳</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">CSS : 단위</h2>
+            <p class="t_desc">오늘은 CSS에서 유용하게 사용하는 단위에 대하여 알아보겠습니다.
+                참고로, 글자 크기는 명시하지 않을 경우 16px이 기본값입니다.</p>
+                <hr>    
+            <h3 class="t_tit2">px</h3>
+            <p>해상도에 따라 상대적으로 달라지는 기본 단위로서, 다음과 같이 표현합니다.</p>
+            <div class="t_box">font-size: 12px;</div>
+            <h3 class="t_tit2">%</h3>
+            <p>부모 요소의 글자 크기를 100% 기준으로 계산한 % 단위로서, 다음과 같이 표현합니다.</p>
+            <div class="t_box">font-size: 150%;</div>
+            <p class="t_desc">특별한 설정이 없다면 16px이 100%가 되므로, 150%는 24px이 됩니다. 만약 부모 요소가 10px이었다면 150%는 15px이 될 것입니다.</p>
+
+            <h3 class="t_tit2">em</h3>
+            <p>부모 요소의 글자 크기를 100% 기준으로 계산한 100분의 1 단위로서, 다음과 같이 표현합니다.</p>
+            <div class="t_box">font-size: 1.5em;</div>
+            <p class="t_desc">특별한 설정이 없다면 16px이 1em이 됩니다. 만약 부모 요소가 10px이었다면 1.5em은 15px이 될 것입니다.</p>
+            <h3 class="t_tit2">rem</h3>
+            <p>rem은 em과 비슷하지만 부모 요소가 아닌 최상위 요소의 크기를 100% 기준으로 계산합니다. rem의 r은 root 즉, html 요소를 뜻하므로, html 요소에서 지정한 글자 크기가 1rem이 됩니다.</p>
+            <div class="t_box">font-size: 1.5rem;</div>
+            <h3 class="t_tit2">vw, vh</h3>
+            <p>vw는 뷰포트 너비값의 100분의 1 단위, vh는 뷰포트 높이값의 100분의 1 단위이며, 다음과 같이 표현합니다.</p>
+            <div class="t_box">font-size: 10vw;</div>
+        </div>
+    </main>
+</body>
+</html>

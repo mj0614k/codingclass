@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 퀴즈 효과</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="../index.html">Javascript</a></h1>
+    </header>
+    <!-- //header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">자바스크립트 : 퀴즈 효과</h2>
+            <p class="t_desc">
+                자바스크립트의 다양한 효과들 중, 퀴즈를 맞힐 수 있는 퀴즈 효과입니다.
+                그 중에서도, 정답을 입력하지 않고 정답을 확인할 수 있는 퀴즈 유형을 작업해 보도록 하겠습니다.
+            </p>
+            <hr>
+            <h3 class="t_tit2">정답 확인하기 유형</h3>
+            <p class="t_desc">
+                예시는 웹디자인기능사의 필기 시험 문제입니다.
+                '정답 확인하기' 버튼을 누르면 문제의 정답을 확인할 수 있습니다.
+            </p>
+            <div class="t_iframe" style="min-height: 1000px; padding-top: 0px;">
+                <iframe src="https://mj0614k.github.io/Coding/javascript/effect/quizEffect01.html"></iframe>
+            </div>
+            <div class="t_code">
+                <pre><code class="language-js">// 선택자
+const quizType = document.querySelector(".quiz__type");                     // 퀴즈 종류
+const quizNumber = document.querySelector(".quiz__question .number");       // 퀴즈 번호
+const quizAsk = document.querySelector(".quiz__question .ask");             // 퀴즈 질문
+const quizConfirm = document.querySelector(".quiz__answer .confirm");       // 정답 확인 버튼
+const quizResult = document.querySelector(".quiz__answer .result");         // 정답 결과
+    
+// 문제 정보
+const answerType = "웹디자인기능사";
+const answerNum = 1;
+const answerAsk = "인접하는 두 색의 경계 부분에 색상, 명도, 채도의 대비가 더욱 강하게 일어나는 현상을 무엇이라고 하는가?";
+const answerResult = "연변대비";
+
+// 문제 출력 : 선택자, 요소 메서드, 변수 순서로 작성
+quizType.innerText = answerType;
+quizNumber.innerText = answerNum + ". ";
+quizAsk.innerText = answerAsk;
+quizResult.innerHTML = answerResult;
+
+// 정답 숨기기 : style을 주는 방법
+quizResult.style.display = "none";
+
+// 정답 확인
+// 정답 버튼을 클릭하면 확인 버튼 숨기고, 숨겨진 정답 나타내기
+quizConfirm.addEventListener("click", function(){
+    quizConfirm.style.display = "none";
+    quizResult.style.display = "block";
+});</code></pre>
+            </div>
+
+            <div class="t_link">
+                <a href="https://github.com/mj0614k/Coding/blob/main/javascript/effect/quizEffect01.html">원본 소스 보기</a>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

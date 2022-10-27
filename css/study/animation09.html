@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CSS 애니메이션 : 통통 튀는 글자</title>
+
+        <link rel="stylesheet" href="../../javascript/assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+
+    <body>
+        <main id="main">
+            <div class="document">
+                <h2 class="t_tit">CSS 애니메이션 : 로딩 애니메이션</h2>
+                <p class="t_desc">
+                    오늘은 로딩 화면처럼 빙글빙글 돌아가는 애니메이션을 만들어 보도록 하겠습니다. 작업해볼 애니메이션은 다음과 같습니다.
+                </p>
+                <p class="codepen" data-height="300" data-default-tab="result" data-slug-hash="VwxMmJB" data-user="mj0614k" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                    <span>See the Pen <a href="https://codepen.io/mj0614k/pen/VwxMmJB">
+                    animation 몇번째지...</a> by mj0614k (<a href="https://codepen.io/mj0614k">@mj0614k</a>)
+                    on <a href="https://codepen.io">CodePen</a>.</span>
+                  </p>
+                  <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+                <hr />
+                <h2 class="t_tit2">1. HTML 소스</h2>
+                <div class="t_code">
+                    <pre><code class="language-html">&lt;div class="loader"&gt;
+    &lt;div class="ball"&gt;&lt;/div&gt;
+    &lt;div class="ball"&gt;&lt;/div&gt;
+    &lt;div class="ball"&gt;&lt;/div&gt;
+    &lt;div class="ball"&gt;&lt;/div&gt;
+    &lt;div class="ball"&gt;&lt;/div&gt;
+    &lt;div class="ball"&gt;&lt;/div&gt;
+    &lt;div class="ball"&gt;&lt;/div&gt;
+    &lt;div class="ball"&gt;&lt;/div&gt;
+    &lt;div class="ball"&gt;&lt;/div&gt;
+    &lt;div class="ball"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                </div>
+                <p class="t_desc">
+                    div 안에 10개의 div 박스를 만들어 줍니다.
+                </p>
+                <h2 class="t_tit2">2. CSS 소스</h2>
+                <div class="t_code">
+<pre><code class="language-css">body {
+    background-color: pink;
+}
+    
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    animation: spin 0.6s linear infinite reverse;
+}
+    
+.ball {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+    animation: spin 1s infinite ease-in-out;
+}
+    
+.ball:after {
+    position: absolute;
+    content: '';
+    background-color: #fff;
+    width: 5px;
+    height: 5px;
+    border-radius: 100%;
+    top: 0;
+}
+    
+.ball:nth-child(2) {
+    animation-delay: -0.1s;
+}
+.ball:nth-child(3) {
+    animation-delay: -0.2s;
+}
+.ball:nth-child(4) {
+    animation-delay: -0.3s;
+}
+.ball:nth-child(5) {
+    animation-delay: -0.4s;
+}
+.ball:nth-child(6) {
+    animation-delay: -0.5s;
+}
+.ball:nth-child(7) {
+    animation-delay: -0.6s;
+}
+.ball:nth-child(8) {
+    animation-delay: -0.7s;
+}
+.ball:nth-child(9) {
+    animation-delay: -0.8s;
+}
+.ball:nth-child(10) {
+    animation-delay: -0.9s;
+}
+
+@keyframes spin {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg)
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg)
+    }
+}
+</code></pre>
+                </div>
+                <p class="t_desc">
+                    ball에 애니메이션 효과를 주고, 가상요소도 만들어 줍니다. 
+                    각각의 ball에 순차적으로 애니메이션 딜레이를 0.1초씩 넣어줍니다.
+                    ball에서 만든 애니메이션에 keyframes를 적용해 줍니다.
+                </p>
+                <p class="t_desc">위의 HTML, CSS 소스를 합치면 애니메이션이 완성됩니다. 예쁘죠?</p>
+            </div>
+        </main>
+        <!-- //main -->
+
+        <footer id="footer">
+            <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+        </footer>
+        <!-- //footer -->
+
+        <script src="../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>

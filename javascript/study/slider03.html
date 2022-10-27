@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 슬라이드 효과</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="../index.html">Javascript</a></h1>
+    </header>
+    <!-- //header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">자바스크립트 슬라이드 효과 : 좌로 움직이는 유형(연속적)</h2>
+            <p class="t_desc">
+                자바스크립트의 다양한 효과들 중, CSS의 트랜지션 속성을 활용한
+                이미지 슬라이드 효과입니다. 이번 유형은 마지막 이미지에 도달해도, 처음 이미지로 돌아가지 않고
+                연속적으로 이미지가 나타나는 유형입니다.
+            </p>
+            <hr>
+            <h2 class="t_tit2">HTML 소스</h2>
+            <p class="t_desc">HTML로 뼈대를 먼저 잡아줍니다. section 태그 안에는 클래스명이 slider__wrap인 div 박스,
+                그 안에는 클래스명이 slider__img인 div 박스를 만들어 주고, 그 안에는 slider__inner 박스, 
+                그 안 slider 박스 안에는 각각 이미지 5장을 삽입해 주었습니다. 각각의 div 박스의 용도는
+                CSS 소스에서 추가로 설명하도록 하겠습니다. 궁금하면 보시든가...
+            </p>
+            <div class="t_code">
+<pre><code class="language-html">&lt;section id="sliderType03"&gt;
+    &lt;div class="slider__wrap"&gt;
+        &lt;div class="slider__img"&gt;
+            &lt;div class="slider__inner"&gt;
+                &lt;div class="slider"&gt;
+                    &lt;img src="../assets/img/effect_bg11-min.jpg" alt="이미지1"&gt;
+                &lt;/div&gt;
+                &lt;div class="slider"&gt;
+                    &lt;img src="../assets/img/effect_bg12-min.jpg" alt="이미지2"&gt;
+                &lt;/div&gt;
+                &lt;div class="slider"&gt;
+                    &lt;img src="../assets/img/effect_bg13-min.jpg" alt="이미지3"&gt;
+                &lt;/div&gt;
+                &lt;div class="slider"&gt;
+                    &lt;img src="../assets/img/effect_bg14-min.jpg" alt="이미지4"&gt;
+                &lt;/div&gt;
+                &lt;div class="slider"&gt;
+                    &lt;img src="../assets/img/effect_bg15-min.jpg" alt="이미지5"&gt;
+                &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+            </div>
+            <h2 class="t_tit2">CSS 소스</h2>
+            <p class="t_desc">
+                
+            </p>
+            <div class="t_code">
+<pre><code class="language-css">/* slider */
+.slider__wrap {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.slider__img { /* 이미지 보이는 영역 */
+    position: relative;
+    width: 800px;
+    height: 520px;
+    overflow: hidden;
+}
+.slider__inner { /* 이미지를 감싸고 있는 부모(움직이는 부분) */
+    display: flex;
+    flex-wrap: wrap;
+    width: 4800px;
+    height: 520px;
+}
+.slider { /* 개별적인 이미지 */
+    position: relative;
+    width: 800px;
+    height: 520px;
+}
+.slider::before{
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    background: rgba(0,0,0,0.4);
+    color: #fff;
+    padding: 5px 10px;
+}
+
+.slider:nth-child(1)::before {content: '이미지1';}
+.slider:nth-child(2)::before {content: '이미지2';}
+.slider:nth-child(3)::before {content: '이미지3';}
+.slider:nth-child(4)::before {content: '이미지4';}
+.slider:nth-child(5)::before {content: '이미지5';}
+.slider:nth-child(6)::before {content: '이미지1';}
+.slider:nth-child(1) {z-index: 5;}
+.slider:nth-child(2) {z-index: 4;}
+.slider:nth-child(3) {z-index: 3;}
+.slider:nth-child(4) {z-index: 2;}
+.slider:nth-child(5) {z-index: 1;}
+
+@media (max-width: 800px){
+    .slider__img {
+        width: 400px;
+        height: 260px;
+    }
+}
+</code></pre>
+            </div>
+            <h2 class="t_tit2">JAVASCRIPT 소스</h2>
+            <p class="t_desc">자바스크립트로는 먼저 선택자를 만들어 주었습니다.
+                이후 currentIndex라는 변수를 선언하고, cloneNode() 메서드를 이용해
+                첫 번째 이미지가 마지막에 들어갈 수 있도록 작업해 주었습니다. 
+                이후, setInterval을 사용하여 2초마다 currentIndex의 값이 1씩 증가하도록
+                하고, 해당 값이 총 이미지의 개수에 도달하면 처음으로 돌아가도록 작업해 주었습니다.
+                이미지는 분명 처음으로 다시 돌아가는 애니메이션을 취하지만, 속도를 빠르게 조절함으로써
+                연속적으로 움직이는 것처럼 보이게 하는 효과입니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">const sliderWrap = document.querySelector(".slider__wrap");
+const sliderImg = document.querySelector(".slider__img");  // 보여지는 영역
+const sliderInner = document.querySelector(".slider__inner");  // 움직이는 영역
+const slider = document.querySelectorAll(".slider");  // 개별적 이미지
+
+let currentIndex = 0;  // 현재 보이는 이미지
+let sliderCount = slider.length;  // 이미지 개수
+let sliderWidth = sliderImg.offsetWidth;  // 이미지 너비 값
+let sliderClone = sliderInner.firstElementChild.cloneNode(true);  // 첫 번째 이미지 복사
+sliderInner.appendChild(sliderClone)  // 첫 번째 이미지를 마지막에 넣어주기
+
+function sliderEffect(){
+    currentIndex++;
+    sliderInner.style.transition = "all 0.6s";
+    sliderInner.style.transform = "translateX(-" + sliderWidth * currentIndex +"px)";
+
+    // sliderInner.style.transform = "translateX(-800px)";  800 * 1
+    // sliderInner.style.transform = "translateX(-1600px)"  800 * 2
+    // sliderInner.style.transform = "translateX(-2400px)"  800 * 3
+    // sliderInner.style.transform = "translateX(-3200px)"  800 * 4
+    // sliderInner.style.transform = "translateX(-4000px)"  800 * 5
+    // sliderInner.style.transform = "translateX(-4800px)"  800 * 6
+
+    // 마지막 사진에 위치했을 때
+    if(currentIndex == sliderCount){
+        setTimeout(() => {
+            sliderInner.style.transition = "0s";
+            sliderInner.style.transform = "translateX(0px)";
+        }, 700);
+        currentIndex = 0;
+    }
+}
+setInterval(sliderEffect, 2000);
+</code></pre>
+            </div>
+            <hr>
+            <h2 class="t_tit2">결과</h2>
+            <div class="t_iframe" style="min-height: 1000px; padding-top: 0px;">
+                <iframe src="https://mj0614k.github.io/Coding/javascript/effect/sliderEffect03.html"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://github.com/mj0614k/Coding/blob/main/javascript/effect/sliderEffect03.html">원본 소스 보기</a>
+                <a href="https://mj0614k.github.io/Coding/javascript/effect/sliderEffect03">원본 사이트 보기</a>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

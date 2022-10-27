@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS : 색상 표현 방법</title>
+
+    <link rel="stylesheet" href="../../javascript/assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href=#>CSS : 색상 표현 방법</a></h1>
+    </header>
+    <!-- //header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">색상 표현 방법</h2>
+            <p class="t_desc">
+                CSS에서 색상을 표현하는 방법에는 여러 가지가 있습니다. 대표적인 방법 몇 가지를 알아보도록 하겠습니다.
+            </p>
+            <hr>
+            <h2 class="t_tit2">1. 색상명으로 표현</h2>
+            <p class="t_desc">색상의 이름을 나타내는 방법으로, 브라우저에는 약 140가지의 색상 이름들이 정의되어 있습니다.
+                적용 예시를 살펴보겠습니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-html">&lt;p style="color:red;"&gt;멋진 빨간색 글자&lt;/p&gt;
+&lt;p style="color:orange;"&gt;멋진 주황색 글자&lt;/p&gt;
+&lt;p style="color:blue;"&gt;멋진 파란색 글자&lt;/p&gt;
+</code></pre>
+            </div>
+            <div class="t_box">
+                <p style="color:red;">멋진 빨간색 글자</p>
+                <p style="color:green;">멋진 초록색 글자</p>
+                <p style="color:blue;">멋진 파란색 글자</p>
+            </div>
+            <!-- 1 -->
+
+            <h2 class="t_tit2">2. HEX값으로 표현</h2>
+            <p class="t_desc">#RRGGBB 형식의 16진수 색상 값을 이용하여 표현하는 방법입니다. RR, GG, BB는 각각
+                red, green, blue를 나타내는 값으로, 16진수 00에서 FF사이의 값으로 결정됩니다. 적용 예시를 살펴보겠습니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-html">&lt;p style="color:#000000;"&gt;노잼 검정색 글자&lt;/p&gt;
+&lt;p style="color:#FF00FF"&gt;촌스러운 분홍색 글자&lt;/p&gt;
+&lt;p style="color:#00ced1;"&gt;민트색 같은 글자&lt;/p&gt;
+&lt;p style="color:#a52a2a;"&gt;아무렇게나 써본 글자&lt;/p&gt;
+</code></pre>
+            </div>
+            <div class="t_box">
+                <p style="color:#000000;">노잼 검정색 글자</p>
+                <p style="color:#FF00FF">촌스러운 분홍색 글자</p>
+                <p style="color:#00ced1;">민트색 같은 글자</p>
+                <p style="color:#a52a2a;">아무렇게나 써본 글자</p>
+            </div>
+
+            <p class="t_desc2">Tip! 색상명과 HEX값은 아래 색상표를 참고하세요.</p>
+
+            <table class="t_table">
+                <tbody class="ce">
+                    <tr>
+                <th>색상
+                </th>
+                <th>16진수
+                </th>
+                <th>색상
+                </th>
+                <th>16진수
+                </th></tr>
+                <tr>
+                <td>indianred
+                </td>
+                <td style="background:#cd5c5c; color:#ffffff; font-family:monospace;" lang="en">#cd5c5c
+                </td>
+                <td>darksalmon
+                </td>
+                <td style="background:#e9967a; color:#ffffff; font-family:monospace;" lang="en">#e9967a
+                </td></tr>
+                <tr>
+                <td>lightcoral
+                </td>
+                <td style="background:#f08080; color:#ffffff; font-family:monospace;" lang="en">#f08080
+                </td>
+                <td>salmon
+                </td>
+                <td style="background:#fa8072; color:#ffffff; font-family:monospace;" lang="en">#fa8072
+                </td></tr>
+                <tr>
+                <td>orangered
+                </td>
+                <td style="background:#ff4500; color:#ffffff; font-family:monospace;" lang="en">#ff4500
+                </td>
+                <td><a href="/wiki/%EB%B9%A8%EA%B0%95" title="빨강">red</a>(빨간색)
+                </td>
+                <td style="background:#ff0000; color:#ffffff; font-family:monospace;" lang="en">#ff0000
+                </td></tr>
+                <tr>
+                <td>crimson(다홍)
+                </td>
+                <td style="background:#dc143c; color:#ffffff; font-family:monospace;" lang="en">#dc143c
+                </td>
+                <td>firebrick
+                </td>
+                <td style="background:#b22222; color:#ffffff; font-family:monospace;" lang="en">#b22222
+                </td></tr>
+                <tr>
+                <td>darkred(흑적색)
+                </td>
+                <td style="background:#8b0000; color:#ffffff; font-family:monospace;" lang="en">#8b0000
+                </td>
+                <td>mediumvioletred
+                </td>
+                <td style="background:#c71585; color:#ffffff; font-family:monospace;" lang="en">#c71585
+                </td></tr>
+                <tr>
+                <td>pink(분홍)
+                </td>
+                <td style="background:#ffc0cb; font-family:monospace;" lang="en">#ffc0cb
+                </td>
+                <td>lightpink(연분홍)
+                </td>
+                <td style="background:#ffb6c1; font-family:monospace;" lang="en">#ffb6c1
+                </td></tr>
+                <tr>
+                <td>hotpink
+                </td>
+                <td style="background:#ff69b4; font-family:monospace;" lang="en">#ff69b4
+                </td>
+                <td>deeppink(진분홍)
+                </td>
+                <td style="background:#ff1493; font-family:monospace;" lang="en">#ff1493
+                </td></tr>
+                <tr>
+                <td>palevioletred
+                </td>
+                <td style="background:#db7093; font-family:monospace;" lang="en">#db7093
+                </td>
+                <td>darkkhaki
+                </td>
+                <td style="background:#bdb76b; font-family:monospace;" lang="en">#bdb76b
+                </td></tr>
+                <tr>
+                <td>khaki
+                </td>
+                <td style="background:#f0e68c; font-family:monospace;" lang="en">#f0e68c
+                </td>
+                <td>palegoldenrod
+                </td>
+                <td style="background:#eee8aa; font-family:monospace;" lang="en">#eee8aa
+                </td></tr>
+                <tr>
+                <td>lightgoldenrodyellow
+                </td>
+                <td style="background:#fafad2; font-family:monospace;" lang="en">#fafad2
+                </td>
+                <td>lightyellow(밝은노랑)
+                </td>
+                <td style="background:#ffffe0; font-family:monospace;" lang="en">#ffffe0
+                </td></tr>
+                <tr>
+                <td>lemonchiffon
+                </td>
+                <td style="background:#fffacd; font-family:monospace;" lang="en">#fffacd
+                </td>
+                <td><a href="/wiki/%EB%85%B8%EB%9E%91" title="노랑">yellow</a>(노랑)
+                </td>
+                <td style="background:#ffff00; font-family:monospace;" lang="en">#ffff00
+                </td></tr>
+                <tr>
+                <td><a href="/wiki/%EA%B8%88%EC%83%89" title="금색">gold</a>(금색)
+                </td>
+                <td style="background:#ffd700; font-family:monospace;" lang="en">#ffd700
+                </td>
+                <td>papayawhip
+                </td>
+                <td style="background:#ffefd5; font-family:monospace;" lang="en">#ffefd5
+                </td></tr>
+                <tr>
+                <td>moccasin
+                </td>
+                <td style="background:#ffe4b5; font-family:monospace;" lang="en">#ffe4b5
+                </td>
+                <td>peachpuff
+                </td>
+                <td style="background:#ffdab9; font-family:monospace;" lang="en">#ffdab9
+                </td></tr>
+                <tr>
+                <td>cyan(옥색)
+                </td>
+                <td style="background:#00ffff; font-family:monospace;" lang="en">#00ffff
+                </td>
+                <td>aqua
+                </td>
+                <td style="background:#00ffff; font-family:monospace;" lang="en">#00ffff
+                </td></tr>
+                <tr>
+                <td>aquamarine
+                </td>
+                <td style="background:#7fffd4; font-family:monospace;" lang="en">#7fffd4
+                </td>
+                <td>turquoise(터키옥색)
+                </td>
+                <td style="background:#40e0d0; font-family:monospace;" lang="en">#40e0d0
+                </td></tr>
+                <tr>
+                <td>mediumturquoise
+                </td>
+                <td style="background:#48d1cc; font-family:monospace;" lang="en">#48d1cc
+                </td>
+                <td>darkturquoise
+                </td>
+                <td style="background:#00ced1; font-family:monospace;" lang="en">#00ced1
+                </td></tr>
+                <tr>
+                <td>cadetblue
+                </td>
+                <td style="background:#5f9ea0; color:#ffffff; font-family:monospace;" lang="en">#5f9ea0
+                </td>
+                <td>slategray
+                </td>
+                <td style="background:#708090; color:#ffffff; font-family:monospace;" lang="en">#708090
+                </td></tr>
+                <tr>
+                <td>lightcyan
+                </td>
+                <td style="background:#e0ffff; font-family:monospace;" lang="en">#e0ffff
+                </td>
+                <td>paleturquoise
+                </td>
+                <td style="background:#afeeee; font-family:monospace;" lang="en">#afeeee
+                </td></tr>
+                <tr>
+                <td>powderblue
+                </td>
+                <td style="background:#b0e0e6; font-family:monospace;" lang="en">#b0e0e6
+                </td>
+                <td>lightsteelblue
+                </td>
+                <td style="background:#b0c4de; font-family:monospace;" lang="en">#b0c4de
+                </td></tr>
+                <tr>
+                <td>steelblue
+                </td>
+                <td style="background:#4682b4; color:#ffffff; font-family:monospace;" lang="en">#4682b4
+                </td>
+                <td>lightblue(밝은파랑)
+                </td>
+                <td style="background:#add8e6; font-family:monospace;" lang="en">#add8e6
+                </td></tr>
+                <tr>
+                <td>skyblue(하늘색)
+                </td>
+                <td style="background:#87ceeb; font-family:monospace;" lang="en">#87ceeb
+                </td>
+                <td>lightskyblue
+                </td>
+                <td style="background:#87cefa; font-family:monospace;" lang="en">#87cefa
+                </td></tr>
+                <tr>
+                <td>deepskyblue
+                </td>
+                <td style="background:#00bfff; font-family:monospace;" lang="en">#00bfff
+                </td>
+                <td>cornflowerblue
+                </td>
+                <td style="background:#6495ed; font-family:monospace;" lang="en">#6495ed
+                </td></tr>
+                <tr>
+                <td>royalblue
+                </td>
+                <td style="background:#4169e1; font-family:monospace;" lang="en">#4169e1
+                </td>
+                <td>mediumslateblue
+                </td>
+                <td style="background:#7b68ee; font-family:monospace;" lang="en">#7b68ee
+                </td></tr>
+                <tr>
+                <td>dodgerblue
+                </td>
+                <td style="background:#1e90ff; font-family:monospace;" lang="en">#1e90ff
+                </td>
+                <td>blue(파랑)
+                </td>
+                <td style="background:#0000ff; color:#ffffff; font-family:monospace;" lang="en">#0000ff
+                </td></tr>
+                <tr>
+                <td>mediumblue
+                </td>
+                <td style="background:#0000cd; color:#ffffff; font-family:monospace;" lang="en">#0000cd
+                </td>
+                <td>darkblue
+                </td>
+                <td style="background:#00008b; color:#ffffff; font-family:monospace;" lang="en">#00008b
+                </td></tr>
+                <tr>
+                <td>navy(남색)
+                </td>
+                <td style="background:#000080; color:#ffffff; font-family:monospace;" lang="en">#000080
+                </td>
+                <td>midnightblue
+                </td>
+                <td style="background:#191970; color:#ffffff; font-family:monospace;" lang="en">#191970
+                </td></tr>
+                <tr>
+                <td>lightsalmon
+                </td>
+                <td style="background:#ffa07a; font-family:monospace;" lang="en">#ffa07a
+                </td>
+                <td>orange(오렌지색)
+                </td>
+                <td style="background:#ffa500; font-family:monospace;" lang="en">#ffa500
+                </td></tr>
+                <tr>
+                <td>darkorange
+                </td>
+                <td style="background:#ff8c00; font-family:monospace;" lang="en">#ff8c00
+                </td>
+                <td>coral
+                </td>
+                <td style="background:#ff7f50; font-family:monospace;" lang="en">#ff7f50
+                </td></tr>
+                <tr>
+                <td>tomato
+                </td>
+                <td style="background:#ff6347; font-family:monospace;" lang="en">#ff6347
+                </td>
+                <td>orangered
+                </td>
+                <td style="background:#ff4500; font-family:monospace;" lang="en">#ff4500
+                </td></tr>
+                <tr>
+                <td>aquamarine
+                </td>
+                <td style="background:#7fffd4; font-family:monospace;" lang="en">#7fffd4
+                </td>
+                <td>mediumspringgreen
+                </td>
+                <td style="background:#00fa9a; font-family:monospace;" lang="en">#00fa9a
+                </td></tr>
+                <tr>
+                <td>springgreen(춘록색)
+                </td>
+                <td style="background:#00ff7f; font-family:monospace;" lang="en">#00ff7f
+                </td>
+                <td>palegreen
+                </td>
+                <td style="background:#98fb98; font-family:monospace;" lang="en">#98fb98
+                </td></tr>
+                <tr>
+                <td>greenyellow(초록노랑)
+                </td>
+                <td style="background:#adff2f; font-family:monospace;" lang="en">#adff2f
+                </td>
+                <td>chartreuse
+                </td>
+                <td style="background:#7fff00; font-family:monospace;" lang="en">#7fff00
+                </td></tr>
+                <tr>
+                <td>lawngreen
+                </td>
+                <td style="background:#7cfc00; font-family:monospace;" lang="en">#7cfc00
+                </td>
+                <td>lime(라임색)
+                </td>
+                <td style="background:#00ff00; font-family:monospace;" lang="en">#00ff00
+                </td></tr>
+                <tr>
+                <td>lightgreen
+                </td>
+                <td style="background:#90ee90; font-family:monospace;" lang="en">#90ee90
+                </td>
+                <td>yellowgreen(노랑초록)
+                </td>
+                <td style="background:#9acd32; font-family:monospace;" lang="en">#9acd32
+                </td></tr>
+                <tr>
+                <td>limegreen(라임초록)
+                </td>
+                <td style="background:#32cd32; font-family:monospace;" lang="en">#32cd32
+                </td>
+                <td>mediumseagreen
+                </td>
+                <td style="background:#3cb371; font-family:monospace;" lang="en">#3cb371
+                </td></tr>
+                <tr>
+                <td>darkseagreen
+                </td>
+                <td style="background:#8fbc8f; font-family:monospace;" lang="en">#8fbc8f
+                </td>
+                <td>forestgreen
+                </td>
+                <td style="background:#228b22; color:#ffffff; font-family:monospace;" lang="en">#228b22
+                </td></tr>
+                <tr>
+                <td>seagreen
+                </td>
+                <td style="background:#2e8b57; color:#ffffff; font-family:monospace;" lang="en">#2e8b57
+                </td>
+                <td>green(초록)
+                </td>
+                <td style="background:#008000; color:#ffffff; font-family:monospace;" lang="en">#008000
+                </td></tr>
+                <tr>
+                <td>olivedrab
+                </td>
+                <td style="background:#6b8e23; color:#ffffff; font-family:monospace;" lang="en">#6b8e23
+                </td>
+                <td>olive(올리브색)
+                </td>
+                <td style="background:#808000; color:#ffffff; font-family:monospace;" lang="en">#808000
+                </td></tr>
+                <tr>
+                <td>darkolivegreen
+                </td>
+                <td style="background:#556b2f; color:#ffffff; font-family:monospace;" lang="en">#556b2f
+                </td>
+                <td>darkgreen
+                </td>
+                <td style="background:#006400; color:#ffffff; font-family:monospace;" lang="en">#006400
+                </td></tr>
+                <tr>
+                <td>mediumaquamarine
+                </td>
+                <td style="background:#66cdaa; font-family:monospace;" lang="en">#66cdaa
+                </td>
+                <td>turquoise
+                </td>
+                <td style="background:#40e0d0; font-family:monospace;" lang="en">#40e0d0
+                </td></tr>
+                <tr>
+                <td>lightseagreen
+                </td>
+                <td style="background:#20b2aa; font-family:monospace;" lang="en">#20b2aa
+                </td>
+                <td>darkcyan
+                </td>
+                <td style="background:#008b8b; color:#ffffff; font-family:monospace;" lang="en">#008b8b
+                </td></tr>
+                <tr>
+                <td>teal
+                </td>
+                <td style="background:#008080; color:#ffffff; font-family:monospace;" lang="en">#008080
+                </td>
+                <td>lavender(라벤더색)
+                </td>
+                <td style="background:#e6e6fa; font-family:monospace;" lang="en">#e6e6fa
+                </td></tr>
+                <tr>
+                <td>thistle
+                </td>
+                <td style="background:#d8bfd8; font-family:monospace;" lang="en">#d8bfd8
+                </td>
+                <td>plum(자두색)
+                </td>
+                <td style="background:#dda0dd; font-family:monospace;" lang="en">#dda0dd
+                </td></tr>
+                <tr>
+                <td>violet(자주색)
+                </td>
+                <td style="background:#ee82ee; font-family:monospace;" lang="en">#ee82ee
+                </td>
+                <td>fuchsia
+                </td>
+                <td style="background:#ff77ff; font-family:monospace;" lang="en">#ff77ff
+                </td></tr>
+                <tr>
+                <td>magenta(마젠타색)
+                </td>
+                <td style="background:#ff00ff; font-family:monospace;" lang="en">#ff00ff
+                </td>
+                <td>orchid(난초색)
+                </td>
+                <td style="background:#da70d6; font-family:monospace;" lang="en">#da70d6
+                </td></tr>
+                <tr>
+                <td>mediumorchid
+                </td>
+                <td style="background:#ba55d3; font-family:monospace;" lang="en">#ba55d3
+                </td>
+                <td>darkorchid
+                </td>
+                <td style="background:#9932cc; color:#ffffff; font-family:monospace;" lang="en">#9932cc
+                </td></tr>
+                <tr>
+                <td>blueviolet(청자색)
+                </td>
+                <td style="background:#8a2be2; color:#ffffff; font-family:monospace;" lang="en">#8a2be2
+                </td>
+                <td>darkviolet
+                </td>
+                <td style="background:#9400d3; color:#ffffff; font-family:monospace;" lang="en">#9400d3
+                </td></tr>
+                <tr>
+                <td>mediumpurple
+                </td>
+                <td style="background:#9370db; color:#ffffff; font-family:monospace;" lang="en">#9370db
+                </td>
+                <td>slateblue
+                </td>
+                <td style="background:#6a5acd; color:#ffffff; font-family:monospace;" lang="en">#6a5acd
+                </td></tr>
+                <tr>
+                <td>purple(보라색)
+                </td>
+                <td style="background:#800080; color:#ffffff; font-family:monospace;" lang="en">#800080
+                </td>
+                <td>darkmagenta
+                </td>
+                <td style="background:#8b008b; color:#ffffff; font-family:monospace;" lang="en">#8b008b
+                </td></tr>
+                <tr>
+                <td>darkslateblue
+                </td>
+                <td style="background:#483d8b; color:#ffffff; font-family:monospace;" lang="en">#483d8b
+                </td>
+                <td>indigo
+                </td>
+                <td style="background:#4b0082; color:#ffffff; font-family:monospace;" lang="en">#4b0082
+                </td></tr>
+                <tr>
+                <td>honeydew
+                </td>
+                <td style="background:#f0fff0; font-family:monospace;" lang="en">#f0fff0
+                </td>
+                <td>mintcream
+                </td>
+                <td style="background:#f5fffa; font-family:monospace;" lang="en">#f5fffa
+                </td></tr>
+                <tr>
+                <td>azure
+                </td>
+                <td style="background:#f0ffff; font-family:monospace;" lang="en">#f0ffff
+                </td>
+                <td>aliceblue
+                </td>
+                <td style="background:#f0f8ff; font-family:monospace;" lang="en">#f0f8ff
+                </td></tr>
+                <tr>
+                <td>GhostWhite
+                </td>
+                <td style="background:#f8f8ff; font-family:monospace;" lang="en">#f8f8ff
+                </td>
+                <td>whitesmoke
+                </td>
+                <td style="background:#f5f5f5; font-family:monospace;" lang="en">#f5f5f5
+                </td></tr>
+                <tr>
+                <td>lavenderblush
+                </td>
+                <td style="background:#fff0f5; font-family:monospace;" lang="en">#fff0f5
+                </td>
+                <td>mistyrose
+                </td>
+                <td style="background:#ffe4e1; font-family:monospace;" lang="en">#ffe4e1
+                </td></tr>
+                <tr>
+                <td>antiquewhite
+                </td>
+                <td style="background:#faebd7; font-family:monospace;" lang="en">#faebd7
+                </td>
+                <td>seashell(조개색)
+                </td>
+                <td style="background:#fff5ee; font-family:monospace;" lang="en">#fff5ee
+                </td></tr>
+                <tr>
+                <td>snow(눈색)
+                </td>
+                <td style="background:#fffafa; font-family:monospace;" lang="en">#fffafa
+                </td>
+                <td>white(하양)
+                </td>
+                <td style="background:#ffffff; font-family:monospace;" lang="en">#ffffff
+                </td></tr>
+                <tr>
+                <td>beige(베이지)
+                </td>
+                <td style="background:#f5f5dc; font-family:monospace;" lang="en">#f5f5dc
+                </td>
+                <td>linen(아마포색)
+                </td>
+                <td style="background:#faf0e6; font-family:monospace;" lang="en">#faf0e6
+                </td></tr>
+                <tr>
+                <td>oldlace
+                </td>
+                <td style="background:#fdf5e6; font-family:monospace;" lang="en">#fdf5e6
+                </td>
+                <td>floralwhite
+                </td>
+                <td style="background:#fffaf0; font-family:monospace;" lang="en">#fffaf0
+                </td></tr>
+                <tr>
+                <td>ivory(상아색)
+                </td>
+                <td style="background:#fffff0; font-family:monospace;" lang="en">#fffff0
+                </td>
+                <td>gainsboro
+                </td>
+                <td style="background:#dcdcdc; font-family:monospace;" lang="en">#dcdcdc
+                </td></tr>
+                <tr>
+                <td>lightgrey(밝은 회색)
+                </td>
+                <td style="background:#d3d3d3; font-family:monospace;" lang="en">#d3d3d3
+                </td>
+                <td>silver(은색)
+                </td>
+                <td style="background:#c0c0c0; font-family:monospace;" lang="en">#c0c0c0
+                </td></tr>
+                <tr>
+                <td>darkgray
+                </td>
+                <td style="background:#a9a9a9; font-family:monospace;" lang="en">#a9a9a9
+                </td>
+                <td>gray(회색)
+                </td>
+                <td style="background:#808080; color:#ffffff; font-family:monospace;" lang="en">#808080
+                </td></tr>
+                <tr>
+                <td>dimgray
+                </td>
+                <td style="background:#696969; color:#ffffff; font-family:monospace;" lang="en">#696969
+                </td>
+                <td>darkslategray
+                </td>
+                <td style="background:#2f4f4f; color:#ffffff; font-family:monospace;" lang="en">#2f4f4f
+                </td></tr>
+                <tr>
+                <td>lightslategray
+                </td>
+                <td style="background:#778899; color:#ffffff; font-family:monospace;" lang="en">#778899
+                </td>
+                <td>slategray
+                </td>
+                <td style="background:#708090; color:#ffffff; font-family:monospace;" lang="en">#708090
+                </td></tr>
+                <tr>
+                <td>cornsilk
+                </td>
+                <td style="background:#fff8dc; font-family:monospace;" lang="en">#fff8dc
+                </td>
+                <td>blanchedalmond
+                </td>
+                <td style="background:#ffebcd; font-family:monospace;" lang="en">#ffebcd
+                </td></tr>
+                <tr>
+                <td>bisque
+                </td>
+                <td style="background:#ffe4c4; font-family:monospace;" lang="en">#ffe4c4
+                </td>
+                <td>navajowhite
+                </td>
+                <td style="background:#ffdead; font-family:monospace;" lang="en">#ffdead
+                </td></tr>
+                <tr>
+                <td>wheat
+                </td>
+                <td style="background:#f5deb3; font-family:monospace;" lang="en">#f5deb3
+                </td>
+                <td>sandybrown
+                </td>
+                <td style="background:#f4a460; font-family:monospace;" lang="en">#f4a460
+                </td></tr>
+                <tr>
+                <td>goldenrod
+                </td>
+                <td style="background:#daa520; font-family:monospace;" lang="en">#daa520
+                </td>
+                <td>darkgoldenrod
+                </td>
+                <td style="background:#b8860b; font-family:monospace;" lang="en">#b8860b
+                </td></tr>
+                <tr>
+                <td>peru
+                </td>
+                <td style="background:#cd853f; font-family:monospace;" lang="en">#cd853f
+                </td>
+                <td>chocolate
+                </td>
+                <td style="background:#d2691e; font-family:monospace;" lang="en">#d2691e
+                </td></tr>
+                <tr>
+                <td>maroon(적갈색)
+                </td>
+                <td style="background:#800000; color:#ffffff; font-family:monospace;" lang="en">#800000
+                </td>
+                <td>saddlebrown
+                </td>
+                <td style="background:#8b4513; color:#ffffff; font-family:monospace;" lang="en">#8b4513
+                </td></tr>
+                <tr>
+                <td>brown(갈색)
+                </td>
+                <td style="background:#a52a2a; color:#ffffff; font-family:monospace;" lang="en">#a52a2a
+                </td>
+                <td>sienna
+                </td>
+                <td style="background:#a0522d; color:#ffffff; font-family:monospace;" lang="en">#a0522d
+                </td></tr>
+                <tr>
+                <td>darkred
+                </td>
+                <td style="background:#8b0000; color:#ffffff; font-family:monospace;" lang="en">#8b0000
+                </td>
+                <td>burlywood
+                </td>
+                <td style="background:#deb887; font-family:monospace;" lang="en">#deb887
+                </td></tr>
+                <tr>
+                <td>tan(황갈색)
+                </td>
+                <td style="background:#d2b48c; font-family:monospace;" lang="en">#d2b48c
+                </td>
+                <td>rosybrown
+                </td>
+                <td style="background:#bc8f8f; font-family:monospace;" lang="en">#bc8f8f
+                </td></tr>
+                <tr>
+                <td>black(검정색)
+                </td>
+                <td style="background:#000000; color:#ffffff; font-family:monospace;" lang="en">#000000
+                </td>
+                <td>chrome(황연색)
+                </td>
+                <td style="background:#F7E600; font-family:monospace;" lang="en">#F7E600
+                </td></tr></tbody>
+            </table>
+
+            <h2 class="t_tit2">3. RGB값으로 표현</h2>
+            <p class="t_desc">rgb(red, green, blue)와 같은 형식으로 색을 표현합니다. 여기서 red, green, blue
+                각각의 변수에는 0에서 255사이의 정수를 입력하거나 백분율 값을 지정해 줍니다.
+                적용 예시를 살펴보겠습니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-html">&lt;p style="background-color:rgb(255, 0, 0);"&gt;멋.빨.글&lt;/p&gt;
+&lt;p style="background-color:rgb(0, 255, 0);"&gt;멋.초.글&lt;/p&gt;
+&lt;p style="background-color:rgb(0%, 0%,100%);"&gt;멋.파.글&lt;/p&gt;
+</code></pre>
+            </div>
+            <div class="t_box">
+                <p style="color:rgb(255, 0, 0);">멋.빨.글</p>
+                <p style="color:rgb(0, 255, 0);">멋.초.글</p>
+                <p style="color:rgb(0%, 0%,100%);">멋.파.글</p>
+            </div>
+            <!-- 3 -->
+
+            <h2 class="t_tit2">4. RGBA값으로 표현</h2>
+            <p class="t_desc">rgb 표현의 확장으로, 불투명도를 지정하는 기능이 추가된 것입니다.
+                rgba(red, green, blue, alpha)로 표현하며, alpha 변수의 값은 0.0(투명)과 1.0(불투명) 사이의
+                값 중에서 지정해 줍니다. 적용 예시를 살펴보겠습니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-html">&lt;p style="color:rgba(255, 0, 0, 0.8);"&gt;멋지지만&lt;/p&gt;
+&lt;p style="color:rgba(255, 0, 0, 0.6);"&gt;사라져가는&lt;/p&gt;
+&lt;p style="color:rgba(255, 0, 0, 0.4);"&gt;빨간&lt;/p&gt;
+&lt;p style="color:rgba(255, 0, 0, 0.2);"&gt;글자...&lt;/p&gt;
+</code></pre>
+            </div>
+            <div class="t_box">
+                <p style="color:rgba(255, 0, 0, 0.8);">멋지지만</p>
+                <p style="color:rgba(255, 0, 0, 0.6);">사라져가는</p>
+                <p style="color:rgba(255, 0, 0, 0.4);">빨간</p>
+                <p style="color:rgba(255, 0, 0, 0.2);">글자...</p>
+            </div>
+            <!-- 4 -->
+
+            <h2 class="t_tit2">5. HSL/HSLA값으로 표현</h2>
+            <p class="t_desc">HSL은 Hue(색상), Saturation(채도), Lightness(명도)로 색상을 정의하는 방법입니다.
+                색상은 0부터 360까지의 색상환에 따라 결정되며, 0:red, 120:green, 240:blue로 나타냅니다.
+                채도와 명도는 백분율로 나타냅니다. HSLA는 HSL 방식에서 불투명도 지정 기능이 추가된 것이며,
+                HSLA(색상, 채도, 명도, 불투명도) 형식으로 나타냅니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-html">&lt;p style="background-color:hsl(0,100%,80%);"&gt;채도 100%, 밝기 80%&lt;/p&gt;
+&lt;p style="background-color:hsl(0,100%,60%);"&gt;채도 100%, 밝기 60%&lt;/p&gt;
+&lt;p style="background-color:hsl(0,100%,40%);"&gt;채도 100%, 밝기 40%&lt;/p&gt;
+&lt;p style="background-color:hsl(0,100%,20%);"&gt;채도 100%, 밝기 20%&lt;/p&gt;
+</code></pre>
+            </div>
+            <div class="t_box">
+                <p style="background-color:hsl(0,100%,80%);">채도 100%, 밝기 80%</p>
+                <p style="background-color:hsl(0,100%,60%);">채도 100%, 밝기 60%</p>
+                <p style="background-color:hsl(0,100%,40%);">채도 100%, 밝기 40%</p>
+                <p style="background-color:hsl(0,100%,20%);">채도 100%, 밝기 20%</p>
+            </div>
+            <!-- 5 -->
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

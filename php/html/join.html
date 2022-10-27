@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>PHP 사이트 만들기</title>
+        <link rel="stylesheet" href="assets/css/style.min.css" />
+    </head>
+    <body>
+        <header id="header">
+            <div class="header__inner container">
+                <div class="left">
+                    <ul>
+                        <li>
+                            <a href="main.html" class="star"></a>
+                        </li>
+                    </ul>
+                </div>
+                <h1><a href="main.html">PHP BLOG</a></h1>
+                <div class="right">
+                    <ul>
+                        <li><a href="#">LOGIN</a></li>
+                        <li class="active"><a href="joinAgree.html">SIGN UP</a></li>
+                    </ul>
+                </div>
+                <nav class="nav">
+                    <ul>
+                        <li>
+                            <a href="#"><span>LOGIN</span></a>
+                        </li>
+                        <li>
+                            <a href="#"><span>BLOG</span></a>
+                        </li>
+                        <li>
+                            <a href="#"><span>LOGOUT</span></a>
+                        </li>
+                        <li>
+                            <a href="#"><span>CONTACT</span></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <!-- //header -->
+
+        <main id="main">
+            <section id="banner">
+                <h2>회원가입 페이지입니다.</h2>
+                <div class="banner__inner2 container">
+                    <div class="img">
+                        <img src="assets/img/banner_img01.svg" alt="배너 이미지" />
+                    </div>
+                    <div class="desc">
+                        환영합니다.<br />
+                        회원가입을 위한 정보를 입력해 주세요.
+                    </div>
+                </div>
+            </section>
+            <!-- //banner -->
+
+            <section id="join" class="container">
+                <h2>회원 가입</h2>
+                <div class="join__inner">
+                    <form action="joinSave.php" name="join" method="post">
+                        <fieldset>
+                            <legend>회원가입</legend>
+                            <div class="join__box">
+                                <div>
+                                    <label for="youEmail">이메일</label>
+                                    <input
+                                        type="email"
+                                        id="youEmail"
+                                        name="youEmail"
+                                        placeholder="이메일을 입력해 주세요."
+                                    />
+                                </div>
+                                <div>
+                                    <label for="youName">이름</label>
+                                    <input
+                                        type="text"
+                                        id="youName"
+                                        name="youName"
+                                        placeholder="이름을 입력해 주세요."
+                                    />
+                                </div>
+                                <div>
+                                    <label for="youPass">비밀번호</label>
+                                    <input
+                                        type="password"
+                                        id="youPass"
+                                        name="youPass"
+                                        placeholder="비밀번호를 입력해 주세요."
+                                    />
+                                </div>
+                                <div>
+                                    <label for="youPassC">비밀번호 확인</label>
+                                    <input
+                                        type="password"
+                                        id="youPassC"
+                                        name="youPassC"
+                                        placeholder="비밀번호를 한 번 더 입력해 주세요."
+                                    />
+                                </div>
+                                <div>
+                                    <label for="youNickName">닉네임</label>
+                                    <input
+                                        type="text"
+                                        id="youNickName"
+                                        name="youNickName"
+                                        placeholder="닉네임을 입력해 주세요."
+                                    />
+                                </div>
+                                <div>
+                                    <label for="youPhone">연락처</label>
+                                    <input
+                                        type="text"
+                                        id="youPhone"
+                                        name="youPhone"
+                                        placeholder="연락처를 입력해 주세요."
+                                    />
+                                </div>
+                            </div>
+                            <button class="join__btn" type="submit">가입하기</button>
+                        </fieldset>
+                    </form>
+                </div>
+            </section>
+            <!-- //join -->
+        </main>
+        <!-- //main -->
+
+        <footer id="footer">
+            <h2>푸터</h2>
+            <div class="footer__inner container">
+                <address>Copyright @2022 MJ</address>
+                <div>blog by MJ</div>
+            </div>
+        </footer>
+        <!-- //footer -->
+
+        <!-- 로그인 가입 팝업 -->
+        <div class="login__popup">
+            <div class="login__inner">
+                <div class="login__header">
+                    <h3>로그인</h3>
+                </div>
+                <div class="login__contents">
+                    <form name="login" action="loginSave.php" method="post">
+                        <fieldset>
+                            <legend>로그인 입력폼</legend>
+                            <div>
+                                <label for="youEmail">이메일</label>
+                                <input
+                                    class="input__style"
+                                    type="email"
+                                    name="youEmail"
+                                    id="youEmail"
+                                    placeholder="이메일"
+                                    required
+                                />
+                            </div>
+                            <div>
+                                <label for="youPass">비밀번호</label>
+                                <input
+                                    class="input__style"
+                                    type="password"
+                                    name="youPass"
+                                    id="youPass"
+                                    placeholder="비밀번호"
+                                    required
+                                />
+                            </div>
+                            <button type="submit" class="input__button">로그인</button>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="login__footer">
+                    <div class="btn">
+                        <a href="#">회원가입</a>
+                        <a href="#">아이디 찾기</a>
+                        <a href="#">비밀번호 찾기</a>
+                    </div>
+                    <ul class="desc">
+                        <li>비밀번호 분실 시 알아서 찾으시면 됩니다.</li>
+                        <li>회원가입을 하시면 정보를 중국으로 전달해 드립니다.</li>
+                        <li>회원가입 시 발생한 일에 대하여 어떠한 책임도 지지 않습니다.</li>
+                    </ul>
+                    <button type="button" class="btn-close"><span>닫기</span></button>
+                </div>
+            </div>
+        </div>
+        <!-- 아이디 찾기 팝업 -->
+        <!-- 아이디 찾기 에러 팝업 -->
+        <!-- 아이디 찾기 완료 팝업 -->
+        <!-- 비밀번호 찾기 팝업 -->
+        <!-- 비밀번호 찾기 에러 팝업 -->
+        <!-- 비밀번호 찾기 완료 팝업 -->
+    </body>
+</html>

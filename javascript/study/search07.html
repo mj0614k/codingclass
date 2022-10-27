@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>자바스크립트 : 게임 효과이면서 서치 효과</title>
+
+        <link rel="stylesheet" href="../assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+
+    <body>
+        <header id="header">
+            <h1><a href="../index.html">Javascript</a></h1>
+        </header>
+        <!-- //header -->
+
+        <main id="main">
+            <div class="document">
+                <h2 class="t_tit">자바스크립트 : 검색 효과 : 검색 게임</h2>
+                <p class="t_desc">
+                    지금까지 다양한 메서드를 활용하여 검색 효과를 작업해 보았습니다. 이번에는
+                    CSS 속성을 직접 타이핑하여 제한 시간 안에 맞히는 검색 게임을 만들어 보도록 하겠습니다.
+                </p>
+                <hr />
+                <h2 class="t_tit2">1. 선택자 작업하기</h2>
+                <div class="t_code">
+<pre><code class="language-js">const searchTime = document.querySelector(".time span");
+const searchList = document.querySelector(".search__list");
+const searchAnswers = document.querySelector(".search__answers");
+const searchMissAnswers = document.querySelector(".search__missAnswers");
+const searchStart = document.querySelector(".search__box .start");
+const searchInput = document.querySelector("#search");
+const searchAudio = document.querySelector("#audio");
+const musicPlay = document.querySelector(".search__audio .play");
+const musicStop = document.querySelector(".search__audio .stop");
+const searchScoreNow = document.querySelector(".search__info .now");
+const searchResult = document.querySelector(".search__result .result");
+const searchResultWrap = document.querySelector(".search__result");
+const searchRestart = document.querySelector(".search__result .restart");
+
+let timeReamining = 120,    // 제한 시간
+    timeInterval = "",  // 남은 시간
+    score = 0,  // 점수
+    answers = {};   // 새로운 정답
+</code></pre>
+                </div>
+                <p class="t_box">늘 그래왔듯이... 선택자를 먼저 만들어 줍니다. 게임과 관련된 변수들도 함께 선언해 주었습니다.</p>
+                <h2 class="t_tit2">2. 속성 출력하기</h2>
+                <div class="t_code">
+                    <pre><code class="language-js">const cssProperty = [
+    { num: 1, name: "accent-color", desc: " 요소의 강조 색상을 지정합니다. " },
+    { num: 2, name: "align-content", desc: " 콘텐츠 사이와 콘텐츠 주위 빈 공간을 플렉스 박스의 교차축 또는 그리드의 블록 축을 따라 배치하는 방식을 결정합니다." },
+    { num: 3, name: "align-items", desc: " 교차축에서 아이템 정렬 하는 속성입니다. 주로 flex에서 item들을 정렬할 때 사용됩니다." },
+    { num: 4, name: "align-self", desc: " 특정 item의 정렬을 따로 하고 싶을 때 사용합니다." },
+    { num: 5, name: "all", desc: " CSS 사용자 지정 속성을 제외한 모든 속성을 초기화합니다. 초깃값, 상속값, 아니면 다른 스타일시트 출처의 값로 설정할 수 있습니다." },
+    { num: 6, name: "animation", desc: " 애니메이션과 관련된 속성을 일괄적로 처리합니다." },
+    { num: 7, name: "animation-delay", desc: " 애니메이션 지연 시간을 설정합니다." },
+    { num: 8, name: "animation-direction", desc: " 애니메이션 움직임 방향을 설정합니다." },
+    { num: 9, name: "animation-duration", desc: " 애니메이션 움직인 시간을 설정합니다." },
+    { num: 10, name: "animation-fill-mode", desc: " 애니메이션이 끝난 후의 상태를 설정합니다." },
+    { num: 11, name: "animation-iteration-count", desc: " 애니메이션의 반복 횟수를 설정합니다." },
+    { num: 12, name: "animation-name", desc: " 애니메이션 keyframe 이름을 설정합니다." },
+    { num: 13, name: "animation-play-state", desc: " 애니메이션 진행상태를 설정합니다." },
+    { num: 14, name: "animation-timeline", desc: " 애니메이션의 타임라인을 설정합니다." },
+    { num: 15, name: "animation-timing-function", desc: " 애니메이션 움직임의 속도를 설정합니다." },
+    { num: 16, name: "appearance", desc: " 운영체제 및 브라우저에 기본적로 설정되어 있는 테마를 기반로 요소를 표현한다." },
+    { num: 17, name: "aspect-ratio", desc: " 요소의 크기를 비율대로 조정할 수 있게 한다." },
+    { num: 18, name: "backdrop-filter", desc: " 요소 뒤 영역에 흐림이나 색상 시프트 등 그래픽 효과를 적용할 수 있는 속성입니다." },
+    { num: 19, name: "backface-visibility", desc: " 요소의 뒷쪽에서 앞면이 보이게 할지 정하는 속성입니다." },
+    { num: 20, name: "background", desc: " 백그라운드 속성을 일괄적로 설정합니다. " }
+    &lt;-- 생략 --&gt;
+]
+document.querySelector(".search__info span").innerHTML = cssProperty.length;
+function updateList(){
+    cssProperty.forEach(data => {
+        searchList.innerHTML += `<span>${data.name}</span>`;
+    })
+}
+updateList();
+</code></pre>
+                </div>
+                <p class="t_box">
+                    속성을 배열과 객체로 작성해 주고, 출력해 줍니다. 전체 속성의 개수도 함께 출력해 주었습니다.
+                </p>
+                <h3 class="t_tit2">3. BGM 작업하기</h3>
+                <div class="t_code">
+<pre><code class="language-js">function music(){
+    musicStop.addEventListener("click", () => {
+        musicStop.style.display = "none";
+        musicPlay.style.display = "block";
+        searchAudio.pause();
+    })
+    musicPlay.addEventListener("click", () => {
+        musicPlay.style.display = "none";
+        musicStop.style.display = "block";
+        searchAudio.play();
+    })
+    searchAudio.play();
+}
+</code></pre>
+                </div>
+                <p class="t_box">
+                    음악에 사용할 BGM을 작업해 줍니다. 오디오 관련 버튼은 두 가지가 있습니다.
+                    음악이 재생되고 있을 때에는 음악 정지 버튼만이 나타나며, 정지 버튼을 클릭하면 음악이 정지되고, 다시 재생 버튼만이 나타납니다.
+                </p>
+                <h2 class="t_tit2">4. 정답 체크하기</h2>
+                <div class="t_code"><pre><code class="language-js">function checkInput(){
+    let input = event.currentTarget.value.trim().toLowerCase();
+    if(answers.hasOwnProperty(input) && !answers[input]){
+        answers[input] = true;
+        // 정답 표시
+        searchAnswers.style.display = "block";
+        searchAnswers.innerHTML += `&lt;span>${input}&lt;/span>`;
+        // 점수 반영
+        score++;
+        searchScoreNow.innerText = score;
+        // 정답 초기화
+        searchInput.value = "";
+    }
+}
+function checkAnswers() {
+    cssProperty.forEach(item => {
+        let answer = item.name.trim().toLocaleLowerCase();
+        answers[answer] = false;
+    });
+}
+searchInput.addEventListener("input", checkInput);
+</code></pre></div>
+                <p class="t_box">
+                    정답을 체크하려면 사용자가 input에 입력한 값을 value로 가져와야 합니다.
+                    checkInput 함수는 사용자의 입력값을 CSS 속성들과 비교하고, 일치할 경우(정답일 경우)
+                    아래에 해당 속성을 표시해 주고, 점수를 1점 올리며, input을 비워줍니다.<br>
+                    또, input에 값이 입력되었을 때, checkInput() 함수가 실행되도록 이벤트 작업을 해 줍니다.
+                </p>
+                <h2 class="t_tit2">5. 제한 시간 설정하기</h2>
+                <div class="t_code">
+                <pre><code class="language-js">function reduceTime(){
+    timeReamining--;
+    if(timeReamining == 0) endQuiz();
+    searchTime.innerText = displayTime();
+}
+function displayTime(){
+    if(timeReamining &lt;= 0){
+        return "0:00";
+    } else {
+        let minutes = Math.floor(timeReamining / 60);
+        let seconds = timeReamining % 60;
+        if(seconds &lt; 10) seconds = "0" + seconds;
+        return minutes + ":" + seconds;
+    }
+}</code></pre>
+                </div>
+                <p class="t_box">
+                    게임이니 제한 시간도 있어야겠죠? reduceTime() 함수는 이후 setInterval을 이용하여 1초에 한 번씩 실행시킬 것입니다.
+                    timeReamining의 값은 120으로, 처음에 선택자 작업을 할 때 설정해 두었습니다. 1초에 한 번씩 값을 1씩 줄여주고,
+                    0이 되었을 때 게임이 끝나도록 하고, 시간을 출력해 주도록 작업해 주었습니다.<br>
+                    displayTime() 함수의 경우, 120, 119 등의 숫자를 2:00, 1:59 등으로 바꾸어주는 역할을 합니다.
+                </p>
+                <h2 class="t_tit2">6. 게임 시작 함수 만들기</h2>
+                <div class="t_code">
+                    <pre><code class="language-js">function startQuiz(){
+    searchStart.style.display = "none";  // 시작 버튼 숨기기
+    searchList.style.display = "none";   // 정답들 숨기기
+
+    searchAnswers.innerHTML = "";  // 기존 데이터 초기화
+    searchMissAnswers.innerHTML = "";
+
+    timeInterval = setInterval(reduceTime, 1000);  // 제한 시간 설정
+    music();  // 음악
+    let score = 0;  // 점수 계산
+    checkAnswers();  // 정답 체크
+}
+searchStart.addEventListener("click", startQuiz);</code></pre>
+                </div>
+                <p class="t_box">
+                    이제, 게임 시작 버튼을 클릭하면, 지금까지 작업한 함수들이 실행되도록 작업해 줍니다. 
+                </p>
+                <h2 class="t_tit2">7. 오답 보여주기</h2>
+                <div class="t_code">
+                <pre><code class="language-js">function missAnswers(){
+    searchMissAnswers.style.display = "block";
+
+    cssProperty.forEach(item => {
+        let answer = item.name.trim().toLocaleLowerCase();
+        if(answers[answer] == false){
+            searchMissAnswers.innerHTML += `&lt;span>${item.name}&lt;/span>`
+        }
+    })
+}
+</code></pre></div>
+                <p class="t_box">
+                    게임이 끝났을 때, 오답들을 모두 보여줄 수 있도록 작업해 줍니다.
+                </p>
+                <h2 class="t_tit2">8. 게임 오버 함수 만들기</h2>
+                <div class="t_code">
+                <pre><code class="language-js">function endQuiz(){
+    searchStart.style.display = "block";  // 시작 버튼
+    searchStart.style.pointerEvents = "none";
+    missAnswers();  // 오답 보여주기
+    searchAudio.pause();  // 음악 정지
+    clearInterval(timeInterval);  // 시간 정지
+    searchResultWrap.classList.add("show");  // 메시지 출력
+    let point = Math.round(score / cssProperty.length * 100);
+    searchResult.innerHTML = `게임이 종료되었습니다.&lt;br&gt;${cssProperty.length}개 중 ${score}개를 맞혔습니다.&lt;br&gt;점수는 ${point}점입니다.`;
+}</code></pre></div>
+                <p class="t_box">앞서, reduceTime() 함수 내에서
+                    제한 시간이 끝났을 때, endQuiz() 함수가 실행되도록 작업해 주었습니다.
+                    게임이 끝나면 다시 시작 버튼을 보여주고, 모든 것이 정지되며, 점수와 함께 메시지가 출력됩니다.
+                </p>
+                <h2 class="t_tit2">9. 다시 시작 함수 만들기</h2>
+                <div class="t_code">
+                    <pre><code class="language-js">function restart(){
+    searchResultWrap.classList.remove("show");
+    searchAudio.play();
+    startQuiz();
+    timeReamining = 120;
+    score = 0;
+    searchScoreNow.innerText = 0;
+}
+searchRestart.addEventListener("click", restart);</code></pre></div>
+                <p class="t_box">
+                    게임이 끝난 이후, 다시 시작 버튼을 눌렀을 때의 함수를 작업해 주면 끝입니다.
+                    게임 시작 버튼을 눌렀을 때와 같이, 모든 데이터를 초기화해 줍니다.
+                </p>
+                    <hr />
+                <h2 class="t_tit2">결과</h2>
+                <div class="t_iframe" style="min-height: 800px; padding-top: 0px">
+                    <iframe
+                        src="https://mj0614k.github.io/Coding/javascript/effect/searchEffect08.html"
+                    ></iframe>
+                </div>
+
+                <div class="t_link">
+                    <a
+                        href="https://github.com/mj0614k/Coding/blob/main/javascript/effect/searchEffect08.html"
+                        >원본 소스 보기</a
+                    >
+                    <a href="https://mj0614k.github.io/Coding/javascript/effect/searchEffect08"
+                        >원본 사이트 보기</a
+                    >
+                </div>
+            </div>
+        </main>
+        <!-- //main -->
+
+        <footer id="footer">
+            <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+        </footer>
+        <!-- //footer -->
+
+        <script src="../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>

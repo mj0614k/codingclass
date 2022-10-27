@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>자바스크립트 : 검색 효과</title>
+
+        <link rel="stylesheet" href="../assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+
+    <body>
+        <header id="header">
+            <h1><a href="../index.html">Javascript</a></h1>
+        </header>
+        <!-- //header -->
+
+        <main id="main">
+            <div class="document">
+                <h2 class="t_tit">자바스크립트 : 패럴랙스 효과 : 사이드 메뉴</h2>
+                <p class="t_desc">자바스크립트의 다양한 효과들 중, 패럴랙스 효과입니다. 이번에는 상단 메뉴가 아닌 사이드 메뉴를 만들어 주고, 현재 위치한 스크롤값에 따라 메뉴에 애니메이션 효과를 추가해 주었습니다.</p>
+                <hr />
+                <h2 class="t_tit2">HTML 소스</h2>
+                <p class="t_desc">HTML은 먼저 nav, main, aside 세 파트로 나누어 주었습니다. nav에는 9개의 메뉴, main에는 9개의 콘텐츠, aside에는 스크롤의 위치값을 볼 수 있게끔 만들어 주었습니다.</p>
+                <div class="t_code">
+                    <pre><code class="language-html">&lt;nav id="parallax__nav"&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#section1"&gt;메뉴1&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="active"&gt;&lt;a href="#section2"&gt;메뉴2&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section3"&gt;메뉴3&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section4"&gt;메뉴4&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section5"&gt;메뉴5&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section6"&gt;메뉴6&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section7"&gt;메뉴7&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section8"&gt;메뉴8&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section9"&gt;메뉴9&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;
+&lt;!-- //parallax__nav --&gt;
+
+&lt;main id="parallax__cont"&gt;
+    &lt;div id="contents"&gt;
+        &lt;section id="section1" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;01&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section1&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc"&gt;결과도 중요하지만, 과정을 더 중요하게 생각한다.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- //section1 --&gt;
+        &lt;section id="section2" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;02&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section2&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc"&gt;비가 온 다음에는 맑은 날씨가 된다.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- //section2 --&gt;
+        &lt;section id="section3" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;03&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section3&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc"&gt;정직한 사람이 없다고 말하는 사람이야말로 가장 정직하지 못한 사람이다.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- //section3 --&gt;
+        &lt;section id="section4" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;04&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section4&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc"&gt;세상은 고통으로 가득하지만, 그것을 이겨내는 일로도 가득하다.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- //section4 --&gt;
+        &lt;section id="section5" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;05&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section5&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc"&gt;무례한 사람의 행위는 내 행실을 바로 잡게 해주는 스승이다.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- //section5 --&gt;
+        &lt;section id="section6" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;06&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section6&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc"&gt;겸손한 자만이 다스릴 것이요, 애써 일하는 자만이 가질 것이다.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- //section6 --&gt;
+        &lt;section id="section7" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;07&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section7&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc"&gt;말도 아름다운 꽃처럼 그 색깔을 지니고 있다.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- //section7 --&gt;
+        &lt;section id="section8" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;08&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section8&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc"&gt;시간은 위대한 스승이기는 하지만 불행히도 자신의 모든 제자를 죽인다.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- //section8 --&gt;
+        &lt;section id="section9" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;09&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section9&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc"&gt;사랑은 두 사람이 마주 쳐다보는 것이 아니라 함께 같은 방향을 바라보는 것이다.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- //section9 --&gt;
+    &lt;/div&gt;
+&lt;/main&gt;
+&lt;!-- //main --&gt;
+
+&lt;aside id="parallax__info"&gt;
+    &lt;div class="scroll"&gt;scrollTop : &lt;span&gt;0&lt;/span&gt;px&lt;/div&gt;
+&lt;/aside&gt;</code></pre>
+                </div>
+                <h2 class="t_tit2">CSS 소스</h2>
+                <p class="t_desc">CSS로 스타일 속성을 추가해 주었습니다. 메뉴와 info 박스는 position: fixed를 사용하여 화면에 고정되게 설정해 주었습니다.</p>
+                <div class="t_code">
+                    <pre><code class="language-css">/* parallaxType */
+/* parallax__nav */
+#parallax__nav {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    z-index: 2000;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 20px 30px;
+    border-radius: 50px;
+}
+#parallax__nav li {
+    display: inline;
+    margin: 0 5px;
+}
+#parallax__nav li a {
+    display: inline-block;
+    height: 30px;
+    padding: 5px 10px;
+    text-align: center;
+    line-height: 30px;
+}
+#parallax__nav li.active a {
+    background: #fff;
+    color: #000;
+    border-radius: 20px;
+    box-sizing: content-box;
+}
+#parallax__cont {
+    max-width: 1600px;
+    width: 98%;
+    margin: 0 auto;
+    /* background-color: rgba(255, 255, 255, 0.1); */
+}
+.content__item {
+    width: 1000px;
+    max-width: 70vw;
+    margin: 30vw auto;
+    /* background-color: rgba(255, 255, 255, 0.3); */
+    text-align: left;
+    margin-right: 0;
+    position: relative;
+    padding-top: 7vw;
+}
+/* nth-child의 괄호 안에는 수식을 사용할 수 있다, even = 2n (짝수만 선택) */
+.content__item:nth-child(even) {
+    margin-left: 0;
+    text-align: right;
+}
+.content__item__num {
+    font-size: 35vw;
+    font-family: "Lato";
+    font-weight: 100;
+    position: absolute;
+    left: -5vw;
+    top: -16vw;
+    opacity: 0.07;
+    z-index: -2;
+}
+.content__item:nth-child(even) .content__item__num {
+    /* left 값 초기화 */
+    left: auto;
+    right: -5vw;
+}
+.content__item__title {
+    font-weight: 400;
+    /* 첫 글자만 대문자 */
+    text-transform: capitalize;
+}
+.content__item__imgWrap {
+    width: 100%;
+    padding-bottom: 56.25%;
+    background: #000;
+    position: relative;
+    overflow: hidden;
+    z-index: -1;
+}
+.content__item__img {
+    position: absolute;
+    background-image: url(../assets/img/effect_bg20-min.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    width: 110%;
+    height: 110%;
+    left: -5%;
+    top: -5%;
+    filter: saturate(0%);
+    transition: all 1s;
+}
+.content__item:nth-child(1) .content__item__img {
+    background-image: url(../assets/img/effect_bg18-min.jpg);
+}
+.content__item:nth-child(2) .content__item__img {
+    background-image: url(../assets/img/effect_bg17-min.jpg);
+}
+.content__item:nth-child(3) .content__item__img {
+    background-image: url(../assets/img/effect_bg16-min.jpg);
+}
+.content__item:nth-child(4) .content__item__img {
+    background-image: url(../assets/img/effect_bg15-min.jpg);
+}
+.content__item:nth-child(5) .content__item__img {
+    background-image: url(../assets/img/effect_bg14-min.jpg);
+}
+.content__item:nth-child(6) .content__item__img {
+    background-image: url(../assets/img/effect_bg13-min.jpg);
+}
+.content__item:nth-child(7) .content__item__img {
+    background-image: url(../assets/img/effect_bg19-min.jpg);
+}
+.content__item:nth-child(8) .content__item__img {
+    background-image: url(../assets/img/effect_bg20-min.jpg);
+}
+.content__item:nth-child(9) .content__item__img {
+    background-image: url(../assets/img/effect_bg04-min.jpg);
+}
+.content__item__desc {
+    font-size: 4vw;
+    line-height: 1.4;
+    margin-top: -5vw;
+    margin-left: -4vw;
+    word-break: keep-all;
+}
+.content__item:nth-child(even) .content__item__desc {
+    margin-left: auto;
+    margin-right: -4vw;
+}
+#parallax__info {
+    position: fixed;
+    left: 10px;
+    bottom: 10px;
+    z-index: 2000;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+#parallax__info li,
+.scrollTop {
+    line-height: 1.4;
+}
+
+@media (max-width: 800px) {
+    #parallax__cont {
+        margin-top: 70vw;
+    }
+    #parallax__nav {
+        padding: 10px;
+        right: auto;
+        left: 10px;
+        top: 10px;
+        border-radius: 5px;
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+    #parallax__nav li {
+        display: block;
+        margin: 5px;
+    }
+    #parallax__nav li a {
+        font-size: 14px;
+        padding: 5px;
+        border-radius: 5px;
+        height: auto;
+        line-height: 1;
+    }
+    #parallax__nav li.active a {
+        border-radius: 5px;
+    }
+}
+#parallax__dot {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10000;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 20px 10px;
+    border-radius: 30px;
+}
+#parallax__dot li {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin: 12px 8px;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0);
+    transition: box-shadow 0.2s ease;
+}
+#parallax__dot li a {
+    background: #fff;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    transition: transform 0.2s ease;
+}
+#parallax__dot li.active {
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 1);
+}
+#parallax__dot li.active a {
+    transform: scale(0.4);
+}
+#parallax__dot li span {
+    display: none;
+}
+</code></pre>
+                </div>
+                <h2 class="t_tit2">JAVASCRIPT 소스</h2>
+                <table class="t_table">
+                    <tbody>
+                        <tr>
+                            <td>preventDefault()</td>
+                            <td>클릭 시 페이지 이동 이벤트를 제거합니다.</th>
+                        </tr>
+                        <tr>
+                            <td>Attribute()</td>
+                            <td>선택한 요소의 특정 속성 값을 가져옵니다.</th>
+                        </tr>
+                        <tr>
+                            <td>scrollIntoView()</td>
+                            <td>특정 요소의 위치로 스크롤을 이동시킵니다.
+                                <br>behavior: smooth 옵션을 추가하면 부드럽게 이동합니다.
+                            </th>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="t_code">
+                    <pre><code class="language-js">document.querySelectorAll("#parallax__dot a").forEach((el) => {
+    el.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        document.querySelector(el.getAttribute("href")).scrollIntoView({ behavior: "smooth" });
+    });
+});
+
+window.addEventListener("scroll", () => {
+    let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
+
+    document.querySelector("#parallax__info span").innerText = Math.floor(scrollTop);
+    document.querySelectorAll(".content__item").forEach((e, i) => {
+        if (scrollTop >= e.offsetTop - window.innerHeight - 10) {  /* 오차를 줄이기 위해 -10 */
+        /* 스크롤의 현재 위치 >= 각 섹션의 위치 - 브라우저의 높이 */
+            document.querySelectorAll("#parallax__dot li").forEach((li) => {
+                li.classList.remove("active"); /* 각 섹션에 도착하면 active 클래스를 제거 */
+            });
+            document.querySelector("#parallax__dot li:nth-child(" + (i + 1) + ")").classList.add("active");
+        }
+    });
+});
+
+// window.scroll(0, 1000);
+// window.scroll({ left: 0, top: 2000 });
+// window.scroll({ left: 0, top: 2000, behivor: "smooth" });
+
+// window.scrollTo(0, 1000);
+// window.scrollTo({ left: 0, top: 2000 });
+// window.scrollTo({ left: 0, top: 2000, behivor: "smooth" });
+
+// 위 두가지 방법은 같은 값이 나옴 (스크롤값 1000으로 이동)
+
+// window.scrollBy(0, 1000); /* 현재 위치 기준으로 1000씩 다운 */
+// window.scrollBy({ left: 0, top: 2000 });
+// window.scrollBy({ left: 0, top: 2000, behivor: "smooth" });
+</code></pre>
+                </div>
+                <hr />
+                <h2 class="t_tit2">결과</h2>
+                <p class="t_desc">반응형으로는 스크롤의 범위에 오차가 생기지만, 지금으로서는 고칠 방법이 없으니 태클은 받지 않겠습니다.</p>
+                <div class="t_iframe" style="min-height: 1000px; padding-top: 0px">
+                    <iframe src="https://mj0614k.github.io/Coding/javascript/effect/parallaxEffect02.html"></iframe>
+                </div>
+
+                <div class="t_link">
+                    <a href="https://github.com/mj0614k/Coding/blob/main/javascript/effect/parallaxEffect02.html">원본 소스 보기</a>
+                    <a href="https://mj0614k.github.io/Coding/javascript/effect/parallaxEffect02">원본 사이트 보기</a>
+                </div>
+            </div>
+        </main>
+        <!-- //main -->
+
+        <footer id="footer">
+            <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+        </footer>
+        <!-- //footer -->
+
+        <script src="../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>

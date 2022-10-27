@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>자바스크립트 : 검색 효과</title>
+
+        <link rel="stylesheet" href="../assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+
+    <body>
+        <header id="header">
+            <h1><a href="../index.html">Javascript</a></h1>
+        </header>
+        <!-- //header -->
+
+        <main id="main">
+            <div class="document">
+                <h2 class="t_tit">자바스크립트 : 마우스 효과 : 텍스트 효과</h2>
+                <p class="t_desc">
+                    자바스크립트의 다양한 효과들 중, 마우스 효과입니다. 이번에는 이미지 위에
+                    기울어진 형태의 텍스트를 만들고, 마우스를 움직일 때마다 텍스트가 움직이도록
+                    텍스트 효과를 작업해 보도록 하겠습니다.
+                </p>
+                <hr />
+                <h2 class="t_tit2">1. HTML 소스</h2>
+                <h3 class="t_tit3">1-1) 텍스트 상자 만들기</h3>
+                <div class="t_code">
+                    <pre><code class="language-html">&lt;div class="mouse__text"&gt;
+    &lt;div class="line"&gt;
+        &lt;div class="left"&gt;
+            &lt;div class="spanWrap"&gt;
+                &lt;span class="spanSlow"&gt;Pain Fast&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="right"&gt;
+            &lt;div class="spanWrap"&gt;
+                &lt;span class="spanSlow"&gt;Pain Fast&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="line"&gt;
+        &lt;div class="left"&gt;
+            &lt;div class="spanWrap"&gt;
+                &lt;span class="spanFast"&gt;is pleasure.&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="right"&gt;
+            &lt;div class="spanWrap"&gt;
+                &lt;span class="spanFast"&gt;is pleasure.&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="line"&gt;
+        &lt;div class="left"&gt;
+            &lt;div class="spanWrap"&gt;
+                &lt;span class="spanSlow"&gt;지나간 고통은&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="right"&gt;
+            &lt;div class="spanWrap"&gt;
+                &lt;span class="spanSlow"&gt;지나간 고통은&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="line"&gt;
+        &lt;div class="left"&gt;
+            &lt;div class="spanWrap"&gt;
+                &lt;span class="spanFast"&gt;쾌락이다.&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="right"&gt;
+            &lt;div class="spanWrap"&gt;
+                &lt;span class="spanFast"&gt;쾌락이다.&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                </div>
+                <p class="t_box">
+                    오늘은 HTML의 구조도 중요하기 때문에 함께 살펴보겠습니다. 텍스트 상자는 하나처럼
+                    보이지만, 사실은 다른 각도로 기울어진 두 개의 상자가 있고, 두 상자가 만나는 지점
+                    이후로는 <i>overflow: hidden</i> 속성을 사용하여 숨겨준 것입니다. <br />총 네
+                    줄의 텍스트를 작성할 것이기 때문에 line 박스를 네 개 만들어 줍니다. 그 안에는
+                    각각 left, right 박스를 만들어 줍니다. 그 안에 span으로 텍스트가 들어가 있는
+                    구조입니다.
+                </p>
+                <h2 class="t_tit2">2. CSS 소스</h2>
+                <h3 class="t_tit3">2-1) text box</h3>
+                <div class="t_code">
+                    <pre><code class="language-css">.mouse__text .line {
+    width: 100%;
+    display: flex;
+}
+.mouse__text .line .left {
+    width: 50vw;
+    color: orange;
+    overflow: hidden;
+    transform: skew(0deg, -15deg);
+}
+.mouse__text .line .left .spanWrap {
+    width: 100vw;
+    text-align: center;
+}
+.mouse__text .line .right {
+    width: 50vw;
+    overflow: hidden;
+    transform: skew(0deg, 15deg);
+}
+.mouse__text .line .right .spanWrap {
+    width: 100vw;
+    text-align: center;
+    transform: translateX(-50vw);
+}
+.mouse__text span {
+    display: inline-block;
+}
+</code></pre>
+                </div>
+                <p class="t_box">
+                    텍스트 상자들을 만들었다면 CSS 속성을 적용해 줍니다.<br />
+                    <i>transform: skew</i> 속성은 요소의 경사를 변형시킬 때 사용합니다. left, right
+                    박스에 각각 적용시켜 줍니다. 요소를 벗어나는 부분은 overflow: hidden을 사용하여
+                    숨겨줍니다.
+                </p>
+                <h3 class="t_tit3">2-2) cursor</h3>
+                <div class="t_code">
+                    <pre><code class="language-css">.mouse__cursor {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    z-index: 9999;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.9);
+    user-select: none;
+    pointer-events: none;
+    mix-blend-mode: difference;
+    transition: transform 0.3s;
+}
+.mouse__cursor.active {
+    transform: scale(5);
+}
+</code></pre>
+                </div>
+                <p class="t_box">
+                    마우스 커서에도 스타일을 적용해 줍니다. 크기가 20px인 원 모양으로 만들어주고,
+                    <i>mix-blend-mode: difference</i> 속성을 사용하여 이미지에 마우스를 오버했을 때
+                    색상이 변화하는 반전 효과도 부여해 주었습니다. active 클래스는 텍스트 위에
+                    마우스를 오버했을 때, 반전 효과가 더 잘 나타나게끔 크기를 5배 키우기 위해 작업해
+                    주었습니다.
+                </p>
+                <h2 class="t_tit2">3. JAVASCRIPT 소스</h2>
+                <h3 class="t_tit3">3-1) mousemove 이벤트 만들기</h3>
+                <div class="t_code">
+                    <pre><code class="language-js">const mouseMove = (e) => {
+    let positionSlow = (e.pageX - window.innerWidth / 2) * 0.1;
+    let positionFast = (e.pageX - window.innerWidth / 2) * 0.2;
+
+    gsap.to(".spanSlow", { duration: 0.4, x: positionSlow });
+    gsap.to(".spanFast", { duration: 0.4, x: positionFast });
+    gsap.to(".mouse__cursor", { duration: 0.3, left: e.pageX - 10, top: e.pageY - 10 });
+};
+window.addEventListener("mousemove", mouseMove);
+</code></pre>
+                </div>
+                <p class="t_box">
+                    먼저, mousemove 이벤트를 만들어 줍니다. positionSlow, positionFast 변수는
+                    이미지의 움직임 정도를 결정합니다. 텍스트가 이미지 영역을 벗어나지 않도록,
+                    window.innerWidth / 2만큼을 빼 주었습니다. Slow는 살짝 느리게, Fast는 살짝
+                    빠르게 움직이도록 각각 0.1, 0.2를 곱해 주었습니다.<br />
+                    이후, gsap를 사용하여 부드럽게 움직이도록 만들어 줍니다. 마우스 커서의 움직임도
+                    함께 작업해 주었습니다. 10을 빼는 이유는 마우스 커서의 크기가 20px, 20px이기
+                    때문입니다.
+                </p>
+                <h3 class="t_tit3">3-2) mouseenter 이벤트 만들기</h3>
+                <div class="t_code">
+                    <pre><code class="language-js">const text = document.querySelectorAll(".spanSlow");
+const text2 = document.querySelectorAll(".spanFast");
+</code></pre>
+                </div>
+                <p class="t_box">
+                    이제 텍스트 위에 마우스를 오버하면 마우스가 커지도록 작업해 봅시다. 각각의
+                    텍스트를 먼저 선택해 줍니다. spanSlow, spanFast는 각각 4개씩 존재하므로,
+                    querySelectorAll을 사용해야 합니다.
+                </p>
+                <div class="t_code">
+                    <pre><code class="language-js">text.forEach((e) => {
+    e.addEventListener("mouseenter", () => {
+        document.querySelector(".mouse__cursor").classList.add("active");
+    });
+    e.addEventListener("mouseleave", () => {
+        document.querySelector(".mouse__cursor").classList.remove("active");
+    });
+});
+text2.forEach((e) => {
+    e.addEventListener("mouseenter", () => {
+        document.querySelector(".mouse__cursor").classList.add("active");
+    });
+    e.addEventListener("mouseleave", () => {
+        document.querySelector(".mouse__cursor").classList.remove("active");
+    });
+});
+</code></pre>
+                </div>
+                <p class="t_box">
+                    querySelectorAll을 사용했기 때문에, forEach문으로 작업해 줍니다. text를 각각
+                    선택하고, addEventListener로 mouseenter, mouseleave 이벤트를 만들어 줍니다.<br />
+                    마우스가 텍스트 위에 위치했을 때(<i>mouseenter</i>)는 커서에 active(transform:
+                    scale(5)) 클래스를 추가해 주고,<br />마우스가 텍스트를 벗어났을
+                    때(<i>mouseleave</i>)는 커서에 active 클래스를 제거해 주면 됩니다.
+                </p>
+
+                <hr />
+                <h2 class="t_tit2">결과</h2>
+                <div class="t_iframe" style="min-height: 800px; padding-top: 0px">
+                    <iframe
+                        src="https://mj0614k.github.io/Coding/javascript/effect/mouseEffect06.html"
+                    ></iframe>
+                </div>
+
+                <div class="t_link">
+                    <a
+                        href="https://github.com/mj0614k/Coding/blob/main/javascript/effect/mouseEffect06.html"
+                        >원본 소스 보기</a
+                    >
+                    <a href="https://mj0614k.github.io/Coding/javascript/effect/mouseEffect06"
+                        >원본 사이트 보기</a
+                    >
+                </div>
+            </div>
+        </main>
+        <!-- //main -->
+
+        <footer id="footer">
+            <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+        </footer>
+        <!-- //footer -->
+
+        <script src="../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>

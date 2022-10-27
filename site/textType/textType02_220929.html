@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>텍스트 유형02</title>
+    <style>
+        /* fonts */
+        @import url('https://webfontworld.github.io/gmarket/GmarketSans.css');
+
+        .gmark {
+            font-family: 'GmarketSans';
+            font-weight: 300;
+        }
+
+        /* reset */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: normal;
+        }
+
+        /* common */
+        .container {
+            width: 1160px;
+            padding: 0 20px;
+            margin: 0 auto;
+        }
+
+        .section {
+            padding: 120px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .section>h2 {
+            font-size: 50px;
+            line-height: 1;
+            text-align: center;
+            margin-bottom: 70px;
+        }
+        .section>p {
+            font-size: 22px;
+            font-weight: 300;
+            color: #666;
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        /* textType02 */
+        #title {
+            width: 308px;
+        }
+        
+        #title .title__sub {
+            font-size: 12px;
+            background-color: #FF0000;
+            color: white;
+            width: 152px;
+            height: 24px;
+            border-radius: 20px;
+            text-align: center;
+            line-height: 24px;
+            font-weight: normal;
+            margin-bottom: 10px;
+        }
+        #title .title__title {
+            font-weight: bold;
+            line-height: 120%;
+            font-size: 50px;
+            margin-bottom: 35px;
+        }
+        #title .title__desc {
+            font-weight: normal;
+            font-size: 18px;
+            line-height: 140%;
+        }
+        #contents {
+            display: flex;
+            flex-direction: column;
+        }
+        #contents .card__top {
+            display: flex;
+            margin-bottom: 30px;
+        }
+        #contents .card__bottom {
+            display: flex;
+        }
+        #contents .card {
+            width: 394px;
+            height: 209px;
+        }
+        #contents .card.right {
+            margin-right: 20px;
+        }
+        #contents .card .icon {
+            width: 60px;
+            height: 60px;
+            background: url(img/text01_icon01.svg);
+            margin-left: 20px;
+            margin-bottom: 10px;
+            border-radius: 50%;
+        }
+        #contents .card .icon.icon02 {
+            background-position-x: -60px;
+        }
+        #contents .card .icon.icon03 {
+            background-position-x: -120px;
+        }
+        #contents .card .icon.icon04 {
+            background-position-x: -300px;
+        }
+        #contents .card .card__title {
+            margin-left: 20px;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        #contents .card .card__desc {
+            margin-left: 20px;
+            font-size: 18px;
+            line-height: 140%;
+            color: #666;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3; 
+            -webkit-box-orient: vertical;
+        }
+    </style>
+</head>
+<body>
+    <section id="textType02" class="container section gmark">
+        <div id="title">
+            <p class="title__sub">TEXT TYPE02</p>
+            <h2 class="title__title">귀여운 동물들 전문과정</h2>
+            <p class="title__desc">세상의 귀여운 댕댕이... 귀여운 고양이...
+                귀여운 다람쥐... 귀여운 고라니... 
+                귀여운 알파카... 귀여운 고릴라...</p>
+        </div>
+        <div id="contents">
+            <div class="card__top">   
+                <div class="card right">
+                    <div class="icon"></div>
+                    <h2 class="card__title">세상의 귀여운 댕댕이</h2>
+                    <p class="card__desc">귀, 귀, 귀 자로 끝나는 말은 왼쪽 귀, 오른쪽 귀, 내 귀, 남의 귀, 강아지 귀, 고양이 귀, 고라니 귀, 알파카 귀, 고릴라 귀, 그리고 또... 세줄효과 넣어서 더 써야 하는데...</p>
+                </div>
+                <div class="card">
+                    <div class="icon icon02"></div>
+                    <h2 class="card__title">세상의 귀여운 고양이</h2>
+                    <p class="card__desc">귀, 귀, 귀 자로 끝나는 말은 왼쪽 귀, 오른쪽 귀, 내 귀, 남의 귀, 강아지 귀, 고양이 귀, 고라니 귀, 알파카 귀, 고릴라 귀, 그리고 또... 세줄효과 넣어서 더 써야 하는데...</p>
+                </div>
+            </div>
+            <div class="card__bottom">
+                <div class="card right">
+                    <div class="icon icon03"></div>
+                    <h2 class="card__title">세상의 귀여운 다람쥐</h2>
+                    <p class="card__desc">귀, 귀, 귀 자로 끝나는 말은 왼쪽 귀, 오른쪽 귀, 내 귀, 남의 귀, 강아지 귀, 고양이 귀, 고라니 귀, 알파카 귀, 고릴라 귀, 그리고 또... 세줄효과 넣어서 더 써야 하는데...</p>
+                </div>
+                <div class="card">
+                    <div class="icon icon04"></div>
+                    <h2 class="card__title">세상의 귀여운 고라니</h2>
+                    <p class="card__desc">귀, 귀, 귀 자로 끝나는 말은 왼쪽 귀, 오른쪽 귀, 내 귀, 남의 귀, 강아지 귀, 고양이 귀, 고라니 귀, 알파카 귀, 고릴라 귀, 그리고 또... 세줄효과 넣어서 더 써야 하는데...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

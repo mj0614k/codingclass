@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CSS 애니메이션 : 통통 튀는 글자</title>
+
+        <link rel="stylesheet" href="../../javascript/assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+
+    <body>
+        <main id="main">
+            <div class="document">
+                <h2 class="t_tit">CSS 애니메이션 : 통통 튀는 글자</h2>
+                <p class="t_desc">
+                    오늘은 글자들이 딜레이를 두고 통통 튀는 듯한 애니메이션이 나타나도록 작업해
+                    보겠습니다. 작업해볼 애니메이션은 다음과 같습니다.
+                </p>
+                <p
+                    class="codepen"
+                    data-height="400"
+                    data-default-tab="result"
+                    data-slug-hash="VwxWobm"
+                    data-user="mj0614k"
+                    style="
+                        height: 300px;
+                        box-sizing: border-box;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border: 2px solid;
+                        margin: 1em 0;
+                        padding: 1em;
+                    "
+                >
+                    <span
+                        >See the Pen
+                        <a href="https://codepen.io/mj0614k/pen/VwxWobm"> Text animation02</a> by
+                        mj0614k (<a href="https://codepen.io/mj0614k">@mj0614k</a>) on
+                        <a href="https://codepen.io">CodePen</a>.</span
+                    >
+                </p>
+                <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+                <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+                <hr />
+                <h2 class="t_tit2">1. HTML 소스</h2>
+                <div class="t_code">
+                    <pre><code class="language-html">&lt;h1&gt;
+    &lt;span&gt;M&lt;/span&gt;
+    &lt;span&gt;I&lt;/span&gt;
+    &lt;span&gt;N&lt;/span&gt;
+    &lt;span&gt;J&lt;/span&gt;
+    &lt;span&gt;E&lt;/span&gt;
+    &lt;span&gt;O&lt;/span&gt;
+    &lt;span&gt;N&lt;/span&gt;
+    &lt;span&gt;G&lt;/span&gt;
+&lt;/h1&gt;
+</code></pre>
+                </div>
+                <p class="t_desc">
+                    h1 태그 안에 원하는 글자 수만큼 span 태그를 작성하고, 글자를 한 자씩 입력해
+                    줍니다.
+                </p>
+                <h2 class="t_tit2">2. CSS 소스</h2>
+                <div class="t_code">
+                    <pre><code class="language-css">html, body {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(140deg, skyblue 0%, plum 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h1 {
+    height: 100px;
+}
+h1 span{
+    font-family: 'serif';
+    font-size: 80px;
+    color: #fff;
+    position: relative;
+    top: 20px;
+    display: inline-block;
+    -webkit-font-smoothing: antialiased;
+    text-shadow: 0 1px 0 #ccc,
+                          0 2px 0 #ccc,
+                          0 3px 0 #ccc,
+                          0 4px 0 #ccc,
+                          0 5px 0 #ccc,
+                          0 6px 0 transparent,
+                          0 7px 0 transparent,
+                          0 8px 0 transparent,
+                          0 9px 0 transparent,
+                          0 10px 10px rgba(0,0,0,0.4);
+    animation: bounce 0.3s ease infinite alternate;
+}
+h1 span:nth-child(2) {
+    animation-delay: 0.1s;
+}
+h1 span:nth-child(3) {
+    animation-delay: 0.2s;
+}
+h1 span:nth-child(4) {
+    animation-delay: 0.3s;
+}
+h1 span:nth-child(5) {
+    animation-delay: 0.4s;
+}
+h1 span:nth-child(6) {
+    animation-delay: 0.5s;
+}
+h1 span:nth-child(7) {
+    animation-delay: 0.6s;
+}
+h1 span:nth-child(8) {
+    animation-delay: 0.7s;
+}
+    
+@keyframes bounce {
+    100% {
+        top: -20px;
+        text-shadow: 0 1px 0 #ccc,
+                              0 2px 0 #ccc,
+                              0 3px 0 #ccc,
+                              0 4px 0 #ccc,
+                              0 5px 0 #ccc,
+                              0 6px 0 transparent,
+                              0 7px 0 transparent,
+                              0 8px 0 transparent,
+                              0 9px 0 transparent,
+                              0 50px 25px rgba(0,0,0,0.4);
+    }
+}
+</code></pre>
+                </div>
+                <p class="t_desc">
+                    배경색은 예쁘게 그라데이션을 해 줍니다. 글자들이 가운데에 위치하도록 정렬해
+                    주고, 그림자를 만들어 줍니다.<br />
+                    <i>font-smoothing: antialiased</i> 속성을 사용하면 글자를 부드럽게 만들어
+                    줍니다.<br />
+                    keyframes를 사용하여 위치와 그림자 애니메이션을 작업해 줍니다.
+                </p>
+                <p class="t_desc">위의 HTML, CSS 소스를 합치면 애니메이션이 완성됩니다. 예쁘죠?</p>
+            </div>
+        </main>
+        <!-- //main -->
+
+        <footer id="footer">
+            <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+        </footer>
+        <!-- //footer -->
+
+        <script src="../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>

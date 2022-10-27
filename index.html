@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="mj0614k" />
+    <meta
+      name="description"
+      content="웹 퍼블리셔를 위한 정보 공유 사이트입니다."
+    />
+    <meta
+      name="keywords"
+      content="민정, 웹 퍼블리셔, 웹 표준, 웹 접근성, 화려한 디자인, mj0614k, publisher, css3, html, markup, design"
+    />
+    <title>김민정 | KimMinJeong</title>
+
+    <!-- css -->
+    <link href="assets/css/bootstrapTheme.css" rel="stylesheet" />
+    <link href="assets/css/custom.css" rel="stylesheet" />
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="assets/css/isotope.css" rel="stylesheet" />
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+
+    <!-- 파비콘 -->
+    <link rel="shortcut icon" href="assets/ico/favicon.png" />
+    <link
+      rel="apple-touch-icon-precomposed"
+      href="assets/ico/favicon-152.png"
+    />
+    <link rel="icon" href="assets/ico/favicon.png" />
+    <link rel="icon" href="assets/ico/favicon-16.png" sizes="16x16" />
+    <link rel="icon" href="assets/ico/favicon-32.png" sizes="32x32" />
+    <link rel="icon" href="assets/ico/favicon-48.png" sizes="48x48" />
+    <link rel="icon" href="assets/ico/favicon-64.png" sizes="64x64" />
+    <link rel="icon" href="assets/ico/favicon-128.png" sizes="128x128" />
+
+    <!-- Facebook meta tags -->
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="민정" />
+    <meta
+      property="og:url"
+      content="http://richclub8.dothome.co.kr/responsive/html5/index.html"
+    />
+    <meta
+      property="og:image"
+      content="http://richclub8.dothome.co.kr/assets/ico/icon.png"
+    />
+    <meta property="og:site_name" content="민정" />
+    <meta property="og:description" content="웹과 관련된 정보를 제공합니다." />
+
+    <!-- twitter meta tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@mj0614k" />
+    <meta name="twitter:title" content="민정" />
+    <meta name="twitter:description" content="웹과 관련된 정보를 제공합니다." />
+    <meta
+      property="twitter:image"
+      content="http://richclub8.dothome.co.kr/assets/ico/icon.png"
+    />
+
+    <!-- 웹 폰트 -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Nanum+Gothic"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nanum+Brush+Script"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Abel"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Gaegu&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.../assets2/js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style>
+      #clock {
+        display: block;
+      }
+      .link1 {
+        background: #fff;
+        left: 50%;
+        transform: translatex(-50%);
+        color: #000;
+        display: inline-block;
+        border-radius: 5px;
+        font-weight: bold;
+        padding: 10px 30px !important;
+        height: auto !important;
+        box-sizing: border-box;
+        width: auto !important;
+        font-size: 20px !important;
+        margin-top: 36px !important;
+      }
+      .link2 {
+        background: #fff;
+        left: 50%;
+        transform: translatex(-50%);
+        color: #000;
+        display: inline-block;
+        border-radius: 5px;
+        font-weight: bold;
+        padding: 10px 30px !important;
+        height: auto !important;
+        box-sizing: border-box;
+        width: auto !important;
+        font-size: 20px !important;
+        margin-top: 86px !important;
+      }
+      .disqus {
+        margin-right: 20px;
+        margin-top: 40px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- nav -->
+    <div id="top-nav" class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button
+            type="button"
+            class="btn btn-navbar"
+            data-toggle="collapse"
+            data-target=".nav-collapse"
+          >
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="index.html">MJ's</a>
+          <div class="nav-collapse collapse pull-right">
+            <ul class="nav">
+              <li><a href="https://mo0647.tistory.com">Blog</a></li>
+              <li><a href="https://codepen.io/mj0614k">Codepen</a></li>
+              <li>
+                <a href="https://github.com/mj0614k/codingclass">Github</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- //nav -->
+
+    <!-- header -->
+    <div id="header">
+      <div class="container">
+        <div class="row">
+          <div class="span12" style="text-align: center">
+            <div class="header_tit">
+              <a href="https://mo0647.tistory.com"
+                ><img src="assets/img/png-main.png" alt="main"
+              /></a>
+              <h1>Professional web publishers</h1>
+            </div>
+            <div class="header_icon">
+              <ul>
+                <li>
+                  <a href="https://codepen.io/mj0614k" target="_blank"
+                    ><i class="fa fa-codepen" aria-hidden="true"></i
+                    ><span>codepen</span></a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://github.com/mj0614k/codingclass"
+                    target="_blank"
+                    ><i class="fa fa-github" aria-hidden="true"></i
+                    ><span>github</span></a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- //header -->
+
+    <!-- contents_tit -->
+    <div id="contents_tit">
+      <div class="titt">
+        <p><a href="#" class="tit_btn">&quot;나는 김민정이다!&quot;</a></p>
+      </div>
+    </div>
+    <!-- //contents_tit -->
+
+    <!-- contents -->
+    <div id="customizing">
+      <div class="container">
+        <div class="row">
+          <div id="options" class="gridly">
+            <ul class="filter option-set" data-filter-group="color">
+              <li>
+                <a
+                  href="#filter-color-any"
+                  data-filter-value=""
+                  class="selected"
+                  >ALL</a
+                >
+              </li>
+              <li class="webstandard">
+                <a href="#filter-color-webstandard" data-filter-value=".class"
+                  >CLASS</a
+                >
+              </li>
+              <li class="webstandard">
+                <a href="#filter-color-webstandard" data-filter-value=".script"
+                  >SCRIPT</a
+                >
+              </li>
+              <li class="webstandard">
+                <a href="#filter-color-webstandard" data-filter-value=".layout"
+                  >LAYOUT</a
+                >
+              </li>
+              <li class="webstandard">
+                <a href="#filter-color-webstandard" data-filter-value=".refer"
+                  >REFERENCE</a
+                >
+              </li>
+              <li class="webstandard">
+                <a href="#filter-color-webstandard" data-filter-value=".site"
+                  >SITE</a
+                >
+              </li>
+              <li class="webstandard">
+                <a
+                  href="#filter-color-webstandard"
+                  data-filter-value=".animation"
+                  >ANIMATION</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- icon : https://www.flaticon.com/kr/packs/pets-105 -->
+        <div class="row" id="middle" style="margin-left: 16px">
+          <div id="container" class="clearfix">
+            <!-- box -->
+            <section class="color-shape class">
+              <a href="class/index.html">
+                <div class="image-wrap">
+                  <div class="hover-wrap">
+                    <span class="overlay-img-donut">CLASS</span>
+                    <span class="overlay-text-thumb-donut">클래스</span>
+                    <span class="overlay-text-thumb1-donut">클래스</span>
+                    <span class="overlay-text-thumb2-donut">CLASS</span>
+                  </div>
+                  <img src="assets/img/png-dog.png" alt="portfolio" />
+                  <div class="img-text donutImg">
+                    <h5>CLASS</h5>
+                    <p>클래스</p>
+                    <span>CLASS</span>
+                  </div>
+                </div>
+              </a>
+            </section>
+            <!-- //box -->
+            <!-- box -->
+            <section class="color-shape script">
+              <div class="image-wrap">
+                <div class="hover-wrap">
+                  <span class="overlay-img-donut">JAVASCRIPT</span>
+                  <a
+                    href="javascript/index.html"
+                    class="overlay-text-thumb-donut bts"
+                    >바로가기</a
+                  >
+                  <a
+                    href="https://github.com/mj0614k/codingclass/tree/main/javascript"
+                    class="overlay-text-thumb1-donut bts"
+                    >소스 보기</a
+                  >
+                  <span class="overlay-text-thumb2-donut">JAVASCRIPT</span>
+                </div>
+                <img src="assets/img/png-rabbit.png" alt="portfolio" />
+                <div class="img-text donutImg">
+                  <h5>JAVASCRIPT</h5>
+                  <p>자바스크립트</p>
+                  <span>JAVASCRIPT</span>
+                </div>
+              </div>
+            </section>
+            <!-- //box -->
+            <!-- box -->
+            <section class="color-shape refer">
+              <div class="image-wrap">
+                <div class="hover-wrap">
+                  <span class="overlay-img-donut">HTML</span>
+                  <a
+                    href="html/alphabet.html"
+                    class="overlay-text-thumb-donut bts"
+                    >바로가기</a
+                  >
+                  <a
+                    href="https://github.com/mj0614k/codingclass/tree/main/html"
+                    class="overlay-text-thumb1-donut bts"
+                    >소스 보기</a
+                  >
+                  <span class="overlay-text-thumb2-donut">REFERENCE</span>
+                </div>
+                <img src="assets/img/png-axolotl.png" alt="portfolio" />
+                <div class="img-text donutImg">
+                  <h5>HTML</h5>
+                  <p>HTML</p>
+                  <span>REFERENCE</span>
+                </div>
+              </div>
+            </section>
+            <!-- //box -->
+
+            <!-- box -->
+            <section class="color-shape refer">
+              <div class="image-wrap">
+                <div class="hover-wrap">
+                  <span class="overlay-img-donut">CSS</span>
+                  <a href="css/index.html" class="overlay-text-thumb-donut bts"
+                    >바로가기</a
+                  >
+                  <a
+                    href="https://github.com/mj0614k/codingclass/tree/main/css"
+                    class="overlay-text-thumb1-donut bts"
+                    >소스 보기</a
+                  >
+                  <span class="overlay-text-thumb2-donut">REFERENCE</span>
+                </div>
+                <img src="assets/img/png-cat.png" alt="portfolio" />
+                <div class="img-text donutImg">
+                  <h5>CSS</h5>
+                  <p>CSS</p>
+                  <span>REFERENCE</span>
+                </div>
+              </div>
+            </section>
+            <!-- //box -->
+            <!-- box -->
+            <section class="color-shape site">
+              <div class="image-wrap">
+                <div class="hover-wrap">
+                  <span class="overlay-img-donut">SITE</span>
+                  <a
+                    href="site/site1/index.html"
+                    class="overlay-text-thumb-donut bts"
+                    >바로가기</a
+                  >
+                  <a
+                    href="https://github.com/mj0614k/codingclass/tree/main/site/site1"
+                    class="overlay-text-thumb1-donut bts"
+                    >소스 보기</a
+                  >
+                  <span class="overlay-text-thumb2-donut">SITE</span>
+                </div>
+                <img src="assets/img/png-chameleon.png" alt="portfolio" />
+                <div class="img-text donutImg">
+                  <h5>SITE</h5>
+                  <p>사이트 제작하기1</p>
+                  <span>SITE</span>
+                </div>
+              </div>
+            </section>
+            <!-- //box -->
+            <!-- box -->
+            <section class="color-shape site">
+              <div class="image-wrap">
+                <div class="hover-wrap">
+                  <span class="overlay-img-donut">SITE</span>
+                  <a
+                    href="site/site2_t/index.html"
+                    class="overlay-text-thumb-donut bts"
+                    >바로가기</a
+                  >
+                  <a
+                    href="https://github.com/mj0614k/codingclass/tree/main/site/site2_t"
+                    class="overlay-text-thumb1-donut bts"
+                    >소스 보기</a
+                  >
+                  <span class="overlay-text-thumb2-donut">SITE</span>
+                </div>
+                <img src="assets/img/png-chicken.png" alt="portfolio" />
+                <div class="img-text donutImg">
+                  <h5>SITE</h5>
+                  <p>사이트 제작하기2</p>
+                  <span>SITE</span>
+                </div>
+              </div>
+            </section>
+            <!-- //box -->
+            <!-- box -->
+            <section class="color-shape site">
+              <div class="image-wrap">
+                <div class="hover-wrap">
+                  <span class="overlay-img-donut">SITE</span>
+                  <a
+                    href="site/site3/index.html"
+                    class="overlay-text-thumb-donut bts"
+                    >바로가기</a
+                  >
+                  <a
+                    href="https://github.com/mj0614k/codingclass/tree/main/site/site3"
+                    class="overlay-text-thumb1-donut bts"
+                    >소스 보기</a
+                  >
+                  <span class="overlay-text-thumb2-donut">PHP</span>
+                </div>
+                <img src="assets/img/png-frog.png" alt="portfolio" />
+                <div class="img-text donutImg">
+                  <h5>SITE</h5>
+                  <p>사이트 제작하기3</p>
+                  <span>PHP</span>
+                </div>
+              </div>
+            </section>
+            <!-- //box -->
+            <!-- box -->
+            <section class="color-shape script">
+              <div class="image-wrap">
+                <div class="hover-wrap">
+                  <span class="overlay-img-donut">JAVASCRIPT</span>
+                  <a
+                    href="javascript/effect/searchEffect01.html"
+                    class="overlay-text-thumb-donut bts"
+                    >바로가기</a
+                  >
+                  <a
+                    href="https://github.com/mj0614k/codingclass/tree/main/javascript/effect"
+                    class="overlay-text-thumb1-donut bts"
+                    >소스 보기</a
+                  >
+                  <span class="overlay-text-thumb2-donut">SCRIPT</span>
+                </div>
+                <img src="assets/img/png-hamster.png" alt="portfolio" />
+                <div class="img-text donutImg">
+                  <h5>SEARCH</h5>
+                  <p>검색 효과</p>
+                  <span>JAVASCRIPT</span>
+                </div>
+              </div>
+            </section>
+            <!-- //box -->
+            <!-- box -->
+            <section class="color-shape script">
+              <div class="image-wrap">
+                <div class="hover-wrap">
+                  <span class="overlay-img-donut">JAVASCRIPT</span>
+                  <a
+                    href="javascript/effect/quizEffect01.html"
+                    class="overlay-text-thumb-donut bts"
+                    >바로가기</a
+                  >
+                  <a
+                    href="https://github.com/mj0614k/codingclass/tree/main/javascript/effect"
+                    class="overlay-text-thumb1-donut bts"
+                    >소스 보기</a
+                  >
+                  <span class="overlay-text-thumb2-donut">SCRIPT</span>
+                </div>
+                <img src="assets/img/png-mouse.png" alt="portfolio" />
+                <div class="img-text donutImg">
+                  <h5>QUIZ</h5>
+                  <p>퀴즈 효과</p>
+                  <span>JAVASCRIPT</span>
+                </div>
+              </div>
+            </section>
+            <!-- //box -->
+            <!-- box -->
+            <section class="color-shape script">
+              <div class="image-wrap">
+                <div class="hover-wrap">
+                  <span class="overlay-img-donut">JAVASCRIPT</span>
+                  <a
+                    href="javascript/effect/mouseEffect01.html"
+                    class="overlay-text-thumb-donut bts"
+                    >바로가기</a
+                  >
+                  <a
+                    href="https://github.com/mj0614k/codingclass/tree/main/javascript/effect"
+                    class="overlay-text-thumb1-donut bts"
+                    >소스 보기</a
+                  >
+                  <span class="overlay-text-thumb2-donut">SCRIPT</span>
+                </div>
+                <img src="assets/img/png-hedgehog.png" alt="portfolio" />
+                <div class="img-text donutImg">
+                  <h5>MOUSE</h5>
+                  <p>마우스 효과</p>
+                  <span>JAVASCRIPT</span>
+                </div>
+              </div>
+            </section>
+            <!-- //box -->
+            <!-- box -->
+            <section class="color-shape script">
+              <div class="image-wrap">
+                <div class="hover-wrap">
+                  <span class="overlay-img-donut">JAVASCRIPT</span>
+                  <a
+                    href="javascript/effect/sliderEffect01.html"
+                    class="overlay-text-thumb-donut bts"
+                    >바로가기</a
+                  >
+                  <a
+                    href="https://github.com/mj0614k/codingclass/tree/main/javascript/effect"
+                    class="overlay-text-thumb1-donut bts"
+                    >소스 보기</a
+                  >
+                  <span class="overlay-text-thumb2-donut">SCRIPT</span>
+                </div>
+                <img src="assets/img/png-dog2.png" alt="portfolio" />
+                <div class="img-text donutImg">
+                  <h5>SLIDER</h5>
+                  <p>슬라이드 효과</p>
+                  <span>JAVASCRIPT</span>
+                </div>
+              </div>
+            </section>
+            <!-- //box -->
+            <!-- box -->
+            <section class="color-shape script">
+              <div class="image-wrap">
+                <div class="hover-wrap">
+                  <span class="overlay-img-donut">JAVASCRIPT</span>
+                  <a
+                    href="javascript/effect/parallaxEffect01.html"
+                    class="overlay-text-thumb-donut bts"
+                    >바로가기</a
+                  >
+                  <a
+                    href="https://github.com/mj0614k/codingclass/tree/main/javascript/effect"
+                    class="overlay-text-thumb1-donut bts"
+                    >소스 보기</a
+                  >
+                  <span class="overlay-text-thumb2-donut">SCRIPT</span>
+                </div>
+                <img src="assets/img/png-fish.png" alt="portfolio" />
+                <div class="img-text donutImg">
+                  <h5>PARALLAX</h5>
+                  <p>패럴랙스 효과</p>
+                  <span>JAVASCRIPT</span>
+                </div>
+              </div>
+            </section>
+            <!-- //box -->
+            <!-- box -->
+            <section class="color-shape script">
+              <div class="image-wrap">
+                <div class="hover-wrap">
+                  <span class="overlay-img-donut">JAVASCRIPT</span>
+                  <a
+                    href="javascript/effect/gameEffect01.html"
+                    class="overlay-text-thumb-donut bts"
+                    >바로가기</a
+                  >
+                  <a
+                    href="https://github.com/mj0614k/codingclass/tree/main/javascript/effect"
+                    class="overlay-text-thumb1-donut bts"
+                    >소스 보기</a
+                  >
+                  <span class="overlay-text-thumb2-donut">SCRIPT</span>
+                </div>
+                <img src="assets/img/png-bird.png" alt="portfolio" />
+                <div class="img-text donutImg">
+                  <h5>GAME</h5>
+                  <p>게임 효과</p>
+                  <span>JAVASCRIPT</span>
+                </div>
+              </div>
+            </section>
+            <!-- //box -->
+            <!-- box -->
+            <section class="color-shape animation">
+              <a href="animation/svg.html" target="_blank">
+                <div class="image-wrap">
+                  <div class="hover-wrap">
+                    <span class="overlay-img-donut">SVG</span>
+                    <span class="overlay-text-thumb-donut">SVG</span>
+                    <span class="overlay-text-thumb1-donut">SVG</span>
+                    <span class="overlay-text-thumb2-donut">ANIMATION</span>
+                  </div>
+                  <img src="assets/img/png-bone.png" alt="portfolio" />
+                  <div class="img-text donutImg">
+                    <h5>SVG</h5>
+                    <p>SVG</p>
+                    <span>ANIMATION</span>
+                  </div>
+                </div>
+              </a>
+            </section>
+            <!-- //box -->
+            <!-- box -->
+            <section class="color-shape animation">
+              <a href="animation/css.html" target="_blank">
+                <div class="image-wrap">
+                  <div class="hover-wrap">
+                    <span class="overlay-img-donut">CSS</span>
+                    <span class="overlay-text-thumb-donut">CSS</span>
+                    <span class="overlay-text-thumb1-donut">CSS</span>
+                    <span class="overlay-text-thumb2-donut">ANIMATION</span>
+                  </div>
+                  <img src="assets/img/png-turtle.png" alt="portfolio" />
+                  <div class="img-text donutImg">
+                    <h5>CSS</h5>
+                    <p>CSS</p>
+                    <span>ANIMATION</span>
+                  </div>
+                </div>
+              </a>
+            </section>
+            <!-- //box -->
+            <!-- box -->
+            <section class="color-shape animation">
+              <a href="sql/index.html" target="_blank">
+                <div class="image-wrap">
+                  <div class="hover-wrap">
+                    <span class="overlay-img-donut">MySQL</span>
+                    <span class="overlay-text-thumb-donut">MySQL</span>
+                    <span class="overlay-text-thumb1-donut">MySQL</span>
+                    <span class="overlay-text-thumb2-donut">MySQL</span>
+                  </div>
+                  <img src="assets/img/png-poop.png" alt="portfolio" />
+                  <div class="img-text donutImg">
+                    <h5>MySQL</h5>
+                    <p>MySQL</p>
+                    <span>MySQL</span>
+                  </div>
+                </div>
+              </a>
+            </section>
+            <!-- //box -->
+            <!-- box -->
+            <section class="color-shape animation">
+              <div class="image-wrap">
+                <div class="hover-wrap">
+                  <span class="overlay-img-donut">React1</span>
+                  <a
+                    href="https://fabulous-llama-c6c673.netlify.app/"
+                    class="overlay-text-thumb-donut bts"
+                    >바로가기</a
+                  >
+                  <a
+                    href="https://github.com/mj0614k/reactclass"
+                    class="overlay-text-thumb1-donut bts"
+                    >소스 보기</a
+                  >
+                  <span class="overlay-text-thumb2-donut">리액트1</span>
+                </div>
+                <img src="assets/img/png-aquadog.png" alt="portfolio" />
+                <div class="img-text donutImg">
+                  <h5>React1</h5>
+                  <p>리액트1</p>
+                  <span>React</span>
+                </div>
+              </div>
+            </section>
+            <!-- //box -->
+            <!-- box -->
+            <section class="color-shape animation">
+              <div class="image-wrap">
+                <div class="hover-wrap">
+                  <span class="overlay-img-donut">Vue1</span>
+                  <a
+                    href="https://vueclass-6350c.web.app"
+                    class="overlay-text-thumb-donut bts"
+                    >바로가기</a
+                  >
+                  <a
+                    href="https://github.com/mj0614k/vueclass"
+                    class="overlay-text-thumb1-donut bts"
+                    >소스 보기</a
+                  >
+                  <span class="overlay-text-thumb2-donut">뷰1</span>
+                </div>
+                <img src="assets/img/png-sandcat.png" alt="portfolio" />
+                <div class="img-text donutImg">
+                  <h5>Vue1</h5>
+                  <p>뷰1</p>
+                  <span>Vue</span>
+                </div>
+              </div>
+            </section>
+            <!-- //box -->
+          </div>
+          <!-- //container-->
+        </div>
+        <!-- //row -->
+      </div>
+      <!-- //container-->
+    </div>
+    <!-- //contents -->
+
+    <!-- footer -->
+    <div id="footer">
+      <div class="container">
+        <div class="row">
+          <div class="span12">
+            <h5>
+              <a href="https://mo0647.tistory.com/" target="_blank">copaca</a>
+              <span id="clock"></span>
+              <span id="infor"></span>
+            </h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- //footer -->
+
+    <!-- script -->
+    <script src="assets/js/jquery-1.9.1.min.js"></script>
+    <script src="assets/js/bootstrap-collapse.js"></script>
+    <script src="assets/js/bootstrap-transition.js"></script>
+    <script src="assets/js/jquery.isotope.min.js"></script>
+    <script>
+      //운영체제 정보 알아내기
+      let os = navigator.userAgent.toLowerCase();
+      let sw = screen.width;
+      let sh = screen.height;
+      let infor = document.getElementById("infor");
+
+      if (os.indexOf("windows") >= 0) {
+        infor.innerHTML =
+          "현재 윈도우를 사용하고 있으며, 화면 크기는 " +
+          sw +
+          "x" +
+          sh +
+          " 입니다.";
+      } else if (os.indexOf("macintosh") >= 0) {
+        infor.innerHTML =
+          "현재 맥을 사용하고 있으며, 화면 크기는 " +
+          sw +
+          "x" +
+          sh +
+          " 입니다.";
+      } else if (os.indexOf("iphone") >= 0) {
+        infor.innerHTML =
+          "현재 아이폰을 사용하고 있으며, 화면 크기는 " +
+          sw +
+          "x" +
+          sh +
+          " 입니다.";
+      } else if (os.indexOf("android") >= 0) {
+        infor.innerHTML =
+          "현재 안드로이드 폰을 사용하고 있으며, 화면 크기는 " +
+          sw +
+          "x" +
+          sh +
+          " 입니다.";
+      }
+
+      //시간 표현
+      let clock = document.getElementById("clock");
+
+      setInterval(function () {
+        clock.innerHTML = new Date().toLocaleTimeString();
+      }, 1000);
+
+      $(function () {
+        var $container = $("#container"),
+          filters = {};
+
+        $container.isotope({
+          itemSelector: ".color-shape",
+          masonry: {
+            columnWidth: 57,
+          },
+        });
+
+        // filter buttons
+        $(".filter a").click(function () {
+          var $this = $(this);
+          // don't proceed if already selected
+          if ($this.hasClass("selected")) {
+            return;
+          }
+
+          var $optionSet = $this.parents(".option-set");
+          // change selected class
+          $optionSet.find(".selected").removeClass("selected");
+          $this.addClass("selected");
+
+          // store filter value in object
+          // i.e. filters.color = 'red'
+          var group = $optionSet.attr("data-filter-group");
+          filters[group] = $this.attr("data-filter-value");
+          // convert object into array
+          var isoFilters = [];
+          for (var prop in filters) {
+            isoFilters.push(filters[prop]);
+          }
+          var selector = isoFilters.join("");
+          $container.isotope({
+            filter: selector,
+          });
+
+          return false;
+        });
+
+        $(".tit_btn").on("click", function (e) {
+          e.preventDefault();
+          $(".nav_container").toggleClass("on");
+        });
+
+        $(".click").click(function () {
+          $(".view").fadeToggle();
+        });
+      });
+    </script>
+  </body>
+</html>

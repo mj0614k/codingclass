@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS : 이미지 스프라이트</title>
+
+    <link rel="stylesheet" href="../../javascript/assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href=#>이미지 스프라이트</a></h1>
+    </header>
+    <!-- //header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">이미지 스프라이트(Image Sprite)</h2>
+            <p class="t_desc">오늘은 이미지 스프라이트 기법에 대하여 알아보겠습니다.</p>
+            <hr>
+            <h2 class="t_tit2">이미지 스프라이트란?</h2>
+            <p class="t_desc2">
+                이미지 스프라이트란, <i>여러 개의 이미지를 하나의 이미지로 합쳐서 관리하는 이미지</i>를 의미합니다.
+                웹 페이지에 이미지가 사용될 경우 해당 이미지를 다운받기 위해 웹 브라우저는 서버에 이미지를 요청하게 됩니다.
+                하지만 사용된 이미지가 많을 경우 웹 브라우저는 서버에 해당 이미지의 수만큼 요청해야만 하므로 웹 페이지의 로딩 시간이 오래 걸리게 됩니다.
+                이럴 때, 이미지 스프라이트를 사용하면 이미지를 다운받기 위한 서버 요청을 단 몇 번으로 줄일 수 있습니다.
+                또한, 많은 이미지 파일을 관리하는 대신 몇 개의 스프라이트 이미지 파일만을 관리하면 되므로, 매우 간편합니다.
+            </p>
+            <hr>
+            <h2 class="t_tit2">이미지 스프라이트 만들기</h2>
+            <p class="t_desc">figma를 사용하여 다음과 같이 이미지 스프라이트를 만들었습니다.</p>
+            <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="400" height="150" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FLJtGBWVebQXGkLnmhXacGH%2F%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580-%25EC%258A%25A4%25ED%2594%2584%25EB%259D%25BC%25EC%259D%25B4%25ED%258A%25B8%3Fnode-id%3D0%253A1" allowfullscreen></iframe>
+            <p class="t_desc">
+                한 칸당 50px 간격으로 줄자를 이용하여 칸을 구분해 주었고, 한 칸에 하나씩 가로, 세로 36px의 아이콘을 작업해 주었습니다.
+                이 때, 아이콘들의 위치는 각 칸의 좌측 상단에 맞추어 주어야 합니다. 이미지 스프라이트 작업을 마치면, svg 파일로 추출해 줍니다.
+            </p>
+            <h2 class="t_tit2">이미지 스프라이트 삽입하기</h2>
+            <p class="t_desc">
+                다음과 같이 코딩한 이미지 위에 이미지 스프라이트를 삽입해 보겠습니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-html">&lt;div class="image"&gt;
+    &lt;div class="image__sns"&gt;
+        &lt;a href="#" class="link"&gt;&lt;span class="ir"&gt;페이스북&lt;/span&gt;&lt;/a&gt;
+        &lt;a href="#" class="link"&gt;&lt;span class="ir"&gt;트위터&lt;/span&gt;&lt;/a&gt;
+        &lt;a href="#" class="link"&gt;&lt;span class="ir"&gt;인스타그램&lt;/span&gt;&lt;/a&gt;
+        &lt;a href="#" class="link"&gt;&lt;span class="ir"&gt;유튜브&lt;/span&gt;&lt;/a&gt;
+        &lt;a href="#" class="link"&gt;&lt;span class="ir"&gt;링크&lt;/span&gt;&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+
+            <div class="t_code">
+<pre><code class="language-css">.image {
+    background: url(img.jpg);
+    background-size: cover;
+    width: 500px;
+    height: 300px;
+    position: relative;
+}
+
+.image__sns {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.image__sns a {
+    width: 36px;
+    height: 36px;
+    margin-bottom: 5px;
+    background: #fff;
+    border-radius: 50%;
+    display: block;
+
+    // 이미지 스프라이트 기법
+    background: url(icon.svg) no-repeat;  // 백그라운드 방식으로 이미지 삽입
+}
+
+.image__sns a:nth-child(2) {
+    background-position: -50px 0;  // 이미지가 보여지는 위치 조정
+}
+
+.image__sns a:nth-child(3) {
+    background-position: -100px 0;
+}
+
+.image__sns a:nth-child(4) {
+    background-position: -150px 0;
+}
+
+.image__sns a:nth-child(5) {
+    background-position: -200px 0;
+}</code></pre>
+            </div>
+            <p class="t_desc">이미지 스프라이트 기법을 사용할 때는, 이미지를 백그라운드 방식으로 삽입해야 합니다.
+                각 칸의 간격을 50px로 작업해 주었기 때문에, x축의 값을 50px씩 조절하여 이미지가 보여지는 위치를
+                조절해 줍니다. 결과 화면은 다음과 같습니다.
+            </p>
+            <hr>
+            <h2 class="t_tit2">ir 효과</h2>
+            <p class="t_desc">
+                그런데, HTML에서 작성했던 "페이스북", "트위터", "인스타그램" 등의 문자는 화면에 나타나지 않음을
+                볼 수 있습니다. 이것은 ir 효과를 적용했기 때문입니다.
+            </p>
+            <p class="t_desc2">ir 효과란 웹 접근성을 준수하기 위한 것으로, 이미지에 텍스트를 설정하고 보이지 않도록
+                작업해준 것입니다. 텍스트는 리더기로 읽어줄 수 있지만, 이미지는 읽을 수 없기 때문입니다. 쉽게 말해, ir 효과는
+                <i>이미지 대체 텍스트 제공을 위한 CSS 기법</i>이라고 할 수 있습니다.
+            </p>
+            <p class="t_desc">ir 효과의 적용 방법은 다음과 같습니다.</p>
+            <div class="t_code">
+<pre><code class="language-css">.ir {
+    display: block;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}</code></pre>
+            </div>
+        </div>
+        
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

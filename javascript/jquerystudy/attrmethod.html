@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : GSAP</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="../index.html">Javascript</a></h1>
+    </header>
+    <!-- //header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">제이쿼리 : 속성 관련 메서드</h2>
+            <p class="t_desc">
+                오늘은 JQuery의 주요 메서드들 중, 속성과 관련된
+                메서드를 알아보도록 하겠습니다. 
+            </p>
+            <hr>
+            <article class=sample01>
+                <h3 class="t_tit2">1. attr() 메서드</h3>
+                <p class="t_desc">선택한 요소의 attribute(속성)를 선택, 생성, 변경할 수 있습니다.</p>
+                <table class="t_table">
+                    <thead>
+                        <tr>
+                            <th>실행 분류</th>
+                            <th>형식</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="ce">취득</td>
+                            <td>$("a").attr("href");</td>
+                        </tr>
+                        <tr>
+                            <td class="ce" rowspan="2">생성, 변경</td>
+                            <td>$("a").attr("href", "http://icoxpublish.com").attr("target", "_blank");</td>
+                        </tr>
+                        <tr>
+                            <td>$("a").attr({href: "http://icoxpublish.com", target: "_blank"});</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">콜백 함수</td>
+                            <td>
+                                $("a").attr("href", function(<i>index, h</i>) {<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;// <i>index</i>는 각 a 요소의 index 0, 1, 2<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;// <i>h</i>는 각 a 요소 href 속성<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;<i>return</i> attribute(속성) // 각 a 요소의 속성을 생성 및 변경합니다.<br>
+                            });<br>
+                            ....<br>
+                            &lt;a href="http://www.daum.net" target="_blank" title="새창"&gt;다음&lt;/a&gt;<br>
+                            &lt;a href="http://www.naver.net" target="_blank" title="새창"&gt;네이버&lt;/a&gt;<br>
+                            &lt;a href="http://www.nate.net" target="_blank" title="새창"&gt;네이트&lt;/a&gt;
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            <p class="t_desc">
+                다음은 attr() 메서드의 사용 예제입니다.
+            </p>
+            <p class="codepen" data-height="300" data-default-tab="result" data-slug-hash="qBYEaZj" data-user="mj0614k" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                <span>See the Pen <a href="https://codepen.io/mj0614k/pen/qBYEaZj">
+                attrmethod01</a> by mj0614k (<a href="https://codepen.io/mj0614k">@mj0614k</a>)
+                on <a href="https://codepen.io">CodePen</a>.</span>
+              </p>
+              <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+            </article>
+            <article class=sample02>
+                <h3 class="t_tit2">2. prop() 메서드</h3>
+                <p class="t_desc">attr() 가 html attribute(속성)에 관련된 메서드라면 prop()는 자바스크립트 property(프로퍼티)에 관련된 메서드입니다. prop() 메서드는 요소의 속성을 true, false로 제어할 수 있습니다.</p>
+            <p class="t_desc">
+                다음은 attr() 메서드의 사용 예제입니다. attr() 메서드는 checked 속성이 요소에 추가되는 반면 prop() 메서드의 true는 자바스크립트의 프로퍼티로 처리됩니다.
+            </p>
+            <p class="codepen" data-height="300" data-default-tab="result" data-slug-hash="XWqJjKK" data-user="mj0614k" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                <span>See the Pen <a href="https://codepen.io/mj0614k/pen/XWqJjKK">
+                attrmethod02</a> by mj0614k (<a href="https://codepen.io/mj0614k">@mj0614k</a>)
+                on <a href="https://codepen.io">CodePen</a>.</span>
+              </p>
+              <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+            </article>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

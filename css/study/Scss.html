@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CSS : SCSS 알아보기</title>
+
+        <link rel="stylesheet" href="../../javascript/assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+
+    <body>
+        <header id="header">
+            <h1><a href="#">CSS : SCSS 알아보기</a></h1>
+        </header>
+        <!-- //header -->
+
+        <main id="main">
+            <div class="document">
+                <h2 class="t_tit">CSS : SCSS 알아보기</h2>
+                <p class="t_desc">
+                    CSS는 비교적 배우기 쉬운 편이지만, 불편한 점이 많습니다. 프로젝트의 규모가
+                    커질수록, 불필요한 선택자의 과용, 연산 기능의 한계, 구문의 부재 등 불편을 느낄
+                    것입니다. 그 불편을 해소하기 위해, 우리는 CSS Preprocessor라고 불리우는 Sass,
+                    Less, SCSS 등의 기능을 사용할 수 있습니다. 오늘은 그 중, SCSS에 대하여
+                    알아보겠습니다.
+                </p>
+                <hr />
+                <h2 class="t_tit2">SCSS란?</h2>
+                <p class="t_desc2">
+                    CSS는 HTML 태그를 꾸미거나 효과를 넣어 주는 등 디자인 요소를 추가할 때 사용하는
+                    전처리 과정입니다. 프로젝트 규모가 커지면 CSS는 불가피하게 가독성이 떨어지는 등
+                    유지보수의 어려움을 주는 요소가 됩니다. 코드의 재활용성을 올리고, 가독성을
+                    올리는 등 CSS에서 보이던 단점을 보완하고, 개발의 효율을 올리기 위해 등장한 것이
+                    바로 SCSS입니다.
+                </p>
+                <h2 class="t_tit2">SCSS의 기능</h2>
+                <h3 class="t_tit3">1. 변수 기능</h3>
+                <p class="t_desc">
+                    변수를 스타일시트 전체에서 재사용하기 위해 정보를 저장하는 방법입니다. 글꼴 스택
+                    또는 재사용하고 싶은 CSS 값과 같은 항목을 저장할 수 있습니다. Sass는 $ 기호를
+                    사용하여 무언가를 변수로 만듭니다.
+                </p>
+                <div class="t_code">
+                    <pre><code class="language-css">body {
+    font: 100% Helvetica, sans-serif;
+    color: #333;
+}
+</code></pre>
+                </div>
+                <p class="t_desc">위 CSS 코드를 SCSS에서는 아래와 같이 작성할 수 있습니다.</p>
+                <div class="t_code">
+                    <pre><code class="language-scss">$font-stack: Helvetica, sans-serif;
+$primary-color: #333;
+
+body {
+    font: 100% $font-stack;
+    color: $primary-color;
+}
+</code></pre>
+                </div>
+                <br />
+                <h3 class="t_tit3">2. 중첩 기능</h3>
+                <p class="t_desc">
+                    HTML에서는 중첩되고 시각적인 계층 구조가 있지만, CSS는 그렇지 않습니다. SCSS를
+                    사용하면 HTML의 동일한 시각적 계층 구조를 따르는 방식으로 CSS 요소들을 중첩할 수
+                    있습니다. 그러나 지나치게 중첩된 규칙은 유지보수가 어려우므로, 과도하게 요소들을
+                    중첩하는 것은 좋지 않습니다.
+                </p>
+                <div class="t_code">
+                    <pre><code class="language-css">nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+nav li {
+    display: inline-block;
+}
+nav a {
+    display: block;
+    padding: 6px 12px;
+    text-decoration: none;
+}</code></pre>
+                </div>
+                <p class="t_desc">위 CSS 코드를 SCSS에서는 아래와 같이 작성할 수 있습니다.</p>
+                <div class="t_code">
+                    <pre><code class="language-scss">nav {
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+ 
+    li { display: inline-block; }
+ 
+    a {
+        display: block;
+        padding: 6px 12px;
+        text-decoration: none;
+    }
+}</code></pre>
+                </div>
+                <p class="t_desc">
+                    ul, li, a 각각의 요소들이 nav 요소 내부에 중첩되어 있음을 알 수 있습니다.
+                </p>
+            </div>
+        </main>
+        <!-- //main -->
+
+        <footer id="footer">
+            <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+        </footer>
+        <!-- //footer -->
+
+        <script src="../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>

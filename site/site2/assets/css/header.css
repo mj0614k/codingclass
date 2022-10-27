@@ -1,0 +1,40 @@
+body {
+    overflow-x: hidden;
+}
+
+.header__wrap {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    width: 100%;
+    height: 113px;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: white;
+}
+
+.header__inner {
+}
+
+.header__title {
+    text-align: center;
+    font-weight: 700;
+    margin-top: 20px;
+    margin-bottom: 25px;
+    font-size: 30px;
+}
+
+.header__menu {
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.header__menu ul {
+    display: flex;
+    justify-content: space-around;
+}
+
+.header__menu ul li:hover a {
+    text-decoration: underline;
+}

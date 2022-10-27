@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 애니메이션 : 공 튀기기</title>
+
+    <link rel="stylesheet" href="../../javascript/assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">CSS 애니메이션 : GIF 이미지 애니메이션 구현하기</h2>
+            <p class="t_desc">
+                오늘은 조금 다른 방식으로, GIF 이미지를 애니메이션으로 구현하는 방법을 알아보겠습니다.
+            </p>
+            <hr>
+            <h2 class="t_tit2">1. 애니메이션을 만들 이미지 찾기</h2>
+            <p class="t_desc">
+                먼저, 어떠한 GIF 이미지를 애니메이션으로 만들 것인지 결정합니다.
+            </p>
+            <img src="https://cdn.dribbble.com/users/507883/screenshots/15304356/media/47f942aededaa74eb948a740ac3a8c4f.gif" alt="">
+            <h2 class="t_tit2">2. 애니메이션의 프레임 나열하기</h2>
+            <p class="t_desc">
+                Photoshop에서 GIF 이미지를 가져와 Timeline 창을 띄우면, GIF를 이루고 있는 각각의 레이어들이 나타납니다.
+                여우 이미지의 크기는 1600px * 1200px이며, 레이어는 총 18개가 있었습니다.
+                GIF의 이미지의 너비(1600px) X 레이어 수(18)의 값(28,800px)을 구해줍니다.
+                이후, width값이 28,800px, height값이 1200px인 새로운 창을 만들고,
+                여우의 움직임에 해당하는 각각의 레이어들을 가로로 나열한 뒤 이미지로 저장해 줍니다.
+            </p>
+            <img src="https://github.com/mj0614k/Coding/blob/main/animation/img/ani1.jpg?raw=true" alt="">
+            <style>
+                .document img {
+                    width: 100%;
+                }
+            </style>
+            
+            <h2 class="t_tit2">3. 코딩</h2>
+            <p class="t_desc">이미지가 준비되었다면, 이제 코딩을 해봅시다.
+                애니메이션 효과로 steps를 시작점에서 레이어 수만큼 설정해 주고,
+                keyframes로 이미지의 background-position에 변화를 주면 완성입니다.
+            </p>
+        <div class="t_code"><pre><code class="language-css">.step {
+    height: 800px;
+    background: #ffe8d9;
+    position: relative;
+    overflow: hidden;
+}
+.step .stepbox {
+    width: 1600px;
+    height: 1200px;
+    background: url(img/ani1.jpg);
+    border-radius: 0;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    animation: ani 0.7s steps(18, start) infinite;
+}
+.step .stepbox.start {
+    animation-play-state: running;
+}
+.step .stepbox.stop {
+    animation-play-state: paused;
+}
+@keyframes ani {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: -28800px 0;
+    }
+}
+.stepBtn {
+    position: absolute;
+    left: 15px;
+    top: 20px;
+}
+.stepBtn a {
+    background: #e16162;
+    color: #fff;
+    padding: 10px;
+    margin: 3px;
+    border-radius: 3px;
+}</code></pre></div>
+
+        <!-- //Intro2 -->
+        <h2 class="t_tit2">4. 결과 확인하기</h2>
+        <p class="codepen" data-height="900" data-default-tab="result" data-slug-hash="qBYOwWB" data-user="mj0614k" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+            <span>See the Pen <a href="https://codepen.io/mj0614k/pen/qBYOwWB">
+            foxanimation</a> by mj0614k (<a href="https://codepen.io/mj0614k">@mj0614k</a>)
+            on <a href="https://codepen.io">CodePen</a>.</span>
+          </p>
+          <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS : 요소 숨기기</title>
+
+    <link rel="stylesheet" href="../../javascript/assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href=#>요소 숨기기</a></h1>
+    </header>
+    <!-- //header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">CSS : 요소 숨기기</h2>
+            <p class="t_desc">
+                우리가 코딩을 할 때, 때때로 웹 접근성 준수, 탭 효과 등을 이유로 어떠한 요소가 화면에서 보이지 않도록
+                설정해야 할 필요가 있습니다. 오늘은 CSS로 요소를 숨기는 5가지 방법에 대하여 알아보겠습니다.
+            </p>
+            <hr>
+            <h2 class="t_tit2">1. display로 속성 주기</h2>
+            <div class="t_code">
+<pre><code class="language-css">display: none;
+</code></pre>
+            </div>
+            <p class="t_desc">
+                display는 요소가 화면에 보여지는 방식을 결정하는 속성입니다. display: none; 속성을 추가하면
+                요소를 숨길 수 있습니다. 이 방법은 애니메이션을 사용할 수 없고, 요소가 차지하는 영역이 사라집니다.
+            </p>
+            <h2 class="t_tit2">2. opacity 속성 주기</h2>
+            <div class="t_code">
+<pre><code class="language-css">opacity: 0;
+</code></pre>
+            </div>
+            <p class="t_desc">
+                opacity는 요소의 투명도를 의미합니다. 요소의 투명도를 0으로 처리하는 이 방식은,
+                요소가 불투명해지는 애니메이션을 사용할 수 있습니다. 요소가 차지하는 영역은 그대로 남습니다.
+            </p>
+            <h2 class="t_tit2">3. visibility로 속성 주기</h2>
+            <div class="t_code">
+<pre><code class="language-css">visibility: hidden;
+</code></pre>
+            </div>
+            <p class="t_desc">
+                visibility는 display 속성과 비슷하게 요소를 숨겨주지만, display와 달리 요소가 차지하는
+                영역이 그대로 남습니다. 애니메이션은 사용할 수 없습니다. 
+            </p>
+            <h2 class="t_tit2">4. transform으로 속성 주기</h2>
+            <div class="t_code">
+<pre><code class="language-css">transform: scale(0);
+</code></pre>
+            </div>
+            <p class="t_desc">
+                transform은 요소에 이동(translate), 회전(rotate), 확대축소(scale), 비틀기(skew) 효과를
+                부여할 수 있습니다. scale의 값을 0으로 설정해 주어, 요소를 숨길 수 있습니다.
+                이 방법은 요소의 크기를 변형시키는 애니메이션을 추가할 수 있고, 요소가 차지하는 영역이 사라집니다.
+            </p>
+            <h2 class="t_tit2">5. blind 효과</h2>
+            <div class="t_code">
+<pre><code class="language-css">width: 0;
+    height: 0;
+</code></pre>
+            </div>
+            <p class="t_desc">
+                width와 heigh 속성을 0으로 부여함으로써 요소를 숨기는 방법입니다. 이 방법은 애니메이션을 추가할 수 없고,
+                요소가 차지하는 영역도 사라집니다. 권장하는 방법은 아닙니다.
+            </p>
+            <hr>
+            <h2 class="t_tit2">친절한 정리</h2>
+            <table class="t_table">
+                <colgroup>
+                    <col width="30%">
+                    <col width="35%">
+                    <col width="35%">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>속성</th>
+                        <th>애니메이션</th>
+                        <th>영역</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ce">display</td>
+                        <td class="ce">X</td>
+                        <td class="ce">X</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">opacity</td>
+                        <td class="ce">O</td>
+                        <td class="ce">O</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">visibility</td>
+                        <td class="ce">X</td>
+                        <td class="ce">O</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">transform</td>
+                        <td class="ce">O</td>
+                        <td class="ce">X</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">width, height</td>
+                        <td class="ce">X</td>
+                        <td class="ce">X</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

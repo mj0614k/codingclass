@@ -1,0 +1,78 @@
+.skyBlue {
+    background-color: #f6f8fd;
+}
+/* textType */
+.text__innner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.text__title {
+    width: 33%;
+}
+.text__title span {
+    background: #ff3344;
+    font-size: 14px;
+    padding: 2px 20px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    font-weight: 300;
+    color: #fff;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+.text__title h3 {
+    font-size: 50px;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+.text__title p {
+    font-size: 18px;
+    line-height: 1.5;
+    padding-right: 20%;
+    word-break: keep-all;
+}
+.text__desc {
+    width: 66%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.text__desc > div {
+    width: 48%;
+    margin-bottom: 4%;
+}
+.text__desc > div h4 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    position: relative;
+    padding-top: 75px;
+}
+.text__desc > div h4::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 60px;
+    height: 60px;
+    background: url(../img/icon.svg);
+    border-radius: 50px;
+}
+.text__desc > div:nth-child(1) h4::before {
+    background-position: 0 0;
+}
+.text__desc > div:nth-child(2) h4::before {
+    background-position: -80px 0;
+}
+.text__desc > div:nth-child(3) h4::before {
+    background-position: -160px 0;
+}
+.text__desc > div:nth-child(4) h4::before {
+    background-position: -240px 0;
+}
+.text__desc > div p {
+    font-size: 18px;
+    line-height: 1.5;
+    font-weight: 300;
+}

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 검색 효과</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="../index.html">Javascript</a></h1>
+    </header>
+    <!-- //header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">자바스크립트 : 검색 효과 : includes()</h2>
+            <p class="t_desc">
+                자바스크립트의 다양한 효과들 중, 해당하는 문자열을 찾을 수 있는 검색 효과입니다.
+                이번에는 includes() 메서드를 이용하여 CSS의 다양한 속성을 검색할 수 있는 웹사이트를 작업해 보도록 하겠습니다.
+            </p>
+            <hr>
+            <h2 class="t_tit2">HTML 소스</h2>
+            <p class="t_desc">HTML로 뼈대를 먼저 잡아주었습니다. 헤더 영역에는 내비게이션 메뉴를, 메인 영역에는 검색창, 하위 목록들을 작성해 주었습니다.
+                각각의 하위 목록에는 data-type을 추가해 주어, 애니메이션, 보더 등의 유형 이름을 검색해도 결과값이 나타나도록 작업해 주었습니다. 
+                아래 소스는 메인 영역의 HTML 소스로, 나머지 영역의 소스는 하단의 '원본 소스 보기' 버튼을 클릭하면 확인할 수 있습니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-html">&lt;main id="main"&gt;
+    &lt;div class="search__wrap"&gt;
+        &lt;span&gt;includes()를 이용하여 검색하기&lt;/span&gt;
+        &lt;h1&gt;CSS 속성 검색하기&lt;/h1&gt;
+        &lt;div class="search__box"&gt;
+            &lt;label for="search"&gt;검색하기&lt;/label&gt; 
+            &lt;input type="text" id="search" placeholder="CSS 속성 및 유형을 입력해 주세요"&gt;
+        &lt;/div&gt;
+        &lt;div class="search__info"&gt;
+            &lt;div class="type"&gt;플렉스, 애니메이션, 백그라운드, 보더 등 유형별로 검색해 보세요!&lt;/div&gt;
+            &lt;div&gt;전체 속성 갯수 : &lt;span class="num"&gt;0&lt;/span&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="search__list"&gt;
+            &lt;div class="css"&gt;
+                &lt;ul&gt;
+                    &lt;li data-name="align-content" data-type="플렉스"&gt;&lt;strong&gt;align-content&lt;/strong&gt; : 콘텐츠 아이템의 상하관계 정렬 상태를 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="align-items" data-type="플렉스"&gt;&lt;strong&gt;align-items&lt;/strong&gt; : 콘텐츠 아이템의 내부 상하관계 정렬 상태를 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="align-self" data-type="플렉스"&gt;&lt;strong&gt;align-self&lt;/strong&gt; : 개별적인 콘텐츠 아이템의 정렬 상태를 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="all" data-type="기타"&gt;&lt;strong&gt;all&lt;/strong&gt; : 요소의 속성을 초기화 또는 상속을 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="animation" data-type="애니메이션"&gt;&lt;strong&gt;animation&lt;/strong&gt; : 애니메이션과 관련된 속성을 일괄적으로 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="animation-delay" data-type="애니메이션"&gt;&lt;strong&gt;animation-delay&lt;/strong&gt; : 애니메이션 지연 시간을 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="animation-direction" data-type="애니메이션"&gt;&lt;strong&gt;animation-direction&lt;/strong&gt; : 애니메이션 움직임 방향을 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="animation-duration" data-type="애니메이션"&gt;&lt;strong&gt;animation-duration&lt;/strong&gt; : 애니메이션 움직임 시간을 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="animation-fill-mode" data-type="애니메이션"&gt;&lt;strong&gt;animation-fill-mode&lt;/strong&gt; : 애니메이션이 끝난 후의 상태를 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="animation-iteration-count" data-type="애니메이션"&gt;&lt;strong&gt;animation-iteration-count&lt;/strong&gt; : 애니메이션의 반복 횟수를 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="animation-name" data-type="애니메이션"&gt;&lt;strong&gt;animation-name&lt;/strong&gt; : 애니메이션 keyframe 이름을 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="animation-play-state" data-type="애니메이션"&gt;&lt;strong&gt;animation-play-state&lt;/strong&gt; : 애니메이션 진행 상태를 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="animation-timing-function" data-type="애니메이션"&gt;&lt;strong&gt;animation-timing-function&lt;/strong&gt; : 애니메이션 움직임의 속도를 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="background" data-type="백그라운드"&gt;&lt;strong&gt;background&lt;/strong&gt; : 백그라운드 속성을 일괄적으로 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="background-attachment" data-type="백그라운드"&gt;&lt;strong&gt;background-attachment&lt;/strong&gt; : 배경 이미지의 고정 여부를 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="background-blend-mode" data-type="백그라운드"&gt;&lt;strong&gt;background-blend-mode&lt;/strong&gt; : 배경을 혼합했을 때 그래픽 효과를 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="background-clip" data-type="백그라운드"&gt;&lt;strong&gt;background-clip&lt;/strong&gt; : 백그라운드 이미지의 위치 기준점을 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="background-color" data-type="백그라운드"&gt;&lt;strong&gt;background-color&lt;/strong&gt; : 백그라운드 색상을 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="background-image" data-type="백그라운드"&gt;&lt;strong&gt;background-image&lt;/strong&gt; : 백그라운드 이미지 속성을 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="background-origin" data-type="백그라운드"&gt;&lt;strong&gt;background-origin&lt;/strong&gt; : 백그라운드 이미지의 위치 기준점을 설정하기 위한 속성입니다.&lt;/li&gt;
+                    &lt;li data-name="background-position" data-type="백그라운드"&gt;&lt;strong&gt;background-position&lt;/strong&gt; : 백그라운드 이미지의 위치 영역을 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="background-position-x" data-type="백그라운드"&gt;&lt;strong&gt;background-position-x&lt;/strong&gt; : 백그라운드 이미지의 x축 위치 영역을 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="background-porsition-y" data-type="백그라운드"&gt;&lt;strong&gt;background-porsition-y&lt;/strong&gt; : 백그라운드 이미지의 y축 위치 영역을 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="background-repeat" data-type="백그라운드"&gt;&lt;strong&gt;background-repeat&lt;/strong&gt; : 백그라운드 이미지의 반복 여부를 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="background-size" data-type="백그라운드"&gt;&lt;strong&gt;background-size&lt;/strong&gt; : 백그라운드 이미지 사이즈를 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="border" data-type="보더"&gt;&lt;strong&gt;border&lt;/strong&gt; : 테두리 속성을 일괄적으로 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="border-bottom" data-type="보더"&gt;&lt;strong&gt;border-bottom&lt;/strong&gt; : 아래쪽 테두리 속성을 일괄적으로 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="border-bottom-color" data-type="보더"&gt;&lt;strong&gt;border-bottom-color&lt;/strong&gt; : 아래쪽 테두리 색상 속성을 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="border-bottom-left-radius" data-type="보더"&gt;&lt;strong&gt;border-bottom-left-radius&lt;/strong&gt; : 아래 왼쪽 모서리 굴곡을 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="border-bottom-right-radius" data-type="보더"&gt;&lt;strong&gt;border-bottom-right-radius&lt;/strong&gt; : 아래 오른쪽 모서리 굴곡을 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="border-bottom-style" data-type="보더"&gt;&lt;strong&gt;border-bottom-style&lt;/strong&gt; : 아래쪽 테두리 스타일 속성을 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="border-bottom-width" data-type="보더"&gt;&lt;strong&gt;border-bottom-width&lt;/strong&gt; : 아래쪽 테두리 두께 속성을 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="border-collapse" data-type="보더"&gt;&lt;strong&gt;border-collapse&lt;/strong&gt; : 표 및 셀의 테두리선 표시방법을 지정합니다.&lt;/li&gt;
+                    &lt;li data-name="border-color" data-type="보더"&gt;&lt;strong&gt;border-color&lt;/strong&gt; : 테두리 색상을 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="border-left" data-type="보더"&gt;&lt;strong&gt;border-left&lt;/strong&gt; : 왼쪽 테두리 속성을 일괄적으로 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="border-left-color" data-type="보더"&gt;&lt;strong&gt;border-left-color&lt;/strong&gt; : 왼쪽 테두리 색상을 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="border-left-style" data-type="보더"&gt;&lt;strong&gt;border-left-style&lt;/strong&gt; : 왼쪽 테두리 스타일 속성을 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="border-left-width" data-type="보더"&gt;&lt;strong&gt;border-left-width&lt;/strong&gt; : 왼쪽 테두리 두께 속성을 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="border-radius" data-type="보더"&gt;&lt;strong&gt;border-radius&lt;/strong&gt; : 테두리의 둥글기 속성을 설정합니다.&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/main&gt;
+</code></pre>
+            </div>
+            <h2 class="t_tit2">CSS 소스</h2>
+            <p class="t_desc">CSS로 스타일 속성을 추가해 주었습니다. 폰트는 티몬, 에스코어 드림을 사용했습니다. 마찬가지로, 메인 영역의 CSS 소스입니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-css">:root {
+    --htmlColor: #223547;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'SCoreDream';
+    color: var(--htmlColor);
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: var(--htmlColor);
+}
+
+li {
+    list-style: none;
+}
+
+/* main */
+#main {
+    margin: 50px 10px;
+}
+
+.search__wrap {
+    max-width: 1400px;
+    margin: 0 auto;
+    border: 3px solid var(--htmlColor);
+    border-radius: 20px;
+    background-color: #f1f3f6;
+    padding: 30px;
+    text-align: center;
+}
+
+.search__wrap>span {
+    font-size: 20px;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.search__wrap>h1 {
+    font-family: 'Tmon';
+    color: var(--htmlColor);
+    font-size: 6vw;
+    margin-bottom: 10px;
+}
+
+.search__box {
+    margin-bottom: 20px;
+}
+
+.search__box label {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+}
+
+.search__box input {
+    border: 2px solid var(--htmlColor);
+    padding: 15px 40px;
+    width: 70%;
+    border-radius: 50px;
+    font-size: 20px;
+}
+
+.search__list li {
+    text-align: left;
+    line-height: 1.7;
+}
+
+.search__list li.hide {
+    display: none;
+}
+
+.search__list li.show {
+    display: block;
+}
+
+.search__info {
+    text-align: right;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px dashed var(--htmlColor);
+}
+
+.search__info .type {
+    text-align: center;
+    margin-bottom: 10px;
+}</code></pre>
+            </div>
+            <h2 class="t_tit2">JAVASCRIPT 소스</h2>
+            <p class="t_desc">대망의 JAVASCIPRT 소스입니다. 검색 영역과 목록 리스트 선택자를 먼저 만들어 준 뒤,
+                addEventListener로 검색 영역에 keyup 이벤트를 추가해 주었습니다. 사용자가 입력한 키워드와 하위 목록들의
+                값을 비교하여, indexOf의 값이 0이면 리스트를 보여주고, 값이 다르면 리스트를 숨기는 방식으로 작업해 주었습니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">// 선택자
+const searchBox = document.querySelector(".search__box input")  // 검색 영역
+const searchList = document.querySelectorAll(".search__list ul li")  // 목록 리스트
+const searchInfo = document.querySelector(".search__info .num")
+
+// 속성 갯수 설정하기
+searchInfo.textContent = searchList.length;
+
+// 검색 영역
+searchBox.addEventListener("keyup", () => {
+    const searchWord = searchBox.value;  // 사용자가 입력한 키워드
+
+    searchList.forEach((el) => {
+        const cssName = el.dataset.name;  // CSS 속성의 모든 값
+        const cssType = el.dataset.type;  // CSS 속성의 데이터타입의 모든 값
+
+        // 속성 이름, 데이터 유형별로 검색하기
+        if(cssName.includes(searchWord) | cssType.includes(searchWord)){
+            el.classList.remove("hide");  // 값이 true이면 보여주고,
+        } else {
+            el.classList.add("hide");  // 값이 false이면 숨기기
+        }
+    })
+})
+</code></pre>
+            </div>
+            <hr>
+            <h2 class="t_tit2">결과</h2>
+            <div class="t_iframe" style="min-height: 1000px; padding-top: 0px;">
+                <iframe src="https://mj0614k.github.io/Coding/javascript/effect/searchEffect02.html"></iframe>
+            </div>
+
+            <div class="t_link">
+                <a href="https://github.com/mj0614k/Coding/blob/main/javascript/effect/searchEffect02.html">원본 소스 보기</a>
+                <a href="https://mj0614k.github.io/Coding/javascript/effect/searchEffect02">원본 사이트 보기</a>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

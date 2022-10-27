@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레이아웃(Layout) : 카드 유형01</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="../index.html">레이아웃 : 카드 유형01</a></h1>
+    </header>
+    <!-- //header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">레이아웃 : 카드 유형01</h2>
+            <p class="t_desc">
+                다음과 같은 카드 유형의 레이아웃을 작업해 보도록 하겠습니다.
+            </p>
+            <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F1tYdOqQlGJDcMVaann5iJt%2F%25EC%2582%25AC%25EC%259D%25B4%25ED%258A%25B8-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0%3Fnode-id%3D2%253A161" allowfullscreen></iframe>
+            
+            <h2 class="t_tit2">CSS 소스</h2>
+            <div class="t_code">
+                <pre><code class="language-css">/* fonts */
+@import url('https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css');
+            
+.nexon {
+    font-family: 'NexonLv1Gothic';
+    font-weight: 400;
+}
+            
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+}
+            
+a {
+    text-decoration: none;
+    color: #000;
+}
+            
+img {
+    width: 100%;
+}
+            
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+}
+            
+/* common */
+.container {
+    width: 1160px;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+            
+.section {
+    padding: 120px 0;
+}
+            
+.section>h2 {
+    font-size: 50px;
+    line-height: 1;
+    text-align: center;
+    margin-bottom: 20px;
+}
+            
+.section>p {
+    font-size: 22px;
+    font-weight: 300;
+    color: #666;
+    text-align: center;
+    margin-bottom: 70px;
+}
+            
+/* cardType */
+.card__inner {
+    display: flex;
+    justify-content: space-between;
+}
+            
+.card {
+    width: 32%;
+    background-color: #f5f5f5;
+}
+            
+.card__body {
+    padding: 24px;
+}
+            
+.card__body .tit {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+            
+.card__body .desc {
+    font-size: 18px;
+    line-height: 1.4;
+    color: #666;
+    margin-bottom: 20px;
+    font-weight: 300;
+}</code></pre></div>
+<h2 class="t_tit2">HTML 소스</h2>
+<div class="t_code">
+    <pre><code class="language-html">&lt;section id="cardType" class="card__wrap nexon section"&gt;
+    &lt;h2&gt;세상의 귀여운 댕댕이&lt;/h2&gt;
+    &lt;p&gt;강아지 종류는 매우 다양합니다. 하지만 하나같이 정말 귀엽습니다.&lt;/p&gt;
+    &lt;div class="card__inner container"&gt;
+        &lt;article class="card"&gt;
+            &lt;figure class="card__header"&gt;
+                &lt;img src="img/card_bg01.jpg" alt="리트리버"&gt;
+            &lt;/figure&gt;
+            &lt;div class="card__body"&gt;
+                &lt;h3 class="tit"&gt;리트리버&lt;/h3&gt;
+                &lt;p class="desc"&gt;리트리버는 세상에서 제일 귀여운 강아지입니다. 사실 강아지라기에는 개입니다.
+                    그래도 왕 크니까 왕 귀엽습니다. 귀여우면 강아지라고 해도 됩니다...&lt;/p&gt;
+                &lt;a class="brn" href="/"&gt;
+                    더 자세히 보기
+                    &lt;span aria-hidden="true"&gt;
+                        &lt;svg width="65" height="8" viewBox="0 0 65 8" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
+                            &lt;path d="M64.3536 4.35355C64.5488 4.15829 64.5488 3.84171 64.3536 3.64645L61.1716 0.464466C60.9763 0.269204 60.6597 0.269204 60.4645 0.464466C60.2692 0.659728 60.2692 0.976311 60.4645 1.17157L63.2929 4L60.4645 6.82843C60.2692 7.02369 60.2692 7.34027 60.4645 7.53553C60.6597 7.7308 60.9763 7.7308 61.1716 7.53553L64.3536 4.35355ZM0 4.5H64V3.5H0V4.5Z" fill="black"/&gt;
+                        &lt;/svg&gt;
+                    &lt;/span&gt;
+                &lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/article&gt;
+        &lt;article class="card"&gt;
+            &lt;figure class="card__header"&gt;
+                &lt;img src="img/card_bg02.jpg" alt="포메라니안"&gt;
+            &lt;/figure&gt;
+            &lt;div class="card__body"&gt;
+                &lt;h3 class="tit"&gt;포메라니안&lt;/h3&gt;
+                &lt;p class="desc"&gt;포메라니안 사진을 보니 생각이 바뀌었습니다. 포메라니안이 진정 세상에서 가장 귀
+                    여운 강아지입니다. 강아지는 커도 귀엽고 작아도 귀엽지만, 포메라니안은 그냥 귀...&lt;/p&gt;
+                &lt;a class="brn" href="/"&gt;
+                    더 자세히 보기
+                    &lt;span&gt;
+                        &lt;svg width="65" height="8" viewBox="0 0 65 8" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
+                            &lt;path d="M64.3536 4.35355C64.5488 4.15829 64.5488 3.84171 64.3536 3.64645L61.1716 0.464466C60.9763 0.269204 60.6597 0.269204 60.4645 0.464466C60.2692 0.659728 60.2692 0.976311 60.4645 1.17157L63.2929 4L60.4645 6.82843C60.2692 7.02369 60.2692 7.34027 60.4645 7.53553C60.6597 7.7308 60.9763 7.7308 61.1716 7.53553L64.3536 4.35355ZM0 4.5H64V3.5H0V4.5Z" fill="black"/&gt;
+                        &lt;/svg&gt;
+                    &lt;/span&gt;
+                &lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/article&gt;
+        &lt;article class="card"&gt;
+            &lt;figure class="card__header"&gt;
+                &lt;img src="img/card_bg03.jpg" alt="똑똑한 강아지"&gt;
+            &lt;/figure&gt;
+            &lt;div class="card__body"&gt;
+                &lt;h3 class="tit"&gt;똑똑한 강아지&lt;/h3&gt;
+                &lt;p class="desc"&gt;이 강아지는 귀여운데 똑똑하기까지 합니다. 열심히 작업하는 모습이 마치 코딩을
+                    하고 있는 것 같습니다. 여러 방면에서 강아지가 저보다 나은 것 같습니다...&lt;/p&gt;
+                &lt;a class="brn" href="/"&gt;
+                    더 자세히 보기
+                    &lt;span&gt;
+                        &lt;svg width="65" height="8" viewBox="0 0 65 8" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
+                            &lt;path d="M64.3536 4.35355C64.5488 4.15829 64.5488 3.84171 64.3536 3.64645L61.1716 0.464466C60.9763 0.269204 60.6597 0.269204 60.4645 0.464466C60.2692 0.659728 60.2692 0.976311 60.4645 1.17157L63.2929 4L60.4645 6.82843C60.2692 7.02369 60.2692 7.34027 60.4645 7.53553C60.6597 7.7308 60.9763 7.7308 61.1716 7.53553L64.3536 4.35355ZM0 4.5H64V3.5H0V4.5Z" fill="black"/&gt;
+                        &lt;/svg&gt;
+                    &lt;/span&gt;
+                &lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/article&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+    </code></pre></div>
+            <h2 class="t_tit2">결과</h2>
+            <div class="t_iframe" style="min-height: 1000px; padding-top: 0px;">
+                <iframe src="https://mj0614k.github.io/Coding/site/cardType/cardType01.html"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://github.com/mj0614k/Coding/blob/main/site/cardType/cardType01.html">원본 소스 보기</a>
+                <a href="https://mj0614k.github.io/Coding/site/cardType/cardType01">원본 사이트 보기</a>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

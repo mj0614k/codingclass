@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : GSAP</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="../index.html">Javascript</a></h1>
+    </header>
+    <!-- //header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">제이쿼리 : 클래스 관련 메서드</h2>
+            <p class="t_desc">
+                오늘은 JQuery의 주요 메서드들 중, 클래스와 관련된
+                메서드를 알아보도록 하겠습니다. 
+            </p>
+            <hr>
+            <article class=sample01>
+                <h3 class="t_tit2">1. addClass() 메서드</h3>
+                <p class="t_desc">요소에 class 속성을 추가합니다.</p>
+                <table class="t_table">
+                    <thead>
+                        <tr>
+                            <th>실행 분류</th>
+                            <th>형식</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="ce">추가</td>
+                            <td>$("div").addClass("클래스명");</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">콜백 함수</td>
+                            <td>$("div").addClass(function(<i>index, className</i>) {<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;// <i>index</i>는 각 div 요소의 index 0,1,2 <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;// <i>className</i>은 각 div의 class 속성 <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;<i>return</i> class 속성 // 각 div에 class 속성을 추가합니다. <br>
+                                });<br>
+                                ....<br>
+                                &lt;div>내용1&lt;/div> <br>
+                                &lt;div>내용2&lt;/div> <br>
+                                &lt;div>내용3&lt;/div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            <p class="t_desc">
+                다음은 addClass() 메서드의 사용 예제입니다.
+            </p>
+            <p class="codepen" data-height="300" data-default-tab="result" data-slug-hash="RwyNRjV" data-user="mj0614k" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                <span>See the Pen <a href="https://codepen.io/mj0614k/pen/RwyNRjV">
+                classmethod01</a> by mj0614k (<a href="https://codepen.io/mj0614k">@mj0614k</a>)
+                on <a href="https://codepen.io">CodePen</a>.</span>
+                </p>
+                <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+            </article>
+            <article class=sample02>
+                <h3 class="t_tit2">2. removeClass() 메서드</h3>
+                <p class="t_desc">요소에서 class 속성을 제거합니다.</p>
+                <table class="t_table">
+                    <thead>
+                        <tr>
+                            <th>실행 분류</th>
+                            <th>형식</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="ce">제거</td>
+                            <td>$("div").removeClass("클래스명");</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">콜백 함수</td>
+                            <td>$("div").removeClass(function(<i>index, className</i>) {<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;// <i>index</i>는 각 div 요소의 index 0,1,2 <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;// <i>className</i>은 각 div의 class 속성 m1, m2, m3<br>
+                                <i>return</i> class 속성 // 각 div에 class 속성을 제거합니다. <br>
+                                });<br>
+                                ....<br>
+                                &lt;div class="m1"&gt;내용1&lt;/div&gt; <br>
+                                &lt;div class="m2"&gt;내용2&lt;/div&gt; <br>
+                                &lt;div class="m3"&gt;내용3&lt;/div&gt;
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            <p class="t_desc">
+                다음은 removeClass() 메서드의 사용 예제입니다.
+            </p>
+            <p class="codepen" data-height="300" data-default-tab="result" data-slug-hash="VwxYjEb" data-user="mj0614k" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                <span>See the Pen <a href="https://codepen.io/mj0614k/pen/VwxYjEb">
+                classmethod02</a> by mj0614k (<a href="https://codepen.io/mj0614k">@mj0614k</a>)
+                on <a href="https://codepen.io">CodePen</a>.</span>
+                </p>
+                <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+            </article>
+            <article class=sample03>
+                <h3 class="t_tit2">3. toggleClass() 메서드</h3>
+                <p class="t_desc">요소에 class 속성이 없으면 addClass()가 적용되고, 속성이 있으면 removeClass()가 적용됩니다.</p>
+                <table class="t_table">
+                    <thead>
+                        <tr>
+                            <th>실행 분류</th>
+                            <th>형식</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="ce">추가/제거</td>
+                            <td>$("div").toggleClass("클래스명");</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="t_desc">
+                    다음은 toggleClass() 메서드의 사용 예제입니다.
+                </p>
+                <p class="codepen" data-height="300" data-default-tab="result" data-slug-hash="dyePXER" data-user="mj0614k" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                    <span>See the Pen <a href="https://codepen.io/mj0614k/pen/dyePXER">
+                    classmethod03</a> by mj0614k (<a href="https://codepen.io/mj0614k">@mj0614k</a>)
+                    on <a href="https://codepen.io">CodePen</a>.</span>
+                </p>
+                <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+            </article>
+            <article class=sample04>
+                <h3 class="t_tit2">4. hasClass() 메서드</h3>
+                <p class="t_desc">if문의 조건식으로 사용됩니다. 선택한 요소 클래스가 있으면 true, 없으면 false를 반환합니다.</p>
+                <div class="t_code">
+<pre><code class="language-js">if($("#box").hasClass("m")) {
+    console.log("클래스 있음");  // 클래스 있음
+} else {
+    console.log("클래스 없음");
+}
+...
+&lt;div id="#box" class="m"&gt;내용&lt;/div&gt;
+</code></pre>
+                </div>
+            </article>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

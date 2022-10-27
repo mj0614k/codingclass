@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>자바스크립트 : 검색 효과</title>
+
+        <link rel="stylesheet" href="../assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+
+    <body>
+        <header id="header">
+            <h1><a href="../index.html">Javascript</a></h1>
+        </header>
+        <!-- //header -->
+
+        <main id="main">
+            <div class="document">
+                <h2 class="t_tit">자바스크립트 : 마우스 효과 : 마우스 따라다니기</h2>
+                <p class="t_desc">자바스크립트의 다양한 효과들 중, 마우스 효과입니다. 다양한 메서드를 활용하여 마우스의 위치값을 찾고, 위치값에 따라 커서가 이동하고 변화하게끔 작업해보도록 하겠습니다.</p>
+                <hr />
+                <h2 class="t_tit2">HTML 소스</h2>
+                <p class="t_desc">HTML로는 먼저 마우스의 커서를 만들어 주고, 명언이 들어갈 mouse__wrap 박스, 마우스의 위치값을 작성할 mouse__info 박스를 만들어 주었습니다.</p>
+                <div class="t_code">
+                    <pre><code class="language-html">&lt;section id="mouseType01"&gt;
+    &lt;div class="mouse__cursor"&gt;&lt;/div&gt;
+    &lt;div class="mouse__wrap"&gt;
+        &lt;p&gt;The &lt;span class="style1"&gt;future&lt;/span&gt; depends on &lt;span class="style2"&gt;what&lt;/span&gt; we do in the &lt;span class="style3"&gt;present&lt;/span&gt;&lt;/p&gt;
+        &lt;p&gt;&lt;span class="style4"&gt;미래는&lt;/span&gt; 현재 &lt;span class="style5"&gt;우리가&lt;/span&gt; &lt;span class="style6"&gt;무엇을&lt;/span&gt; 하는가에 달려있다&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;div class="mouse__info"&gt;
+    &lt;ul&gt;
+        &lt;li&gt;clientX : &lt;span class="clientX"&gt;0&lt;/span&gt;px&lt;/li&gt;
+        &lt;li&gt;clientY : &lt;span class="clientY"&gt;0&lt;/span&gt;px&lt;/li&gt;
+        &lt;li&gt;offsetX : &lt;span class="offsetX"&gt;0&lt;/span&gt;px&lt;/li&gt;
+        &lt;li&gt;offsetY : &lt;span class="offsetY"&gt;0&lt;/span&gt;px&lt;/li&gt;
+        &lt;li&gt;pageX : &lt;span class="pageX"&gt;0&lt;/span&gt;px&lt;/li&gt;
+        &lt;li&gt;pageY : &lt;span class="pageY"&gt;0&lt;/span&gt;px&lt;/li&gt;
+        &lt;li&gt;screenX : &lt;span class="screenX"&gt;0&lt;/span&gt;px&lt;/li&gt;
+        &lt;li&gt;screenY : &lt;span class="screenY"&gt;0&lt;/span&gt;px&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+                <h2 class="t_tit2">CSS 소스</h2>
+                <p class="t_desc">CSS로 스타일 속성을 추가해 주었습니다. 명언에서 밑줄이 그인 단어에 각각 마우스를 오버하면 다른 스타일로 변화하도록 트랜스폼 효과를 추가해 주었습니다.</p>
+                <div class="t_code">
+                    <pre><code class="language-css">/* mouseType */
+.mouse__wrap {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    overflow: hidden;
+    flex-direction: column;
+    cursor: none;
+}
+.mouse__wrap p {
+    font-size: 2vw;
+    line-height: 2;
+    font-weight: 300;
+}
+.mouse__wrap p:last-child {
+    font-size: 3vw;
+}
+.mouse__wrap p span {
+    border-bottom: 0.35vw dashed rgb(77, 46, 128);
+    color: rgb(77, 46, 128);
+}
+@media (max-width: 800px) {
+    .mouse__wrap p {
+        font-size: 20px;
+        padding: 0 20px;
+        text-align: center;
+        line-height: 1.5;
+        word-break: keep-all;
+        margin-bottom: 10px;
+    }
+    .mouse__wrap p:last-child {
+        font-size: 40px;
+    }
+}
+.mouse__cursor {
+    z-index: 2001;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+    /* 마우스 커서 선택, 클릭 X */
+    user-select: none;
+    pointer-events: none;
+    transition: background-color 0.3s, border-color 0.3s, transform 0.6s, border-radius 0.3s;
+}
+.mouse__cursor.style1 {
+    background-color: rgba(255, 0, 0, 0.5);
+    border-color: red;
+}
+.mouse__cursor.style2 {
+    background-color: rgba(255, 166, 0, 0.5);
+    border-color: orange;
+    transform: scale(2) rotateY(720deg);
+}
+.mouse__cursor.style3 {
+    background-color: rgba(255, 255, 0, 0.5);
+    border-color: yellow;
+    transform: scale(1.5) rotateX(720deg);
+}
+.mouse__cursor.style4 {
+    background-color: rgba(172, 255, 47, 0.5);
+    border-color: greenyellow;
+    transform: scale(10);
+}
+.mouse__cursor.style5 {
+    background-color: rgba(0, 0, 255, 0.5);
+    border-color: blue;
+    transform: scale(0.1);
+}
+.mouse__cursor.style6 {
+    background-color: rgba(137, 43, 226, 0.5);
+    border-color: blueviolet;
+    border-radius: 0;
+    transform: rotate(720deg);
+}
+.mouse__info {
+    z-index: 2001;
+    position: absolute;
+    left: 20px;
+    bottom: 10px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #fff;
+}</code></pre>
+                </div>
+                <h2 class="t_tit2">JAVASCRIPT 소스</h2>
+                <p class="t_desc">대망의 JAVASCIPRT 소스입니다. 커서의 위치값을 일일이 입력할 수 있지만, for문과 forEach문으로도 작성해 보았습니다.</p>
+                <div class="t_code">
+                    <pre><code class="language-js">window.addEventListener("mousemove", (event) => {
+    document.querySelector(".clientX").innerHTML = event.clientX;
+    document.querySelector(".clientY").innerHTML = event.clientY;
+    document.querySelector(".offsetX").innerHTML = event.offsetX;
+    document.querySelector(".offsetY").innerHTML = event.offsetY;
+    document.querySelector(".pageX").innerHTML = event.pageX;
+    document.querySelector(".pageY").innerHTML = event.pageY;
+    document.querySelector(".screenX").innerHTML = event.screenX;
+    document.querySelector(".screenY").innerHTML = event.screenY;
+});
+
+const cursor = document.querySelector(".mouse__cursor");
+
+window.addEventListener("mousemove", (e) => {
+    cursor.style.left = e.clientX - 25 + "px"; // 커서에 스타일(위치값) 추가
+    cursor.style.top = e.clientY - 25 + "px";
+});
+
+// document.querySelector(".style1").addEventListener("mouseover", () => {
+//     cursor.classList.add("style1");
+// });
+// document.querySelector(".style1").addEventListener("mouseout", () => {
+//     cursor.classList.remove("style1");
+// });
+
+// document.querySelector(".style2").addEventListener("mouseover", () => {
+//     cursor.classList.add("style2");
+// });
+// document.querySelector(".style2").addEventListener("mouseout", () => {
+//     cursor.classList.remove("style2");
+// });
+
+// document.querySelector(".style3").addEventListener("mouseover", () => {
+//     cursor.classList.add("style3");
+// });
+// document.querySelector(".style3").addEventListener("mouseout", () => {
+//     cursor.classList.remove("style3");
+// });
+
+// document.querySelector(".style4").addEventListener("mouseover", () => {
+//     cursor.classList.add("style4");
+// });
+// document.querySelector(".style4").addEventListener("mouseout", () => {
+//     cursor.classList.remove("style4");
+// });
+
+// document.querySelector(".style5").addEventListener("mouseover", () => {
+//     cursor.classList.add("style5");
+// });
+// document.querySelector(".style5").addEventListener("mouseout", () => {
+//     cursor.classList.remove("style5");
+// });
+
+// document.querySelector(".style6").addEventListener("mouseover", () => {
+//     cursor.classList.add("style6");
+// });
+// document.querySelector(".style6").addEventListener("mouseout", () => {
+//     cursor.classList.remove("style6");
+// });
+
+//for문
+// for (let i = 1; i &lt;= 6; i++) {
+//     document.querySelector(".style" + i).addEventListener("mouseover", () => {
+//         cursor.classList.add("style" + i);
+//     });
+//     document.querySelector(".style" + i).addEventListener("mouseout", () => {
+//         cursor.classList.remove("style" + i);
+//     });
+// }
+
+// forEach문
+// document.querySelectorAll(".mouse__wrap span").forEach((span, num) => {
+//     span.addEventListener("mouseover", () => {
+//         cursor.classList.add("style" + (num + 1));
+//     });
+//     span.addEventListener("mouseout", () => {
+//         cursor.classList.remove("style" + (num + 1));
+//     });
+// });
+
+//getAttribute() 메서드 활용하기 : 속성값으로 가져오기
+document.querySelectorAll(".mouse__wrap span").forEach((span) => {
+    let attr = span.getAttribute("class");
+
+    span.addEventListener("mouseover", () => {
+        cursor.classList.add(attr);
+    });
+    span.addEventListener("mouseout", () => {
+        cursor.classList.remove(attr);
+    });
+});
+</code></pre>
+                </div>
+                <hr />
+                <h2 class="t_tit2">결과</h2>
+                <div class="t_iframe" style="min-height: 1000px; padding-top: 0px">
+                    <iframe src="https://mj0614k.github.io/Coding/javascript/effect/mouseEffect01.html"></iframe>
+                </div>
+
+                <div class="t_link">
+                    <a href="https://github.com/mj0614k/Coding/blob/main/javascript/effect/mouseEffect01.html">원본 소스 보기</a>
+                    <a href="https://mj0614k.github.io/Coding/javascript/effect/mouseEffect01">원본 사이트 보기</a>
+                </div>
+            </div>
+        </main>
+        <!-- //main -->
+
+        <footer id="footer">
+            <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+        </footer>
+        <!-- //footer -->
+
+        <script src="../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>

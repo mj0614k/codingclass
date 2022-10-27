@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레이아웃(Layout) : 텍스트 유형01</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="../index.html">레이아웃 : 텍스트 유형01</a></h1>
+    </header>
+    <!-- //header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">레이아웃 : 텍스트 유형01</h2>
+            <p class="t_desc">
+                다음과 같은 텍스트 유형의 레이아웃을 작업해 보도록 하겠습니다.
+            </p>
+            <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F1tYdOqQlGJDcMVaann5iJt%2F%25EC%2582%25AC%25EC%259D%25B4%25ED%258A%25B8-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0%3Fnode-id%3D206%253A1571" allowfullscreen></iframe>
+            <h2 class="t_tit2">HTML 소스</h2>
+            <p class="t_desc">먼저, container 박스를 만들어 주고, 그 안에 text__card 클래스명을 가진
+                div 박스를 만들어 주었습니다. 총 6개의 카드를 만든 뒤, 각각의 카드 안에는
+                아이콘과 제목, 설명, 더보기 버튼을 추가해 주었습니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-html">&lt;section id="textType01" class="container section nexon"&gt;
+    &lt;p&gt;텍스트 유형01&lt;/p&gt;
+    &lt;h2&gt;세상의 귀여운 댕댕이&lt;/h2&gt;
+    &lt;div class="text__card"&gt;
+        &lt;div class="card top"&gt;
+            &lt;div class="icon"&gt;&lt;/div&gt;
+            &lt;h3 class="title"&gt;세상의 귀여운 댕댕이&lt;/h3&gt;
+            &lt;p class="desc"&gt;세상의 귀여운 댕댕이... 댕댕이 이야기만 몇&lt;br&gt;
+                번째인지... 댕댕이 글자를 보면 게슈탈트 붕&lt;br&gt;
+                괴 현상이 일어날 것만 같다. 세 줄 효과를 위해서 조금 더&lt;/p&gt;
+            &lt;a class="more" href="#"&gt;더보기&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class="card top ce"&gt;
+            &lt;div class="icon icon02"&gt;&lt;/div&gt;
+            &lt;h3 class="title"&gt;세상의 귀여운 야옹이&lt;/h3&gt;
+            &lt;p class="desc"&gt;세상의 귀여운 댕댕이... 댕댕이 이야기만 몇&lt;br&gt;
+                번째인지... 댕댕이 글자를 보면 게슈탈트 붕&lt;br&gt;
+                괴 현상이 일어날 것만 같다. 세 줄 효과를 위해서 조금 더&lt;/p&gt;
+            &lt;a class="more" href="#"&gt;더보기&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class="card top"&gt;
+            &lt;div class="icon icon03"&gt;&lt;/div&gt;
+            &lt;h3 class="title"&gt;세상의 귀여운 원숭이&lt;/h3&gt;
+            &lt;p class="desc"&gt;세상의 귀여운 댕댕이... 댕댕이 이야기만 몇&lt;br&gt;
+                번째인지... 댕댕이 글자를 보면 게슈탈트 붕&lt;br&gt;
+                괴 현상이 일어날 것만 같다. 세 줄 효과를 위해서 조금 더&lt;/p&gt;
+            &lt;a class="more" href="#"&gt;더보기&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class="card"&gt;
+            &lt;div class="icon icon04"&gt;&lt;/div&gt;
+            &lt;h3 class="title"&gt;세상의 귀여운 고슴도치&lt;/h3&gt;
+            &lt;p class="desc"&gt;세상의 귀여운 댕댕이... 댕댕이 이야기만 몇&lt;br&gt;
+                번째인지... 댕댕이 글자를 보면 게슈탈트 붕&lt;br&gt;
+                괴 현상이 일어날 것만 같다. 세 줄 효과를 위해서 조금 더&lt;/p&gt;
+            &lt;a class="more" href="#"&gt;더보기&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class="card ce"&gt;
+            &lt;div class="icon icon05"&gt;&lt;/div&gt;
+            &lt;h3 class="title"&gt;이 색깔 눈 아프죠?&lt;/h3&gt;
+            &lt;p class="desc"&gt;세상의 귀여운 댕댕이... 댕댕이 이야기만 몇&lt;br&gt;
+                번째인지... 댕댕이 글자를 보면 게슈탈트 붕&lt;br&gt;
+                괴 현상이 일어날 것만 같다. 세 줄 효과를 위해서 조금 더&lt;/p&gt;
+            &lt;a class="more" href="#"&gt;더보기&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class="card"&gt;
+            &lt;div class="icon icon06"&gt;&lt;/div&gt;
+            &lt;h3 class="title"&gt;세상의 귀여운 코끼리&lt;/h3&gt;
+            &lt;p class="desc"&gt;세상의 귀여운 댕댕이... 댕댕이 이야기만 몇&lt;br&gt;
+                번째인지... 댕댕이 글자를 보면 게슈탈트 붕&lt;br&gt;
+                괴 현상이 일어날 것만 같다. 세 줄 효과를 위해서 조금 더&lt;/p&gt;
+            &lt;a class="more" href="#"&gt;더보기&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;</code></pre></div>
+<h2 class="t_tit2">CSS 소스</h2>
+<p class="t_desc">폰트는 넥슨 Lv1 고딕을 사용하였고, display: flex와 flex-wrap을 이용하여 카드들을 가로로 배치하였습니다.
+    아이콘은 백그라운드 형식으로 작업해 주었고, 아이콘에 담긴 의미는 특별히 없기 때문에 ir효과는 생략했습니다.
+    각각의 카드들에 마우스를 대면 배경 색상이 바뀌도록 hover 효과도 작업해 주었습니다.
+</p>
+<div class="t_code">
+<pre><code class="language-css">.nexon {
+    font-family: 'NexonLv1Gothic';
+    font-weight: 400;
+}
+
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+    color: #000;
+}
+img {
+    width: 100%;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+}
+
+/* common */
+.container {
+    width: 1160px;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+.section {
+    padding: 120px 0;
+}
+.section>h2 {
+    font-size: 50px;
+    line-height: 1;
+    text-align: center;
+    margin-bottom: 70px;
+}
+.section>p {
+    font-size: 22px;
+    font-weight: 300;
+    color: #666;
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+/* textType01 */
+#textType01>p {
+    font-size: 16px;
+    color: #000;
+    font-weight: normal;
+    text-decoration-line: underline;
+    margin-bottom: 10px;
+}
+.text__card {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: space-between;
+}
+.text__card .card {
+    width: 373px;
+    height: 260px;
+    background-color: white;
+    border-radius: 10px;
+    position: relative;
+}
+.text__card .card:hover{
+    background-color: #efefef;
+}
+.text__card .card.top {
+    margin-bottom: 20px;
+}
+.text__card .card.ce {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.text__card .card .icon {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #B7C7FF;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    background: url(img/text01_icon01.svg) no-repeat;
+}
+.text__card .card .icon.icon02 {
+    background-position: -60px 0;
+}
+.text__card .card .icon.icon03 {
+    background-position: -120px 0;
+}
+.text__card .card .icon.icon04 {
+    background-position: -180px 0;
+}
+.text__card .card .icon.icon05 {
+    background-position: -240px 0;
+}
+.text__card .card .icon.icon06 {
+    background-position: -300px 0;
+}
+.text__card .card .title {
+    font-size: 24px;
+    position: absolute;
+    left: 20px;
+    top: 90px;
+}
+.text__card .card .desc {
+    font-size: 18px;
+    color: #666;
+    font-weight: 300;
+    line-height: 140%;
+    position: absolute;
+    left: 20px;
+    top: 128px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; 
+    -webkit-box-orient: vertical;
+}
+.text__card .card .more {
+    font-size: 16px;
+    font-weight: 300;
+    color: #666;
+    text-decoration-line: underline;
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+}
+</code></pre></div>
+            <h2 class="t_tit2">결과</h2>
+            <div class="t_iframe" style="min-height: 800px; padding-top: 0px;">
+                <iframe src="https://mj0614k.github.io/Coding/site/textType/textType01.html"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://github.com/mj0614k/Coding/blob/main/site/textType/textType01.html">원본 소스 보기</a>
+                <a href="https://mj0614k.github.io/Coding/site/textType/textType01">원본 사이트 보기</a>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

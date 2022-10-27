@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../javascript/assets/css/style.css">
+</head>
+<body>
+    <main id="main">
+        <div class="document">
+        <h2 class="t_tit">레이아웃(layout)</h2>
+        <p class="t_box">
+            <i>레이아웃(layout)</i>이란 <i>특정 공간에 여러 구성 요소를 보기 좋게 효과적으로 배치하는 작업</i>을 의미합니다.
+            웹 페이지의 레이아웃은 웹 사이트의 외관을 결정짓는 매우 중요한 요소입니다.
+        </p>
+        <p class="t_desc">CSS로 레이아웃 작업을 하는 방법에는 3가지가 있습니다.</p>
+        <hr>
+
+        <h3 class="t_tit2">1. float을 이용한 방법</h3>
+        <p class="t_desc"><i>'float'</i>라는 단어는 사전적으로는'뜨다'라는 의미를 가지고 있습니다. 웹페이지에서 이미지를 어떻게 띄워서 텍스트와 함께 배치할 것인지에 대한 속성입니다.</p>
+        <p class="t_box"><strong>float:left</strong> 왼쪽에 부유하는 블록 박스를 생성합니다.<br>
+            <strong>float:right</strong> 오른쪽에 부유하는 블록 박스를 생성합니다.<br>
+            <strong>float:none</strong> 요소를 부유시키지 않습니다.</p>
+        <p class="t_desc">left와 right를 활용해 속성을 지정하면 display는 무시됩니다. 또한, 이후의 요소에 clear 속성을 활용하면 페이지 흐름이 달라집니다.
+            다음 예시와 같이 float를 활용하여 레이아웃 작업을 할 수 있습니다.
+        </p>
+        <p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="LYdjLyj" data-user="mj0614k" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+            <span>See the Pen <a href="https://codepen.io/mj0614k/pen/LYdjLyj">
+            Untitled</a> by mj0614k (<a href="https://codepen.io/mj0614k">@mj0614k</a>)
+            on <a href="https://codepen.io">CodePen</a>.</span>
+        </p>
+        <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+        <p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="zYWdzxr" data-user="mj0614k" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+            <span>See the Pen <a href="https://codepen.io/mj0614k/pen/zYWdzxr">
+            layout</a> by mj0614k (<a href="https://codepen.io/mj0614k">@mj0614k</a>)
+            on <a href="https://codepen.io">CodePen</a>.</span>
+        </p>
+        <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+        <p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="wvmqePZ" data-user="mj0614k" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+            <span>See the Pen <a href="https://codepen.io/mj0614k/pen/wvmqePZ">
+            layout03_01</a> by mj0614k (<a href="https://codepen.io/mj0614k">@mj0614k</a>)
+            on <a href="https://codepen.io">CodePen</a>.</span>
+        </p>
+        <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+
+        <h3 class="t_tit2">2. flex를 이용한 방법</h3>
+        <p class="t_desc">'flex' 속성은 'flexible'의 줄임말로, 유동적인 레이아웃을 손쉽게 만들 수 있다는 의미를 가지고 있습니다. container와 item들이 부모와 자식 관계일 때, container에 <i>display:flex;</i> 혹은 <i>display:inline-flex;</i>속성을 줌으로써 flexbox 레이아웃을 적용할 수 있습니다. 다음 예시와 같이 flex를 활용하여 레이아웃 작업을 할 수 있습니다.</p>
+        <p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="XWEaggj" data-user="mj0614k" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+            <span>See the Pen <a href="https://codepen.io/mj0614k/pen/XWEaggj">
+            layout01_03</a> by mj0614k (<a href="https://codepen.io/mj0614k">@mj0614k</a>)
+            on <a href="https://codepen.io">CodePen</a>.</span>
+        </p>
+        <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+        <p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="abYywLJ" data-user="mj0614k" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+            <span>See the Pen <a href="https://codepen.io/mj0614k/pen/abYywLJ">
+            layout02_03</a> by mj0614k (<a href="https://codepen.io/mj0614k">@mj0614k</a>)
+            on <a href="https://codepen.io">CodePen</a>.</span>
+        </p>
+        <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+        <p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="vYRJZpr" data-user="mj0614k" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+            <span>See the Pen <a href="https://codepen.io/mj0614k/pen/vYRJZpr">
+            layout03_03</a> by mj0614k (<a href="https://codepen.io/mj0614k">@mj0614k</a>)
+            on <a href="https://codepen.io">CodePen</a>.</span>
+        </p>
+        <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+
+        <h3 class="t_tit2">3. grid를 이용한 방법</h3>
+        <p class="t_desc">'grid'는 페이지를 여러 주요 영역으로 나누거나, 크기와 위치 및 문서 계층 구조의 관점에서
+            HTML 기본 요소로 작성된 콘트롤 간의 관계를 정의하는 데에 유용하게 사용됩니다. grid 레이아웃은 table과 마찬가지로
+            세로 열과 가로 행을 기준으로 요소를 정렬할 수 있습니다. 다음은 grid를 활용하여 페이지 레이아웃을 작업한 예시입니다.
+        </p>
+        <p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="GRxvEvX" data-user="mj0614k" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+            <span>See the Pen <a href="https://codepen.io/mj0614k/pen/GRxvEvX">
+            layout01_05</a> by mj0614k (<a href="https://codepen.io/mj0614k">@mj0614k</a>)
+            on <a href="https://codepen.io">CodePen</a>.</span>
+        </p>
+        <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+        <p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="GRxvEMX" data-user="mj0614k" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+            <span>See the Pen <a href="https://codepen.io/mj0614k/pen/GRxvEMX">
+            layout02_05</a> by mj0614k (<a href="https://codepen.io/mj0614k">@mj0614k</a>)
+            on <a href="https://codepen.io">CodePen</a>.</span>
+        </p>
+        <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+        <p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="LYdjLQO" data-user="mj0614k" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+            <span>See the Pen <a href="https://codepen.io/mj0614k/pen/LYdjLQO">
+            layout03_05</a> by mj0614k (<a href="https://codepen.io/mj0614k">@mj0614k</a>)
+            on <a href="https://codepen.io">CodePen</a>.</span>
+          </p>
+          <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+        </div>
+    </main>
+</body>
+</html>

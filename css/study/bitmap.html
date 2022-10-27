@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS : 비트맵 방식과 벡터 방식</title>
+
+    <link rel="stylesheet" href="../../javascript/assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href=#>비트맵 방식과 벡터 방식</a></h1>
+    </header>
+    <!-- //header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">비트맵 방식과 벡터 방식</h2>
+            <p class="t_desc">
+                오늘은 비트맵 방식과 벡터 방식의 차이에 대하여 알아보겠습니다. 그 전에, 픽셀(Pixel)이라는
+                개념을 알아야 합니다.
+            </p>
+            <hr>
+            <h2 class="t_tit2">픽셀이란?</h2>
+            <p class="t_desc2">픽셀이란 Picture(그림) + Element(원소)의 합성어로서, 화소라고도 하는 화면을 구성하는 가장 기본이 되는 단위입니다.
+                BMP, GIF, JPEG, PNG가 픽셀을 사용하는 대표적인 포맷으로, 이를 '비트맵 이미지'라고 합니다.
+            </p>
+            <h2 class="t_tit2">비트맵 방식이란?</h2>
+            <p class="t_desc2">비트맵 방식은 각 픽셀에 저장된 비트 정보가 집합된 것입니다. 비트맵은 벡터와 달리
+                픽셀의 점 하나하나가 이미지를 이루는 요소이기 때문에 벡터에 비하여 정교한 이미지 표현이 가능합니다.
+                픽셀의 수가 많아질수록 화질은 뛰어나지만, 용량 또한 커지게 됩니다. 또한, 비트맵 이미지는 크기를
+                확대하거나 축소하면 기존에 이루고 있던 픽셀의 수가 변하는데, 그에 따라 원본 이미지가 깨지고
+                품질이 저하되어 손상이 갈 수 있다는 단점이 있습니다.
+            </p>
+            <p class="t_desc">아래 사진은 비트맵 방식의 사진을 확대하였을 때의 모습입니다. 깨짐 현상이 나타납니다.</p>
+            <h2 class="t_tit2">벡터 방식이란?</h2>
+            <p class="t_desc2">벡터 방식은 비트맵과는 반대로, 그리드 위의 점과 선을 기반으로 하는
+                수학 공식을 통해 이미지를 저장합니다. 즉, 고정된 비트맵을 가지고 있는 것이 아니라,
+                점과 점을 연결함으로써 수학적 함수관계에 의해 이미지를 표현하여 선과 면을 만들어내는 매커니즘을 가지고 있습니다.
+                벡터의 점은 좌표계(x, y)로 구성되기 때문에 이미지의 크기를 조절하거나 변형하여도 해상도가 깨지지 않습니다.
+                더불어 비트맵보다 용량이 현저히 작다는 장점이 있습니다.
+            </p>
+            <p class="t_desc">아래 사진은 벡터 방식의 사진을 확대하였을 때의 모습입니다. 깨짐 현상이 나타나지 않습니다.</p>
+            <hr>
+            <h2 class="t_tit2">비트맵 방식과 벡터 방식 비교하기</h2>
+            <table class="t_table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>비트맵 방식</th>
+                        <th>벡터 방식</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ce">이미지 저장 방식</td>
+                        <td class="ce">픽셀에 저장된 정보의 집합</td>
+                        <td class="ce">점과 선을 기반으로 하는 수학 공식</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">확대시 깨짐 현상</td>
+                        <td class="ce">O</td>
+                        <td class="ce">X</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">장점</td>
+                        <td class="ce">풍부한 색감, 사실적 표현, 특수효과</td>
+                        <td class="ce">자유로운 이미지 변형</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">확장자</td>
+                        <td class="ce">JPG, GIF, PNG, BMP...</td>
+                        <td class="ce">AI, SVG, SWF...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

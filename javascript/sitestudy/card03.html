@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레이아웃(Layout) : 카드 유형03</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="../index.html">레이아웃 : 카드 유형03</a></h1>
+    </header>
+    <!-- //header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">레이아웃 : 카드 유형03</h2>
+            <p class="t_desc">
+                이번에는 다음과 같은 3개의 카드가 있는 레이아웃 유형을 작업해 보도록 하겠습니다.
+            </p>
+            <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F1tYdOqQlGJDcMVaann5iJt%2F%25EC%2582%25AC%25EC%259D%25B4%25ED%258A%25B8-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0%3Fnode-id%3D2%253A242" allowfullscreen></iframe>
+            <h2 class="t_tit2">CSS 소스</h2>
+            <p class="t_desc">폰트는 에스코어 드림을 사용했고, 컨테이너 안에 3개의 카드를 만들어 display:flex로 가로 정렬을 해 주었습니다.
+                blind 효과는 ir 효과와 마찬가지로, 글자가 눈에 보이지 않게 작업하지만, 스크린 리더기에서는 읽히게끔 만들어 웹 접근성을 준수하게끔 합니다. 
+            </p>
+            <div class="t_code">
+<pre><code class="language-css">/* fonts */
+@import url('https://webfontworld.github.io/score/SCoreDream.css');
+
+.score {
+    font-family: 'SCoreDream';
+    font-weight: 400;
+}
+
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+img {
+    width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+}
+
+/* common */
+.container {
+    width: 1160px;
+    padding: 0 20px;
+    margin: 0 auto;
+    min-width:1160px;
+}
+
+.section {
+    padding: 120px 0;
+}
+
+.section>h2 {
+    font-size: 50px;
+    line-height: 1;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.section>p {
+    font-size: 22px;
+    font-weight: 300;
+    color: #666;
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+/* blind 효과(웹 접근성 준수)*/
+.blind{
+    position:absolute;
+    clip:rect(0 0 0 0);
+    width:1px;
+    height:1px;
+    margin:-1px;
+    overflow:hidden
+}
+
+/* cardType03 */
+body {
+    background-color: #1E39A2;
+}
+
+.card__inner {
+    display: flex;
+}
+
+.card__inner .card {
+    width: 33.3333%;
+    background-color: white;
+    padding: 26px;
+}
+
+.card__inner .card:nth-child(1) {
+    border-right: 1px solid #eee;
+}
+
+.card__inner .card:nth-child(2) {
+    border-right: 1px solid #eee;
+}
+
+.card__header {
+    position: relative;
+}
+
+.card__header img {
+    border-radius: 10px;
+    box-shadow: 4px 4px 5px 0 rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+
+.card__header figcaption {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 100.8px;
+    padding: 6px 12px;
+    border-radius: 50px;
+    background-color: #FFC738;
+    text-align: center;
+    font-size: 14px;
+    color: #7b7b7b;
+}
+
+.card__body h3 {
+    font-size: 20px;
+    line-height: 1.4;
+    margin-bottom: 10px;
+}
+
+.card__body p {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.7;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; 
+    -webkit-box-orient: vertical;
+    margin-bottom: 30px;
+}
+
+.card__footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.card__footer h4 {
+    text-align: center;
+    color: #dd2a2a;
+}
+
+.card__footer em {
+    display: block;
+    color: #666;
+    font-style: normal;
+}
+
+.card__footer span {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-left: 10px;
+    margin-top: 3px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+}</code></pre></div>
+<h2 class="t_tit2">HTML 소스</h2>
+<p class="t_desc">각각의 카드는 header, body, footer 세 가지 영역으로 나누어 작업하였습니다. footer 영역도 display:flex를 사용하여 정렬을 해 주었습니다.
+    figcaption 태그는 figure 태그 안에서, 다른 콘텐츠에 대한 설명 혹은 범례를 나타냅니다.
+</p>
+<div class="t_code">
+<pre><code class="language-html">&lt;section id="cardType03" class="card__wrap score section"&gt;
+    &lt;h2 class="blind"&gt;오징어의 생애&lt;/h2&gt;
+    &lt;div class="card__inner container"&gt;
+        &lt;article class="card"&gt;
+            &lt;figure class="card__header"&gt;
+                &lt;img src="img/card03_bg01.jpg" alt="갓 태어난 새끼 오징어"&gt;
+                &lt;figcaption&gt;Squid&lt;/figcaption&gt;
+            &lt;/figure&gt;
+            &lt;div class="card__body"&gt;
+                &lt;h3&gt;갓 태어난 새끼 오징어 : 오징어의 탄생을 축하합니다!&lt;/h3&gt;
+                &lt;p&gt;새끼 오징어가 태어났습니다. 심히 경이롭지 않을 수가 없습니다. 오징어를
+                    축하해 주었습니다. 오징어야, 축하해. 그래도 새끼는 귀엽게 생겼네요.&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="card__footer"&gt;
+                &lt;h4&gt;오징어학 박사 &lt;em&gt;Usman Yosaf&lt;/em&gt;&lt;/h4&gt;
+                &lt;span&gt;&lt;img src="img/card03_icon01.png" alt="Usman Yosaf 박사님"&gt;&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/article&gt;
+        &lt;article class="card"&gt;
+            &lt;figure class="card__header"&gt;
+                &lt;img src="img/card03_bg02.jpg" alt="당신을 바라보고 있는 오징어"&gt;
+                &lt;figcaption&gt;Squid&lt;/figcaption&gt;
+            &lt;/figure&gt;
+            &lt;div class="card__body"&gt;
+                &lt;h3&gt;씩씩한 청소년 오징어 : 오징어와 눈을 마주쳐 보세요&lt;/h3&gt;
+                &lt;p&gt;오징어를 바라보고 있자니 썩 기분이 좋지는 않습니다. 왜 저렇게 생겼을까요? 그러나 오징어의 기분도 마찬가지인 것 같습니다. 다소 예의가 없네요.&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="card__footer"&gt;
+                &lt;h4&gt;오징어학 박사 &lt;em&gt;Usman Yosaf&lt;/em&gt;&lt;/h4&gt;
+                &lt;span&gt;&lt;img src="img/card03_icon01.png" alt="Usman Yosaf 박사님"&gt;&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/article&gt;
+        &lt;article class="card"&gt;
+            &lt;figure class="card__header"&gt;
+                &lt;img src="img/card03_bg03.jpg" alt="늘어져서 햇볕에 말려지는 오징어"&gt;
+                &lt;figcaption&gt;Squid&lt;/figcaption&gt;
+            &lt;/figure&gt;
+            &lt;div class="card__body"&gt;
+                &lt;h3&gt;바싹 마른 성체 오징어 : 최고의 안주가 됩니다&lt;/h3&gt;
+                &lt;p&gt;버르장머리 없는 오징어들은 바싹 말린 뒤에 맛있는 안주로 만들어 사람들에게 예의를 갖추게 합니다. 우리는 곧 역전 할머니 맥주에서 만날 수 있습니다.&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="card__footer"&gt;
+                &lt;h4&gt;오징어학 박사 &lt;em&gt;Usman Yosaf&lt;/em&gt;&lt;/h4&gt;
+                &lt;span&gt;&lt;img src="img/card03_icon01.png" alt="Usman Yosaf 박사님"&gt;&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/article&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+</code></pre></div>
+            <h2 class="t_tit2">결과</h2>
+            <div class="t_iframe" style="min-height: 1000px; padding-top: 0px;">
+                <iframe src="https://mj0614k.github.io/Coding/site/cardType/cardType03.html"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://github.com/mj0614k/Coding/blob/main/site/cardType/cardType03.html">원본 소스 보기</a>
+                <a href="https://mj0614k.github.io/Coding/site/cardType/cardType03">원본 사이트 보기</a>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

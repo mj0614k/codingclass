@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 문자열 변경 메서드</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="../index.html">Javascript</a></h1>
+        <nav class="header_nav">
+            <ul>
+                <li><a href="../javascript01.html">데이터 저장하기</a></li>
+                <li><a href="../javascript02.html">데이터 불러오기</a></li>
+                <li><a href="../javascript03.html">데이터 실행하기</a></li>
+                <li><a href="../javascript04.html">데이터 제어하기</a></li>
+            </ul>
+            <ul>
+                <li><a href="../javascript05.html">문자열 객체</a></li>
+                <li><a href="../javascript06.html">배열 객체</a></li>
+                <li><a href="../javascript07.html">수학 객체</a></li>
+                <li><a href="../javascript08.html">숫자 객체</a></li>
+                <li><a href="../javascript09.html">브라우저 객체</a></li>
+                <li><a href="../javascript10.html">요소 객체</a></li>
+                <li><a href="../javascript11.html">이벤트 객체</a></li>
+            </ul>
+            <ul class="effect">
+                <li><a href="../effect/searchEffect01.html">검색 효과</a></li>
+                <li><a href="../effect/quizEffect01.html">퀴즈 효과</a></li>
+                <li><a href="../effect/dataEffect01.html">데이터 효과</a></li>
+                <li><a href="../effect/mouseEffect01.html">마우스 효과</a></li>
+                <li><a href="../effect/sliderEffect01.html">슬라이드 효과</a></li>
+                <li><a href="../effect/parallaxEffect01.html">패랠랙스 효과</a></li>
+                <li><a href="../effect/gameEffect01.html">게임 효과</a></li>
+            </ul>
+            <ul class="study">
+                <li><a href="basic.html">기본 규칙</a></li>
+                <li><a href="operator.html">연산자</a></li>
+                <li><a href="for.html">반복문</a></li>
+                <li><a href="if.html">조건문</a></li>
+                <li><a href="type.html">데이터 타입</a></li>
+                <li><a href="function.html">함수</a></li>
+                <li><a href="var.html">전역변수/지역변수</a></li>
+                <li><a href="element.html">요소 선택</a></li>
+                <li><a href="array.html">배열 메서드</a></li>
+                <li><a href="builtinfunction.html">내장함수</a></li>
+                <li><a href="regexp.html">정규식 표현</a></li>
+                <li><a href="string.html">문자열 변경 메서드</a></li>
+                <li><a href="search.html">문자열 검색 메서드</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">문자열 변경 메서드 : padStart() / padEnd()</h2>
+            <p class="t_desc">
+                padStart() / padEnd() 메서드는 주어진 길이에 맞게 앞 / 뒤 문자열을 채우고, 새로운 문자열을 반환합니다.
+            </p>
+            <hr>
+            <h2 class="t_tit2">padStart() 메서드</h2>
+            <p class="t_desc2">
+                padStart() 메서드는 현재 문자열의 시작을 다른 문자열로 채워, 주어진 길이를 만족하는 새로운 문자열을 반환합니다. 채워넣기는 대상 문자열의 시작(좌측)부터 적용됩니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">const str1 = "456";
+const currentStr1 = str1.padStart(1, "0"); // 현재 문자열의 길이보다 작다면, 채워넣지 않고 그대로 반환합니다.
+const currentStr2 = str1.padStart(2, "0");
+const currentStr3 = str1.padStart(3, "0"); 
+const currentStr4 = str1.padStart(4, "0"); 
+const currentStr5 = str1.padStart(5, "0"); 
+const currentStr6 = str1.padStart(6, "0"); 
+const currentStr7 = str1.padStart(6, "1"); 
+const currentStr8 = str1.padStart(6, "12"); 
+const currentStr9 = str1.padStart(6, "123"); 
+const currentStr10 = str1.padStart(6, "1239"); 
+const currentStr11 = str1.padStart(6); // 문자열을 작성하지 않으면, 남는 길이만큼 공백 처리됩니다.
+</code></pre></div>
+            <details>
+                <summary>결과보기</summary>
+                <div>456<br>456<br>456<br>0456<br>00456<br>000456<br>
+                    111456<br>121456<br>123456<br>123456<br>___456
+                </div>
+            </details>
+            <h2 class="t_tit2">padEnd() 메서드</h2>
+            <p class="t_desc2">
+                padEnd() 메서드는 현재 문자열의 끝을 다른 문자열로 채워, 주어진 길이를 만족하는 새로운 문자열을 반환합니다. 채워넣기는 대상 문자열의 끝(우측)부터 적용됩니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">const str1 = "456";
+const currentStr1 = str1.padEnd(1, "0");
+const currentStr2 = str1.padEnd(2, "0"); 
+const currentStr3 = str1.padEnd(3, "0");
+const currentStr4 = str1.padEnd(4, "0"); 
+const currentStr5 = str1.padEnd(5, "0"); 
+const currentStr6 = str1.padEnd(6, "0"); 
+const currentStr7 = str1.padEnd(6, "1"); 
+const currentStr8 = str1.padEnd(6, "12"); 
+const currentStr9 = str1.padEnd(6, "123"); 
+const currentStr10 = str1.padEnd(6, "1239"); 
+const currentStr11 = str1.padEnd(6);
+</code></pre></div>
+            <details>
+                <summary>결과보기</summary>
+                <div>456<br>456<br>456<br>4560<br>45600<br>456000<br>
+                    456111<br>456121<br>456123<br>456123<br>456___
+                </div>
+            </details><br>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>자바스크립트 : 기본 규칙</title>
+
+        <link rel="stylesheet" href="../assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+
+    <body>
+        <header id="header">
+            <h1><a href="../index.html">Javascript</a></h1>
+        </header>
+        <!-- //header -->
+
+        <main id="main">
+            <div class="document">
+                <h2 class="t_tit">Prettier 설치 후 설정 방법</h2>
+                <p class="t_desc">Prettier는 코드 포멧터(code formatter)로, 소스를 자동으로 정렬해 주기 때문에 유용하게 사용됩니다. 그러나 Prettier를 사용하기 전에는 몇 가지 설정을 해 주어야 합니다. 오늘은 Prettier 설치 및 설정 방법을 알아보도록 하겠습니다.</p>
+                <hr />
+                <h3 class="t_tit2">1. Prettier 설치</h3>
+                <img src="../../assets/tistory/error_study_01.jpg" alt="" />
+                <p class="t_desc">먼저, 확장 프로그램(Extenstion, 단축키 Ctrl + Shift + X)에서 Prettier를 설치해 줍니다.</p>
+                <p class="t_desc">Ctrl + S를 눌러 확인해 보면, 아직은 Prettier가 적용되지 않을 것입니다.</p>
+                <h3 class="t_tit2">2. Prettier 설정</h3>
+                <p class="t_desc">그 다음, VSCode의 상단 메뉴 중 File 탭에 있는 설정(Preference)에 들어갑니다. 검색창에 'editor format on save'를 검색하고, 체크박스에 체크를 해줍니다.</p>
+                <img src="../../assets/tistory/error_study_02.jpg" alt="" />
+                <p class="t_desc">다시 검색창에 'json'을 검색해 줍니다. 스크롤을 내리면 아래와 같은 'Edit in setting.json' 파일이 있습니다.</p>
+                <img src="../../assets/tistory/error_study_03.jpg" alt="" />
+                <p class="t_desc">아래와 같이 'editor.formatOnSave'의 값이 true인지 확인해 봅니다. 만약, true가 아니라면 true로 직접 바꾸어 줍니다.</p>
+                <img src="../../assets/tistory/error_study_04.jpg" alt="" />
+                <p class="t_desc">Ctrl + S를 눌러 확인해 보고, 그래도 작동이 되지 않으면 json에 다음과 같은 코드를 추가해 줍니다.</p>
+                <div class="t_code">
+                    <pre><code class="language-js">"editor.defaultFormatter": "esbenp.prettier-vscode",
+"[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+},
+"[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+}
+</code></pre>
+                </div>
+                <h3 class="t_tit2">3. 확인</h3>
+                <p class="t_desc">다음과 같이 세팅한 후, 작동이 잘 되는지 확인해 봅니다. tabWidth 등의 값을 조절하면, 들여쓰기 간격 등 Prettier의 속성을 설정할 수 있습니다.</p>
+                <img src="../../assets/tistory/error_study_05.jpg" alt="" />
+            </div>
+        </main>
+        <!-- //main -->
+
+        <footer id="footer">
+            <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+        </footer>
+        <!-- //footer -->
+
+        <script src="../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>텍스트 유형01</title>
+    <style>
+        /* fonts */
+        @import url('https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css');
+
+        .nexon {
+            font-family: 'NexonLv1Gothic';
+            font-weight: 400;
+        }
+
+        /* reset */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: normal;
+        }
+
+        /* common */
+        .container {
+            width: 1160px;
+            padding: 0 20px;
+            margin: 0 auto;
+        }
+
+        .section {
+            padding: 120px 0;
+        }
+
+        .section>h2 {
+            font-size: 50px;
+            line-height: 1;
+            text-align: center;
+            margin-bottom: 70px;
+        }
+        .section>p {
+            font-size: 22px;
+            font-weight: 300;
+            color: #666;
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        /* textType01 */
+        #textType01>p {
+            font-size: 16px;
+            color: #000;
+            font-weight: normal;
+            text-decoration-line: underline;
+            margin-bottom: 10px;
+        }
+        .text__card {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: space-between;
+        }
+
+        .text__card .card {
+            width: 373px;
+            height: 260px;
+            background-color: white;
+            border-radius: 10px;
+            position: relative;
+        }
+        .text__card .card:hover{
+            background-color: #efefef;
+        }
+        .text__card .card.top {
+            margin-bottom: 20px;
+        }
+        .text__card .card.ce {
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        .text__card .card .icon {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: #B7C7FF;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            background: url(img/text01_icon01.svg) no-repeat;
+        }
+        .text__card .card .icon.icon02 {
+            background-position: -60px 0;
+        }
+        .text__card .card .icon.icon03 {
+            background-position: -120px 0;
+        }
+        .text__card .card .icon.icon04 {
+            background-position: -180px 0;
+        }
+        .text__card .card .icon.icon05 {
+            background-position: -240px 0;
+        }
+        .text__card .card .icon.icon06 {
+            background-position: -300px 0;
+        }
+        .text__card .card .title {
+            font-size: 24px;
+            position: absolute;
+            left: 20px;
+            top: 90px;
+        }
+        .text__card .card .desc {
+            font-size: 18px;
+            color: #666;
+            font-weight: 300;
+            line-height: 140%;
+            position: absolute;
+            left: 20px;
+            top: 128px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3; 
+            -webkit-box-orient: vertical;
+        }
+        .text__card .card .more {
+            font-size: 16px;
+            font-weight: 300;
+            color: #666;
+            text-decoration-line: underline;
+            position: absolute;
+            left: 20px;
+            bottom: 20px;
+        }
+        
+    </style>
+</head>
+<body>
+    <section id="textType01" class="container section nexon">
+        <p>텍스트 유형01</p>
+        <h2>세상의 귀여운 댕댕이</h2>
+        <div class="text__card">
+            <div class="card top">
+                <div class="icon"></div>
+                <h3 class="title">세상의 귀여운 댕댕이</h3>
+                <p class="desc">세상의 귀여운 댕댕이... 댕댕이 이야기만 몇<br>
+                    번째인지... 댕댕이 글자를 보면 게슈탈트 붕<br>
+                    괴 현상이 일어날 것만 같다. 세 줄 효과를 위해서 조금 더</p>
+                <a class="more" href="#">더보기</a>
+            </div>
+            <div class="card top ce">
+                <div class="icon icon02"></div>
+                <h3 class="title">세상의 귀여운 야옹이</h3>
+                <p class="desc">세상의 귀여운 댕댕이... 댕댕이 이야기만 몇<br>
+                    번째인지... 댕댕이 글자를 보면 게슈탈트 붕<br>
+                    괴 현상이 일어날 것만 같다. 세 줄 효과를 위해서 조금 더</p>
+                <a class="more" href="#">더보기</a>
+            </div>
+            <div class="card top">
+                <div class="icon icon03"></div>
+                <h3 class="title">세상의 귀여운 원숭이</h3>
+                <p class="desc">세상의 귀여운 댕댕이... 댕댕이 이야기만 몇<br>
+                    번째인지... 댕댕이 글자를 보면 게슈탈트 붕<br>
+                    괴 현상이 일어날 것만 같다. 세 줄 효과를 위해서 조금 더</p>
+                <a class="more" href="#">더보기</a>
+            </div>
+            <div class="card">
+                <div class="icon icon04"></div>
+                <h3 class="title">세상의 귀여운 고슴도치</h3>
+                <p class="desc">세상의 귀여운 댕댕이... 댕댕이 이야기만 몇<br>
+                    번째인지... 댕댕이 글자를 보면 게슈탈트 붕<br>
+                    괴 현상이 일어날 것만 같다. 세 줄 효과를 위해서 조금 더</p>
+                <a class="more" href="#">더보기</a>
+            </div>
+            <div class="card ce">
+                <div class="icon icon05"></div>
+                <h3 class="title">이 색깔 눈 아프죠?</h3>
+                <p class="desc">세상의 귀여운 댕댕이... 댕댕이 이야기만 몇<br>
+                    번째인지... 댕댕이 글자를 보면 게슈탈트 붕<br>
+                    괴 현상이 일어날 것만 같다. 세 줄 효과를 위해서 조금 더</p>
+                <a class="more" href="#">더보기</a>
+            </div>
+            <div class="card">
+                <div class="icon icon06"></div>
+                <h3 class="title">세상의 귀여운 코끼리</h3>
+                <p class="desc">세상의 귀여운 댕댕이... 댕댕이 이야기만 몇<br>
+                    번째인지... 댕댕이 글자를 보면 게슈탈트 붕<br>
+                    괴 현상이 일어날 것만 같다. 세 줄 효과를 위해서 조금 더</p>
+                <a class="more" href="#">더보기</a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

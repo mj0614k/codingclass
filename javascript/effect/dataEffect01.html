@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>데이터 이펙트</title>
+
+    <link rel="stylesheet" href="../assets/css/data.css">
+    <link rel="stylesheet" href="../assets/css/prism.css">
+</head>
+<body>
+    <header id="header">
+        <nav>
+            <ul>
+                <li class="active"><a href="dataEffect01.html">1</a></li>
+                <li><a href="dataEffect02.html">2</a></li>
+                <li><a href="dataEffect03.html">3</a></li>
+            </ul>            
+        </nav>
+    </header>
+    <!-- // header -->
+
+    <main id="main">
+        <div class="container">
+            <h2>1부터 100까지 출력하기</h2>
+            <div class="test_box">  
+                <h3 class="title">1.1 while문을 이용해서 1부터 100까지 출력하기</h3>
+                <div class="code">
+<pre><code class="line-numbers language-js">i = 1;
+while(i &lt;= 100) {
+    document.write(i)
+    i++;
+}
+</code></pre>
+                </div>
+                <div class="result">
+                    <details>
+                        <summary>결과보기</summary>
+                        <div class="sample01_result">
+                            1 2 3 4 5 6 7 8 9 10<br>
+                            11 12 13 14 15 16 17 18 19 20<br>
+                            21 22 23 24 25 26 27 28 29 30<br>
+                            31 32 33 34 35 36 37 38 39 40<br>
+                            41 42 43 44 45 46 47 48 49 50<br>
+                            51 52 53 54 55 56 57 58 59 60<br>
+                            61 62 63 64 65 66 67 68 69 70<br>
+                            71 72 73 74 75 76 77 78 79 80<br>
+                            81 82 83 84 85 86 87 88 89 90<br>
+                            91 92 93 94 95 96 97 98 99 100
+                        </div>
+                    </details>
+                </div>
+            </div>
+            <div class="test_box">
+                <h3 class="title">1.2 for문을 이용해서 1부터 100까지 출력하기</h3>
+                <div class="code">
+<pre><code class="line-numbers language-js">for(let i=1; i&lt;=100; i++){
+    document.write(i);
+}
+</code></pre>
+                </div>
+                <div class="result">
+                    <details>
+                        <summary>결과보기</summary>
+                        <div class="sample02_result">
+                            1 2 3 4 5 6 7 8 9 10<br>
+                            11 12 13 14 15 16 17 18 19 20<br>
+                            21 22 23 24 25 26 27 28 29 30<br>
+                            31 32 33 34 35 36 37 38 39 40<br>
+                            41 42 43 44 45 46 47 48 49 50<br>
+                            51 52 53 54 55 56 57 58 59 60<br>
+                            61 62 63 64 65 66 67 68 69 70<br>
+                            71 72 73 74 75 76 77 78 79 80<br>
+                            81 82 83 84 85 86 87 88 89 90<br>
+                            91 92 93 94 95 96 97 98 99 100
+                        </div>
+                    </details>
+                </div>
+            </div>
+            <div class="test_box">
+                <h3 class="title">1.3 for문을 이용해서 1부터 100까지 짝수만, 홀수만 출력하기</h3>
+                <div class="code">
+<pre><code class="line-numbers language-js">// 짝수만 출력하기
+for( let i=2; i&lt;=100; i+=2 ){
+    document.write(i)
+}
+
+// 홀수만 출력하기
+for( let i=1; i&lt;=100; i+=2 ){
+    document.write(i)
+}
+</code></pre>
+                </div>
+                <div class="result">
+                    <details>
+                        <summary>결과보기</summary>
+                        <div class="sample03_result">
+                            2 4 6 8 10 12 14 16 18 20<br>
+                            22 24 26 28 30 32 34 36 38 40<br>
+                            42 44 46 48 50 52 54 56 58 60<br>
+                            62 64 66 68 70 72 74 76 78 80<br>
+                            82 84 86 88 90 92 94 96 98 100<br><br>
+                            1 3 5 7 9 11 13 15 17 19<br>
+                            21 23 25 27 29 31 33 35 37 39<br>
+                            41 43 45 47 49 51 53 55 57 59<br>
+                            61 63 65 67 69 71 73 75 77 79<br>
+                            81 83 85 87 89 91 93 95 97 99<br>
+                        </div>
+                    </details>
+                </div>
+            </div>
+            <div class="test_box">
+                <h3 class="title">1.4 for문을 이용해서 1부터 100까지의 합 출력하기</h3>
+                <div class="code">
+<pre><code class="line-numbers language-js">let sum = 0;
+for(let i=1; i&lt;=100; i++){
+    sum = sum + i;  // 첫번째 방법
+    sum += i;          // 두번째 방법
+}
+document.write(sum);
+</code></pre>
+                </div>
+                <div class="result">
+                    <details>
+                        <summary>결과보기</summary>
+                        <div class="sample04_result">
+                            5050
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../assets/js/prism.min.js"></script>
+    <script>
+    </script>
+    <!-- //main -->
+
+<!--<footer id="footer">
+        <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+    </footer>
+    // footer -->
+
+</body>
+</html>

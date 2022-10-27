@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카드 유형02</title>
+    <style>
+        /* font */
+        @import url('https://webfontworld.github.io/gmarket/GmarketSans.css');
+
+        .gmarket {
+            font-family: 'GmarketSans';
+            font-weight: 200;
+        }
+
+        /* reset */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: normal;
+        }
+
+        /* common */
+        .container {
+            width: 1160px;
+            padding: 0 20px;
+            margin: 0 auto;
+        }
+
+        .section {
+            padding: 120px 0;
+        }
+
+        .section>h2 {
+            font-size: 50px;
+            line-height: 1;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .section>p {
+            font-size: 22px;
+            line-height: 1.4;
+            color: #666666;
+            margin-bottom: 70px;
+            text-align: center;
+        }
+
+        .container .card {
+            width: 23.7%;
+            margin-bottom: 50px;
+        }
+
+        /* cardType */
+        .card__inner {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .card-header {
+            width: 200px;
+            border-radius: 30%;
+        }
+
+        .body__header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .body__header a {
+            margin-top: 5px;
+        }
+
+        .card__body h3 {
+            padding: 18px 0 10px;
+            font-size: 28px;
+        }
+
+        .card__body p {
+            font-size: 18px;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="cardType" class="gmarket section">
+        <h2>세상의 맛있는 음식들</h2>
+        <p>제목은 세상의 맛있는 음식들이라고 거창하게 지었지만,<br>
+            지금 당장 제가 먹고 싶은 음식들입니다.</p>
+        <div class="card__inner container">
+            <article class="card">
+                <figure class="card-header">
+                    <img src="img/card02_bg01.jpg" alt="치킨">
+                </figure>
+                <div class="card__body">
+                    <div class="body__header">
+                        <h3>치킨</h3>
+                        <a class="brn" href="/">
+                            <span aria-hidden="true">
+                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_278_69)">
+                                        <rect width="28" height="28" rx="5" fill="#FF7D7D" />
+                                        <path d="M7 12.75C6.30964 12.75 5.75 13.3096 5.75 14C5.75 14.6904 6.30964 15.25 7 15.25V12.75ZM22.8839 14.8839C23.372 14.3957 23.372 13.6043 22.8839 13.1161L14.9289 5.16117C14.4408 4.67301 13.6493 4.67301 13.1612 5.16117C12.673 5.64932 12.673 6.44078 13.1612 6.92893L20.2322 14L13.1612 21.0711C12.673 21.5592 12.673 22.3507 13.1612 22.8388C13.6493 23.327 14.4408 23.327 14.9289 22.8388L22.8839 14.8839ZM7 15.25H22V12.75H7V15.25Z" fill="white" />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_278_69">
+                                            <rect width="28" height="28" rx="5" fill="white" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+
+                            </span>
+                        </a>
+                    </div>
+                    <p>세상에는 맛있는 음식들이 참 많이 있습니다. 왜 지금은 아무것도 먹지 못하고 있는지 한스럽습니다. 배가...
+                    </p>
+                </div>
+            </article>
+            <article class="card">
+                <img src="img/card02_bg02.jpg" alt="케이크">
+                </figure>
+                <div class="card__body">
+                    <div class="body__header">
+                        <h3>케이크</h3>
+                        <a class="brn" href="/">
+                            <span aria-hidden="true">
+                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_278_69)">
+                                        <rect width="28" height="28" rx="5" fill="#FF7D7D" />
+                                        <path d="M7 12.75C6.30964 12.75 5.75 13.3096 5.75 14C5.75 14.6904 6.30964 15.25 7 15.25V12.75ZM22.8839 14.8839C23.372 14.3957 23.372 13.6043 22.8839 13.1161L14.9289 5.16117C14.4408 4.67301 13.6493 4.67301 13.1612 5.16117C12.673 5.64932 12.673 6.44078 13.1612 6.92893L20.2322 14L13.1612 21.0711C12.673 21.5592 12.673 22.3507 13.1612 22.8388C13.6493 23.327 14.4408 23.327 14.9289 22.8388L22.8839 14.8839ZM7 15.25H22V12.75H7V15.25Z" fill="white" />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_278_69">
+                                            <rect width="28" height="28" rx="5" fill="white" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+
+                            </span>
+                        </a>
+                    </div>
+                    <p>세상에는 맛있는 음식들이 참 많이 있습니다. 왜 지금은 아무것도 먹지 못하고 있는지 한스럽습니다. 배가...
+                    </p>
+                </div>
+            </article>
+            <article class="card">
+                <figure class="card-header">
+                    <img src="img/card02_bg03.jpg" alt="파스타">
+                </figure>
+                <div class="card__body">
+                    <div class="body__header">
+                        <h3>파스타</h3>
+                        <a class="brn" href="/">
+                            <span aria-hidden="true">
+                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_278_69)">
+                                        <rect width="28" height="28" rx="5" fill="#FF7D7D" />
+                                        <path d="M7 12.75C6.30964 12.75 5.75 13.3096 5.75 14C5.75 14.6904 6.30964 15.25 7 15.25V12.75ZM22.8839 14.8839C23.372 14.3957 23.372 13.6043 22.8839 13.1161L14.9289 5.16117C14.4408 4.67301 13.6493 4.67301 13.1612 5.16117C12.673 5.64932 12.673 6.44078 13.1612 6.92893L20.2322 14L13.1612 21.0711C12.673 21.5592 12.673 22.3507 13.1612 22.8388C13.6493 23.327 14.4408 23.327 14.9289 22.8388L22.8839 14.8839ZM7 15.25H22V12.75H7V15.25Z" fill="white" />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_278_69">
+                                            <rect width="28" height="28" rx="5" fill="white" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+
+                            </span>
+                        </a>
+                    </div>
+                    <p>세상에는 맛있는 음식들이 참 많이 있습니다. 왜 지금은 아무것도 먹지 못하고 있는지 한스럽습니다. 배가...
+                    </p>
+                </div>
+            </article>
+            <article class="card">
+                <figure class="card-header">
+                    <img src="img/card02_bg04.jpg" alt="딸기 라떼">
+                </figure>
+                <div class="card__body">
+                    <div class="body__header">
+                        <h3>딸기 라떼</h3>
+                        <a class="brn" href="/">
+                            <span aria-hidden="true">
+                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_278_69)">
+                                        <rect width="28" height="28" rx="5" fill="#FF7D7D" />
+                                        <path d="M7 12.75C6.30964 12.75 5.75 13.3096 5.75 14C5.75 14.6904 6.30964 15.25 7 15.25V12.75ZM22.8839 14.8839C23.372 14.3957 23.372 13.6043 22.8839 13.1161L14.9289 5.16117C14.4408 4.67301 13.6493 4.67301 13.1612 5.16117C12.673 5.64932 12.673 6.44078 13.1612 6.92893L20.2322 14L13.1612 21.0711C12.673 21.5592 12.673 22.3507 13.1612 22.8388C13.6493 23.327 14.4408 23.327 14.9289 22.8388L22.8839 14.8839ZM7 15.25H22V12.75H7V15.25Z" fill="white" />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_278_69">
+                                            <rect width="28" height="28" rx="5" fill="white" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                    <p>세상에는 맛있는 음식들이 참 많이 있습니다. 왜 지금은 아무것도 먹지 못하고 있는지 한스럽습니다. 배가...
+                    </p>
+                </div>
+            </article>
+            <article class="card">
+                <figure class="card-header">
+                    <img src="img/card02_bg05.jpg" alt="햄버거">
+                </figure>
+                <div class="card__body">
+                    <div class="body__header">
+                        <h3>햄버거</h3>
+                        <a class="brn" href="/">
+                            <span aria-hidden="true">
+                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_278_69)">
+                                        <rect width="28" height="28" rx="5" fill="#FF7D7D" />
+                                        <path d="M7 12.75C6.30964 12.75 5.75 13.3096 5.75 14C5.75 14.6904 6.30964 15.25 7 15.25V12.75ZM22.8839 14.8839C23.372 14.3957 23.372 13.6043 22.8839 13.1161L14.9289 5.16117C14.4408 4.67301 13.6493 4.67301 13.1612 5.16117C12.673 5.64932 12.673 6.44078 13.1612 6.92893L20.2322 14L13.1612 21.0711C12.673 21.5592 12.673 22.3507 13.1612 22.8388C13.6493 23.327 14.4408 23.327 14.9289 22.8388L22.8839 14.8839ZM7 15.25H22V12.75H7V15.25Z" fill="white" />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_278_69">
+                                            <rect width="28" height="28" rx="5" fill="white" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                    <p>세상에는 맛있는 음식들이 참 많이 있습니다. 왜 지금은 아무것도 먹지 못하고 있는지 한스럽습니다. 배가...
+                    </p>
+                </div>
+            </article>
+            <article class="card">
+                <figure class="card-header">
+                    <img src="img/card02_bg06.jpg" alt="핫케이크">
+                </figure>
+                <div class="card__body">
+                    <div class="body__header">
+                        <h3>핫케이크</h3>
+                        <a class="brn" href="/">
+                            <span aria-hidden="true">
+                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_278_69)">
+                                        <rect width="28" height="28" rx="5" fill="#FF7D7D" />
+                                        <path d="M7 12.75C6.30964 12.75 5.75 13.3096 5.75 14C5.75 14.6904 6.30964 15.25 7 15.25V12.75ZM22.8839 14.8839C23.372 14.3957 23.372 13.6043 22.8839 13.1161L14.9289 5.16117C14.4408 4.67301 13.6493 4.67301 13.1612 5.16117C12.673 5.64932 12.673 6.44078 13.1612 6.92893L20.2322 14L13.1612 21.0711C12.673 21.5592 12.673 22.3507 13.1612 22.8388C13.6493 23.327 14.4408 23.327 14.9289 22.8388L22.8839 14.8839ZM7 15.25H22V12.75H7V15.25Z" fill="white" />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_278_69">
+                                            <rect width="28" height="28" rx="5" fill="white" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                    <p>세상에는 맛있는 음식들이 참 많이 있습니다. 왜 지금은 아무것도 먹지 못하고 있는지 한스럽습니다. 배가...
+                    </p>
+                </div>
+            </article>
+            <article class="card">
+                <figure class="card-header">
+                    <img src="img/card02_bg07.jpg" alt="피자">
+                </figure>
+                <div class="card__body">
+                    <div class="body__header">
+                        <h3>피자</h3>
+                        <a class="brn" href="/">
+                            <span aria-hidden="true">
+                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_278_69)">
+                                        <rect width="28" height="28" rx="5" fill="#FF7D7D" />
+                                        <path d="M7 12.75C6.30964 12.75 5.75 13.3096 5.75 14C5.75 14.6904 6.30964 15.25 7 15.25V12.75ZM22.8839 14.8839C23.372 14.3957 23.372 13.6043 22.8839 13.1161L14.9289 5.16117C14.4408 4.67301 13.6493 4.67301 13.1612 5.16117C12.673 5.64932 12.673 6.44078 13.1612 6.92893L20.2322 14L13.1612 21.0711C12.673 21.5592 12.673 22.3507 13.1612 22.8388C13.6493 23.327 14.4408 23.327 14.9289 22.8388L22.8839 14.8839ZM7 15.25H22V12.75H7V15.25Z" fill="white" />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_278_69">
+                                            <rect width="28" height="28" rx="5" fill="white" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                    <p>세상에는 맛있는 음식들이 참 많이 있습니다. 왜 지금은 아무것도 먹지 못하고 있는지 한스럽습니다. 배가...
+                    </p>
+                </div>
+            </article>
+            <article class="card">
+                <figure class="card-header">
+                    <img src="img/card02_bg08.jpg" alt="튀김">
+                </figure>
+                <div class="card__body">
+                    <div class="body__header">
+                        <h3>튀김</h3>
+                        <a class="brn" href="/">
+                            <span aria-hidden="true">
+                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_278_69)">
+                                        <rect width="28" height="28" rx="5" fill="#FF7D7D" />
+                                        <path d="M7 12.75C6.30964 12.75 5.75 13.3096 5.75 14C5.75 14.6904 6.30964 15.25 7 15.25V12.75ZM22.8839 14.8839C23.372 14.3957 23.372 13.6043 22.8839 13.1161L14.9289 5.16117C14.4408 4.67301 13.6493 4.67301 13.1612 5.16117C12.673 5.64932 12.673 6.44078 13.1612 6.92893L20.2322 14L13.1612 21.0711C12.673 21.5592 12.673 22.3507 13.1612 22.8388C13.6493 23.327 14.4408 23.327 14.9289 22.8388L22.8839 14.8839ZM7 15.25H22V12.75H7V15.25Z" fill="white" />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_278_69">
+                                            <rect width="28" height="28" rx="5" fill="white" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                    <p>세상에는 맛있는 음식들이 참 많이 있습니다. 왜 지금은 아무것도 먹지 못하고 있는지 한스럽습니다. 배가...
+                    </p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+</body>
+
+</html>

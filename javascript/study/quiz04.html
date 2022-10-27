@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 퀴즈 효과</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="../index.html">Javascript</a></h1>
+    </header>
+    <!-- //header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">자바스크립트 : 퀴즈 효과</h2>
+            <p class="t_desc">
+                자바스크립트의 다양한 효과들 중, 퀴즈를 맞힐 수 있는 퀴즈 효과입니다.
+                그 중에서도, 객관식 정답을 선택하는 퀴즈 유형을 작업해 보도록 하겠습니다.
+            </p>
+            <hr>
+            <h3 class="t_tit2">객관식 유형</h3>
+            <p class="t_desc">
+                예시는 웹디자인기능사의 필기 시험 문제입니다. 4지선다 문제의 정답을 맞히면 문구가 나타나며 강아지 애니메이션이
+                기뻐하고, 정답을 맞히지 못하면 슬퍼하는 애니메이션으로 입력값에 따라 다른 결과가 나타납니다.
+            </p>
+            <div class="t_iframe" style="min-height: 1000px; padding-top: 0px;">
+                <iframe src="https://mj0614k.github.io/Coding/javascript/effect/quizEffect04.html"></iframe>
+            </div>
+            <div class="t_code">
+                <pre><code class="language-js">// 선택자
+const quizType = document.querySelector(".quiz__type");                     // 퀴즈 종류
+const quizNumber = document.querySelector(".quiz__question .number");       // 퀴즈 번호
+const quizAsk = document.querySelector(".quiz__question .ask");             // 퀴즈 질문
+const quizConfirm = document.querySelector(".quiz__answer .confirm");       // 정답 확인 버튼
+const quizResult = document.querySelector(".quiz__answer .result");         // 정답 결과
+const quizView = document.querySelector(".quiz__view");                     // 강아지
+const quizSelects = document.querySelector(".quiz__selects")                // 객관식 보기
+const quizChoice = quizSelects.querySelectorAll(".choice")                     // 객관식 보기
+const quizSelect = quizSelects.querySelectorAll(".select")                     // 객관식 보기
+    // 객관식 보기는 4개씩 존재하기 때문에 querySelectorAll 사용
+                
+// 문제 정보
+const quizInfo = [
+    {
+        answerType : "웹디자인기능사 2013년 2회",
+        answerNum : "1",
+        answerAsk : "굿 디자인(good design)을 위한 디자인의 조건에 포함되지 않는 것은?",
+        answerChoice : ["합목적성", "독창성", "심미성", "모방성"],
+        answerResult : "4",
+        answerEx : "모방성은 굿 디자인(good design)을 위한 디자인의 조건에 해당하지 않습니다."
+    }
+]
+            
+// 문제 출력
+function updateQuiz(){    // 충돌을 방지하기 위해 함수 내에서 작업하였음
+    quizType.textContent = quizInfo[0].answerType;
+    quizNumber.textContent = quizInfo[0].answerNum + ". ";
+    quizAsk.textContent = quizInfo[0].answerAsk;
+    quizResult.textContent = quizInfo[0].answerEx;
+
+    // 보기 출력
+    for(let i=0; i&lt;4; i++){
+        quizChoice[i].textContent = quizInfo[0].answerChoice[i];
+    }
+
+    // 해설 숨기기
+    quizResult.style.display = "none";
+}
+updateQuiz();    // 함수 실행
+
+// 정답 확인
+function answerQuiz(){
+    // 사용자 선택값과 정답 비교
+    // 사용자가 선택한 input --> checked로 확인
+
+    for(let i=0; i&lt;quizSelect.length; i++){
+        if(quizSelect[i].checked == true){  // 보기에 체크가 된 상태
+            // 체크된 번호와 문제 번호 비교
+            if(quizSelect[i].value == quizInfo[0].answerResult){
+                // alert("정답입니다") : 강아지 모션 추가, 버튼 숨김
+                quizView.classList.add("like");
+                quizConfirm.style.display = "none";
+            } else {
+                // alert("오답입니다") : 강아지 모션 추가, 설명 추가, 버튼 숨김
+                quizView.classList.add("dislike");
+                quizResult.style.display = "block";
+                quizConfirm.style.display = "none";
+            }
+        }
+    }
+}
+
+// 확인하기 버튼을 클릭했을 때 함수 실행
+quizConfirm.addEventListener("click", answerQuiz);
+</code></pre>
+            </div>
+            <div class="t_link">
+                <a href="https://github.com/mj0614k/Coding/blob/main/javascript/effect/quizEffect04.html">원본 소스 보기</a>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

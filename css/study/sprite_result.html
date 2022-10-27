@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 유형03</title>
+    <style>
+        .ir {
+            display: block;
+            overflow: hidden;
+            font-size: 0;
+            line-height: 0;
+            text-indent: -9999px;
+        }
+
+        /* imageType */
+        .image {
+            background: url(../../site/imageType/img/img03_bg01.jpg);
+            background-size: cover;
+            width: 500px;
+            height: 300px;
+            position: relative;
+        }
+
+        .image__sns {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .image__sns a {
+            width: 36px;
+            height: 36px;
+            margin-bottom: 5px;
+            background: #fff;
+            border-radius: 50%;
+            display: block;
+            background: url(../../site/imageType/img/icon.svg) no-repeat;
+        }
+
+        .image__sns a:nth-child(2) {
+            background-position: -50px 0;
+        }
+
+        .image__sns a:nth-child(3) {
+            background-position: -100px 0;
+        }
+
+        .image__sns a:nth-child(4) {
+            background-position: -150px 0;
+        }
+
+        .image__sns a:nth-child(5) {
+            background-position: -200px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="image">
+        <div class="image__sns">
+            <a href="#" class="link"><span class="ir">페이스북</span></a>
+            <a href="#" class="link"><span class="ir">트위터</span></a>
+            <a href="#" class="link"><span class="ir">인스타그램</span></a>
+            <a href="#" class="link"><span class="ir">유튜브</span></a>
+            <a href="#" class="link"><span class="ir">링크</span></a>
+        </div>
+    </div>
+</body>
+
+</html>

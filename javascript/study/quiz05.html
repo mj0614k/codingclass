@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 퀴즈 효과</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="../index.html">Javascript</a></h1>
+    </header>
+    <!-- //header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">자바스크립트 : 퀴즈 효과 : 웹디자인기능사 2015년 2회 기출 문제</h2>
+            <p class="t_desc">
+                자바스크립트의 다양한 효과들 중, 퀴즈를 맞힐 수 있는 퀴즈 효과입니다.
+                그 중에서도, 여러 개의 문제의 객관식 정답을 선택하는 퀴즈 유형을 작업해 보도록 하겠습니다.
+            </p>
+            <hr>
+            <h3 class="t_tit2">객관식(여러 문제) 유형</h3>
+            <p class="t_desc">
+                예시는 웹디자인기능사의 필기 시험 문제입니다. 문제의 정답을 맞히면 문구가 나타나며 강아지 애니메이션이
+                기뻐하고, 정답을 맞히지 못하면 슬퍼하는 애니메이션으로 입력값에 따라 다른 결과가 나타납니다.
+                문제를 다 푼 뒤 '정답 확인하기' 버튼을 클릭하면 맞힌 문제의 갯수와 점수, 합/불합격 여부가 나타납니다.
+            </p>
+            <div class="t_iframe" style="min-height: 1000px; padding-top: 0px;">
+                <iframe src="https://mj0614k.github.io/Coding/javascript/effect/quizEffect05.html"></iframe>
+            </div>
+            <div class="t_code">
+<pre><code class="language-js">// 문제 정보 : 배열 안에 객체를 넣은 형태로 각 문제를 작성했습니다.
+const quizInfo = [
+    {
+        answerType: "웹디자인기능사 2015년 2회",
+        answerNum: "1",
+        answerAsk: "일반적으로 환경 디자인의 종류에 해당하는 것은?",
+        answerChoice: {
+            1: "가전제품 디자인",
+            2: "스트리트 퍼니처 디자인",
+            3: "기업이미지 디자인",
+            4: "캘린더 디자인"
+        },
+        answerResult: "2",
+        answerEx: "환경 디자인의 종류에는 인테리어 디자인, 디스플레이 디자인, 스트리트 퍼니쳐 디자인, 무대 디자인 등이 있습니다."
+    },
+    {
+        answerType: "웹디자인기능사 2015년 2회",
+        answerNum: "2",
+        answerAsk: "디자인의 원리에서 율동에 해당되는 것은?",
+        answerChoice: {
+            1: "유사, 대비",
+            2: "대칭, 비례",
+            3: "통일, 변화",
+            4: "점이, 반복"
+        },
+        answerResult: "4",
+        answerEx: "율동의 원리는 반복과 교차, 점이(점증), 방사가 있습니다."
+    },
+    {
+        answerType: "웹디자인기능사 2015년 2회",
+        answerNum: "3",
+        answerAsk: "불투명한 물체가 빛을 반사시킴으로써 나타나는 물체의 색을 의미하는 것은?",
+        answerChoice: {
+            1: "광원색",
+            2: "조명색",
+            3: "경영색",
+            4: "표면색"
+        },
+        answerResult: "4",
+        answerEx: "불투명한 물체가 빛을 반사시킴으로써 나타나는 물체의 색을 의미하는 것은 표면색입니다."
+    },
+    {
+        answerType: "웹디자인기능사 2015년 2회",
+        answerNum: "4",
+        answerAsk: "부분과 부분 또는 부분과 전체 사이에 안정된 관련성을 지니며 서로 함께 속해있는 것처럼 보이는 디자인 원리는?",
+        answerChoice: {
+            1: "비례",
+            2: "조화",
+            3: "균형",
+            4: "강조"
+        },
+        answerResult: "2",
+        answerEx: "부분과 부분 또는 부분과 전체 사이에 안정된 관련성을 지니며 서로 함께 속해있는 것처럼 보이는 디자인 원리는 조화입니다."
+    },
+    {
+        answerType: "웹디자인기능사 2015년 2회",
+        answerNum: "5",
+        answerAsk: "저울 위에 크기가 다른 원이 두 개 있고, 크기가 큰 원 쪽으로 저울이 기울어져 있는 형상과 관련된 디자인 원리는?",
+        answerChoice: {
+            1: "조화",
+            2: "강조",
+            3: "율동",
+            4: "비대칭"
+        },
+        answerResult: "4",
+        answerEx: "두 개의 공이 대칭을 이루지 못하고 있는 형상입니다."
+    }
+    // 블로그에는 스크롤 압박을 방지하기 위해 다섯 문제의 스크립트만 첨부하였습니다.
+]
+
+// 선택자
+const quizWrap = document.querySelector(".quiz__wrap");
+let quizScore = "";  // 정답 수 (값이 변하므로 let으로 선언)
+
+const updateQuiz = () => {
+    const exam = [];
+
+    // 배열 exam 안에 push() 메서드를 사용하여 퀴즈 박스 60개를 만들어 주었습니다.
+    quizInfo.forEach((question, number) => {
+        exam.push(` 
+            &lt;div class="quiz"&gt;
+                &lt;span class="quiz__type"&gt;${question.answerType}&lt;/span&gt;
+                &lt;h2 class="quiz__question"&gt;
+                    &lt;span class="number"&gt;${question.answerNum}. &lt;/span&gt;
+                    &lt;div class="ask"&gt;${question.answerAsk}&lt;/div&gt;
+                &lt;/h2&gt;
+                &lt;div class="quiz__view"&gt;
+                    &lt;div class="true"&gt;정답입니다!&lt;/div&gt;
+                    &lt;div class="false"&gt;오답입니다!&lt;/div&gt;
+                    &lt;div class="dog"&gt;
+                        &lt;div class="head"&gt;
+                            &lt;div class="ears"&gt;&lt;/div&gt;
+                            &lt;div class="face"&gt;&lt;/div&gt;
+                            &lt;div class="eyes"&gt;
+                                &lt;div class="teardrop"&gt;&lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class="nose"&gt;&lt;/div&gt;
+                            &lt;div class="mouth"&gt;
+                                &lt;div class="tongue"&gt;&lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class="chin"&gt;&lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class="body"&gt;
+                            &lt;div class="tail"&gt;&lt;/div&gt;
+                            &lt;div class="legs"&gt;&lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="quiz__answer"&gt;
+                    &lt;div class="quiz__selects"&gt;
+                        &lt;label for="select1${number}"&gt;
+                            &lt;input type="radio" class="select" id="select1${number}" name="select${number}" value="1"&gt;
+                            &lt;span class="choice"&gt;${question.answerChoice[1]}&lt;/span&gt;
+                        &lt;/label&gt;
+                        &lt;label for="select2${number}"&gt;
+                            &lt;input type="radio" class="select" id="select2${number}" name="select${number}" value="2"&gt;
+                            &lt;span class="choice"&gt;${question.answerChoice[2]}&lt;/span&gt;
+                        &lt;/label&gt;
+                        &lt;label for="select3${number}"&gt;
+                            &lt;input type="radio" class="select" id="select3${number}" name="select${number}" value="3"&gt;
+                            &lt;span class="choice"&gt;${question.answerChoice[3]}&lt;/span&gt;
+                        &lt;/label&gt;
+                        &lt;label for="select4${number}"&gt;
+                            &lt;input type="radio" class="select" id="select4${number}" name="select${number}" value="4"&gt;
+                            &lt;span class="choice"&gt;${question.answerChoice[4]}&lt;/span&gt;
+                        &lt;/label&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        `);
+    })
+
+    // 문제 출력
+    exam.push(`
+        &lt;div class="quiz__confirm"&gt;
+            &lt;button class="check"&gt;정답 확인하기&lt;/button&gt;
+            &lt;div class="ex"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    `)
+    quizWrap.innerHTML = exam.join('');  // join() 메서드로 배열에 생기는 ,를 제거해 줍니다.
+}
+updateQuiz();
+
+// 정답 확인
+const answerQuiz = () =&gt; {
+    const quizSelects = document.querySelectorAll(".quiz__selects");
+
+    // 사용자가 체크한 보기와 문제 정답 비교
+    quizInfo.forEach((question, number) =&gt; {
+        const userSelector = `input[name=select${number}]:checked`;  // 사용자가 체크한 것
+        const quizSelectsWrap = quizSelects[number];
+        const userAnswer = (quizSelectsWrap.querySelector(userSelector) || {}).value;
+        const quizView = document.querySelectorAll(".quiz__view");  // 강아지
+
+        if(userAnswer == question.answerResult){
+            quizView[number].classList.add("like");
+            quizScore++;  // 문제를 맞힌 갯수
+        } else {
+            quizView[number].classList.add("dislike");
+            const divBox = document.createElement("div")  // 자바스크립트로 태그 생성하는 방법
+            quizSelectsWrap.appendChild(divBox).innerHTML = `&lt;p class="result"&gt;${question.answerEx}&lt;/p&gt;`
+            // appendChild : divBox를 자식으로 넣음
+        }
+    });
+
+    let totalScore = quizScore / quizInfo.length * 100;  // 점수 계산
+
+    if(totalScore &gt;= 60){
+        document.querySelector(".ex").innerHTML = `${quizInfo.length} 문제 중 ${quizScore}개 맞히셨습니다. 점수는 ${totalScore}점입니다. 합격입니다!`
+    } else {
+        document.querySelector(".ex").innerHTML = `${quizInfo.length} 문제 중 ${quizScore}개 맞히셨습니다. 점수는${totalScore}점입니다. 불합격입니다.`
+    }
+}
+
+// 정답 클릭
+document.querySelector(".quiz__confirm .check").addEventListener("click", answerQuiz)  // 정답을 클릭하면 answerQuiz를 실행
+</code></pre>
+            </div>
+            <div class="t_link">
+                <a href="https://github.com/mj0614k/Coding/blob/main/javascript/effect/quizEffect05.html">원본 소스 보기</a>
+                <a href="https://mj0614k.github.io/Coding/javascript/effect/quizEffect05">원본 사이트 보기</a>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

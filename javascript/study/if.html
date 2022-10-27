@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 조건문</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+<body>
+    <header id="header">
+        <h1><a href="../index.html">Javascript</a></h1>
+        <nav class="header_nav">
+            <ul>
+                <li><a href="../javascript01.html">데이터 저장하기</a></li>
+                <li><a href="../javascript02.html">데이터 불러오기</a></li>
+                <li><a href="../javascript03.html">데이터 실행하기</a></li>
+                <li><a href="../javascript04.html">데이터 제어하기</a></li>
+            </ul>
+            <ul>
+                <li><a href="../javascript05.html">문자열 객체</a></li>
+                <li><a href="../javascript06.html">배열 객체</a></li>
+                <li><a href="../javascript07.html">수학 객체</a></li>
+                <li><a href="../javascript08.html">숫자 객체</a></li>
+                <li><a href="../javascript09.html">브라우저 객체</a></li>
+                <li><a href="../javascript10.html">요소 객체</a></li>
+                <li><a href="../javascript11.html">이벤트 객체</a></li>
+            </ul>
+            <ul class="effect">
+                <li><a href="../effect/searchEffect01.html">검색 효과</a></li>
+                <li><a href="../effect/quizEffect01.html">퀴즈 효과</a></li>
+                <li><a href="../effect/dataEffect01.html">데이터 효과</a></li>
+                <li><a href="../effect/mouseEffect01.html">마우스 효과</a></li>
+                <li><a href="../effect/sliderEffect01.html">슬라이드 효과</a></li>
+                <li><a href="../effect/parallaxEffect01.html">패랠랙스 효과</a></li>
+                <li><a href="../effect/gameEffect01.html">게임 효과</a></li>
+            </ul>
+            <ul class="study">
+                <li><a href="basic.html">기본 규칙</a></li>
+                <li><a href="operator.html">연산자</a></li>
+                <li><a href="for.html">반복문</a></li>
+                <li><a href="if.html">조건문</a></li>
+                <li><a href="type.html">데이터 타입</a></li>
+                <li><a href="function.html">함수</a></li>
+                <li><a href="var.html">전역변수/지역변수</a></li>
+                <li><a href="element.html">요소 선택</a></li>
+                <li><a href="array.html">배열 메서드</a></li>
+                <li><a href="builtinfunction.html">내장함수</a></li>
+                <li><a href="regexp.html">정규식 표현</a></li>
+                <li><a href="string.html">문자열 변경 메서드</a></li>
+                <li><a href="search.html">문자열 검색 메서드</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">조건문</h2>
+            <p class="t_desc">
+                <i>조건문</i>은 <i>주어진 조건식의 결과에 따라 별도의 명령을 수행하도록 제어하는 명령문</i>입니다.
+                가장 기본이 되는 명령문은 if문이며, 그 외에도 switch문 등이 있습니다.</p>
+            <hr>
+            <h2 class="t_tit2">if문</h2>
+            <p class="t_desc">if문은 조건식의 결과가 true이면 주어진 명령문을 실행합니다. false이면 명령문을 실행하지 않습니다. 기본적인 형식은 다음과 같습니다.</p>
+             <p class="t_box">
+                if (조건식) {<br>
+                 &nbsp;&nbsp;&nbsp;&nbsp;실행문;<br>}
+            </p>
+            <p class="t_desc">if문은 if문 안에 또 다른 if문을 중첩하여 사용할 수 있습니다. 예제와 함께 살펴보도록 하겠습니다.</p>
+            <p class="t_box">시험과목: HTML, CSS, JAVASCRIPT<br>
+                    합격기준: 100점 만점 기준, 과목당 40점 이상,
+                    전과목 평균 60점 이상이면 합격</p>
+<pre><code class="language-js">var html = Number(prompt('html 점수입력', ''));
+var css = Number(prompt('css 점수입력', ''));
+var javascript = Number(prompt('javascript 점수입력', ''));
+var avg = (html + css + javascript) / 3;
+var comment;
+if (avg %gt;= 60) {
+    if (html &lt; 40) {
+        comment = 'HTML' + ' 40점 미만 불합격';
+    } else if (css &lt; 40) {
+        comment = 'CSS' + ' 40점 미만 불합격';
+    } else if (javascript &lt; 40) {
+        comment = 'JAVASCRIPT' + '40점 미만 불합격';
+    } else {
+        comment = '평균 ' + avg + '점 합격';
+    }
+} else {
+        comment = '평균 ' + avg + '점 불합격';
+}
+document.write(comment);
+</code></pre>
+            <div class="t_result">
+                <details>
+                    <summary>결과보기</summary>
+                    <div class="result01">ex) HTML 10점, CSS 100점, JAVASCRIPT 100점일 경우: "HTML 40점 미만 불합격"<br>
+                    ex) HTML 20점, CSS 60점, JAVASCRIPT 30점일 경우: "평균 36.666666666666664점 불합격"<br>
+                    ex) HTML 100점, CSS 100점, JAVASCRIPT 80점일 경우: "평균 93.33333333333333점 합격"</div>
+                </details>
+            </div>
+            
+            <h2 class="t_tit2">switch문</h2>
+            <p class="t_desc">switch문은 if문과 마찬가지로 주어진 조건 값의 결과에 따라
+                프로그램이 다른 명령을 수행하도록 하는 조건문입니다. switch문은 if문에 비하여 가독성이 좋고 속도가 빠르지만, 
+                if문보다는 사용할 수 있는 상황이 적다는 단점이 있습니다. switch문의 기본 형식은 다음과 같습니다.</p>
+            <p class="t_box">
+                switch (값) {<br>&nbsp;&nbsp;&nbsp;&nbsp;case 값1 :<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;실행문;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;case 값2 :<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;실행문;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;default : <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;실행문;<br>
+                    }
+            </p>
+            <p class="t_desc">switch문은 if문과 다르게 특정 조건에 만족했을 때 블록{}을 스스로 빠져나가지 못합니다.
+                이 때문에 <i>break</i> 명령어를 이용해 주어 switch case문의 블록{}을 빠져나가도록 합니다.
+                <i>default</i>는 switch의 값과 일치하는 값이 없을 때 실행합니다.
+            예제와 함께 살펴보도록 하겠습니다.</p>
+<pre><code class="language-js">var classification = prompt('아동, 청소년, 성인 중 선택 입력','');
+switch (classification) {
+    case '아동':
+        classification += ': 입장료 무료';
+        break;
+    case '청소년':
+        classification += ': 입장료 2,000원';
+        break;
+    case '성인':
+        classification += ': 입장료 5,000원';
+        break;
+    default:
+        classification = '입력 값을 다시 확인하세요';
+}
+document.write(classification);
+</code></pre>
+            <div class="t_result">
+                <details>
+                    <summary>결과보기</summary>
+                    <div class="result02">"아동" 입력시 "아동: 입장료 무료" 출력<br>
+                        "청소년" 입력시 "청소년: 입장료 2,000원" 출력<br>
+                        "성인" 입력시 "성인: 입장료 5,000원" 출력<br>
+                        그 외의 값 입력시 "입력 값을 다시 확인하세요" 출력
+                    </div>
+                </details>
+            </div>
+        </div>
+        
+    </main>
+<!-- //main -->
+
+<footer id="footer">
+    <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+</footer>
+<!-- //footer -->
+
+<script src="../assets/js/highlight.min.js"></script>
+<script>
+    hljs.highlightAll();
+</script>
+</body>
+</html>

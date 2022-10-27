@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>자바스크립트 : 검색 효과</title>
+
+        <link rel="stylesheet" href="../assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+
+    <body>
+        <header id="header">
+            <h1><a href="../index.html">Javascript</a></h1>
+        </header>
+        <!-- //header -->
+
+        <main id="main">
+            <div class="document">
+                <h2 class="t_tit">자바스크립트 : 마우스 효과 : 마우스 따라다니기(GSAP)</h2>
+                <p class="t_desc">자바스크립트의 다양한 효과들 중, 마우스 효과입니다.
+                    이번에는 GSAP를 활용하여 더 부드럽게 움직이는 커서를 작업해 보도록 하겠습니다.
+                </p>
+                <hr />
+                <h2 class="t_tit2">1. HTML 소스</h2>
+                <div class="t_code">
+<pre><code class="language-html">&lt;section id="mouseType02"&gt;
+    &lt;div class="mouse__cursor"&gt;&lt;/div&gt;
+    &lt;div class="mouse__cursor2"&gt;&lt;/div&gt;
+    &lt;div class="mouse__wrap"&gt;
+        &lt;p&gt;Only &lt;span class="style1"&gt;I can change&lt;/span&gt; my life, &lt;span class="style2"&gt;No one can&lt;/span&gt; do it &lt;span class="style3"&gt;for me&lt;/span&gt;&lt;/p&gt;
+        &lt;p&gt;&lt;span class="style4"&gt;오직 나만이&lt;/span&gt; 내 인생을 &lt;span class="style5"&gt;바꿀 수 있다.&lt;/span&gt; &lt;span class="style6"&gt;아무도&lt;/span&gt; 날 대신할 수는 없다&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+                </div>
+                <p class="t_box">
+                    이번에는 커서를 두 개 작업해 주었습니다. HTML로 구조를 잡은 후, CSS로 스타일을 적용해 줍니다.
+                </p>
+
+                <h2 class="t_tit2">2. CSS 소스</h2>
+                <div class="t_code">
+<pre><code class="language-css">.mouse__wrap {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    overflow: hidden;
+    flex-direction: column;
+    /* cursor: none; */
+}
+.mouse__wrap p {
+    font-size: 2vw;
+    line-height: 2;
+    font-weight: 300;
+}
+.mouse__wrap p:last-child {
+    font-size: 3vw;
+}
+.mouse__wrap p span {
+    border-bottom: 0.35vw dashed rgb(77, 46, 128);
+    color: rgb(77, 46, 128);
+}
+@media (max-width: 800px) {
+    .mouse__wrap p {
+        font-size: 20px;
+        padding: 0 20px;
+        text-align: center;
+        line-height: 1.5;
+        word-break: keep-all;
+        margin-bottom: 10px;
+    }
+    .mouse__wrap p:last-child {
+        font-size: 40px;
+    }
+}
+.mouse__cursor {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    z-index: 9999;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    user-select: none;
+    pointer-events: none;
+    transition: transform 0.3s, opacity 0.2s;
+}
+.mouse__cursor2 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    z-index: 9998;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    user-select: none;
+    pointer-events: none;
+    transition: transform 0.3s, opacity 0.2s;
+}
+.mouse__cursor.menuactive {
+    transform: scale(0);
+}
+.mouse__cursor2.menuactive {
+    transform: scale(2) rotate(720deg);
+    background: rgba(164, 123, 22, 0.6);
+    border-radius: 0;
+}
+.mouse__cursor.active {
+    transform: scale(0);
+}
+.mouse__cursor2.active {
+    transform: scale(10);
+    background: rgba(77, 46, 128, 0.6);
+}
+.mouse__cursor.sourceactive {
+    transform: scale(0);
+}
+.mouse__cursor2.sourceactive {
+    transform: scaleX(3);
+    background: rgba(240, 92, 92, 0.6);
+}
+</code></pre>
+                </div>
+                <p class="t_box">첫번째 커서는 작은 동그라미, 두번째 커서는 큰 동그라미로 스타일을 적용해 주었습니다.
+                    커서가 헤더의 메뉴에 위치했을 때, 명언의 span 태그 안에 위치했을 때, 푸터의 소스 보기 버튼에 위치했을 때
+                    3가지 모양으로 변형될 수 있도록 menuactive, active, sourceactive 클래스를 각각 작업해 주었습니다.
+                </p>
+                <h2 class="t_tit2">3. JAVASCRIPT 소스</h2>
+                <h3 class="t_tit3">3-1) 선택자 만들어 주기</h3>
+                <div class="t_code">
+<pre><code class="language-js">const cursor = document.querySelector(".mouse__cursor");
+const cursor2 = document.querySelector(".mouse__cursor2");
+const menu = document.querySelectorAll("#header ul li");
+const span = document.querySelectorAll(".mouse__wrap span");
+const sourceBtn = document.querySelectorAll(".modal__btn");
+</code></pre>
+                </div>
+                <p class="t_box">마우스 커서, 메뉴, 명언, 소스 보기 버튼에 대한 선택자를 만들어 줍니다.</p>
+                <h3 class="t_tit3">3-2) 마우스 오버 이벤트 만들어 주기</h3>
+                <div class="t_code">
+<pre><code class="language-js">window.addEventListener("mousemove", (e) => {});
+</code></pre></div>
+<p class="t_box">이제 addEventListener를 이용하여 마우스 오버 이벤트를 만들어 줍니다.
+    아래 소스들은 마우스 오버 이벤트 안에서 작업한 소스들입니다.
+</p>
+<div class="t_code"><pre><code class="language-js">    // 커서 좌표값 할당
+    // cursor.style.left = e.pageX - 5 + "px";
+    // cursor.style.top = e.pageY - 5 + "px";
+    // cursor2.style.left = e.pageX - 15 + "px";
+    // cursor2.style.top = e.pageY - 15 + "px";
+
+    // GSAP
+    gsap.to(cursor, { duration: 0.3, left: e.pageX - 5, top: e.pageY - 5 });
+    gsap.to(cursor2, { duration: 0.8, left: e.pageX - 15, top: e.pageY - 15 });
+</code></pre></div>
+<p class="t_box">위의 방법으로 직접 커서 좌표값을 할당할 수도 있지만, 더 부드러운 움직임을 위하여
+    GSAP를 이용했습니다. GSAP를 사용할 때는 스크립트 링크를 꼭 걸어 줍시다.
+</p>
+<div class="t_code"><pre><code class="language-js">// 메뉴에 커서를 오버했을 때
+menu.forEach((menu) => {
+    menu.addEventListener("mouseenter", () => {
+        cursor.classList.add("menuactive");
+        cursor2.classList.add("menuactive");
+    });
+    menu.addEventListener("mouseleave", () => {
+        cursor.classList.remove("menuactive");
+        cursor2.classList.remove("menuactive");
+    });
+});
+
+// 콘텐츠에 커서를 오버했을 때
+span.forEach((span) => {
+    span.addEventListener("mouseenter", () => {
+        cursor.classList.add("active");
+        cursor2.classList.add("active");
+    });
+    span.addEventListener("mouseleave", () => {
+        cursor.classList.remove("active");
+        cursor2.classList.remove("active");
+    });
+});
+
+// 소스 보기 버튼에 커서를 오버했을 때
+sourceBtn.forEach((source) => {
+    source.addEventListener("mouseenter", () => {
+        cursor.classList.add("sourceactive");
+        cursor2.classList.add("sourceactive");
+    });
+    source.addEventListener("mouseleave", () => {
+        cursor.classList.remove("sourceactive");
+        cursor2.classList.remove("sourceactive");
+    });
+});
+</code></pre></div>
+<p class="t_box">마우스 오버 이벤트 메서드는 mouseenter, mouseover 두 가지가 있지만, mouseenter 메서드를 사용하여 작업해 보았습니다.
+    두 메서드의 차이는 <a href="https://mo0647.tistory.com/entry/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EB%A7%88%EC%9A%B0%EC%8A%A4-%EC%9D%B4%EB%B2%A4%ED%8A%B8-%EB%A9%94%EC%84%9C%EB%93%9C-mouseover-VS-mouseenter?category=988246">자바스크립트 : 마우스 이벤트 메서드 : mouseover VS mouseenter</a>를 참고해
+    주세요.
+    <br>
+    메뉴 버튼, 명언, 소스 보기 버튼 각각에 커서를 위치했을 때, 각각에 해당하는 active 클래스를 추가해 주고,
+    커서의 위치가 벗어나면 active 클래스를 제거하도록 작업해 줍니다.
+</p>
+                <hr />
+                <h2 class="t_tit2">결과</h2>
+                <div class="t_iframe" style="min-height: 1000px; padding-top: 0px">
+                    <iframe src="https://mj0614k.github.io/Coding/javascript/effect/mouseEffect02.html"></iframe>
+                </div>
+
+                <div class="t_link">
+                    <a href="https://github.com/mj0614k/Coding/blob/main/javascript/effect/mouseEffect02.html">원본 소스 보기</a>
+                    <a href="https://mj0614k.github.io/Coding/javascript/effect/mouseEffect02">원본 사이트 보기</a>
+                </div>
+            </div>
+        </main>
+        <!-- //main -->
+
+        <footer id="footer">
+            <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+        </footer>
+        <!-- //footer -->
+
+        <script src="../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>

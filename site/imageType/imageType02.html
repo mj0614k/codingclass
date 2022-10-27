@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 유형02</title>
+    <style>
+        /* fonts */
+        @import url('https://webfontworld.github.io/gmarket/GmarketSans.css');
+
+        .gmark {
+            font-family: 'GmarketSans';
+            font-weight: 500;
+        }
+
+        /* reset */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: normal;
+        }
+
+        /* common */
+        .container {
+            width: 1160px;
+            padding: 0 20px;
+            margin: 0 auto;
+        }
+
+        .section {
+            padding: 120px 0;
+        }
+
+        .section>h2 {
+            font-size: 50px;
+            line-height: 1;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .section>p {
+            font-size: 22px;
+            font-weight: 300;
+            color: #666;
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        /* imageType */
+        .image__inner {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .image {
+            width: 32%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image__box img {
+            vertical-align: top;
+            height: 100%;
+        }
+
+        .image__desc {
+            position: absolute;
+            left: 0;
+            bottom: -100px;
+            transition: all 0.3s ease-in-out;
+            width: 100%;
+            text-align: center;
+            height: 100px;
+            backdrop-filter: blur(4px);
+            padding: 25px 20px;
+            box-sizing: border-box;
+        }
+
+        .img1 .image__desc {
+            background: rgba(190, 163, 112, 0.1);
+        }
+
+        .img2 .image__desc {
+            background: rgba(95, 35, 32, 0.1);
+        }
+
+        .img3 .image__desc {
+            background: rgba(142, 141, 141, 0.1);
+        }
+
+        .img1 .image__desc h3 {
+            color: white;
+        }
+
+        .img2 .image__desc h3 {
+            color: white;
+        }
+
+        .img1 .image__desc .more {
+            color: white;
+        }
+
+        .img2 .image__desc .more {
+            color: white;
+        }
+
+        .image:hover .image__desc {
+            bottom: 0px;
+        }
+
+        .image:hover .image__box img {
+            transform: scale(1.03);
+            transition: all 0.6s ease-in-out;
+        }
+
+        .image__desc h3 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .image__desc .more {
+            font-size: 16px;
+            font-weight: 200;
+        }
+
+        .image__desc .more:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="imageType02" class="image__wrap gmark section">
+        <h2>바다에 사는 생물들</h2>
+        <p>바다에는 어떤 생물들이 살고 있을까요?</p>
+        <div class="image__inner container">
+            <article class="image img1">
+                <figure class="image__box">
+                    <img src="img/img02_bg01.jpg" alt="불가사리">
+                </figure>
+                <div class="image__desc">
+                    <h3>TTUNG-E</h3>
+                    <a href="#" class="more" title="자세히 보기">자세히 보기</a>
+                </div>
+            </article>
+            <article class="image img2">
+                <figure class="image__box">
+                    <img src="img/img02_bg02.jpg" alt="문어">
+                </figure>
+                <div class="image__desc">
+                    <h3 class="white">JingJing-E</h3>
+                    <a href="#" class="more white" title="자세히 보기">자세히 보기</a>
+                </div>
+            </article>
+            <article class="image img3">
+                <figure class="image__box">
+                    <img src="img/img02_bg03.jpg" alt="게">
+                </figure>
+                <div class="image__desc">
+                    <h3>Jibgeo-Sajang</h3>
+                    <a href="#" class="more" title="자세히 보기">자세히 보기</a>
+                </div>
+            </article>
+        </div>
+    </section>
+</body>
+
+</html>

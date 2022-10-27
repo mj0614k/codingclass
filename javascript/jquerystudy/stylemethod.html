@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : GSAP</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="../index.html">Javascript</a></h1>
+    </header>
+    <!-- //header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">제이쿼리 : 스타일 관련 메서드</h2>
+            <p class="t_desc">
+                오늘은 JQuery의 주요 메서드들 중, 스타일과 관련된
+                메서드를 알아보도록 하겠습니다. 
+            </p>
+            <hr>
+            <article class=sample01>
+                <h3 class="t_tit2">1. css() 메서드</h3>
+                <table class="t_table">
+                    <thead>
+                        <tr>
+                            <th>실행 분류</th>
+                            <th>형식</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="ce">취득</td>
+                            <td>$("div").css("width");</td>
+                        </tr>
+                        <tr>
+                            <td class="ce" rowspan="2">생성, 변경</td>
+                            <td>$("div").css("background-color", "red").css("padding", "10px");</td>
+                        </tr>
+                        <tr>
+                            <td>$("div").css({"background-color: "red", padding: "10px"});</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">콜백 함수</td>
+                            <td>
+                                $("div").attr("width", function(<i>index, w</i>) {<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;// <i>index</i>는 각 div 요소의 index 0, 1, 2<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;// <i>w</i>는 각 div 요소의 width 값<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;<i>return</i> css 속성 // 각 div 요소의 css 속성을 생성 및 변경합니다.<br>
+                            });<br>
+                            ....<br>
+                            &lt;div&gt;내용&lt;/div&gt;
+                            &lt;div&gt;내용&lt;/div&gt;
+                            &lt;div&gt;내용&lt;/div&gt;
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            <p class="t_desc">
+                다음은 css() 메서드의 사용 예제입니다.
+            </p>
+            <p class="codepen" data-height="300" data-default-tab="result" data-slug-hash="zYjxKZo" data-user="mj0614k" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                <span>See the Pen <a href="https://codepen.io/mj0614k/pen/zYjxKZo">
+                stylemethod01</a> by mj0614k (<a href="https://codepen.io/mj0614k">@mj0614k</a>)
+                on <a href="https://codepen.io">CodePen</a>.</span>
+              </p>
+              <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+            </article>
+            <article class=sample02>
+                <h3 class="t_tit2">2. width, height 관련 메서드</h3>
+                <table class="t_table">
+                    <thead>
+                        <tr>
+                            <th class="ce">메서드 종류</th>
+                            <th class="ce">설명</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="ce">width()</td>
+                            <td>요소의 가로 길이를 취득, 변경할 수 있습니다.</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">innerWidth()</td>
+                            <td>padding이 적용된 요소의 가로 길이를 취득, 변경할 수 있습니다.</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">outerWidth()</td>
+                            <td>
+                                border와 margin이 적용된 요소의 가로 길이를 취득, 변경할 수 있습니다.<br>
+                                <i>outerWidth()</i>는 요소의 width값 + 좌ㆍ우 border값<br>
+                                <i>outerWidth(true)</i>는 요소의 width값 + 좌ㆍ우 border값 + 좌ㆍ우 margin값
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="ce">height()</td>
+                            <td>요소의 높이를 취득, 변경할 수 있습니다.</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">innerheight()</td>
+                            <td>padding이 적용된 요소의 높이를 취득, 변경할 수 있습니다.</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">outerHeight()</td>
+                            <td>
+                                border와 margin이 적용된 요소의 높이를 취득, 변경할 수 있습니다.<br>
+                                <i>outerHeight()</i>는 요소의 height값 + 상ㆍ하 border값<br>
+                                <i>outerHeight(true)</i>는 요소의 height값 + 상ㆍ하 border값 + 상ㆍ하 margin값
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="t_desc">
+                다음은 width, height 관련 메서드의 사용 예제입니다.
+            </p>
+            <p class="codepen" data-height="300" data-default-tab="result" data-slug-hash="YzLPpKB" data-user="mj0614k" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                <span>See the Pen <a href="https://codepen.io/mj0614k/pen/YzLPpKB">
+                stylemethod02</a> by mj0614k (<a href="https://codepen.io/mj0614k">@mj0614k</a>)
+                on <a href="https://codepen.io">CodePen</a>.</span>
+              </p>
+              <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+            </article>
+            <article class=sample03>
+                <h3 class="t_tit2">3. 위치 관련 메서드</h3>
+                <table class="t_table">
+                    <thead>
+                        <tr>
+                            <th class="ce" colspan="2">메서드 종류</th>
+                            <th class="ce">설명</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="ce" rowspan="3">offset()</td>
+                            <td>$("요소").offset().left</td>
+                            <td>html 기준으로 left 값을 취득할 수 있습니다.</td>
+                        </tr>
+                        <tr>
+                            <td>$("요소").offset().top</td>
+                            <td>html 기준으로 top 값을 취득할 수 있습니다.</td>
+                        </tr>
+                        <tr>
+                            <td>$("요소").offset({left: 10, top: 10})</td>
+                            <td>html 기준으로 left, top 값을 변경할 수 있습니다.</td>
+                        </tr>
+                        <tr>
+                            <td class="ce" rowspan="2">position()</td>
+                            <td>$("요소").position().left</td>
+                            <td>부모 요소 기준으로 left 값을 취득할 수 있습니다.</td>
+                        </tr>
+                        <tr>
+                            <td>$("요소").position().top</td>
+                            <td>부모 요소 기준으로 top 값을 취득할 수 있습니다.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="t_desc">
+                다음은 위치 관련 메서드의 사용 예제입니다.
+            </p>
+            <p class="codepen" data-height="300" data-default-tab="result" data-slug-hash="wvjBoaa" data-user="mj0614k" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                <span>See the Pen <a href="https://codepen.io/mj0614k/pen/wvjBoaa">
+                stylemethod03</a> by mj0614k (<a href="https://codepen.io/mj0614k">@mj0614k</a>)
+                on <a href="https://codepen.io">CodePen</a>.</span>
+              </p>
+              <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+            </article>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

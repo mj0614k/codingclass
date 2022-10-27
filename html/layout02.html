@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 레퍼런스 북 : 레이아웃02</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dracula.css">
+    <!-- 구글 아이콘 -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+    <header id="header">
+    <h1><a href="#">라인 중학교 1학년 코딩반</a></h1>
+    <span>이름: 김민정</span>
+    </header>
+    <!-- //header -->
+
+    <main id="main">
+        <header class="main_header">
+            <h2>HTML <em>레퍼런스 북</em></h2>
+        </header>
+        <nav class="main_menu">
+        <ul>
+            <li><a href="alphabet.html">알파벳</a></li>
+            <li><a href="basic.html">기초 문법</a></li>
+            <li><a href="block.html">블록 구조/인라인 구조</a></li>
+            <li><a href="web.html">웹표준/웹접근성/웹호환성</a></li>
+            <li><a href="sementic.html">시멘틱 태그</a></li>
+        </ul>
+        <ul>
+            <li><a href="layout01.html">레이아웃01</a></li>
+            <li class="active"><a href="layout02.html">레이아웃02</a></li>
+            <li><a href="layout03.html">레이아웃03</a></li>
+            <li><a href="layout04.html">레이아웃04</a></li>
+            <li><a href="layout05.html">레이아웃05</a></li>
+        </ul>
+    </nav>
+        <div class="main_refer">
+            <div class="document">
+                <h2 class="t_tit">레이아웃02</h2>
+                <p class="t_desc">
+                    레이아웃(layout)이란 특정 공간에 여러 구성 요소를 보기 좋게 효과적으로 배치하는 작업을 의미합니다.
+                    웹 페이지의 레이아웃은 웹 사이트의 외관을 결정짓는 매우 중요한 요소입니다.
+                    CSS로 레이아웃 작업을 하는 방법에는 3가지가 있습니다. 다음의 레이아웃을
+                    3가지 방법으로 작업해 보도록 하겠습니다.
+                </p>
+                <div class="t_iframe">
+                    <iframe src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAKeQMu6bAhxrUrpKB0QAEH%2F%25EB%25A0%2588%25EC%259D%25B4%25EC%2595%2584%25EC%259B%2583%3Fnode-id%3D32%253A38" allowfullscreen></iframe>
+                </div>
+                <h2 class="t_tit2">float 속성을 이용한 레이아웃</h2>
+                <p class="t_desc2">
+                    'float'라는 단어는 사전적으로는'뜨다'라는 의미를 가지고 있습니다.
+                    웹페이지에서 이미지를 어떻게 띄워서 텍스트와 함께 배치할 것인지에 대한 속성입니다.
+                    그러나, float를 사용하면 영역이 깨지는 버그가 발생할 수 있습니다. 영역 깨짐을 방지하는
+                    3가지 방법은 다음과 같습니다.<br><br>
+                    1. 깨지는 영역에 clear:both를 설정합니다.<br>
+                    2. 부모 박스 영역에 overflow:hidden을 설정합니다.<br>
+                    3. clearfix를 설정합니다. 가장 안정적인 방법입니다.
+                </p>
+                <div class="t_code">
+<pre><code class="language-css">*{
+    margin: 0;            
+}
+body{
+    background-color: #E8F5E9;
+}
+#wrap{
+    width:1200px;
+    margin: 0 auto;
+}
+#header{
+    width:100%;
+    height:100px;
+    background-color: #C8E6C9;
+}
+#nav{
+    width:100%;
+    height:100px;
+    background-color: #A5D6A7;
+}
+#aside{
+    width:25%;
+    height:780px;
+    background-color: #81C784;
+    float:left;
+}
+#section{
+    width:50%;
+    height: 780px;
+    background-color: #66BB6A;
+    float:left;
+}
+#section2{
+    width:25%;
+    height: 780px;
+    background-color: #4CAF50;
+    float:left;
+}
+#footer{
+    width:100%;
+    height:100px;
+    background-color: #43A047;
+    clear:both;
+}
+
+@media (max-width: 1300px){
+    #wrap {
+        width: 96%;
+    }
+}
+@media (max-width: 768px){
+    #wrap {
+        width:100%;
+    }
+    #aside{
+        width:30%;
+        height:630px;
+    }
+    #section{
+        width:70%;
+        height:630px;
+    }
+    #section2{
+        width:100%;
+        height: 150px; 
+    }
+}
+@media (max-width: 480px){
+    #wrap{
+        width:100%;
+    }
+    #aside {
+        width:100%;
+        height:200px;
+    }
+    #section {
+        width:100%;
+        height:430px;
+    }
+    #section2{
+        width:100%;
+        height: 150px; 
+    }
+}</code></pre>
+                </div>
+                <h2 class="t_tit2">flex 속성을 이용한 레이아웃</h2>
+                <p class="t_desc2">
+                    'flex' 속성은 'flexible'의 줄임말로, 유동적인 레이아웃을 손쉽게 만들 수 있다는 의미를 가지고 있습니다.
+                    container와 item들이 부모와 자식 관계일 때, container에 display:flex; 
+                    혹은 display:inline-flex;속성을 줌으로써 flexbox 레이아웃을 적용할 수 있습니다.
+                </p>
+                <div class="t_code">
+<pre><code class="language-css">*{
+    margin: 0;            
+}
+body{
+    background-color: #E8F5E9;
+}
+#wrap{
+    width:1200px;
+    margin: 0 auto;
+}
+#header{
+    width:100%;
+    height:100px;
+    background-color: #C8E6C9;
+}
+#nav{
+    width:100%;
+    height:100px;
+    background-color: #A5D6A7;
+}
+#aside{
+    width:25%;
+    height:780px;
+    background-color: #81C784;
+}
+#section{
+    width:50%;
+    height: 780px;
+    background-color: #66BB6A;
+}
+#section2{
+    width:25%;
+    height: 780px;
+    background-color: #4CAF50;
+}
+#footer{
+    width:100%;
+    height:100px;
+    background-color: #43A047;
+}
+.contents{
+    display:flex;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 1300px){
+    #wrap {
+        width: 96%;
+    }
+    #header, #footer, #nav{
+        width:100%;
+    }
+    #aside{
+        width:25%;
+    }
+    #section{
+        width:50%;
+    }
+    #section2{
+        width:25%;
+    }
+}
+@media (max-width: 768px){
+    #wrap {
+        width:100%;
+    }
+    #aside{
+        width:30%;
+        height:630px;
+    }
+    #section{
+        width:70%;
+        height:630px;
+    }
+    #section2{
+        width:100%;
+        height: 150px; 
+    }
+}
+@media (max-width: 480px){
+    #wrap{
+        width:100%;
+    }
+    #aside {
+        width:100%;
+        height:200px;
+    }
+    #section {
+        width:100%;
+        height:430px;
+    }
+    #section2{
+        width:100%;
+        height: 150px; 
+    }
+}</code></pre>
+                </div>
+                <h2 class="t_tit2">grid 속성을 이용한 레이아웃</h2>
+                <p class="t_desc2">
+                    'grid'는 페이지를 여러 주요 영역으로 나누거나, 크기와 위치 및 문서 계층 구조의 관점에서
+                    HTML 기본 요소로 작성된 콘트롤 간의 관계를 정의하는 데에 유용하게 사용됩니다.
+                    grid 레이아웃은 table과 마찬가지로 세로 열과 가로 행을 기준으로 요소를 정렬할 수 있습니다.
+                </p>
+                <div class="t_code">
+<pre><code class="language-css">*{
+    margin: 0;            
+}
+body{
+    background-color: #E8F5E9;
+}
+#wrap{
+    width:1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-areas: 
+        "header header header"
+        "nav nav nav"
+        "aside section section2"
+        "footer footer footer"
+    ;
+    grid-template-columns: 25% 50% 25%;
+    grid-template-rows: 100px 100px 780px 100px;
+}
+#header{
+    grid-area: header;
+    background-color: #C8E6C9;
+}
+#nav{
+    grid-area: nav;
+    background-color: #A5D6A7;
+}
+#aside{
+    grid-area: aside;
+    background-color: #81C784;
+}
+#section{
+    grid-area: section;
+    background-color: #66BB6A;
+}
+#section2{
+    grid-area: section2;
+    background-color: #4CAF50;
+}
+#footer{
+    grid-area: footer;
+    background-color: #43A047;
+}
+
+@media (max-width: 1300px){
+    #wrap {
+        width: 96%;
+    }
+}
+@media (max-width: 768px){
+    #wrap {
+        width: 100%;
+        grid-template-areas: 
+        "header header"
+        "nav nav"
+        "aside section"
+        "section2 section2"
+        "footer footer"
+    ;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: 100px 100px 630px 150px 100px;
+    }
+}
+@media (max-width: 480px){
+    #wrap {
+        width: 100%;
+        grid-template-areas: 
+        "header"
+        "nav"
+        "aside"
+        "section"
+        "section2"
+        "footer"
+    ;
+    grid-template-columns: 100%;
+    grid-template-rows: 100px 100px 200px 430px 150px 100px;
+    }
+}</code></pre>
+                </div>
+                <br>
+                <h4 class="t_tit3">결과</h4>
+                <div class="t_iframe">
+                    <p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="GRxvEMX" data-user="mj0614k" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                        <span>See the Pen <a href="https://codepen.io/mj0614k/pen/GRxvEMX">
+                        layout02_05</a> by mj0614k (<a href="https://codepen.io/mj0614k">@mj0614k</a>)
+                        on <a href="https://codepen.io">CodePen</a>.</span>
+                    </p>
+                    <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- header -->
+
+    <footer id="footer">
+        <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+    </footer>
+    <!-- footer -->
+
+    <script src="assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>

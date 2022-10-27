@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 유형02</title>
+    <style>
+        /* fonts */
+        @import url('https://webfontworld.github.io/gmarket/GmarketSans.css');
+
+        .gmark {
+            font-family: 'GmarketSans';
+            font-weight: 500;
+        }
+
+        /* reset */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: normal;
+        }
+
+        /* common */
+        .container {
+            width: 1720px;
+            margin: 0 auto;
+        }
+
+        .section {
+            padding: 120px 0;
+        }
+
+        .section>h2 {
+            font-size: 50px;
+            line-height: 1;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .section>p {
+            font-size: 22px;
+            font-weight: 300;
+            color: #666;
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        /* imageType03 */
+        .main {
+            display: flex;
+        }
+        .main .subimage01 {
+            margin-right: 20px;
+        }
+        .main .subimage01 .subimage02 {
+            justify-content: space-between;
+        }
+        .image01 {
+            width: 850px;
+            height: 500px;
+            border-radius: 5px;
+            margin-right: 20px;
+        }
+        .image02 .image03 {
+            margin-bottom: 20px;
+        }
+        .image02, .image03, .image04, .image05 {
+            width: 415px;
+            height: 240px;
+            border-radius: 5px;
+        }
+
+        .image01 {
+            position: relative;
+        }
+        .image01 .image__more {
+            bottom: 0px;
+            position: absolute;
+        }
+        .image01 .image__desc {
+            background-color: rgba(21, 21, 21, 0.4);
+            width: 850px;
+            display: flex;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            position: relative;
+        }
+        .image01 .image__desc .icon05 {
+            margin-left: 20px;
+        }
+        .image01 .image__desc .icon06 {
+            margin-left: 10px;
+        }
+        .image01 .image__desc .icon07 {
+            
+        }
+        .image01 .image__desc .icon08 {
+            margin-right: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="imageType03" class="card__wrap gmark section container">
+        <h2>넘나 귀여운 동물</h2>
+        <p>어쩜 이렇게 귀여운지... 깨물어주고 싶다.</p>
+        <div class="main">
+            <article class="image01">
+                <figure>
+                    <img src="img/img03_bg01.jpg" alt="북극여우">
+                </figure>
+                <div class="image__more">
+                    <h2>Wow! Cute fox</h2>
+                    <p>so cute</p>
+                    <div class="image__desc">
+                        <div class="image__desc__left">
+                            <div class="icon05">
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="20" cy="20" r="20" fill="#F5F5F5" fill-opacity="0.5"/>
+                                    <path d="M24.8612 11.4585H15.1389C14.0695 11.4585 13.1945 12.396 13.1945 13.5418V30.2085L20 27.0835L26.8056 30.2085V13.5418C26.8056 12.396 25.9306 11.4585 24.8612 11.4585Z" fill="white"/>
+                                </svg>
+                            </div>
+                            <div class="icon06">
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.99999 16.6666C8.16666 16.6666 6.66666 18.1666 6.66666 20C6.66666 21.8333 8.16666 23.3333 9.99999 23.3333C11.8333 23.3333 13.3333 21.8333 13.3333 20C13.3333 18.1666 11.8333 16.6666 9.99999 16.6666ZM30 16.6666C28.1667 16.6666 26.6667 18.1666 26.6667 20C26.6667 21.8333 28.1667 23.3333 30 23.3333C31.8333 23.3333 33.3333 21.8333 33.3333 20C33.3333 18.1666 31.8333 16.6666 30 16.6666ZM20 16.6666C18.1667 16.6666 16.6667 18.1666 16.6667 20C16.6667 21.8333 18.1667 23.3333 20 23.3333C21.8333 23.3333 23.3333 21.8333 23.3333 20C23.3333 18.1666 21.8333 16.6666 20 16.6666Z" fill="#F5F5F5"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="image__desc__right">
+                            <div class="icon07"> 
+                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15 5.625C8.75 5.625 3.4125 9.5125 1.25 15C3.4125 20.4875 8.75 24.375 15 24.375C21.25 24.375 26.5875 20.4875 28.75 15C26.5875 9.5125 21.25 5.625 15 5.625ZM15 21.25C11.55 21.25 8.75 18.45 8.75 15C8.75 11.55 11.55 8.75 15 8.75C18.45 8.75 21.25 11.55 21.25 15C21.25 18.45 18.45 21.25 15 21.25ZM15 11.25C12.925 11.25 11.25 12.925 11.25 15C11.25 17.075 12.925 18.75 15 18.75C17.075 18.75 18.75 17.075 18.75 15C18.75 12.925 17.075 11.25 15 11.25Z" fill="#F5F5F5"/>
+                                </svg>
+                            </div>
+                            <div class="icon08">
+                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M17.5 11.25V9.26246C17.5 8.14996 18.85 7.58746 19.6375 8.37496L25.375 14.1125C25.8625 14.6 25.8625 15.3875 25.375 15.875L19.6375 21.6125C18.85 22.4 17.5 21.85 17.5 20.7375V18.625C11.25 18.625 6.87501 20.625 3.75001 25C5.00001 18.75 8.75001 12.5 17.5 11.25Z" fill="#F5F5F5"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <div class="subimage01">
+                <article class="subimage image02">
+                    <figure>
+                        <img src="img/img03_bg02.jpg" alt="고양이">
+                    </figure>
+                    <h2>Wow! Cute cat</h2>
+                    <p>so cute</p>
+                    <div class="image__desc">
+                        <span class="icon05">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="20" cy="20" r="20" fill="#F5F5F5" fill-opacity="0.5"/>
+                                <path d="M24.8612 11.4585H15.1389C14.0695 11.4585 13.1945 12.396 13.1945 13.5418V30.2085L20 27.0835L26.8056 30.2085V13.5418C26.8056 12.396 25.9306 11.4585 24.8612 11.4585Z" fill="white"/>
+                            </svg>
+                        </span>
+                        <span class="icon06">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9.99999 16.6666C8.16666 16.6666 6.66666 18.1666 6.66666 20C6.66666 21.8333 8.16666 23.3333 9.99999 23.3333C11.8333 23.3333 13.3333 21.8333 13.3333 20C13.3333 18.1666 11.8333 16.6666 9.99999 16.6666ZM30 16.6666C28.1667 16.6666 26.6667 18.1666 26.6667 20C26.6667 21.8333 28.1667 23.3333 30 23.3333C31.8333 23.3333 33.3333 21.8333 33.3333 20C33.3333 18.1666 31.8333 16.6666 30 16.6666ZM20 16.6666C18.1667 16.6666 16.6667 18.1666 16.6667 20C16.6667 21.8333 18.1667 23.3333 20 23.3333C21.8333 23.3333 23.3333 21.8333 23.3333 20C23.3333 18.1666 21.8333 16.6666 20 16.6666Z" fill="#F5F5F5"/>
+                            </svg>
+                        </span>
+                        <span class="icon07"> 
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15 5.625C8.75 5.625 3.4125 9.5125 1.25 15C3.4125 20.4875 8.75 24.375 15 24.375C21.25 24.375 26.5875 20.4875 28.75 15C26.5875 9.5125 21.25 5.625 15 5.625ZM15 21.25C11.55 21.25 8.75 18.45 8.75 15C8.75 11.55 11.55 8.75 15 8.75C18.45 8.75 21.25 11.55 21.25 15C21.25 18.45 18.45 21.25 15 21.25ZM15 11.25C12.925 11.25 11.25 12.925 11.25 15C11.25 17.075 12.925 18.75 15 18.75C17.075 18.75 18.75 17.075 18.75 15C18.75 12.925 17.075 11.25 15 11.25Z" fill="#F5F5F5"/>
+                            </svg>
+                        </span>
+                        <span class="icon08">
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17.5 11.25V9.26246C17.5 8.14996 18.85 7.58746 19.6375 8.37496L25.375 14.1125C25.8625 14.6 25.8625 15.3875 25.375 15.875L19.6375 21.6125C18.85 22.4 17.5 21.85 17.5 20.7375V18.625C11.25 18.625 6.87501 20.625 3.75001 25C5.00001 18.75 8.75001 12.5 17.5 11.25Z" fill="#F5F5F5"/>
+                            </svg>
+                        </span>
+                    </div>
+                </article>
+                <article class="subimage image03">
+                    <figure>
+                        <img src="img/img03_bg03.jpg" alt="기니피그">
+                    </figure>
+                    <h2>Wow! Cute fox</h2>
+                    <p>so cute</p>
+                    <div class="image image__desc">
+                        <span class="icon05">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="20" cy="20" r="20" fill="#F5F5F5" fill-opacity="0.5"/>
+                                <path d="M24.8612 11.4585H15.1389C14.0695 11.4585 13.1945 12.396 13.1945 13.5418V30.2085L20 27.0835L26.8056 30.2085V13.5418C26.8056 12.396 25.9306 11.4585 24.8612 11.4585Z" fill="white"/>
+                            </svg>
+                        </span>
+                        <span class="icon06">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9.99999 16.6666C8.16666 16.6666 6.66666 18.1666 6.66666 20C6.66666 21.8333 8.16666 23.3333 9.99999 23.3333C11.8333 23.3333 13.3333 21.8333 13.3333 20C13.3333 18.1666 11.8333 16.6666 9.99999 16.6666ZM30 16.6666C28.1667 16.6666 26.6667 18.1666 26.6667 20C26.6667 21.8333 28.1667 23.3333 30 23.3333C31.8333 23.3333 33.3333 21.8333 33.3333 20C33.3333 18.1666 31.8333 16.6666 30 16.6666ZM20 16.6666C18.1667 16.6666 16.6667 18.1666 16.6667 20C16.6667 21.8333 18.1667 23.3333 20 23.3333C21.8333 23.3333 23.3333 21.8333 23.3333 20C23.3333 18.1666 21.8333 16.6666 20 16.6666Z" fill="#F5F5F5"/>
+                            </svg>
+                        </span>
+                        <span class="icon07"> 
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15 5.625C8.75 5.625 3.4125 9.5125 1.25 15C3.4125 20.4875 8.75 24.375 15 24.375C21.25 24.375 26.5875 20.4875 28.75 15C26.5875 9.5125 21.25 5.625 15 5.625ZM15 21.25C11.55 21.25 8.75 18.45 8.75 15C8.75 11.55 11.55 8.75 15 8.75C18.45 8.75 21.25 11.55 21.25 15C21.25 18.45 18.45 21.25 15 21.25ZM15 11.25C12.925 11.25 11.25 12.925 11.25 15C11.25 17.075 12.925 18.75 15 18.75C17.075 18.75 18.75 17.075 18.75 15C18.75 12.925 17.075 11.25 15 11.25Z" fill="#F5F5F5"/>
+                            </svg>
+                        </span>
+                        <span class="icon08">
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17.5 11.25V9.26246C17.5 8.14996 18.85 7.58746 19.6375 8.37496L25.375 14.1125C25.8625 14.6 25.8625 15.3875 25.375 15.875L19.6375 21.6125C18.85 22.4 17.5 21.85 17.5 20.7375V18.625C11.25 18.625 6.87501 20.625 3.75001 25C5.00001 18.75 8.75001 12.5 17.5 11.25Z" fill="#F5F5F5"/>
+                            </svg>
+                        </span>
+                    </div>
+                </article>
+            </div>
+            <div class="subimage02">
+                <article class="subimage image04">
+                    <figure>
+                        <img src="img/img03_bg04.jpg" alt="햄스터">
+                    </figure>
+                    <h2>Wow! Cute fox</h2>
+                    <p>so cute</p>
+                    <div class="image__desc">
+                        <span class="icon05">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="20" cy="20" r="20" fill="#F5F5F5" fill-opacity="0.5"/>
+                                <path d="M24.8612 11.4585H15.1389C14.0695 11.4585 13.1945 12.396 13.1945 13.5418V30.2085L20 27.0835L26.8056 30.2085V13.5418C26.8056 12.396 25.9306 11.4585 24.8612 11.4585Z" fill="white"/>
+                            </svg>
+                        </span>
+                        <span class="icon06">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9.99999 16.6666C8.16666 16.6666 6.66666 18.1666 6.66666 20C6.66666 21.8333 8.16666 23.3333 9.99999 23.3333C11.8333 23.3333 13.3333 21.8333 13.3333 20C13.3333 18.1666 11.8333 16.6666 9.99999 16.6666ZM30 16.6666C28.1667 16.6666 26.6667 18.1666 26.6667 20C26.6667 21.8333 28.1667 23.3333 30 23.3333C31.8333 23.3333 33.3333 21.8333 33.3333 20C33.3333 18.1666 31.8333 16.6666 30 16.6666ZM20 16.6666C18.1667 16.6666 16.6667 18.1666 16.6667 20C16.6667 21.8333 18.1667 23.3333 20 23.3333C21.8333 23.3333 23.3333 21.8333 23.3333 20C23.3333 18.1666 21.8333 16.6666 20 16.6666Z" fill="#F5F5F5"/>
+                            </svg>
+                        </span>
+                        <span class="icon07"> 
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15 5.625C8.75 5.625 3.4125 9.5125 1.25 15C3.4125 20.4875 8.75 24.375 15 24.375C21.25 24.375 26.5875 20.4875 28.75 15C26.5875 9.5125 21.25 5.625 15 5.625ZM15 21.25C11.55 21.25 8.75 18.45 8.75 15C8.75 11.55 11.55 8.75 15 8.75C18.45 8.75 21.25 11.55 21.25 15C21.25 18.45 18.45 21.25 15 21.25ZM15 11.25C12.925 11.25 11.25 12.925 11.25 15C11.25 17.075 12.925 18.75 15 18.75C17.075 18.75 18.75 17.075 18.75 15C18.75 12.925 17.075 11.25 15 11.25Z" fill="#F5F5F5"/>
+                            </svg>
+                        </span>
+                        <span class="icon08">
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17.5 11.25V9.26246C17.5 8.14996 18.85 7.58746 19.6375 8.37496L25.375 14.1125C25.8625 14.6 25.8625 15.3875 25.375 15.875L19.6375 21.6125C18.85 22.4 17.5 21.85 17.5 20.7375V18.625C11.25 18.625 6.87501 20.625 3.75001 25C5.00001 18.75 8.75001 12.5 17.5 11.25Z" fill="#F5F5F5"/>
+                            </svg>
+                        </span>
+                    </div>
+                </article>
+                <article class="subimage image05">
+                    <figure>
+                        <img src="img/img03_bg05.jpg" alt="강아지">
+                    </figure>
+                    <h2>Wow! Cute fox</h2>
+                    <p>so cute</p>
+                    <div class="image__desc">
+                        <span class="icon05">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="20" cy="20" r="20" fill="#F5F5F5" fill-opacity="0.5"/>
+                                <path d="M24.8612 11.4585H15.1389C14.0695 11.4585 13.1945 12.396 13.1945 13.5418V30.2085L20 27.0835L26.8056 30.2085V13.5418C26.8056 12.396 25.9306 11.4585 24.8612 11.4585Z" fill="white"/>
+                            </svg>
+                        </span>
+                        <span class="icon06">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9.99999 16.6666C8.16666 16.6666 6.66666 18.1666 6.66666 20C6.66666 21.8333 8.16666 23.3333 9.99999 23.3333C11.8333 23.3333 13.3333 21.8333 13.3333 20C13.3333 18.1666 11.8333 16.6666 9.99999 16.6666ZM30 16.6666C28.1667 16.6666 26.6667 18.1666 26.6667 20C26.6667 21.8333 28.1667 23.3333 30 23.3333C31.8333 23.3333 33.3333 21.8333 33.3333 20C33.3333 18.1666 31.8333 16.6666 30 16.6666ZM20 16.6666C18.1667 16.6666 16.6667 18.1666 16.6667 20C16.6667 21.8333 18.1667 23.3333 20 23.3333C21.8333 23.3333 23.3333 21.8333 23.3333 20C23.3333 18.1666 21.8333 16.6666 20 16.6666Z" fill="#F5F5F5"/>
+                            </svg>
+                        </span>
+                        <span class="icon07"> 
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15 5.625C8.75 5.625 3.4125 9.5125 1.25 15C3.4125 20.4875 8.75 24.375 15 24.375C21.25 24.375 26.5875 20.4875 28.75 15C26.5875 9.5125 21.25 5.625 15 5.625ZM15 21.25C11.55 21.25 8.75 18.45 8.75 15C8.75 11.55 11.55 8.75 15 8.75C18.45 8.75 21.25 11.55 21.25 15C21.25 18.45 18.45 21.25 15 21.25ZM15 11.25C12.925 11.25 11.25 12.925 11.25 15C11.25 17.075 12.925 18.75 15 18.75C17.075 18.75 18.75 17.075 18.75 15C18.75 12.925 17.075 11.25 15 11.25Z" fill="#F5F5F5"/>
+                            </svg>
+                        </span>
+                        <span class="icon08">
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17.5 11.25V9.26246C17.5 8.14996 18.85 7.58746 19.6375 8.37496L25.375 14.1125C25.8625 14.6 25.8625 15.3875 25.375 15.875L19.6375 21.6125C18.85 22.4 17.5 21.85 17.5 20.7375V18.625C11.25 18.625 6.87501 20.625 3.75001 25C5.00001 18.75 8.75001 12.5 17.5 11.25Z" fill="#F5F5F5"/>
+                            </svg>
+                        </span>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

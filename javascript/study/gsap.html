@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : GSAP</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="../index.html">Javascript</a></h1>
+    </header>
+    <!-- //header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">자바스크립트 : GSAP란?</h2>
+            <p class="t_desc2">
+                GSAP는 GreenSock에서 만든 <i>자바스크립트 애니메이션 라이브러리</i>입니다.
+                일반적으로 애니메이션 효과는 CSS나 JQUERY로 구현하는 것이 일반적이지만,
+                그 이상의 복잡한 애니메이션을 보다 간단하게 구현하기 위해 탄생한 것이 바로
+                GSAP입니다. 오늘은 GSAP의 사용법을 간단하게 알아보도록 하겠습니다.
+            </p>
+            <hr>
+            <h3 class="t_tit2">1. CDN에서 라이브러리 가져오기</h3>
+            <p class="t_desc">
+                CDN이란 Contents Delivery Network의 약자로, <i>데이터를 분산된 서버에서 받아오는 것</i>을 말합니다.
+                GSAP이나 jQuery의 라이브러리를 호스팅된 서버에 직접 설치해서 사용할 수도 있지만,
+                CDN을 사용하면 클라이언트가 직접 자신의 위치로 라이브러리를 전송받게 됩니다.
+            </p>
+            <p class="t_box">
+                &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"&gt;&lt;/script&gt;
+            </p>
+            <p class=t_desc>위와 같이, 라이브러리를 사용하려면 js파일의 링크를 가져오는 것처럼 
+                CDN 서버의 절대 주소를 입력하면 됩니다.
+            </p>
+            <h2 class="t_tit2">2. GSAP의 객체를 만드는 기본 메서드</h2>
+            <p class="t_box">
+                gsap.to()<br>gsap.from()<br>gsap.fromTo()
+            </p>
+            <p class="t_desc">
+                gsap의 메서드 to는 첫 번째 인자로 DOM 요소를 받습니다. 마치 자바스크립트의
+                querySelector와 같이 클래스를 표기하면 됩니다.
+                두 번째 인자로 옵션값들을 담은 객체를 전달하게 됩니다. 
+                각 메서드들의 사용 방법은 같으며, to는 <i>어디로</i>, from은 <i>어디에서</i>, fromTo는
+                <i>어디에서 어디로</i> 어떻게 애니메이션을 만들지 결정하기 위한 메서드라고 생각하면 됩니다.
+            </p>
+            <h2 class="t_tit2">3. 적용하기</h2>
+            <p class="t_desc">친절히 제가 <i>gsap.to()</i> 메서드를 활용한 예시를 보여드리겠습니다.
+            하단의 rerun 버튼을 누르시면 애니메이션이 다시 재생됩니다.</p>
+            <p class="codepen" data-height="400" data-slug-hash="abYggrY" data-user="mj0614k" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                <span>See the Pen <a href="https://codepen.io/mj0614k/pen/abYggrY">
+                Untitled</a> by mj0614k (<a href="https://codepen.io/mj0614k">@mj0614k</a>)
+                on <a href="https://codepen.io">CodePen</a>.</span>
+              </p>
+              <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

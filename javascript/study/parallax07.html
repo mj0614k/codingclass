@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>자바스크립트 : 검색 효과</title>
+
+        <link rel="stylesheet" href="../assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+
+    <body>
+        <header id="header">
+            <h1><a href="../index.html">Javascript</a></h1>
+        </header>
+        <!-- //header -->
+
+        <main id="main">
+            <div class="document">
+                <h2 class="t_tit">자바스크립트 : 패럴랙스 효과 : 리빌 효과</h2>
+                <p class="t_desc">
+                    자바스크립트의 다양한 효과들 중, 패럴랙스 효과입니다. 이번에는 스크롤을 내릴
+                    때마다 해당하는 섹션의 사진과 텍스트가 드러나도록 작업해 보도록 하겠습니다.
+                </p>
+                <hr />
+                <h2 class="t_tit2" id="html">1. HTML</h2>
+                <div class="t_code">
+<pre><code class="language-html">&lt;section id="section1" class="content__item"&gt;
+    &lt;span class="content__item__num"&gt;01&lt;/span&gt;
+    &lt;h2 class="content__item__title"&gt;section1&lt;/h2&gt;
+    &lt;figure class="content__item__imgWrap reveal reveal-TWO reveal-BTT"&gt;
+        &lt;div class="content__item__img"&gt;&lt;/div&gt;
+    &lt;/figure&gt;
+    &lt;p class="content__item__desc split reveal reveal-TWO reveal-BTT"&gt;
+        결과도 중요하지만, 과정을 더 중요하게 생각한다.
+    &lt;/p&gt;
+&lt;/section&gt;
+</code></pre>
+                </div>
+                <p class="t_box">
+                    이번에 작업할 리빌 효과는 굉장히 복잡하며, HTML, CSS, JAVASCRIPT
+                    세 가지 소스 모두가 절묘한 하모니를 이루고 있습니다. 그러므로 친절하게 HTML 소스를 삽입하니, 이것을 먼저 살펴보도록 합시다.<br>
+                    섹션은 같은 구조로 총 9가지를 만들어 주었습니다. 각각의 섹션은
+                    번호, 이미지, 텍스트로 이루어집니다. 움직임 효과는 reveal 클래스에 작업해 주었습니다.
+                    위와 같이 reveal(기본), reveal-TWO(박스 추가), reveal-XXX(방향)으로 섹션당 최대 3개의
+                    효과를 사용하여 다양한 움직임 효과를 작업해볼 예정입니다.
+                </p>
+                <h2 class="t_tit2">2. CSS</h2>
+                <h3 class="t_tit3">2-1) reveal 효과 초기값 작업</h3>
+                <div class="t_code">
+<pre><code class="language-css">.reveal > div,
+.reveal > span {
+    opacity: 0;
+}
+.reveal.show > div,
+.reveal.show > span {
+    animation: opacity 1s linear forwards;
+}
+.reveal {
+    position: relative;
+}
+.reveal::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background: #fff;
+    z-index: 1;
+}
+.reveal.reveal-TWO::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    height: 100%;
+    background: rgb(46, 46, 46);
+}
+</code></pre>
+                </div>
+                <p class="t_box">서서히 나타나게 하기 위해서는 초기값으로 opacity: 0을 설정해 주어야 합니다.<br>
+                리빌 효과의 핵심은, before 및 after로 생성한 박스가 지나가는 타이밍에 맞추어 이미지와 텍스트가 드러나도록 하는 것입니다.</p>
+                <h3 class="t_tit3">2-2) keyframes 작업하기</h3>
+                <div class="t_code">
+<pre><code class="langauge-css">@keyframes opacity {
+    0% { opacity: 0; }
+    60% { opacity: 0; }
+    70% { opacity: 1; }
+    100% { opacity: 1; }
+}
+@keyframes reveal {
+    0% { width: 0; left: 0; }
+    50% { width: 100%; left: 0; }
+    80% { width: 100%; left: 0; }
+    100% { width: 0; left: 100%; }
+}
+@keyframes reveal-RTL {
+    0% { width: 0; right: 0; left: auto; }
+    50% { width: 100%; right: 0; left: auto; }
+    80% { width: 100%; right: 0; left: auto; }
+    100% { width: 0; right: 100%; left: auto; }
+}
+@keyframes reveal-TTB {
+    0% { width: 100%; height: 0%; top: 0; }
+    50% { width: 100%; height: 100%; top: 0; }
+    80% { width: 100%; height: 100%; top: 0; }
+    100% { width: 100%; height: 0; top: 100%; }
+}
+@keyframes reveal-BTT {
+    0% { width: 100%; height: 0; top: auto; bottom: 0; }
+    50% { width: 100%; height: 100%; top: auto; bottom: 0; }
+    80% { width: 100%; height: 100%; top: auto; bottom: 0; }
+    100% { width: 100%; height: 0; top: auto; bottom: 100%; }
+}
+</code></pre>
+                </div>
+                <p class="t_box">
+                    keyframes로 애니메이션을 만들어 줍니다. 박스들이 이름값을 하도록 width, height, 위치를 설정해 줍니다. <i>auto</i>는 기존의 위치값을 초기화합니다.<br>
+                    reveal의 경우, 박스가 왼쪽에서 오른쪽으로 지나갑니다.<br>
+                    reveal-RTL(right to left)의 경우, 박스가 오른쪽에서 왼쪽으로 지나갑니다.<br>
+                    reveal-TTB(top to bottom)의 경우, 박스가 위쪽에서 아래쪽으로 지나갑니다.<br>
+                    reveal-BTT(bottom to top)의 경우, 박스가 아래쪽에서 위쪽으로 지나갑니다.
+                </p>
+                <h3 class="t_tit3">2-3) 애니메이션 적용하기</h3>
+                <div class="t_code">
+<pre><code class="language-css">/* 1개 */
+.reveal.show::before { animation: reveal 1s; }
+.reveal.reveal-RTL.show::before { animation: reveal-RTL 1s; }
+.reveal.reveal-TTB.show::before { animation: reveal-TTB 1s; }
+.reveal.reveal-BTT.show::before { animation: reveal-BTT 1s; }
+
+/* 2개 */
+.reveal.show::after { animation: reveal 1s 0.3s; }
+.reveal.reveal-RTL.show::after { animation: reveal-RTL 1s 0.3s; }
+.reveal.reveal-TTB.show::after { animation: reveal-TTB 1s 0.3s; }
+.reveal.reveal-BTT.show::after { animation: reveal-BTT 1s 0.3s; }
+</code></pre>
+                </div>
+                <p class="t_box">열심히 만든 애니메이션을 적용해 줍니다.
+                    after의 경우, reveal-TWO를 적용할 경우 나타납니다. 두 개의 박스가 0.3s의 딜레이를 두고 지나가는 형태입니다.
+                </p>
+                <h2 class="t_tit2">3. JAVASCRIPT</h2>
+                <h3 class="t_tit3">3-1) 텍스트 span으로 감싸주기</h3>
+                <div class="t_code">
+                    <pre><code class="language-js">const reveal = document.querySelectorAll(".reveal");
+reveal.forEach((el)=>{
+    let textspan = el.innerText;
+    if(textspan){
+        el.innerHTML = '&lt;span&gt;' + textspan + '&lt;/span&gt;';
+    }
+})</code></pre></div>
+                <p class="t_box">
+                    먼저, 할 일이 있습니다. 위의 <a href="#html">HTML</a>을 살펴보면,
+                    텍스트가 p 태그에 속해있는 것을 알 수 있습니다. 애니메이션을 적용해주기 위해,
+                    p 태그 안에 있는 텍스트를 span 태그로 감싸주기로 합니다.<br>
+                    reveal 선택자는 모든 p 태그를 가리킵니다. innerText를 활용하여 각각의 p 태그 안에 텍스트가 있는지 먼저 확인해 봅니다. 
+                    텍스트가 있다면, if문이 실행되어 span 옷을 입혀줄 것입니다.
+                </p>
+                <h3 class="t_tit3">3-2) scroll 이벤트 만들어 주기</h3>
+                <div class="t_code">
+<pre><code class="language-js">function scroll() {
+    let scrollTop = window.scrollY;
+    document.querySelector(".scroll span").innerHTML = Math.round(scrollTop);
+    requestAnimationFrame(scroll);
+}
+scroll();
+</code></pre>
+                </div>
+                <p class="t_box">
+                    텍스트들이 따뜻해졌다면 이제 스크롤 이벤트를 만들어 줍니다. 아래의 모든 작업들은 스크롤 이벤트 내에서 이루어집니다. <br>이제 scroll값을 구해 출력하는 것은 껌입니다. request 어쩌구를 사용하는 이유도 모두 압니다.
+                </p>
+                <h3 class="t_tit3">3-3) 패럴랙스 효과 작업하기</h3>
+<div class="t_code"><pre><code class="language-js">reveal.forEach((el) => {
+    let revealOffset = el.offsetTop + el.parentElement.offsetTop;
+
+    let revealDelay = el.dataset.delay;
+    if (scrollTop >= revealOffset - window.innerHeight) {
+        if (revealDelay == undefined) {
+            el.classList.add("show");
+        } else {
+            setTimeout(() => {
+                el.classList.add("show");
+            }, revealDelay);
+        }
+    }
+})
+</code></pre>
+                </div>
+                <p class="t_box">
+                    지난 효과에서는 transitionDelay로 딜레이 속성을 부여해 주었지만, 이번에는 show 클래스를 추가, 제거함으로써 
+                    속성을 부여하기로 합니다. transition을 사용하면 자바스크립트에서 css를 일일이 해석해야 합니다. 그러나 classList를 사용하여
+                    해당하는 클래스를 부여해주기만 하면 버벅거림을 최소화할 수 있습니다. 내 일을 남에게 떠넘기지 말자네요.<br>
+                    또, revealDelay 선택자는 data-delay 속성을 부여한 HTML 태그를 가리킵니다.
+                    setTimeout 함수를 만들고, 시간을 revealDelay 값으로 설정하면, 손쉽게 원하는 값만큼 딜레이를 부여할 수 있습니다.
+                </p>
+                <hr />
+                <h2 class="t_tit2">결과</h2>
+                <p class="t_desc">패럴랙스가 쉬운 편이라 좋아했는데... 이건 좀 정 떨어지네요...</p>
+                <div class="t_iframe" style="min-height: 1000px; padding-top: 0px">
+                    <iframe
+                        src="https://mj0614k.github.io/Coding/javascript/effect/parallaxEffect07.html"
+                    ></iframe>
+                </div>
+
+                <div class="t_link">
+                    <a
+                        href="https://github.com/mj0614k/Coding/blob/main/javascript/effect/parallaxEffect07.html"
+                        >원본 소스 보기</a
+                    >
+                    <a href="https://mj0614k.github.io/Coding/javascript/effect/parallaxEffect07"
+                        >원본 사이트 보기</a
+                    >
+                </div>
+            </div>
+        </main>
+        <!-- //main -->
+
+        <footer id="footer">
+            <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+        </footer>
+        <!-- //footer -->
+
+        <script src="../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>
