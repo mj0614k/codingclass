@@ -9,11 +9,12 @@
     // 받아올 값(POST 방식)
     $myReviewID = $_POST['ReviewID'];
     $ReviewComment = $_POST["ReviewComment"];
+    $ReviewComment = $connect -> real_escape_string($ReviewComment);
     $regTime = time();
     $sql = "INSERT INTO myReviewComment (myMemberID, myReviewID, youNickName, ReviewComment, ReviewCommentregTime)
     VALUES ('$myMemberID', '$myReviewID', '$youNickName', '$ReviewComment', '$regTime')";
 
     // 데이터 가져옴
-    $result = $connect -> query($sql);
+    $connect -> query($sql);
     // echo json_encode(array("info" => $myReviewID));
 ?>

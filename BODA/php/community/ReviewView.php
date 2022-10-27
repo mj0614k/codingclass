@@ -187,17 +187,9 @@
                         data: {
                             "ReviewID": <?=$myReviewID?>,
                             "ReviewComment": ReviewComment.val(),
-                        },
-                        success: function(data){
-                            console.log(data);
-                            location.reload();
-                        },
-                        error: function(request, status, error){
-                            console.log("request" + request);
-                            console.log("status" + request);
-                            console.log("error" + request);
                         }
                     });
+                    location.reload();
                 }
             });
 
@@ -231,17 +223,9 @@
                     data: {
                         "ReviewCommentModifyMsg": $("#ReviewCommentModifyMsg").val(),
                         "ReviewCommentID": ReviewCommentID
-                    },
-                        success: function(data){
-                            console.log(data);
-                            location.reload();
-                        },
-                        error: function(request, status, error){
-                            console.log("request" + request);
-                            console.log("status" + request);
-                            console.log("error" + request);
-                        }
+                    }
                 })
+                location.reload();
             });
 
             // 삭제 클릭하면 모달창
@@ -250,6 +234,7 @@
                 $(".talk__delete__modal").fadeIn(500);
 
                 ReviewCommentID = $(this).parent().parent().parent().parent().attr("id");
+                console.log(ReviewCommentID);
             });
             // 삭제 클릭하고 취소
             $("#ReviewCommentDeleteCancel").click(function(e) {
@@ -267,17 +252,9 @@
                     dataType: "json",
                     data: {
                         "ReviewCommentID": ReviewCommentID
-                    },
-                    success: function(data){
-                        console.log(data);
-                        location.reload();
-                    },
-                    error: function(request, status, error){
-                        console.log("request" + request);
-                        console.log("status" + request);
-                        console.log("error" + request);
                     }
                 })
+                location.reload();
             });
         </script>
     </body>

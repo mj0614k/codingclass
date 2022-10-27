@@ -211,7 +211,6 @@
             $(".talk__delete__modal").fadeIn(500);
 
             commentID = $(this).parent().parent().parent().parent().parent().attr("id");
-            console.log(commentID);
         });
         // 삭제 클릭하고 취소
         $("#TalkDeleteCancel").click(function(e) {

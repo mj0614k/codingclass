@@ -5,6 +5,6 @@
 
     $ReviewCommentID = $_POST["ReviewCommentID"];
 
-    $sql = "DELETE FROM myReviewComment WHERE ReviewCommentID = {$ReviewCommentID}";
+    $sql = "DELETE FROM myReviewComment WHERE myReviewCommentID = {$ReviewCommentID}";
     $result = $connect -> query($sql);
 ?>

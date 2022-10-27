@@ -51,7 +51,7 @@
 
                         // echo "$sql";
                         if($result){
-                            echo ("<p>회원가입이 성공적으로 완료되었습니다.</p><div class='mobal-btn'><a href='#' class='closeBtn'>메인으로</a></div>");
+                            echo ("<p>회원가입이 성공적으로 완료되었습니다.</p><div class='mobal-btn'><a href='../main/main.php' class='closeBtn'>메인으로</a></div>");
                         } else {
                             echo ("에러발생3 - 관리자에게 문의하세요.");
                         }
