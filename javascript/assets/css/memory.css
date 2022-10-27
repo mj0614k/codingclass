@@ -4,18 +4,33 @@
 .memory__inner {
   width: 700px;
   height: 700px;
-  background: rgb(212, 212, 212);
+  background: white;
   position: absolute;
   left: 300px;
   top: 100px;
   border-radius: 20px;
   animation: flicker 1.5s infinite alternate;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.memory__start h3 {
-  font-size: 50px;
+.memory__main {
+  justify-content: center;
+  align-items: center;
 }
-.memory__start p {
+.memory__main h3 {
+  font-size: 56px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.memory__main .memory__start {
   font-size: 48px;
+  text-align: center;
+  background-color: black;
+  color: #fff;
+  border-radius: 10px;
+  height: 60px;
+  line-height: 60px;
 }
 .memory__card {
   padding: 30px;

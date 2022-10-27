@@ -70,8 +70,6 @@ function matchCards(img1, img2) {
       cardOne = cardTwo = "";
       disableDeck = false;
     }, 1000);
-
-    soundUnMatch.play();
   }
 }
 
@@ -99,9 +97,18 @@ function shuffledCard() {
     imgTag.src = `../assets/img/memory-${arr[index]}.svg`;
   });
 }
-shuffledCard();
-
 // 카드 클릭
 memoryCard.forEach((card) => {
   card.addEventListener("click", flipCard);
+});
+
+const memoryStart = document.querySelector(".memory__start");
+const memoryMain = document.querySelector(".memory__main");
+const memoryGame = document.querySelector(".memory__card");
+
+memoryStart.addEventListener("click", () => {
+  memoryMain.style.display = "none";
+  memoryGame.style.display = "block";
+  shuffledCard();
+  soundUnMatch.play();
 });
