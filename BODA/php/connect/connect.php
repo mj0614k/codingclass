@@ -1,6 +1,6 @@
 <?php
     $host = "localhost";
-    $user = "mo0647.dothome.co.kr";
+    $user = "mo0647";
     $pass = "sjsksk79513!";
     $db = "mo0647";
     $connect = new mysqli($host, $user, $pass, $db);

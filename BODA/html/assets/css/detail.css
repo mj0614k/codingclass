@@ -1,0 +1,221 @@
+.detail__main__image {
+  height: 900px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.detail__container {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 20px;
+  overflow: hidden;
+}
+/* detail__header */
+.detail__header {
+  position: relative;
+  margin-top: 100px;
+  margin-bottom: 190px;
+}
+.detail__header h2 {
+  text-align: center;
+  font-weight: 500;
+  font-size: 50px;
+  color: #000;
+}
+.detail__header .home {
+  position: absolute;
+  top: 10px;
+}
+.detail__header .menu {
+  display: flex;
+  justify-content: center;
+}
+.detail__header .menu li:nth-child(1) a {
+  font-weight: 300;
+  padding: 3px 20px;
+  font-size: 18px;
+  position: relative;
+  color: #b0b0b0;
+  margin-right: 30px;
+}
+.detail__header .menu li:nth-child(1) a.active::after {
+  content: "";
+  position: absolute;
+  top: 40px;
+  left: 5px;
+  width: 100px;
+  background-color: #000;
+  height: 2px;
+}
+.detail__header .menu li:nth-child(2) a {
+  color: #b0b0b0;
+  font-weight: 300;
+  font-size: 18px;
+  padding: 3px 20px;
+  position: relative;
+  margin-right: 30px;
+}
+.detail__header .menu li:nth-child(2) a.active::after {
+  content: "";
+  position: absolute;
+  top: 40px;
+  left: 5px;
+  width: 100px;
+  background-color: #000;
+  height: 2px;
+}
+.detail__header .menu li:nth-child(3) a {
+  color: #b0b0b0;
+  font-weight: 300;
+  font-size: 18px;
+  padding: 3px 20px;
+  position: relative;
+  margin-right: 30px;
+}
+.detail__header .menu li:nth-child(3) a.active::after {
+  content: "";
+  position: absolute;
+  top: 40px;
+  left: 5px;
+  width: 100px;
+  background-color: #000;
+  height: 2px;
+}
+.detail__header .menu li a.active {
+  color: #000;
+  font-weight: 500;
+}
+
+/* detail__main */
+.detail__main h2 {
+  font-family: "ChosunNm";
+  font-size: 40px;
+  color: #666;
+  position: relative;
+  margin-bottom: 120px;
+}
+.detail__main h2::after {
+  content: "";
+  height: 1px;
+  border-bottom: 1px dashed #d9d9d9;
+  position: absolute;
+  width: calc(100% - 210px);
+  top: 20px;
+  left: 200px;
+}
+.detail__exhibition__main {
+  max-width: 1160px;
+  margin: 0 auto 90px auto;
+}
+.detail__exhibition__h3 {
+  font-family: "SCoreDream";
+  font-weight: 600;
+  font-size: 40px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.detail__exhibition__p {
+  font-family: "NanumSquare";
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 1.6;
+  text-align: center;
+  color: #666;
+  margin-bottom: 180px;
+}
+.detail__exhibition__img {
+  display: flex;
+  margin: 0 100px 180px 100px;
+}
+.detail__exhibition__img figure {
+  width: 50%;
+}
+.detail__exhibition__img figure.left {
+  margin-right: 100px;
+}
+.detail__exhibition__img figure.right {
+  margin-left: 100px;
+}
+.detail__exhibition__desc {
+  width: 50%;
+}
+.detail__exhibition__desc h3 {
+  font-family: "SCoreDream";
+  font-weight: 600;
+  font-size: 40px;
+  margin-bottom: 5px;
+}
+.detail__exhibition__desc p:nth-child(2) {
+  font-family: "NanumSquare";
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 36px;
+  color: #b0b0b0;
+}
+.detail__exhibition__desc p:nth-child(3) {
+  font-family: "NanumSquare";
+  font-weight: 300;
+  line-height: 1.8;
+  font-size: 18px;
+  color: #666;
+}
+
+.detail__detail {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 180px;
+}
+.detail__detail__img {
+  width: 49%;
+}
+.detail__detail__desc {
+  width: 49%;
+  border: 1px solid #d9d9d9;
+  padding: 80px;
+  box-sizing: border-box;
+}
+.detail__detail__desc h3 {
+  font-weight: 500;
+  font-size: 30px;
+  margin-bottom: 45px;
+}
+.detail__detail__table {
+  width: 100%;
+}
+.detail__detail__table tr td {
+  padding: 20px;
+  border-bottom: 1px dashed #d9d9d9;
+}
+.detail__detail__table tr td:nth-child(1) {
+  font-weight: 500;
+  font-size: 18px;
+}
+.detail__detail__table tr td:nth-child(2) {
+  font-weight: 400;
+  font-size: 16px;
+  color: #666;
+}
+.detail__artist {
+  display: flex;
+  margin-bottom: 220px;
+  justify-content: space-around;
+}
+.detail__artistList h3 {
+  font-size: 30px;
+  margin-top: 20px;
+  text-align: center;
+  font-weight: 500;
+}
+.detail__artistList p {
+  text-align: center;
+  font-weight: 400;
+  font-size: 20px;
+  color: #b0b0b0;
+}
+
+/* 원래는 480인가.. 그런데 일단 800으로... */
+@media (max-width: 800px) {
+  .detail__header .home {
+    display: none;
+  }
+}
