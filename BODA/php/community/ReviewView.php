@@ -45,7 +45,7 @@
                 </div></div>
                 <div class="menu">
                     <li><a href="Review.php" class="active">REVIEW</a></li>
-                    <li><a href="Talk.php">Talk</a></li>
+                    <li><a href="Talk.php">TALK</a></li>
                 </div>
             </div>
             <section class="mid__container">
@@ -140,7 +140,8 @@
     </div>
 <?php } ?>
                         <div class="talk__modify__modal" style='display: none;'>
-                            <h2>Review 댓글 수정하기</h2>
+                            <span class="mark__modify"></span>
+                            <h2>수정할 내용을 입력해 주세요. 😊</h2>
                             <label for="ReviewCommentModifyMsg">수정 내용</label>
                             <input type="text" id="ReviewCommentModifyMsg" name="ReviewCommentModifyMsg" placeholder="수정 내용">
                             <div class="TalkModifyBtn">
@@ -149,7 +150,9 @@
                             </div>
                         </div>
                         <div class="talk__delete__modal" style="display: none;">
-                            <h2>Review 댓글 삭제하기</h2>
+                            <span class="mark__delete"></span>
+                            <h1>WAIT</h1>
+                            <h2>정말 삭제하시겠습니까? 😥</h2>
                             <div class="TalkDeleteBtn">
                                 <button id="ReviewCommentDeleteCancel">취소</button>
                                 <button id="ReviewCommentDeleteButton">삭제</button>
@@ -199,6 +202,7 @@
             $(".modify").click(function(e) {
                 e.preventDefault();
                 $(".talk__modify__modal").fadeIn(500);
+                $(".talk__delete__modal").fadeOut(500);
 
                 ReviewCommentID = $(this).parent().parent().parent().parent().attr("id");
             });
@@ -211,30 +215,29 @@
             $("#ReviewCommentModifyButton").click(function(e) {
                 e.preventDefault();
                 if($("#ReviewCommentModifyMsg").val() == ''){
-                    alert("수정 내용을 입력해 주세요.");
+                    alert("수정할 내용을 입력해 주세요.");
                     $("#ReviewCommentModifyMsg").focus();
+                } else {
+                    $.ajax({
+                        url: "ReviewCommentModify.php",
+                        method: "POST",
+                        dataType: "json",
+                        data: {
+                            "ReviewCommentModifyMsg": $("#ReviewCommentModifyMsg").val(),
+                            "ReviewCommentID": ReviewCommentID
+                        }
+                    })
+                    location.reload();
                 }
-                location.href = "ReviewCommentModify.php";
-
-                $.ajax({
-                    url: "ReviewCommentModify.php",
-                    method: "POST",
-                    dataType: "json",
-                    data: {
-                        "ReviewCommentModifyMsg": $("#ReviewCommentModifyMsg").val(),
-                        "ReviewCommentID": ReviewCommentID
-                    }
-                })
-                location.reload();
             });
 
             // 삭제 클릭하면 모달창
             $(".remove").click(function(e) {
                 e.preventDefault();
                 $(".talk__delete__modal").fadeIn(500);
+                $(".talk__modify__modal").fadeOut(500);
 
                 ReviewCommentID = $(this).parent().parent().parent().parent().attr("id");
-                console.log(ReviewCommentID);
             });
             // 삭제 클릭하고 취소
             $("#ReviewCommentDeleteCancel").click(function(e) {
@@ -244,8 +247,6 @@
             // 삭제 클릭하고 삭제
             $("#ReviewCommentDeleteButton").click(function(e) {
                 e.preventDefault();
-                location.href = "ReviewCommentDelete.php";
-
                 $.ajax({
                     url: "ReviewCommentDelete.php",
                     method: "POST",

@@ -168,7 +168,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="board__btn">
+            <div class="notice__btn">
 <?php
                 if($_SESSION['myMemberID'] == 24){
                     echo "<a href='FAQWrite.php'>글쓰기</a>";

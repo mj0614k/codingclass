@@ -34,7 +34,7 @@
                 </div>
                 <div class="menu">
                     <li><a href="Review.php" class="active">REVIEW</a></li>
-                    <li><a href="Talk.php">Talk</a></li>
+                    <li><a href="Talk.php">TALK</a></li>
                 </div>
             </div>
             <!-- cardType -->

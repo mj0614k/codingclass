@@ -155,11 +155,12 @@
 .talk__modify__modal {
   width: 60%;
   max-width: 600px;
-  height: 400px;
-  background-color: #fff;
-  border: 2px solid #323232;
-  border-radius: 20px;
+  height: 350px;
   position: fixed;
+  transform: translate(-50%, 0);
+  box-shadow: 10px 10px 10px 10px rgba(48, 49, 51, 6%);
+  background-color: #fff;
+  border-radius: 20px;
   left: 50%;
   transform: translate(-50%, -50%);
   top: 50%;
@@ -170,17 +171,26 @@
 .talk__modify__modal label {
   display: none;
 }
+.talk__modify__modal .mark__modify {
+  width: 62px;
+  height: 62px;
+  position: absolute;
+  top: -31px;
+  background-image: url("data:image/svg+xml,%0A%3Csvg width='62' height='62' viewBox='0 0 62 62' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='31' cy='31' r='30' fill='white' stroke='black' stroke-width='2'/%3E%3Cpath d='M37.1417 18.3761L42.5179 13L50 20.4821L44.6239 25.8582L37.1417 18.3761Z' fill='%23323232'/%3E%3Cpath d='M15 48.0006L24.2116 45.3514L17.6492 38.7891L15 48.0006Z' fill='%23323232'/%3E%3Cpath d='M26.3342 44.1482L18.8521 36.6661L35.4791 20.0391L42.9613 27.5212L26.3342 44.1482Z' fill='%23323232'/%3E%3C/svg%3E");
+}
 .talk__modify__modal h2 {
-  margin-top: 60px;
-  text-align: center;
-  margin-bottom: 20px;
+  margin-top: 80px;
+  font-size: 20px;
+  font-weight: 300;
+  margin-bottom: 35px;
 }
 .talk__modify__modal input {
   width: 60%;
   height: 70px;
-  font-weight: 400;
+  font-weight: 300;
   border-radius: 10px;
   line-height: 1;
+  margin-bottom: 35px;
   padding-left: 30px;
   color: #323232;
   border: 1px solid #b0b0b0;
@@ -191,35 +201,32 @@
 .TalkModifyBtn {
   display: flex;
   justify-content: center;
-  width: 60%;
 }
 .talk__modify__modal button {
   width: 120px;
-  height: 70px;
-  line-height: 70px;
+  height: 50px;
+  line-height: 50px;
   font-size: 20px;
-  background-color: black;
+  background-color: #323232;
   border-radius: 10px;
-  margin-top: 30px;
   color: white;
   text-align: center;
-  font-weight: 300;
+  font-weight: 200;
   cursor: pointer;
 }
 .talk__modify__modal button:nth-child(1) {
-  margin-right: 20px;
+  margin-right: 40px;
 }
 
 .talk__delete__modal {
   width: 60%;
   max-width: 600px;
-  height: 400px;
+  height: 350px;
   position: fixed;
   transform: translate(-50%, 0);
+  box-shadow: 10px 10px 10px 10px rgba(48, 49, 51, 6%);
   background-color: #fff;
-  border: 2px solid #323232;
   border-radius: 20px;
-  position: fixed;
   left: 50%;
   transform: translate(-50%, -50%);
   top: 50%;
@@ -230,44 +237,43 @@
 .talk__delete__modal label {
   display: none;
 }
-.talk__delete__modal h2 {
-  margin-top: 90px;
-  text-align: center;
-  margin-bottom: 20px;
+.talk__delete__modal .mark__delete {
+  width: 62px;
+  height: 62px;
+  position: absolute;
+  top: -31px;
+  background-image: url("data:image/svg+xml,%0A%3Csvg width='62' height='62' viewBox='0 0 62 62' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='31' cy='31' r='30' fill='white' stroke='black' stroke-width='2'/%3E%3Cg clip-path='url(%23clip0_1374_4440)'%3E%3Cpath d='M31 49.7503C33.3012 49.7503 35.1667 47.8848 35.1667 45.5837C35.1667 43.2825 33.3012 41.417 31 41.417C28.6988 41.417 26.8333 43.2825 26.8333 45.5837C26.8333 47.8848 28.6988 49.7503 31 49.7503Z' fill='%23323232'/%3E%3Cpath d='M26.8333 12.25H35.1667V37.25H26.8333V12.25Z' fill='%23323232'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_1374_4440'%3E%3Crect width='50' height='50' fill='white' transform='translate(6 6)'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
 }
-.talk__delete__modal input {
-  width: 60%;
-  height: 70px;
-  font-weight: 400;
-  border-radius: 10px;
-  line-height: 1;
-  padding-left: 30px;
-  color: #323232;
-  border: 1px solid #b0b0b0;
-  box-sizing: border-box;
-  font-size: 18px;
-  font-family: "SCoreDream";
+.talk__delete__modal h1 {
+  margin-top: 60px;
+  text-align: center;
+  margin-bottom: 35px;
+  font-weight: 600;
+  font-size: 50px;
+}
+.talk__delete__modal h2 {
+  font-size: 20px;
+  font-weight: 300;
+  margin-bottom: 50px;
 }
 .TalkDeleteBtn {
   display: flex;
   justify-content: center;
-  width: 60%;
 }
 .talk__delete__modal button {
   width: 120px;
-  height: 70px;
-  line-height: 70px;
+  height: 50px;
+  line-height: 50px;
   font-size: 20px;
-  background-color: black;
+  background-color: #323232;
   border-radius: 10px;
-  margin-top: 30px;
   color: white;
   text-align: center;
-  font-weight: 300;
+  font-weight: 200;
   cursor: pointer;
 }
 .talk__delete__modal button:nth-child(1) {
-  margin-right: 20px;
+  margin-right: 40px;
 }
 
 .board__pages ul {
@@ -316,6 +322,13 @@ fieldset #talkContents:focus {
 
 /* 미디어쿼리 */
 @media (max-width: 800px) {
+  .talk__delete__modal {
+    width: 90%;
+  }
+  .talk__modify__modal {
+    width: 90%;
+  }
+
   .main__header h2:nth-child(2) {
     margin-bottom: 80px;
   }
@@ -330,10 +343,53 @@ fieldset #talkContents:focus {
   .comment .contents .contents__top {
     margin-bottom: 10px;
   }
+  .talk__delete__modal h1 {
+    font-size: 36px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+  .talk__modify__modal h2 {
+    font-size: 16px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+  }
+  .talk__modify__modal input {
+    width: 80%;
+    height: 60px;
+    font-weight: 300;
+    border-radius: 10px;
+    line-height: 1;
+    margin-bottom: 15px;
+    padding: 20px;
+    color: #323232;
+    border: 1px solid #b0b0b0;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: "SCoreDream";
+  }
+  .talk__delete__modal h2 {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  .talk__modify__modal button,
+  .talk__delete__modal button {
+    width: 80px;
+    font-size: 16px;
+  }
+  .talk__modify__modal button:nth-child(1),
+  .talk__delete__modal button:nth-child(1) {
+    margin-right: 20px;
+  }
+  .talk__modify__modal,
+  .talk__delete__modal {
+    height: 250px;
+  }
 }
 
 @media (max-width: 600px) {
   .main__header .menu li:nth-child(1) a {
     max-width: 120px;
   }
+}
+@media (max-width: 500px) {
 }

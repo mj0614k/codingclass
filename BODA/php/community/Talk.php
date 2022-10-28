@@ -92,7 +92,8 @@
                 </div>
             </div>
             <div class="talk__modify__modal" style='display: none;'>
-                <h2>Talk 수정하기</h2>
+                <span class="mark__modify"></span>
+                <h2>수정할 내용을 입력해 주세요. 😊</h2>
                 <label for="TalkModifyMsg">수정 내용</label>
                 <input type="text" id="TalkModifyMsg" name="TalkModifyMsg" placeholder="수정 내용">
                 <div class="TalkModifyBtn">
@@ -101,7 +102,9 @@
                 </div>
             </div>
             <div class="talk__delete__modal" style="display: none;">
-                <h2>Talk 삭제하기</h2>
+                <span class="mark__delete"></span>
+                <h1>WAIT</h1>
+                <h2>정말 삭제하시겠습니까? 😥</h2>
                 <div class="TalkDeleteBtn">
                     <button id="TalkDeleteCancel">취소</button>
                     <button id="TalkDeleteButton">삭제</button>
@@ -177,6 +180,7 @@
         $(".Talkmodify").click(function(e) {
             e.preventDefault();
             $(".talk__modify__modal").fadeIn(500);
+            $(".talk__delete__modal").fadeOut(500);
 
             commentID = $(this).parent().parent().parent().parent().parent().attr("id");
         });
@@ -189,7 +193,7 @@
         $("#TalkModifyButton").click(function(e) {
             e.preventDefault();
             if($("#TalkModifyMsg").val() == ''){
-                alert("수정 내용을 입력해 주세요.");
+                alert("수정할 내용을 입력해 주세요.");
                 $("#TalkModifyMsg").focus();
             }
             location.href = "TalkModify.php";
@@ -209,8 +213,10 @@
         $(".Talkdelete").click(function(e) {
             e.preventDefault();
             $(".talk__delete__modal").fadeIn(500);
+            $(".talk__modify__modal").fadeOut(500);
 
             commentID = $(this).parent().parent().parent().parent().parent().attr("id");
+            console.log(commentID);
         });
         // 삭제 클릭하고 취소
         $("#TalkDeleteCancel").click(function(e) {
