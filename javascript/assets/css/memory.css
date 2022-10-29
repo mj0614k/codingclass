@@ -2,9 +2,9 @@
   display: none;
 }
 .memory__inner {
-  width: 700px;
-  height: 700px;
-  background: white;
+  width: 500px;
+  height: 530px;
+  background: black;
   position: absolute;
   left: 300px;
   top: 100px;
@@ -14,6 +14,15 @@
   justify-content: center;
   align-items: center;
 }
+.memory-close {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  background: url(../img/effect_icon08.svg) no-repeat;
+  width: 24px;
+  height: 24px;
+  background-size: 24px;
+}
 .memory__main {
   justify-content: center;
   align-items: center;
@@ -22,6 +31,7 @@
   font-size: 56px;
   margin-bottom: 20px;
   text-align: center;
+  color: #fff;
 }
 .memory__main .memory__start {
   font-size: 48px;
@@ -36,6 +46,22 @@
   padding: 30px;
   display: none;
 }
+.memory__card__info {
+  display: flex;
+  justify-content: center;
+}
+.memory__card h3 {
+  color: white;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.memory__card p {
+  color: white;
+  margin-bottom: 10px;
+}
+.memory__card p:nth-child(1){
+  margin-right: 20px;
+}
 .memory__card .cards {
   gap: 10px;
   display: flex;
@@ -43,8 +69,8 @@
 }
 .memory__card .cards li {
   list-style: none;
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
   position: relative;
   transform-style: preserve-3d;
   perspective: 500px;
@@ -87,6 +113,21 @@
   animation: shakeY 1s 1;
 }
 
+.memoryGameRestart {
+  background-color: black;
+  color: white;
+  transition: all 0.3s;
+  transform: scale(0);
+  position: absolute;
+  width: 180px;
+  height: 60px;
+  animation: flicker 1.5s infinite alternate;
+  line-height: 60px;
+  text-align: center;
+  border-radius: 10px;
+
+}
+
 @keyframes flicker {
   0%,
   19%,
@@ -96,8 +137,8 @@
   54%,
   56%,
   100% {
-    box-shadow: 0 0 0.5rem #fff, inset 0 0 0.5rem #fff, 0 0 2rem gray,
-      inset 0 0 2rem gray, 0 0 4rem gray, inset 0 0 4rem gray;
+    box-shadow: 0 0 0.5rem #fff, inset 0 0 0.5rem #fff, 0 0 2rem black,
+      inset 0 0 2rem black, 0 0 2rem black, inset 0 0 2rem black;
   }
 }
 @keyframes shakeX {

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>자바스크립트 : 게임 효과</title>
+
+        <link rel="stylesheet" href="../assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+
+    <body>
+        <header id="header">
+            <h1><a href="../index.html">Javascript</a></h1>
+        </header>
+        <!-- //header -->
+
+        <main id="main">
+            <div class="document">
+                <h2 class="t_tit">자바스크립트 : 게임 효과 : 메모리 게임</h2>
+                <p class="t_desc">
+                    이번에는 같은 그림 찾기 메모리 게임을 만들어 보도록 하겠습니다.
+                </p>
+                <hr />
+                <h2 class="t_tit2">0. HTML</h2>
+                <p class="t_desc">HTML 소스는 아래를 참고해 주세요.</p>
+                <details>
+                    <summary>HTML 소스 보기</summary>
+                <div class="t_code">
+<pre><code class="language-html">&lt;div class="memory__wrap"&gt;
+  &lt;div class="memory__inner"&gt;&lt;span class="memory-close"&gt;&lt;/span&gt;
+    &lt;div class="memory__main"&gt;
+      &lt;h3&gt;Memory Game&lt;/h3&gt;
+      &lt;p class="memory__start"&gt;START&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="memory__card"&gt;
+      &lt;h3&gt;Memory Game&lt;/h3&gt;
+      &lt;div class="memory__card__info"&gt;
+        &lt;p&gt;점수 : &lt;span class="memory__card__score"&gt;0&lt;/span&gt; / 16&lt;/p&gt;
+        &lt;p&gt;남은 기회 : &lt;span class="memory__card__opp"&gt;3&lt;/span&gt;&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;ul class="cards"&gt;
+        &lt;li&gt;
+          &lt;div class="view front"&gt;
+            &lt;img src="../assets/img/card.png" alt="card__front" /&gt;
+          &lt;/div&gt;
+          &lt;div class="view back"&gt;
+            &lt;img src="../assets/img/memory-1.svg" alt="img1" /&gt;
+          &lt;/div&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;div class="view front"&gt;
+            &lt;img src="../assets/img/card.png" alt="card__front" /&gt;
+          &lt;/div&gt;
+          &lt;div class="view back"&gt;
+            &lt;img src="../assets/img/memory-2.svg" alt="img2" /&gt;
+          &lt;/div&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;div class="view front"&gt;
+            &lt;img src="../assets/img/card.png" alt="card__front" /&gt;
+          &lt;/div&gt;
+          &lt;div class="view back"&gt;
+            &lt;img src="../assets/img/memory-3.svg" alt="img3" /&gt;
+          &lt;/div&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;div class="view front"&gt;
+            &lt;img src="../assets/img/card.png" alt="card__front" /&gt;
+          &lt;/div&gt;
+          &lt;div class="view back"&gt;
+            &lt;img src="../assets/img/memory-4.svg" alt="img4" /&gt;
+          &lt;/div&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;div class="view front"&gt;
+            &lt;img src="../assets/img/card.png" alt="card__front" /&gt;
+          &lt;/div&gt;
+          &lt;div class="view back"&gt;
+            &lt;img src="../assets/img/memory-5.svg" alt="img5" /&gt;
+          &lt;/div&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;div class="view front"&gt;
+            &lt;img src="../assets/img/card.png" alt="card__front" /&gt;
+          &lt;/div&gt;
+          &lt;div class="view back"&gt;
+            &lt;img src="../assets/img/memory-6.svg" alt="img6" /&gt;
+          &lt;/div&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;div class="view front"&gt;
+            &lt;img src="../assets/img/card.png" alt="card__front" /&gt;
+          &lt;/div&gt;
+          &lt;div class="view back"&gt;
+            &lt;img src="../assets/img/memory-7.svg" alt="img7" /&gt;
+          &lt;/div&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;div class="view front"&gt;
+            &lt;img src="../assets/img/card.png" alt="card__front" /&gt;
+          &lt;/div&gt;
+          &lt;div class="view back"&gt;
+            &lt;img src="../assets/img/memory-8.svg" alt="img8" /&gt;
+          &lt;/div&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;div class="view front"&gt;
+            &lt;img src="../assets/img/card.png" alt="card__front" /&gt;
+          &lt;/div&gt;
+          &lt;div class="view back"&gt;
+            &lt;img src="../assets/img/memory-1.svg" alt="img1" /&gt;
+          &lt;/div&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;div class="view front"&gt;
+            &lt;img src="../assets/img/card.png" alt="card__front" /&gt;
+          &lt;/div&gt;
+          &lt;div class="view back"&gt;
+            &lt;img src="../assets/img/memory-2.svg" alt="img2" /&gt;
+          &lt;/div&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;div class="view front"&gt;
+            &lt;img src="../assets/img/card.png" alt="card__front" /&gt;
+          &lt;/div&gt;
+          &lt;div class="view back"&gt;
+            &lt;img src="../assets/img/memory-3.svg" alt="img3" /&gt;
+          &lt;/div&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;div class="view front"&gt;
+            &lt;img src="../assets/img/card.png" alt="card__front" /&gt;
+          &lt;/div&gt;
+          &lt;div class="view back"&gt;
+            &lt;img src="../assets/img/memory-4.svg" alt="img4" /&gt;
+          &lt;/div&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;div class="view front"&gt;
+            &lt;img src="../assets/img/card.png" alt="card__front" /&gt;
+          &lt;/div&gt;
+          &lt;div class="view back"&gt;
+            &lt;img src="../assets/img/memory-5.svg" alt="img5" /&gt;
+          &lt;/div&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;div class="view front"&gt;
+            &lt;img src="../assets/img/card.png" alt="card__front" /&gt;
+          &lt;/div&gt;
+          &lt;div class="view back"&gt;
+            &lt;img src="../assets/img/memory-6.svg" alt="img6" /&gt;
+          &lt;/div&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;div class="view front"&gt;
+            &lt;img src="../assets/img/card.png" alt="card__front" /&gt;
+          &lt;/div&gt;
+          &lt;div class="view back"&gt;
+            &lt;img src="../assets/img/memory-7.svg" alt="img7" /&gt;
+          &lt;/div&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;div class="view front"&gt;
+            &lt;img src="../assets/img/card.png" alt="card__front" /&gt;
+          &lt;/div&gt;
+          &lt;div class="view back"&gt;
+            &lt;img src="../assets/img/memory-8.svg" alt="img8" /&gt;
+          &lt;/div&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;!-- memory__card --&gt;
+    &lt;/div&gt;
+    &lt;div class="memoryGameRestart"&gt;다시하기&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                </div>
+                </details>
+                <h2 class="t_tit2">1. 선택자 작업하기</h2>
+                <div class="t_code">
+<pre><code class="language-js">const memoryWrap = document.querySelector(".memory__wrap");
+const memoryCard = memoryWrap.querySelectorAll(".cards li");
+
+let cardOne, cardTwo; // 뒤집는 카드
+let disableDeck = false;
+let matchedCard = 0; // 점수
+let endCardGame = 3; // 기회
+
+let sound = [
+  "../assets/audio/search_good.m4a",
+  "../assets/audio/search_bad.m4a",
+  "../assets/audio/up.mp3",
+  "../assets/audio/over.mp3",
+  "../assets/audio/gamebg.mp3"
+];
+let soundMatch = new Audio(sound[0]);  // 정답 사운드
+let soundUnMatch = new Audio(sound[1]);  // 오답 사운드
+let soundSuccess = new Audio(sound[2]);  // 승리 사운드
+let memoryGameOver = new Audio(sound[3]);  // 패배 사운드
+let memoryGameBg = new Audio(sound[4]);  // 배경음악
+</code></pre></div>
+                <p class="t_box">
+                    HTML과 CSS로 디자인 작업을 마쳤다면, 선택자를 만들어 줍니다.
+                </p>
+                <h2 class="t_tit2">2. 카드를 뒤집었을 때의 함수 작업하기</h2>
+                <div class="t_code">
+<pre><code class="language-js">function flipCard(e) {
+  let clickedCard = e.target;
+
+  // && !disableDeck : 뒤집힌 카드가 오답일 때, 흔들릴 때 다른 카드 누르는 것 방지
+  if (clickedCard !== cardOne && !disableDeck) {
+    clickedCard.classList.add("flip");
+
+    if (!cardOne) {
+      return (cardOne = clickedCard);
+    }
+    cardTwo = clickedCard;
+    disableDeck = true;
+
+    let cardOneImg = cardOne.querySelector(".back img").src;
+    let cardTwoImg = cardTwo.querySelector(".back img").src;
+
+    matchCards(cardOneImg, cardTwoImg);
+  }
+}
+
+memoryCard.forEach((card) => {
+    card.addEventListener("click", flipCard);
+  });
+</code></pre></div>
+                <p class="t_box">
+                    <i>target</i>은 함수 안에서 이벤트가 발생한 대상을 가리킵니다.
+                    <i>flip</i> 클래스가 추가되면, 사전에 작업한 카드 뒤집기 애니메이션이 작동하여 카드의 앞면이 보이게 됩니다.<br>
+                    이 게임에서는 한 턴에 카드를 두 장씩 뒤집기 때문에, 
+                    if문을 사용하여 첫 번째 클릭된 카드는 cardOne, 두 번째 클릭된 카드는 cardTwo로 구분해 주었습니다.<br>
+                    다음은 구분한 카드들의 img 주소를 확인하여 이미지 일치 여부를 확인할 수 있는 matchCards 함수를 만들어 보겠습니다.
+                </p>
+                <h2 class="t_tit2">3. 두 개의 카드를 비교하는 함수 작업하기</h2>
+                <div class="t_code">
+<pre><code class="language-js">function matchCards(img1, img2) {
+  if (img1 == img2) {  // 일치하는 경우
+    matchedCard++;
+    matchedCard++;
+    soundMatch.play();
+    document.querySelector(".memory__card__score").innerHTML = matchedCard;
+
+    cardOne.removeEventListener("click", flipCard);
+    cardTwo.removeEventListener("click", flipCard);
+    cardOne = cardTwo = "";
+    disableDeck = false;
+
+    if (matchedCard == 16) {
+      soundSuccess.play();
+      memoryGameBg.pause();
+      setTimeout(() => {
+        document.querySelector(".memoryGameRestart").style.transform = "scale(1)";
+      }, 3000);
+    }
+  }
+</code></pre></div>
+<p class="t_box">
+    img1, img2는 앞서 flipCard() 함수 내에서 매개변수로 전송한 이미지 주소를 의미합니다.<br>
+    먼저 img1 == img2, 즉 두 개의 이미지가 일치할 때에는, 점수를 추가해 주고, 정답 사운드를 재생시킵니다.
+    성공한 카드는 다시 뒤집어지지 않도록 <i>removeEventListener</i>를 사용하여 앞서 작업했던 클릭 이벤트를 제거해 주었습니다.<br>
+    또, 이 게임에서 승리할 수 있는 점수는 16점이므로, 점수가 16점에 다다르면 승리 사운드가 재생되고, 게임을 다시 시작할 수 있는
+    버튼이 나타나도록 작업해 주었습니다.
+</p><div class="t_code">
+    <pre><code class="language-js">  else {  // 일치하지 않는 경우
+    soundUnMatch.play();
+    setTimeout(() => {
+      cardOne.classList.add("shakeX");
+      cardTwo.classList.add("shakeX");
+    }, 400);
+
+    setTimeout(() => {
+      cardOne.classList.remove("shakeX", "flip");
+      cardTwo.classList.remove("shakeX", "flip");
+      cardOne = cardTwo = "";
+      disableDeck = false;
+    }, 1000);
+    endCardGame--;
+    document.querySelector(".memory__card__opp").innerHTML = endCardGame;
+    if (endCardGame == 0) {
+      setTimeout(() => {
+        memoryGameOver.play();
+        memoryGameBg.pause();
+        memoryCard.forEach((card) => {
+          card.classList.add("flip");
+          card.removeEventListener("click", flipCard);
+        });
+      }, 1000);
+      setTimeout(() => {
+        document.querySelector(".memoryGameRestart").style.transform = "scale(1)";
+      }, 4000);
+    }
+  }
+}
+</code></pre></div>
+                <p class="t_box">
+                    이미지가 일치하지 않는 경우에는 오답 사운드를 재생시키고, 오답 카드들이 좌우로 흔들리는
+                    애니메이션이 나타났다가, 다시 뒤집어지게끔 작업해 주었습니다.<br>
+                    또, 이 게임은 3회 오답을 제시한 경우, 게임이 종료됩니다. 게임 오버가 되었을 때는
+                    게임 오버 사운드가 재생되고, 모든 카드들의 앞면을 보여주고, 다시하기 버튼이 나타나도록 작업해 주었습니다.
+                </p>
+                <h2 class="t_tit2">4. 카드 섞기 함수 작업하기</h2>
+                <div class="t_code">
+<pre><code class="language-js">function shuffledCard() {
+  cardOne = cardTwo = "";
+  disableDeck = false;
+  matchedCard = 0;
+
+  let arr = [1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8];
+  let result = arr.sort(() => (Math.random() > 0.5 ? 1 : -1));
+
+  memoryCard.forEach((card, index) => {
+    card.classList.remove("flip");
+
+    setTimeout(() => {
+      card.classList.add("flip");
+    }, 200 * index);
+
+    setTimeout(() => {
+      card.classList.remove("flip");
+    }, 4000);
+
+    let imgTag = card.querySelector(".back img");
+    imgTag.src = `../assets/img/memory-${arr[index]}.svg`;
+  });
+}
+</code></pre></div>
+                <p class="t_box">
+                    각각의 카드들이 항상 같은 자리에 있다면 게임이 너무 쉬워지기 때문에, 게임을 시작하기 전 카드를 섞는 과정이 필요합니다. 
+                    카드의 총 개수에 해당하는 길이를 가진 배열을 만들고, <i>Math.random()</i> 메서드를 사용하여 카드들을 랜덤으로
+                    재배치해 주면 메모리 게임 완성입니다.
+                </p>
+                <hr />
+                <h2 class="t_tit2">결과</h2>
+                <p class="t_desc">세 번째 분홍색 폴더를 클릭하면 메모리 게임을 시작할 수 있습니다. 디자인에 대한 태클은 받지 않겠습니다.</p>
+                <div class="t_iframe" style="min-height: 800px; padding-top: 0px">
+                    <iframe
+                        src="https://mj0614k.github.io/codingclass/javascript/effect/gameEffect01.html"
+                    ></iframe>
+                </div>
+
+                <div class="t_link">
+                    <a
+                        href="https://github.com/mj0614k/codingclass/blob/main/javascript/effect/gameEffect01.html"
+                        >원본 소스 보기</a
+                    >
+                    <a href="https://mj0614k.github.io/codingclass/javascript/effect/gameEffect01"
+                        >원본 사이트 보기</a
+                    >
+                </div>
+            </div>
+        </main>
+        <!-- //main -->
+
+        <footer id="footer">
+            <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+        </footer>
+        <!-- //footer -->
+
+        <script src="../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>

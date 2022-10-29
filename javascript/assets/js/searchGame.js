@@ -440,12 +440,12 @@ function startQuiz(){
 function music(){
     musicStop.addEventListener("click", () => {
         musicStop.style.display = "none";
-        musicPlay.style.display = "block";
+        musicPlay.style.display = "inline";
         searchAudio.pause();
     })
     musicPlay.addEventListener("click", () => {
         musicPlay.style.display = "none";
-        musicStop.style.display = "block";
+        musicStop.style.display = "inline";
         searchAudio.play();
     })
     searchAudio.play();

@@ -19,17 +19,17 @@ body {
   top: 0;
   left: 0;
   height: 30px;
-  background-color: rosybrown;
+  background-color: black;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: #011d3f;
+  color: white;
   padding: 0 10px;
 }
 #header h1 {
   font-size: 20px;
   padding: 5px;
-  color: #011d3f;
+  color: white;
 }
 #footer {
   z-index: 20;
@@ -37,11 +37,11 @@ body {
   width: 100%;
   left: 0;
   bottom: 0;
-  background-color: rosybrown;
+  background-color: black;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: #011d3f;
+  color: white;
   padding: 5px 10px;
   text-align: center;
 }

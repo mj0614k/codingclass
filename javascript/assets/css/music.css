@@ -5,12 +5,12 @@
 }
 
 ::-webkit-scrollbar-track {
-    background: #1f224a26;
+    background: gray;
     border-radius: 20px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #011d3f;
+    background: black;
     border-radius: 20px;
 }
 
@@ -20,7 +20,7 @@
 }
 .music__inner {
     width: 450px;
-    background: #011d3f;
+    background: black;
     position: absolute;
     right: 100px;
     top: 100px;
@@ -32,13 +32,13 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: white;
+    color: whitesmoke;
 }
 .music__header h2 {
     font-size: 14px;
 }
 .music__contents {
-    background: #c4c4c4;
+    background: whitesmoke;
     width: 100%;
 }
 .music__view {
@@ -58,7 +58,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    color: #011d3f;
+    color: black;
 }
 .music__view .title h3 {
     margin-bottom: 5px;
@@ -66,7 +66,7 @@
     line-height: 1.2;
 }
 .music__view .title p {
-    color: rosybrown;
+    color: rgb(255, 210, 61);
 }
 .music__control {
     width: 100%;
@@ -74,19 +74,19 @@
     padding: 0 20px 20px 20px;
 }
 .music__control .volume {
-    color: #011d3f;
+    color: black;
     text-align: right;
 }
 .music__control .progress {
     width: 100%;
     height: 6px;
-    background: #011d3f;
+    background: black;
     border-radius: 5px;
 }
 .music__control .progress .bar {
     width: 0%;
     height: inherit;
-    background: rosybrown;
+    background: rgb(255, 210, 61);
     border-radius: 5px;
 }
 .music__control .progress .timer {
@@ -94,7 +94,7 @@
     align-items: center;
     justify-content: space-between;
     margin-top: 3px;
-    color: #011d3f;
+    color: black;
 }
 .music__control .control {
     display: flex;
@@ -178,7 +178,7 @@
     background-position: -24px;
 }
 .music__footer {
-    background-color: #c4c4c4;
+    background-color: whitesmoke;
 }
 .music__list {
     padding: 20px;
@@ -191,7 +191,7 @@
 .music__list h3 {
     font-size: 24px;
     margin-bottom: 10px;
-    border-top: 2px solid #011d3f;
+    border-top: 2px solid black;
     padding-top: 10px;
 }
 .music__list h3 .list {
@@ -206,7 +206,7 @@
 }
 .music__list h3 .close {
     float: right;
-    background: url(../img/effect_icon08.svg) no-repeat;
+    background: url(../img/effect_icon10.svg) no-repeat;
     width: 24px;
     height: 24px;
     background-size: 24px;
@@ -216,13 +216,13 @@
     overflow-y: scroll;
 }
 .music__list li {
-    border-bottom: 1px solid #011d3f;
+    border-bottom: 1px solid black;
     list-style: none;
     position: relative;
     padding: 5px 0;
 }
 .music__list li.playing {
-    color: rosybrown;
+    color: rgb(255, 210, 61);
 }
 .music__list li strong {
     display: block;

@@ -1,16 +1,147 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-    </head>
-    <body>
-        <script>
-            let webs = "webstoryboy";
-
-            document.write(webs[4])
-        </script>
-    </body>
-</html>
+&lt;div class="memory__wrap"&gt;
+    &lt;div class="memory__inner"&gt;&lt;span class="memory-close"&gt;&lt;/span&gt;
+      &lt;div class="memory__main"&gt;
+        &lt;h3&gt;Memory Game&lt;/h3&gt;
+        &lt;p class="memory__start"&gt;START&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class="memory__card"&gt;
+        &lt;h3&gt;Memory Game&lt;/h3&gt;
+        &lt;div class="memory__card__info"&gt;
+          &lt;p&gt;점수 : &lt;span class="memory__card__score"&gt;0&lt;/span&gt; / 16&lt;/p&gt;
+          &lt;p&gt;남은 기회 : &lt;span class="memory__card__opp"&gt;3&lt;/span&gt;&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;ul class="cards"&gt;
+          &lt;li&gt;
+            &lt;div class="view front"&gt;
+              &lt;img src="../assets/img/card.png" alt="card__front" /&gt;
+            &lt;/div&gt;
+            &lt;div class="view back"&gt;
+              &lt;img src="../assets/img/memory-1.svg" alt="img1" /&gt;
+            &lt;/div&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;div class="view front"&gt;
+              &lt;img src="../assets/img/card.png" alt="card__front" /&gt;
+            &lt;/div&gt;
+            &lt;div class="view back"&gt;
+              &lt;img src="../assets/img/memory-2.svg" alt="img2" /&gt;
+            &lt;/div&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;div class="view front"&gt;
+              &lt;img src="../assets/img/card.png" alt="card__front" /&gt;
+            &lt;/div&gt;
+            &lt;div class="view back"&gt;
+              &lt;img src="../assets/img/memory-3.svg" alt="img3" /&gt;
+            &lt;/div&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;div class="view front"&gt;
+              &lt;img src="../assets/img/card.png" alt="card__front" /&gt;
+            &lt;/div&gt;
+            &lt;div class="view back"&gt;
+              &lt;img src="../assets/img/memory-4.svg" alt="img4" /&gt;
+            &lt;/div&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;div class="view front"&gt;
+              &lt;img src="../assets/img/card.png" alt="card__front" /&gt;
+            &lt;/div&gt;
+            &lt;div class="view back"&gt;
+              &lt;img src="../assets/img/memory-5.svg" alt="img5" /&gt;
+            &lt;/div&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;div class="view front"&gt;
+              &lt;img src="../assets/img/card.png" alt="card__front" /&gt;
+            &lt;/div&gt;
+            &lt;div class="view back"&gt;
+              &lt;img src="../assets/img/memory-6.svg" alt="img6" /&gt;
+            &lt;/div&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;div class="view front"&gt;
+              &lt;img src="../assets/img/card.png" alt="card__front" /&gt;
+            &lt;/div&gt;
+            &lt;div class="view back"&gt;
+              &lt;img src="../assets/img/memory-7.svg" alt="img7" /&gt;
+            &lt;/div&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;div class="view front"&gt;
+              &lt;img src="../assets/img/card.png" alt="card__front" /&gt;
+            &lt;/div&gt;
+            &lt;div class="view back"&gt;
+              &lt;img src="../assets/img/memory-8.svg" alt="img8" /&gt;
+            &lt;/div&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;div class="view front"&gt;
+              &lt;img src="../assets/img/card.png" alt="card__front" /&gt;
+            &lt;/div&gt;
+            &lt;div class="view back"&gt;
+              &lt;img src="../assets/img/memory-1.svg" alt="img1" /&gt;
+            &lt;/div&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;div class="view front"&gt;
+              &lt;img src="../assets/img/card.png" alt="card__front" /&gt;
+            &lt;/div&gt;
+            &lt;div class="view back"&gt;
+              &lt;img src="../assets/img/memory-2.svg" alt="img2" /&gt;
+            &lt;/div&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;div class="view front"&gt;
+              &lt;img src="../assets/img/card.png" alt="card__front" /&gt;
+            &lt;/div&gt;
+            &lt;div class="view back"&gt;
+              &lt;img src="../assets/img/memory-3.svg" alt="img3" /&gt;
+            &lt;/div&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;div class="view front"&gt;
+              &lt;img src="../assets/img/card.png" alt="card__front" /&gt;
+            &lt;/div&gt;
+            &lt;div class="view back"&gt;
+              &lt;img src="../assets/img/memory-4.svg" alt="img4" /&gt;
+            &lt;/div&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;div class="view front"&gt;
+              &lt;img src="../assets/img/card.png" alt="card__front" /&gt;
+            &lt;/div&gt;
+            &lt;div class="view back"&gt;
+              &lt;img src="../assets/img/memory-5.svg" alt="img5" /&gt;
+            &lt;/div&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;div class="view front"&gt;
+              &lt;img src="../assets/img/card.png" alt="card__front" /&gt;
+            &lt;/div&gt;
+            &lt;div class="view back"&gt;
+              &lt;img src="../assets/img/memory-6.svg" alt="img6" /&gt;
+            &lt;/div&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;div class="view front"&gt;
+              &lt;img src="../assets/img/card.png" alt="card__front" /&gt;
+            &lt;/div&gt;
+            &lt;div class="view back"&gt;
+              &lt;img src="../assets/img/memory-7.svg" alt="img7" /&gt;
+            &lt;/div&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;div class="view front"&gt;
+              &lt;img src="../assets/img/card.png" alt="card__front" /&gt;
+            &lt;/div&gt;
+            &lt;div class="view back"&gt;
+              &lt;img src="../assets/img/memory-8.svg" alt="img8" /&gt;
+            &lt;/div&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;!-- memory__card --&gt;
+      &lt;/div&gt;
+      &lt;div class="memoryGameRestart"&gt;다시하기&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;

@@ -8,15 +8,20 @@ const memoryCard = memoryWrap.querySelectorAll(".cards li");
 let cardOne, cardTwo; // 뒤집는 카드
 let disableDeck = false;
 let matchedCard = 0; // 점수
+let endCardGame = 3; // 기회
 
 let sound = [
   "../assets/audio/search_good.m4a",
   "../assets/audio/search_bad.m4a",
-  "../assets/audio/up",
+  "../assets/audio/up.mp3",
+  "../assets/audio/over.mp3",
+  "../assets/audio/gamebg.mp3"
 ];
 let soundMatch = new Audio(sound[0]);
 let soundUnMatch = new Audio(sound[1]);
 let soundSuccess = new Audio(sound[2]);
+let memoryGameOver = new Audio(sound[3]);
+let memoryGameBg = new Audio(sound[4]);
 
 // 카드 뒤집기
 function flipCard(e) {
@@ -46,11 +51,17 @@ function matchCards(img1, img2) {
   if (img1 == img2) {
     // 같을 경우(맞은 음악, 이미지 상하 흔들림)
     matchedCard++;
+    matchedCard++;
     soundMatch.play();
+    document.querySelector(".memory__card__score").innerHTML = matchedCard;
 
-    if (matchedCard == 8) {
-      alert("게임이 종료되었습니다.");
+    if (matchedCard == 16) {
       soundSuccess.play();
+      memoryGameBg.pause();
+
+      setTimeout(() => {
+        document.querySelector(".memoryGameRestart").style.transform = "scale(1)";
+      }, 3000);
     }
 
     cardOne.removeEventListener("click", flipCard);
@@ -59,6 +70,7 @@ function matchCards(img1, img2) {
     disableDeck = false;
   } else {
     // 일치하지 않는 경우(틀린 음악, 이미지 좌우 흔들림)
+    soundUnMatch.play();
     setTimeout(() => {
       cardOne.classList.add("shakeX");
       cardTwo.classList.add("shakeX");
@@ -70,6 +82,21 @@ function matchCards(img1, img2) {
       cardOne = cardTwo = "";
       disableDeck = false;
     }, 1000);
+    endCardGame--;
+    document.querySelector(".memory__card__opp").innerHTML = endCardGame;
+    if (endCardGame == 0) {
+      setTimeout(() => {
+        memoryGameOver.play();
+        memoryGameBg.pause();
+        memoryCard.forEach((card) => {
+          card.classList.add("flip");
+          card.removeEventListener("click", flipCard);
+        });
+      }, 1000);
+      setTimeout(() => {
+        document.querySelector(".memoryGameRestart").style.transform = "scale(1)";
+      }, 4000);
+    }
   }
 }
 
@@ -109,6 +136,27 @@ const memoryGame = document.querySelector(".memory__card");
 memoryStart.addEventListener("click", () => {
   memoryMain.style.display = "none";
   memoryGame.style.display = "block";
+  memoryGameBg.play();
+  endCardGame = 3;
+  document.querySelector(".memory__card__opp").innerHTML = endCardGame;
+  matchedCard = 0;
+  document.querySelector(".memory__card__score").innerHTML = matchedCard;
   shuffledCard();
-  soundUnMatch.play();
+  memoryCard.forEach((card) => {
+    card.addEventListener("click", flipCard);
+  });
 });
+
+document.querySelector(".memoryGameRestart").addEventListener("click", () => {
+  memoryGameBg.play();
+  shuffledCard();
+  endCardGame = 3;
+  document.querySelector(".memory__card__opp").innerHTML = endCardGame;
+  matchedCard = 0;
+  document.querySelector(".memory__card__score").innerHTML = matchedCard;
+  memoryCard.forEach((card) => {
+    card.classList.remove("flip");
+    card.addEventListener("click", flipCard);
+  });
+  document.querySelector(".memoryGameRestart").style.transform = "scale(0)";
+})
