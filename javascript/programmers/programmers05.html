@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로그래머스 1단계</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="../index.html">프로그래머스 1단계</a></h1>
+    </header>
+    <!-- //header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">프로그래머스 1단계 : 수박수박수박수박수박수?
+            </h2>
+            <p class="t_desc">코딩테스트 연습 > 
+                연습문제 > 
+                수박수박수박수박수박수?
+                </p>
+                <hr>
+            <h2 class="t_tit2">💩 문제 설명</h1>
+            <p class="t_desc">
+                길이가 n이고, "수박수박수박수...."와 같은 패턴을 유지하는 문자열을 리턴하는 함수, solution을 완성하세요. 예를들어 n이 4이면 "수박수박"을 리턴하고 3이라면 "수박수"를 리턴하면 됩니다.
+            </p>
+            <h2 class="t_tit2">💩 제한 조건</h2>
+            <p class="t_box">
+                ☝️ n은 길이 10,000이하인 자연수입니다.
+            </p>
+            <h2 class="t_tit2">💩 문제 풀이</h2>
+            <div class="t_code">
+<pre><code class="language-js">function solution(n) {
+    var answer = '';
+    for(i=1; i&lt;=n; i++){
+        (i % 2 == 1) ? answer += "수" : answer += "박";
+    }
+    return answer;
+}
+</code></pre></div>
+<p class="t_desc">홀수일 경우 "수", 짝수일 경우 "박"을, n번 출력하도록 삼항연산자를 이용해 작업해 주었습니다.
+</p>
+<h2 class="t_tit2">💩 다른 풀이</h2>
+<div class="t_code">
+<pre><code class="language-js">const waterMelon = n => {
+    return '수박'.repeat(n/2) + (n%2 === 1 ? '수' : '');
+}
+</code></pre>
+</div>
+<p class="t_desc">
+    "수박" 문자열을 n/2번만큼 반복시키고, n이 홀수일 경우 "수"로 끝나도록, 짝수일 경우 "박"으로 끝나도록 삼항연산자를 이용해 작업한 형태입니다.
+</p>
+            <div class="t_code">
+<pre><code class="language-js">function waterMelon(n){
+    var result = "수박수박수박수박수박수박수박수박수박수박수박수박수박수박수박수박수박수박수박수박수박수박수박수박수박수박수박수박수박수박수박수박";
+    return result.substring(0,n);
+}
+</code></pre></div>
+<p class="t_desc">귀여운 풀이가 있어서 가져와봤습니다. 잔머리가 수준급이네요.
+</p>
+<div class="t_link">
+    <a href="https://school.programmers.co.kr/learn/courses/30/lessons/12922">문제 풀어보기</a>
+</div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>
