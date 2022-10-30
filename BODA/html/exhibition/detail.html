@@ -205,13 +205,13 @@
                         <span>Exhibition</span>
                     </div>
                     <div class="menu">
-                        <li><a href="#" class="active">전시소개</a></li>
-                        <li><a href="#">상세정보</a></li>
-                        <li><a href="#">참여작가</a></li>
+                        <li><a href="#detail__exhibition" class="active">전시소개</a></li>
+                        <li><a href="#detail__detail">상세정보</a></li>
+                        <li><a href="#detail__artist">참여작가</a></li>
                     </div>
                 </div>
                 <div class="detail__main">
-                    <h2 class="detail__exhibition__h2">전시소개</h2>
+                    <h2 id="detail__exhibition" class="detail__exhibition__h2">전시소개</h2>
                     <div class="detail__exhibition">
                         <figure class="detail__exhibition__main">
                             <img src="../assets/img/detail_bg02.jpg" alt="이미지1">
@@ -267,7 +267,7 @@
                             </div>
                         </div>
                     </div>
-                    <h2>상세정보</h2>
+                    <h2 id="detail__detail">상세정보</h2>
                     <div class="detail__detail">
                         <figure class="detail__detail__img">
                             <img src="../assets/img/detail_bg06.jpg" alt="상세정보 이미지">
@@ -310,25 +310,28 @@
                             </table>
                         </div>
                     </div>
-                    <h2>참여작가</h2>
+                    <h2 id="detail__artist">참여작가</h2>
                     <div class="detail__artist">
                         <div class="detail__artistList">
                             <figure>
-                                <img src="../assets/img/detail_bg07.jpg" alt="">
+                                <img src="../assets/img/detail_bg07.jpg" alt="작가1">
+                                <div>View more <span class="ViewMore__arrow"></span></div>
                             </figure>
                             <h3>육건우</h3>
                             <p>Yook Gun Woo</p>
                         </div>
                         <div class="detail__artistList">
                             <figure>
-                                <img src="../assets/img/detail_bg08.jpg" alt="">
+                                <img src="../assets/img/detail_bg08.jpg" alt="작가2">
+                                <div>View more <span class="ViewMore__arrow"></span></div>
                             </figure>
                             <h3>문지원</h3>
                             <p>Moon Ji Won</p>
                         </div>
                         <div class="detail__artistList">
                             <figure>
-                                <img src="../assets/img/detail_bg09.jpg" alt="">
+                                <img src="../assets/img/detail_bg09.jpg" alt="작가3">
+                                <div>View more <span class="ViewMore__arrow"></span></div>
                             </figure>
                             <h3>스튜디오 차차</h3>
                             <p>Studio ChaCha</p>
@@ -336,6 +339,7 @@
                     </div>
                 </div>
             </div>
+            <div class="topBtn ir">top</div>
         </main>
         <!-- //main -->
 
