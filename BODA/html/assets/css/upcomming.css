@@ -1,0 +1,41 @@
+/* upcomming */
+.upcomming__header {
+  position: relative;
+}
+.upcomming__header h2 {
+  font-weight: 500;
+  font-size: 50px;
+  margin-bottom: 80px;
+  color: #000;
+  border-bottom: 2px solid #000;
+  padding-bottom: 30px;
+}
+
+.upcomming__header span {
+  font-size: 18px;
+  color: #b0b0b0;
+  font-weight: 300;
+}
+/* upcomming__search */
+.upcomming__in {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 15px;
+  cursor: pointer;
+}
+.upcomming__inner .upcomming {
+  width: 24%;
+  margin-bottom: 50px;
+  max-width: 100%;
+  display: block;
+}
+.upcomming {
+}
+
+/* 미디어쿼리 */
+@media (max-width: 820px) {
+}
+
+@media (max-width: 480px) {
+}

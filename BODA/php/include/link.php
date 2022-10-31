@@ -3,19 +3,28 @@
 <link rel="stylesheet" href="../../html/assets/css/reset.css" />
 <link rel="stylesheet" href="../../html/assets/css/common.css" />
 
+<!-- include -->
 <link rel="stylesheet" href="../../html/assets/css/header.css" />
+<link rel="stylesheet" href="../../html/assets/css/footer.css">
+
+<!-- login -->
 <link rel="stylesheet" href="../../html/assets/css/login.css">
 <link rel="stylesheet" href="../../html/assets/css/loginPopup.css">
 <link rel="stylesheet" href="../../html/assets/css//agree.css">
-
 <link rel="stylesheet" href="../../html/assets/css/main.css">
+
+<!-- exhibition -->
+<link rel="stylesheet" href="../../html/assets/css/current.css">
+<link rel="stylesheet" href="../../html/assets/css/upcomming.css">
+<link rel="stylesheet" href="../../html/assets/css/recommended.css">
+<link rel="stylesheet" href="../../html/assets/css/detail.css">
+
+<!-- community -->
 <link rel="stylesheet" href="../../html/assets/css/Review.css">
 <link rel="stylesheet" href="../../html/assets/css/ReviewWrite.css">
 <link rel="stylesheet" href="../../html/assets/css/ReviewView.css">
 <link rel="stylesheet" href="../../html/assets/css/notice.css">
 <link rel="stylesheet" href="../../html/assets/css/talk.css">
-
-<link rel="stylesheet" href="../../html/assets/css/footer.css">
 
 <link rel="stylesheet" href="../../html/assets/css/swiper.css">
 <!-- //CSS -->

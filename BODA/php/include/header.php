@@ -6,11 +6,11 @@
         <div class="header__menu">
             <ul>
                 <li>
-                    <a class="main__menu" href="#">EXHIBITION</a>
+                    <a class="main__menu" href="../exhibition/current.php">EXHIBITION</a>
                     <ul class="sub blind">
-                        <li><a href="#">현재전시</a></li>
-                        <li><a href="#">예정전시</a></li>
-                        <li><a href="#">추천전시</a></li>
+                        <li><a href="../exhibition/current.php">현재전시</a></li>
+                        <li><a href="../exhibition/upcomming.php">예정전시</a></li>
+                        <li><a href="../exhibition/recommended.php">추천전시</a></li>
                     </ul>
                 </li>
             </ul>
@@ -79,11 +79,11 @@
             </div>
             <div class="mobilemenu">
                 <li>
-                    <a href="#">EXHIBITION</a>
+                    <a href="../exhibition/current.php">EXHIBITION</a>
                     <ul>
-                        <li><a href="#">현재전시</a></li>
-                        <li><a href="#">예정전시</a></li>
-                        <li><a href="#">추천전시</a></li>
+                        <li><a href="../exhibition/current.php">현재전시</a></li>
+                        <li><a href="../exhibition/recommended.php">예정전시</a></li>
+                        <li><a href="../exhibition/upcomming.php">추천전시</a></li>
                     </ul>
                 </li>
                 <li><a href="#">SEARCH</a>
