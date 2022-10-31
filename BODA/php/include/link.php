@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="../../html/assets/css/loginPopup.css">
 <link rel="stylesheet" href="../../html/assets/css//agree.css">
 
+<link rel="stylesheet" href="../../html/assets/css/main.css">
 <link rel="stylesheet" href="../../html/assets/css/Review.css">
 <link rel="stylesheet" href="../../html/assets/css/ReviewWrite.css">
 <link rel="stylesheet" href="../../html/assets/css/ReviewView.css">

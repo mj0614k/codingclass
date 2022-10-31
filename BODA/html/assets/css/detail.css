@@ -7,8 +7,8 @@
 .detail__main__image::after {
   width: 100%;
   height: 900px;
-  content: '';
-  background-color: rgba(255,255,255,0.2);
+  content: "";
+  background-color: rgba(255, 255, 255, 0.2);
   position: absolute;
   top: 0;
   left: 0;
@@ -228,7 +228,6 @@
   margin-bottom: 220px;
   justify-content: space-around;
   position: relative;
-  
 }
 .detail__artistList figure {
   position: relative;
@@ -253,9 +252,9 @@
   background-image: url("data:image/svg+xml,%0A%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 18L15 12L9 6' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 }
 .detail__artistList figure:hover::after {
-  content: '';
+  content: "";
   position: absolute;
-  background-color: rgba(255,255,255,0.2);
+  background-color: rgba(255, 255, 255, 0.2);
   top: 0;
   left: 0;
 
@@ -280,7 +279,8 @@
 
 .detail__artist__modal {
   max-width: 1200px;
-  height: 800px;
+  height: 600px;
+  display: none;
   overflow-y: scroll;
   background-color: white;
   border: 1px solid black;
@@ -288,7 +288,7 @@
   padding: 45px 25px;
   box-sizing: border-box;
   position: fixed;
-  top: 100px;
+  top: 120px;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -297,7 +297,8 @@
   width: 70px;
   height: 70px;
   position: fixed;
-  top: 67px;
+  top: 87px;
+  display: none;
   z-index: 2;
   cursor: pointer;
   left: 50%;
@@ -320,7 +321,7 @@
   border-bottom: 2px solid black;
 }
 .detail__artist__modal__bottom {
-  margin-top: 70px
+  margin-top: 70px;
 }
 .detail__artist__modal__p {
   margin-top: 50px;
