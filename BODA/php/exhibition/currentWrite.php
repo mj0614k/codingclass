@@ -1,3 +1,6 @@
+<h3>파일은 무족권 jpg다...</h3>
+
+
 <form action="currentWriteSave.php" name="CurrentWrite" method="post" enctype="multipart/form-data">
     <fieldset>
         <div>
@@ -15,7 +18,7 @@
                 <input type="file" class="" name="SubImgFile" id="SubImgFile" accept=".jpg, .jpeg, .png, .gif" placeholder="8. 상세정보 이미지1(width: 1160)">
             </div>
             <input type="text" name="MainTitle" id="MainTitle" class="Title" placeholder="9. 주제" required>
-            <input type="text" name="MainTitle" id="MainTitle" class="Title" placeholder="10. 설명" required>
+            <input type="text" name="MainDesc" id="MainDesc" class="Title" placeholder="10. 설명" required>
         </div>
 
         <br>
@@ -86,6 +89,7 @@
             35. 상세정보 사진 ( 664 x 750 )
                 <input type="file" class="" name="DetailImgFile" id="DetailImgFile" accept=".jpg, .jpeg, .png, .gif">
             </div>
+            <p>주소 아니고 장소다... 명심해</p>
         <input type="text" name="Location" id="Location" class="Title" placeholder="36. 장소" required>
             <input type="text" name="ViewTime" id="ViewTime" class="Title" placeholder="37. 관람시간" required>
             <input type="text" name="ViewAge" id="ViewAge" class="Title" placeholder="38. 연령" required>

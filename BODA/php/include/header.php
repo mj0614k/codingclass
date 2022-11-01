@@ -10,7 +10,6 @@
                     <ul class="sub blind">
                         <li><a href="../exhibition/current.php">현재전시</a></li>
                         <li><a href="../exhibition/upcomming.php">예정전시</a></li>
-                        <li><a href="../exhibition/recommended.php">추천전시</a></li>
                     </ul>
                 </li>
             </ul>
@@ -83,7 +82,6 @@
                     <ul>
                         <li><a href="../exhibition/current.php">현재전시</a></li>
                         <li><a href="../exhibition/recommended.php">예정전시</a></li>
-                        <li><a href="../exhibition/upcomming.php">추천전시</a></li>
                     </ul>
                 </li>
                 <li><a href="#">SEARCH</a>

@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS -->
     <?php include "../include/link.php" ?>
-    <title>BODA 사이트 만들기</title>
+    <title>현재전시 페이지</title>
 </head>
 <body>
     <div id="skip">
@@ -39,81 +39,78 @@
       </div>
       <section class="current__inner container">
         <a href="currentWrite.php">지옥의링크</a>
-        <article class="current">
-          <div class="current__h">
-            <div class="current__title">정소영 개인전</div>
-            <span class="current__desc__one">So-Yeon Jung</span>
-            <span class="current__desc__two">2022.10.14. - 2022.11.26.</span>
-            <div class="current__box">view more</div>
-          </div>
-          <figure>
-            <img src="../assets/img/Exhibition/card_01.jpg" alt="이미지1" />
-          </figure>
-        </article>
-        <article class="current">
-          <div class="current__h">
-            <div class="current__title">진민욱 : 어제 걸은 길</div>
-            <span class="current__desc__one">Minwook Jin </span>
-            <span class="current__desc__two">2022.10.06. - 2022.12.16.</span>
-            <div class="current__box">view more</div>
-          </div>
-          <figure>
-            <img src="../assets/img/Exhibition/card_02.jpg" alt="이미지2" />
-          </figure>
-        </article>
-        <article class="current">
-          <div class="current__h">
-            <div class="current__title">무릉무릉 예술 오일장</div>
-            <span class="current__desc__one">Mungyeong</span>
-            <span class="current__desc__two">2022.10.06. - 2022.12.16.</span>
-            <div class="current__box">view more</div>
-          </div>
-          <figure>
-            <img src="../assets/img/Exhibition/card_03.jpg" alt="이미지3" />
-          </figure>
-        </article>
-        <article class="current c1">
-          <div class="current__h">
-            <div class="current__title">Harmony of sense</div>
-            <span class="current__desc__one">Yook Gun Woo & 2명</span>
-            <span class="current__desc__two">2022.10.06. - 2022.12.16.</span>
-            <div class="current__box">view more</div>
-          </div>
-          <figure>
-            <img src="../assets/img/Exhibition/card_04.jpg" alt="이미지4" />
-          </figure>
-        </article>
+<?php 
+    $ExhibitionSql = "SELECT * FROM myExhibition ORDER BY myExhibitionID DESC";
+    $ExhibitionResult = $connect -> query($ExhibitionSql);
+
+    forEach($ExhibitionResult as $ExhibitionSql){ ?>
+
+    <article class="current">
+    <div class="current__h">
+        <div class="current__title"><?=$ExhibitionSql['ExhibitionTitle']?></div>
+        <span class="current__desc__one"><?=$ExhibitionSql['ExhibitionArtistEng']?></span>
+        <span class="current__desc__two"><?=$ExhibitionSql['StartDate']?> - <?=$ExhibitionSql['EndDate']?></span>
+        <a href="detail.php?myExhibitionID=<?=$ExhibitionSql['myExhibitionID']?>" class="current__box">view more</a>
+    </div>
+    <figure>
+        <img src="../assets/img/Exhibition/<?=$ExhibitionSql['MainImgFile']?>" alt="이미지1" />
+    </figure>
+    </article>
+
+<?php } ?>
         <div class="board__pages">
             <ul>
-                <li>
-                    <a href="#">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M17.2498 18L11.2498 12L17.2498 6" stroke="#323232" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M11.25 18L5.25 12L11.25 6" stroke="#323232" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M14.25 6L8.25 12L14.25 18" stroke="#323232" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </a>
-                    </li>
-                <li><a class="active" href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9 18L15 12L9 6" stroke="#323232" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg></a></li>
-                <li><a href="#">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M6.75024 6L12.7502 12L6.75024 18" stroke="#323232" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M12.75 6L18.75 12L12.75 18" stroke="#323232" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg></a></li>
+<?php
+    $sql = "SELECT count(myExhibitionID) FROM myExhibition";
+    $result = $connect -> query($sql);
+    $viewNum = 5;
+
+    $ExhibiCount = $result -> fetch_array(MYSQLI_ASSOC);
+    $ExhibiCount = $ExhibiCount['count(myExhibitionID)'];
+
+    $ExhibiCount = ceil($ExhibiCount / $viewNum);
+
+    $pageCurrent = 5;
+    $startPage = $page - $pageCurrent;
+    $endPage = $page + $pageCurrent;
+
+    // 처음 페이지 초기화
+    if($startPage < 1) $startPage = 1;
+
+    // 마지막 페이지 초기화
+    if($endPage >= $ExhibiCount) $endPage = $ExhibiCount;
+
+    // 이전 페이지, 처음 페이지 이동
+    if($page != 1){
+        $prevPage = $page - 1;
+        echo "<li><a href='current.php?page=1'><svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <path d='M17.2498 18L11.2498 12L17.2498 6' stroke='#323232' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/>
+        <path d='M11.25 18L5.25 12L11.25 6' stroke='#323232' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/>
+        </svg></a></li>";
+        echo "<li><a href='current.php?page={$prevPage}'><svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <path d='M14.25 6L8.25 12L14.25 18' stroke='#323232' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/>
+        </svg></a></li>";
+    }
+    
+    // 페이지 넘버 표시
+    for($i=$startPage; $i<=$endPage; $i++){
+        $active = "";
+        if($i == $page) $active = "active";
+        echo "<li ><a class='{$active}' href='current.php?page={$i}'>{$i}</a></li>";
+    }
+    
+    // 다음 페이지, 마지막 페이지 이동
+    if($page != $endPage){
+        $nextPage = $page + 1;
+        echo "<li><a href='current.php?page={$nextPage}'><svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <path d='M9 18L15 12L9 6' stroke='#323232' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/>
+        </svg></a></li>";
+        echo "<li><a href='current.php?page={$ExhibiCount}'><svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <path d='M6.75024 6L12.7502 12L6.75024 18' stroke='#323232' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/>
+        <path d='M12.75 6L18.75 12L12.75 18' stroke='#323232' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/>
+        </svg></a></li>";
+    }
+?>
             </ul>
         </div>
       </section>

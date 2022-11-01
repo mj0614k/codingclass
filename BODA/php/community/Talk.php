@@ -81,7 +81,7 @@
                     echo "<a href='#' class='Talkmodify'>| 수정</a><a href='#' class='Talkdelete'>| 삭제</a>";
                 }
                 echo "</div></div>";
-                echo "<div class='contents__bottom'>".$info['TalkContents']."</div></div>";
+                echo "<div class='contents__bottom'>".nl2br($info['TalkContents'])."</div></div>";
                 echo "</td></tr>";
             }
         }

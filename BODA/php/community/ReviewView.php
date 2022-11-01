@@ -77,7 +77,7 @@
         echo "<div class='thMobile__BT'><p>".$info['youNickName']."</p>";
         echo "<p>".date('Y-m-d', $info['ReviewregTime'])."</p></div></th></tr></thead>";
         echo "<tbody><tr><td colspan='3'><div class='height'><figure class='viewImg'><img src='../assets/img/Review/".$info['ReviewImgFile']."'></figure>";
-        echo "<div class='view__desc'><p>".$info['ReviewContents']."</p></div></td></tr></tr></tbody>";
+        echo "<div class='view__desc'><p>".nl2br($info['ReviewContents'])."</p></div></td></tr></tr></tbody>";
     }
 ?>
                         </table>

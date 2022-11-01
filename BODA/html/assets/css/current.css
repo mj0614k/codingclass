@@ -59,6 +59,7 @@
 }
 .current__box {
   background-color: #000;
+  display: inline-block;
   width: 159px;
   color: #fff;
   padding: 10px;
