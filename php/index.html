@@ -1,56 +1,66 @@
 <!DOCTYPE html>
 <html lang="ko">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-        <link rel="stylesheet" href="assets/css/style.min.css" />
-    </head>
-    <body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      a {
+        color: #000;
+        text-decoration: none;
+        font-size: 20px;
+      }
+      li {
+        list-style: none;
+      }
+      h2 {
+        margin-bottom: 10px;
+      }
+      .box {
+        padding: 5%;
+        min-width: 1200px;
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .box h1 {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+      .box > div {
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <h1>PHP 프로젝트</h1>
+      <div>
         <h2>HTML</h2>
-        <br />
-        메인 페이지 : <a href="html/main.html">GO</a><br />
-        회원가입 약관 동의 페이지 : <a href="html/joinAgree.html">GO</a><br />
-        회원가입 페이지 : <a href="html/join.html">GO</a><br />
-        회원가입 완료 페이지 : <a href="html/joinResult.html">GO</a><br />
-        <br />
-        게시판 페이지 : <a href="html/board.html">GO</a><br />
-        게시판 보기 페이지 : <a href="html/boardView.html">GO</a><br />
-        게시판 작성 페이지 : <a href="html/boardWrite.html">GO</a><br />
-        게시판 수정 페이지 : <a href="html/boardModify.html">GO</a><br />
-        게시판 검색 페이지 : <a href="html/boardSearch.html">GO</a><br />
-
-        <br /><br />
-
+        <ul>
+          <li><a href="html/main.html">메인페이지</a></li>
+          <li><a href="html/join.html">회원가입</a></li>
+          <li><a href="html/joinAgree.html">회원가입 동의</a></li>
+          <li><a href="html/joinResult.html">회원가입 결과</a></li>
+          <li><a href="html/board.html">게시판 페이지</a></li>
+          <li><a href="html/boardModify.html">게시판 수정 페이지</a></li>
+          <li><a href="html/boardSearch.html">게시판 결과 페이지</a></li>
+          <li><a href="html/boardWrite.html">게시판 쓰기 페이지</a></li>
+          <li><a href="html/boardView.html">게시판 보기 페이지</a></li>
+        </ul>
+      </div>
+      <div>
         <h2>PHP</h2>
-        <br />
-        myAdmin 페이지 : <a href="http://localhost/phpMyAdmin/">GO</a><br />
-        DB 접속 페이지 : <a href="connect/connect.php">GO</a><br />
-        메인 페이지 : <a href="main/main.php">GO</a><br />
-
-        <br />
-        게시판 페이지 : <a href="board/board.php">GO</a><br />
-        게시판 보기 페이지 : <a href="board/boardView.php">GO</a><br />
-        게시판 작성 페이지 : <a href="board/boardWrite.php">GO</a><br />
-        게시판 수정 페이지 : <a href="board/boardModify.php">GO</a><br />
-        <br /><br />
-
-        <h2>BLOG</h2><br>
-        블로그 페이지 : <a href="blog/blog.php">GO</a><br>
-        블로그 글쓰기 페이지 : <a href="blog/blogWrite.php">GO</a><br>
-        <br><br>
-        <h2>테이블 만들기</h2>
-        <br />
-        myMember 테이블 만들기 : <a href="create/createMember.php">GO</a><br />
-        myBoard 테이블 만들기 : <a href="create/createBoard.php">GO</a> <br />
-        myBoard 테이블 데이터 만들기 : <a href="create/createBoardData.php">GO</a><br />
-        myAdminMember 테이블 만들기 : <a href="create/createAdminMember.php">GO</a><br />
-        myBlog 테이블 만들기 : <a href="create/createBlog.php">GO</a><br />
-        myComment 테이블 만들기 : <a href="create/createComment.php">GO</a><br />
-        <br /><br />
-        <h2>관리자 페이지</h2>
-        <br />
-        관리자 회원가입 : <a href="admin/adminJoin.php">GO</a>
-    </body>
+        <ul>
+          <li><a href="#">메인페이지</a></li>
+        </ul>
+      </div>
+    </div>
+  </body>
 </html>
