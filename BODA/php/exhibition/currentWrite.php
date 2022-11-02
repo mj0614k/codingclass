@@ -91,10 +91,10 @@
             </div>
             <p>주소 아니고 장소다... 명심해</p>
         <input type="text" name="Location" id="Location" class="Title" placeholder="36. 장소" required>
-            <input type="text" name="ViewTime" id="ViewTime" class="Title" placeholder="37. 관람시간" required>
+            <textarea type="text" name="ViewTime" id="ViewTime" class="Title" row="2" placeholder="37. 관람시간" required></textarea>
             <input type="text" name="ViewAge" id="ViewAge" class="Title" placeholder="38. 연령" required>
             <input type="text" name="AdLink" id="AdLink" class="Title" placeholder="39. 입장권 링크" required>
-            <input type="text" name="Closed" id="Closed" class="Title" placeholder="40. 휴관일" required>
+            <textarea type="text" name="Closed" id="Closed" class="Title" placeholder="40. 휴관일" required></textarea>
             <input type="text" name="Contact" id="Contact" class="Title" placeholder="41. 연락처(031-1234-1234)" required>
             <input type="text" name="Category1" id="Category1" class="Title" placeholder="42. 카테고리1" required>
             <input type="text" name="Category2" id="Category2" class="Title" placeholder="43. 카테고리2" required>
