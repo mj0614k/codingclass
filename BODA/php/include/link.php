@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="../../html/assets/css/common.css" />
 
 <!-- include -->
+<link rel="stylesheet" href="../../html/assets/css/main.css">
 <link rel="stylesheet" href="../../html/assets/css/header.css" />
 <link rel="stylesheet" href="../../html/assets/css/footer.css">
 
@@ -11,7 +12,6 @@
 <link rel="stylesheet" href="../../html/assets/css/login.css">
 <link rel="stylesheet" href="../../html/assets/css/loginPopup.css">
 <link rel="stylesheet" href="../../html/assets/css//agree.css">
-<link rel="stylesheet" href="../../html/assets/css/main.css">
 
 <!-- exhibition -->
 <link rel="stylesheet" href="../../html/assets/css/current.css">

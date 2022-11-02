@@ -63,7 +63,7 @@
                             <img src="../assets/img/Exhibition/<?=$info['SubImgFile']?>" alt="이미지1">
                         </figure>
                         <h3 class="detail__exhibition__h3"><?=$info['MainTitle']?></h3>
-                        <p class="detail__exhibition__p"><?=$info['MainDesc']?>
+                        <p class="detail__exhibition__p"><?=nl2br($info['MainDesc'])?>
                         <div class="detail__exhibition__img">
                             <figure class="left">
                                 <img src="../assets/img/Exhibition/<?=$info['Artist1WorkPhoto']?>" alt="이미지2">

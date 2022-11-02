@@ -19,7 +19,7 @@
         <a href="#main">콘텐츠 영역 바로가기</a>
         <a href="#footer">푸터 영역 바로가기</a>
     </div>
-<?php include "../include/header.php" ?>
+<?php include "../include/mainheader.php" ?>
 <?php include "../login/login.php" ?>
 <!-- //header -->
 
@@ -223,7 +223,7 @@
         <!-- //maincontent4 -->
 
     </section>
-    <a href="../login/agree.php"><div class="smalieAgree ir">btn</div></a>
+    <a href="../login/agree.php"><div class="smileAgree ir">btn</div></a>
     <div class="topBtn ir">top</div>
 </main>
 <!-- //main -->
