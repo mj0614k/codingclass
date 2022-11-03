@@ -28,7 +28,7 @@
 <h2 class="blind">추천전시 게시판입니다.</h2>
       <div class="upcomming__header container">
         <h2>
-            추천전시 <span>더 많은 BODA Pick 전시를 확인해보세요!</span>
+            예정전시 <span>예정된 전시를 확인할 수 있습니다.</span>
         </h2>
         <div class="current__home">
           <a class="current__home_iconBox" href="../main/main.php">

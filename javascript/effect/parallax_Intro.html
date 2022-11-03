@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="https://webfontworld.github.io/leferi/LeferiBase.css" rel="stylesheet">
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "LeferiBase";
+        font-weight: 400;
+        color: white;
+      }
+      body {
+        background-color: black;
+      }
+      .fixed {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .fixed-left {
+        position: fixed;
+        left: 40%;
+        top: 20%;
+        transform: translate(-50%, -50%);
+      }
+      .fixed-right {
+        position: fixed;
+        right: 30%;
+        top: 80%;
+        transform: translate(-50%, -50%);
+      }
+      .scroll {
+        position: fixed;
+        left: 10px;
+        top: 10px;
+        width: 40px;
+        height: 40px;
+        background: rgba(0, 0, 0, 0.3);
+        text-align: center;
+        line-height: 40px;
+        z-index: 1000;
+      }
+      /* layout */
+      #contents {
+      }
+      #section1 {
+        height: 15000px;
+      }
+      #section2 {
+      }
+      #section3 {
+      }
+      #section4 {
+      }
+      #section5 {
+      }
+      #section6 {
+      }
+      /* sec1 */
+      .sec1_text1 {
+        font-size: 8vw;
+        white-space: nowrap;
+      }
+      .sec1_text2 {
+        font-size: 8vw;
+        white-space: nowrap;
+      }
+      .sec1_text3 {
+        width: 100%;
+        height: 100vh;
+        background-image: url(https://images.unsplash.com/photo-1548284706-24b96b23d6d8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
+        background-size: cover;
+        background-position: center;
+      }
+      .sec1_text4 {
+        color: #fff;
+        line-height: 50vw;
+        text-align: center;
+        font-size: 8vw;
+      }
+      /* sec2 */
+      .sec2_text1 {
+        font-size: 8vw;
+        font-weight: 700;
+        z-index:2;
+      }
+      .sec2_text2 {
+        width: 20%;
+        height: 60vh;
+        background-size: cover;
+        background-position: center;
+        background-image: url(../../assets/ico/icon.jpg);
+        z-index: 1;
+      }
+      .sec2_text3 {
+        font-size: 8vw;
+        font-weight: 700;
+        z-index:2;
+      }
+      .sec2_text4 {
+        width: 60%;
+        height: 50vh;
+        background-size: cover;
+        background-position: center;
+        background-image: url(https://images.unsplash.com/photo-1551966775-a4ddc8df052b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
+      }
+      .sec2_text5 {
+        width: 40%;
+        height: 60vh;
+        background-size: cover;
+        background-position: center;
+        background-image: url(https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80);
+      }
+      .sec2_text6 {
+        width: 40%;
+        height: 60vh;
+        background-size: cover;
+        background-position: center;
+        background-image: url(https://images.unsplash.com/photo-1542000551557-3fd0ad0eb15f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80);
+      }
+      .sec3_text1 {
+        font-size: 6vw;
+        font-weight: 300;
+      }
+      .sec3_text2 {
+        font-size: 6vw;
+        font-weight: 300;
+      }
+      .sec3_text3 {
+        font-size: 6vw;
+        font-weight: 300;
+      }
+      .sec4_text1 {
+        width: 40%;
+        height: 80vh;
+        background-size: cover;
+        background-position: center;
+        background-image: url(../../assets/ico/parallax_01.jpg);
+      }
+      .sec4_text2 {
+        font-size: 6vw;
+        font-weight: 300;
+        white-space: nowrap;
+      }
+      .sec4_text3 {
+        width: 40%;
+        height: 80vh;
+        background-size: cover;
+        background-position: center;
+        background-image: url(../../assets/ico/parallax_02.jpg);
+      }
+      .sec4_text4 {
+        font-size: 6vw;
+        font-weight: 300;
+        white-space: nowrap;
+        z-index: 10;
+      }
+      .sec4_text4 a {
+        text-decoration: underline;
+        text-underline-position: under;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="scroll"></div>
+    <main id="contents">
+      <section id="section1">
+        <div class="sec1">
+          <div class="sec1_text1 fixed" data-0="top: 50%; opacity: 1; transform: translate(-50%, -50%)" data-500="top: 30%; opacity: 0; transform: translate(-50%, -50%)">안녕하세요!</div>
+          <div
+            class="sec1_text2 fixed"
+            data-700="opacity: 0; top: 70%; transform: translate(-50%, -50%) scale(1)"
+            data-1200="opacity: 1; top: 50%; transform: translate(-50%, -50%) scale(1)"
+            data-1700="opacity: 1; top: 50%; transform: translate(-50%, -50%) scale(0)"
+          >
+            김민정입니다!
+          </div>
+          <div
+            class="sec1_text3 fixed"
+            data-1500="width: 0%; height: 0vh; transform: translate(-50%, -50%); opacity:0"
+            data-2500="width: 100%; height: 100vh; transform: translate(-50%, -50%); opacity: 1"
+            data-3200="width: 100%; height: 100vh; transform: translate(-50%, -50%); opacity: 1"
+            data-4800="width: 100%; height: 100vh; transform: translate(-50%, -50%); opacity:0"
+          ></div>
+          <div
+            class="sec1_text4 fixed"
+            data-2200="transform: translate(-50%, -50%) scale(0) rotate(-360deg); opacity: 0;"
+            data-3200="transform: translate(-50%, -50%) scale(1) rotate(0deg); opacity: 1;"
+            data-4200="transform: translate(-50%, -50%) scale(0) rotate(0deg); opacity: 0;"
+          >
+            HELLO!😊
+          </div>
+        </div>
+      </section>
+      <!-- //section1 -->
+      <section id="section2">
+        <div
+          class="sec2_text1 fixed-left"
+          data-4600="left: 0%; transform: translate(-50%, -50%) scale(1) rotate(0deg); opacity: 0;"
+          data-5100="left: 40%; transform: translate(-50%, -50%) scale(1) rotate(0deg); opacity: 1;"
+          data-5800="left: 40%; transform: translate(-50%, -50%) scale(1) rotate(0deg); opacity: 1;"
+          data-6400="left: 80%; transform: translate(-50%, -50%) scale(1) rotate(0deg); opacity: 0;">
+          ABOUT
+        </div>
+        <div
+          class="sec2_text2 fixed"
+          data-4600="top: 40%; transform: translate(-50%, -50%) scale(1) rotate(0deg); opacity: 0;"
+          data-5800="top: 50%; transform: translate(-50%, -50%) scale(1) rotate(0deg); opacity: 1;"
+          data-6400="top: 50%; transform: translate(-50%, -50%) scale(1) rotate(0deg); opacity: 0;">
+        </div>
+        <div
+          class="sec2_text3 fixed-right"
+          data-5200="right: -30%; transform: translate(-50%, -50%) scale(1) rotate(0deg); opacity: 0;"
+          data-5800="right: -0%; transform: translate(-50%, -50%) scale(1) rotate(0deg); opacity: 1;"
+          data-6400="right: 30%; transform: translate(-50%, -50%) scale(1) rotate(0deg); opacity: 0;">
+          MINJEONG
+        </div>
+        <div
+        class="sec2_text4 fixed"
+        data-6500="top: 30%; left: 100%; transform: translate(-50%, -50%) scale(0) rotate(360deg); opacity: 0;"
+        data-7500="top: 30%; left: 60%; transform: translate(-50%, -50%) scale(1) rotate(0deg); opacity: 1;"
+        data-10000="top: 30%; left: 60%; transform: translate(-50%, -50%) scale(1) rotate(0deg); opacity: 1;"
+        data-10500="top: 30%; left: 100%; transform: translate(-50%, -50%) scale(0) rotate(360deg); opacity: 0;">
+        </div>
+        <div class="sec2_text5 fixed"
+        data-7000="top: 40%; left: 0%; transform: translate(-50%, -50%) scale(0) rotate(360deg); opacity: 0;"
+        data-8000="top: 40%; left: 30%; transform: translate(-50%, -50%) scale(1) rotate(0deg); opacity: 1;"
+        data-9500="top: 40%; left: 30%; transform: translate(-50%, -50%) scale(1) rotate(0deg); opacity: 1;"
+        data-10000="top: 40%; left: 0%; transform: translate(-50%, -50%) scale(0) rotate(360deg); opacity: 0;">
+        </div>
+        <div class="sec2_text6 fixed"
+        data-7500="top: 100%; left: 0%; transform: translate(-50%, -50%) scale(0) rotate(360deg); opacity: 0;"
+        data-8500="top: 65%; left: 50%; transform: translate(-50%, -50%) scale(1) rotate(0deg); opacity: 1;"
+        data-9000="top: 65%; left: 50%; transform: translate(-50%, -50%) scale(1) rotate(0deg); opacity: 1;"
+        data-9500="top: 100%; left: 0%; transform: translate(-50%, -50%) scale(0) rotate(360deg); opacity: 0;">
+        </div>
+      </section>
+      <!-- //section2 -->
+      <section id="section3">
+        <div class="sec3_text1 fixed"
+        data-9000="top: 65%; left: 50%; transform: translate(-50%, -50%) scale(0) rotate(00deg); opacity: 0;"
+        data-9500="top: 65%; left: 50%; transform: translate(-50%, -50%) scale(1) rotate(0deg); opacity: 1;"
+        data-11000="top: 65%; left: 50%; transform: translate(-50%, -50%) scale(1) rotate(0deg); opacity: 1;"
+        data-11500="top: 65%; left: 50%; transform: translate(-50%, -50%) scale(1) rotate(0deg); opacity: 0;">
+        
+        유아교육과에서</div>
+        <div class="sec3_text2 fixed"
+        data-9500="top: 40%; left: 30%; transform: translate(-50%, -50%) scale(0) rotate(0deg); opacity: 0;"
+        data-10000="top: 40%; left: 30%; transform: translate(-50%, -50%) scale(1) rotate(0deg); opacity: 1;"
+        data-11000="top: 40%; left: 30%; transform: translate(-50%, -50%) scale(1) rotate(0deg); opacity: 1;"
+        data-11500="top: 40%; left: 30%; transform: translate(-50%, -50%) scale(1) rotate(0deg); opacity: 0;">
+        
+        프론트앤드</div>
+        <div class="sec3_text3 fixed"
+        data-10000="top: 30%; left: 60%; transform: translate(-50%, -50%) scale(0) rotate(0deg); opacity: 0;"
+        data-11000="top: 30%; left: 60%; transform: translate(-50%, -50%) scale(1) rotate(0deg); opacity: 1;"
+        data-11500="top: 30%; left: 60%; transform: translate(-50%, -50%) scale(1) rotate(0deg); opacity: 0;">
+        
+        개발자로</div>
+      </section>
+      <!-- //section3 -->
+      <section id="section4">
+        <div class="sec4_text1 fixed"
+        data-11500="left: 100%; transform: translate(-50%, -50%) scale(1); opacity: 0;"
+        data-12500="left: 50%; transform: translate(-50%, -50%) scale(1); opacity: 1;"
+        data-13500="left: 0%; transform: translate(-50%, -50%) scale(1); opacity: 0;"></div>
+        <div class="sec4_text2 fixed"
+        data-11500="left: 0%; transform: translate(-50%, -50%) scale(0); opacity: 0;"
+        data-12500="left: 50%; transform: translate(-50%, -50%) scale(2); opacity: 1;"
+        data-13500="left: 100%; transform: translate(-50%, -50%) scale(1); opacity: 0;">보여드릴게요</div>
+        <div class="sec4_text3 fixed"
+        data-13500="left: 0%; transform: translate(-50%, -50%) scale(1); opacity: 0;"
+        data-14500="left: 50%; transform: translate(-50%, -50%) scale(1); opacity: 1;"
+        data-15500="left: 100%; transform: translate(-50%, -50%) scale(1); opacity: 0;"></div>
+        <div class="sec4_text4 fixed"
+        data-13500="left: 100%; transform: translate(-50%, -50%) scale(0); opacity: 0;"
+        data-14500="left: 50%; transform: translate(-50%, -50%) scale(2); opacity: 1;"
+        data-15500="left: 0%; transform: translate(-50%, -50%) scale(1); opacity: 0;">포트폴리오</div>
+        <div class="sec4_text4 fixed"
+        data-16000="left: 50%; transform: translate(-50%, -50%) scale(1); opacity: 0;"
+        data-17000="left: 50%; transform: translate(-50%, -50%) scale(1); opacity: 1;"><a href="http://mo0647.dothome.co.kr/" target="_blank">여기에서</a></div>
+      </section>
+      <!-- //section4 -->
+      <section id="section5"></section>
+      <!-- //section5 -->
+      <section id="section6"></section>
+      <!-- //section6 -->
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/skrollr@0.6.26/dist/skrollr.min.js"></script>
+    <script>
+      const s = skrollr.init();
+
+      function scroll() {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        document.querySelector(".scroll").innerHTML = scrollTop;
+        // document.querySelector(".sec1_text1").style.marginLeft = -scrollTop + "px";
+
+        if (scrollTop > 1300) {
+          // document.querySelector(".sec1_text1").style.marginLeft = -scrollTop + "px";
+        }
+
+        requestAnimationFrame(scroll);
+      }
+      scroll();
+    </script>
+  </body>
+</html>

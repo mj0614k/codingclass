@@ -28,7 +28,7 @@
       <h2 class="blind">현재전시 게시판입니다.</h2>
       <div class="current__header container">
         <h2>
-          현재전시 <span>현재 진행 중인 전시를 확인할 수 있습니다.</span>
+          현재전시 <span class="sp">현재 진행 중인 전시를 확인할 수 있습니다.</span><a href="currentWrite.php">지옥의링크</a>
         </h2>
         <div class="current__home">
           <a class="current__home_iconBox" href="../main/main.php">
@@ -38,7 +38,6 @@
         </div>
       </div>
       <section class="current__inner container">
-        <a href="currentWrite.php">지옥의링크</a>
 <?php 
     $ExhibitionSql = "SELECT * FROM myExhibition ORDER BY myExhibitionID DESC";
     $ExhibitionResult = $connect -> query($ExhibitionSql);
@@ -48,8 +47,8 @@
     <article class="current">
     <div class="current__h">
         <div class="current__title"><?=$ExhibitionSql['ExhibitionTitle']?></div>
-        <span class="current__desc__one"><?=$ExhibitionSql['ExhibitionArtistEng']?></span>
-        <span class="current__desc__two"><?=$ExhibitionSql['StartDate']?> - <?=$ExhibitionSql['EndDate']?></span>
+        <p class="current__desc__one"><?=$ExhibitionSql['ExhibitionArtistEng']?></p>
+        <p class="current__desc__two"><?=$ExhibitionSql['StartDate']?> - <?=$ExhibitionSql['EndDate']?></p>
         <a href="detail.php?myExhibitionID=<?=$ExhibitionSql['myExhibitionID']?>" class="current__box">view more</a>
     </div>
     <figure>
