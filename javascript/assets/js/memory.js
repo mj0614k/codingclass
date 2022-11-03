@@ -7,8 +7,8 @@ const memoryCard = memoryWrap.querySelectorAll(".cards li");
 
 let cardOne, cardTwo; // 뒤집는 카드
 let disableDeck = false;
-let matchedCard = 0; // 점수
-let endCardGame = 3; // 기회
+let matchedCard = 16; // 남은 카드
+let endCardGame = 100; // 점수
 
 let sound = [
   "../assets/audio/search_good.m4a",
@@ -50,12 +50,11 @@ function flipCard(e) {
 function matchCards(img1, img2) {
   if (img1 == img2) {
     // 같을 경우(맞은 음악, 이미지 상하 흔들림)
-    matchedCard++;
-    matchedCard++;
+    matchedCard -= 2;
     soundMatch.play();
-    document.querySelector(".memory__card__score").innerHTML = matchedCard;
+    document.querySelector(".memory__card__rest").innerHTML = matchedCard;
 
-    if (matchedCard == 16) {
+    if (matchedCard == 0) {
       soundSuccess.play();
       memoryGameBg.pause();
 
@@ -82,8 +81,8 @@ function matchCards(img1, img2) {
       cardOne = cardTwo = "";
       disableDeck = false;
     }, 1000);
-    endCardGame--;
-    document.querySelector(".memory__card__opp").innerHTML = endCardGame;
+    endCardGame -= 5;
+    document.querySelector(".memory__card__score").innerHTML = endCardGame;
     if (endCardGame == 0) {
       setTimeout(() => {
         memoryGameOver.play();
@@ -104,7 +103,6 @@ function matchCards(img1, img2) {
 function shuffledCard() {
   cardOne = cardTwo = "";
   disableDeck = false;
-  matchedCard = 0;
 
   let arr = [1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8];
   let result = arr.sort(() => (Math.random() > 0.5 ? 1 : -1));
@@ -137,10 +135,10 @@ memoryStart.addEventListener("click", () => {
   memoryMain.style.display = "none";
   memoryGame.style.display = "block";
   memoryGameBg.play();
-  endCardGame = 3;
-  document.querySelector(".memory__card__opp").innerHTML = endCardGame;
-  matchedCard = 0;
-  document.querySelector(".memory__card__score").innerHTML = matchedCard;
+  endCardGame = 100;
+  document.querySelector(".memory__card__rest").innerHTML = matchedCard;
+  matchedCard = 16;
+  document.querySelector(".memory__card__score").innerHTML = endCardGame;
   shuffledCard();
   memoryCard.forEach((card) => {
     card.addEventListener("click", flipCard);
@@ -150,13 +148,13 @@ memoryStart.addEventListener("click", () => {
 document.querySelector(".memoryGameRestart").addEventListener("click", () => {
   memoryGameBg.play();
   shuffledCard();
-  endCardGame = 3;
-  document.querySelector(".memory__card__opp").innerHTML = endCardGame;
-  matchedCard = 0;
-  document.querySelector(".memory__card__score").innerHTML = matchedCard;
   memoryCard.forEach((card) => {
     card.classList.remove("flip");
     card.addEventListener("click", flipCard);
+    endCardGame = 100;
+    document.querySelector(".memory__card__rest").innerHTML = matchedCard;
+    matchedCard = 16;
+    document.querySelector(".memory__card__score").innerHTML = endCardGame;
   });
   document.querySelector(".memoryGameRestart").style.transform = "scale(0)";
 })
