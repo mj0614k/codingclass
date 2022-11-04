@@ -31,13 +31,12 @@
         <div class="notice__header top__container">
             <h2>FAQ</h2>
             <div class="home">
-                <span>
-                    <a href="#">
-                    <svg width="20" height="17" viewBox="0 0 20 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8 17V11H12V17H17V9H20L10 0L0 9H3V17H8Z" fill="#323232"/></svg>
-                    </a>
-                </span>
-                <span>FAQ</span>
+                <a class="home_iconBox" href="../main/main.php"><span class="home_icon"></span></a>
+                <span>NOTICE</span>
+            </div>
+            <div class="menu">
+                <li><a href="notice.php" class="active">NOTICE</a></li>
+                <li><a href="FAQ.php">FAQ</a></li>
             </div>
             <div class="menu">
                 <li><a href="notice.php">NOTICE</a></li>

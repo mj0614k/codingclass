@@ -39,7 +39,7 @@
                 <div class="detail__container">
                     <p class="detail__location"><?=$info['Location']?></p>
                     <h2 class="detail__title"><?=$info['ExhibitionTitle']?></h2>
-                    <p class="detail__date"><?=$info['StartDate']?> - <?=$info['EndDate']?></p>
+                    <p class="detail__date"><?=date('Y-m-d', $info['StartDate'])?> - <?=date('Y-m-d', $info['EndDate'])?></p>
                 </div>
             </div>
             <div class="detail__container">
@@ -106,7 +106,7 @@
                                 <tbody>
                                     <tr>
                                         <td>기간</td>
-                                        <td><?=$info['StartDate']?> ~ <?=$info['EndDate']?></td>
+                                        <td><?=date('Y-m-d', $info['StartDate'])?> ~ <?=date('Y-m-d', $info['EndDate'])?></td>
                                     </tr>
                                     <tr>
                                         <td>장소</td>

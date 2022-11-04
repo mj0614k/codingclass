@@ -1,7 +1,7 @@
 <header id="header" class="header__container">
     <div class="header__area overlay">
         <div class="header__logo">
-            <a href="../main/main.php">B</a>
+            <a href="../main/main.php">BODA</a>
         </div>
         <div class="header__menu">
             <ul>
@@ -10,6 +10,7 @@
                     <ul class="sub blind">
                         <li><a href="../exhibition/current.php">현재전시</a></li>
                         <li><a href="../exhibition/upcomming.php">예정전시</a></li>
+                        <li><a href="../exhibition/last.php">지난전시</a></li>
                     </ul>
                 </li>
             </ul>

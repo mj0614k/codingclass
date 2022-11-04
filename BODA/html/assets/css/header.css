@@ -69,8 +69,8 @@
   margin-top: 10px;
 }
 
-.header__menu .sub li:nth-child(2) a {
-  margin-bottom: 30px;
+.header__menu .sub li:last-child a {
+  margin-bottom: 10px;
 }
 
 .header__menu .sub a:hover {

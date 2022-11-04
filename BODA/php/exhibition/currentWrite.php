@@ -11,8 +11,8 @@
             5. 메인이미지 ( 680 x 340 )    
                 <input type="file" class="" name="MainImgFile" id="MainImgFile" accept=".jpg, .jpeg, .png, .gif">
             </div>
-            <input type="text" name="StartDate" id="StartDate" class="Title" placeholder="6. 전시기간 - 시작날짜 (0000.00.00)" required>
-            <input type="text" name="EndDate" id="EndDate" class="Title" placeholder="7. 전시기간 - 종료날짜 (0000.00.00)" required>
+            <input type="date" name="StartDate" id="StartDate" class="Title" placeholder="6. 전시기간 - 시작날짜 (0000.00.00)" required>
+            <input type="date" name="EndDate" id="EndDate" class="Title" placeholder="7. 전시기간 - 종료날짜 (0000.00.00)" required>
             <div>
                 8. 상세정보 이미지 ( width 1160 )
                 <input type="file" class="" name="SubImgFile" id="SubImgFile" accept=".jpg, .jpeg, .png, .gif" placeholder="8. 상세정보 이미지1(width: 1160)">

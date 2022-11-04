@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS -->
     <?php include "../include/link.php" ?>
-    <title>현재전시 페이지</title>
+    <title>예정전시 페이지</title>
 </head>
 <body>
     <div id="skip">
@@ -25,10 +25,10 @@
 
 <!-- main -->
 <main id="main">
-      <h2 class="blind">현재전시 게시판입니다.</h2>
+      <h2 class="blind">지난전시 게시판입니다.</h2>
       <div class="current__header container">
         <h2>
-          현재전시 <span class="sp">현재 진행 중인 전시를 확인할 수 있습니다.</span><a href="currentWrite.php">지옥의링크</a>
+          지난전시 <span class="sp">지나간 전시를 확인할 수 있습니다.</span><a href="currentWrite.php">지옥의링크</a>
         </h2>
         <div class="current__home">
           <a class="current__home_iconBox" href="../main/main.php">
@@ -39,14 +39,10 @@
       </div>
       <section class="current__inner container">
 <?php 
-
 $today = date("Y-m-d");
 $todaydate = strtotime($today);
 
-// echo $today;
-// echo $todaydate;
-
-$ExhibitionSql = "SELECT * FROM myExhibition WHERE (StartDate <= $todaydate AND EndDate >= $todaydate) ORDER BY myExhibitionID DESC";
+$ExhibitionSql = "SELECT * FROM myExhibition WHERE (EndDate < $todaydate) ORDER BY myExhibitionID DESC";
 $ExhibitionResult = $connect -> query($ExhibitionSql);
 
     forEach($ExhibitionResult as $ExhibitionSql){ ?>

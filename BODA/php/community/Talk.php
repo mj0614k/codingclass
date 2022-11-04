@@ -27,8 +27,12 @@
             <h2>EXHIBITION</h2>
             <h2>Talk</h2>
             <div class="home">
-                <a href="../main/main.php"><span class="home_icon"></span></a>
+                <a class="home_iconBox" href="../main/main.php"><span class="home_icon"></span></a>
                 <span>TALK</span>
+            </div>
+            <div class="menu">
+                <li><a href="Review.php">REVIEW</a></li>
+                <li><a class="active" href="Talk.php">TALK</a></li>
             </div>
         </div>
         <section class="mid__container">

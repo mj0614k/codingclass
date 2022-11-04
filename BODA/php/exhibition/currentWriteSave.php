@@ -7,7 +7,9 @@
     $ExhibitionArtist = $_POST['ExhibitionArtist'];
     $ExhibitionArtistEng = $_POST['ExhibitionArtistEng'];
     $StartDate = $_POST['StartDate'];
+    $startdate = strtotime($StartDate);
     $EndDate = $_POST['EndDate'];
+    $enddate = strtotime($EndDate);
     $MainTitle = $_POST['MainTitle'];
     $MainDesc = $_POST['MainDesc'];
 
@@ -131,7 +133,7 @@
 
 
     $sql = "INSERT INTO myExhibition(ExhibitionTitle, ExhibitionArtist, ExhibitionArtistEng, MainImgFile, StartDate, EndDate, SubImgFile, MainTitle, MainDesc, Artist1Name, Artist1Eng, Artist1WorkName, Artist1WorkPhoto, Artist1WorkDesc, Artist1ModalPhoto, Artist1ModalDesc, Artist1Photo, Artist2Name, Artist2Eng, Artist2WorkName, Artist2WorkPhoto, Artist2WorkDesc, Artist2ModalPhoto, Artist2ModalDesc, Artist2Photo, Artist3Name, Artist3Eng, Artist3WorkName, Artist3WorkPhoto, Artist3WorkDesc, Artist3ModalPhoto, Artist3ModalDesc, Artist3Photo, DetailImgFile, Location, ViewTime, ViewAge, AdLink, Closed, Contact, Category1, Category2)
-    VALUES ('$ExhibitionTitle', '$ExhibitionArtist','$ExhibitionArtistEng','$MainImgFileName','$StartDate','$EndDate','$SubImgFileName','$MainTitle','$MainDesc','$Artist1Name','$Artist1Eng','$Artist1WorkName','$Artist1WorkPhotoName','$Artist1WorkDesc','$Artist1ModalPhotoName','$Artist1ModalDesc','$Artist1PhotoName','$Artist2Name','$Artist2Eng','$Artist2WorkName','$Artist2WorkPhotoName','$Artist2WorkDesc','$Artist2ModalPhotoName','$Artist2ModalDesc','$Artist2PhotoName','$Artist3Name','$Artist3Eng','$Artist3WorkName','$Artist3WorkPhotoName','$Artist3WorkDesc','$Artist3ModalPhotoName','$Artist3ModalDesc','$Artist3PhotoName','$DetailImgFileName','$Location','$ViewTime','$ViewAge','$AdLink','$Closed','$Contact','$Category1','$Category2')";
+    VALUES ('$ExhibitionTitle', '$ExhibitionArtist','$ExhibitionArtistEng','$MainImgFileName','$startdate','$enddate','$SubImgFileName','$MainTitle','$MainDesc','$Artist1Name','$Artist1Eng','$Artist1WorkName','$Artist1WorkPhotoName','$Artist1WorkDesc','$Artist1ModalPhotoName','$Artist1ModalDesc','$Artist1PhotoName','$Artist2Name','$Artist2Eng','$Artist2WorkName','$Artist2WorkPhotoName','$Artist2WorkDesc','$Artist2ModalPhotoName','$Artist2ModalDesc','$Artist2PhotoName','$Artist3Name','$Artist3Eng','$Artist3WorkName','$Artist3WorkPhotoName','$Artist3WorkDesc','$Artist3ModalPhotoName','$Artist3ModalDesc','$Artist3PhotoName','$DetailImgFileName','$Location','$ViewTime','$ViewAge','$AdLink','$Closed','$Contact','$Category1','$Category2')";
 
     $result = $connect -> query($sql);
     $result = move_uploaded_file($MainImgFileTmp, $MainImgFileDir.$MainImgFileName);

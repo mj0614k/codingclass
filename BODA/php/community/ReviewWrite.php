@@ -28,19 +28,18 @@
 
         <main id="main">
             <h2 class="blind">리뷰 게시판 글쓰기 페이지입니다.</h2>
-                <div class="main__header top__container reviewWrite__header">
-                    <h2>TODAY's</h2>
-                    <h2>Review</h2>
-                    <div class="home">
-                    <div class="home">
-                    <a href="../main/main.php"><span class="home_icon"></span></a>
+            <div class="main__header top__container reviewWrite__header">
+                <h2>TODAY's</h2>
+                <h2>Review</h2>
+                <div class="home" >
+                    <a class="home_iconBox" href="../main/main.php"><span class="home_icon"></span></a>
                     <span>REVIEW</span>
-                </div></div>
-                    <div class="menu">
-                        <li><a href="Review.php" class="active">REVIEW</a></li>
-                        <li><a href="Talk.php">TALK</a></li>
-                    </div>
                 </div>
+            </div>
+            <div class="menu">
+                <li><a href="Review.php" class="active">REVIEW</a></li>
+                <li><a href="Talk.php">TALK</a></li>
+            </div>
             <section class="mid__container">
                 <form action="ReviewWriteSave.php" name="ReviewWrite" method="post" enctype="multipart/form-data">
                     <fieldset>

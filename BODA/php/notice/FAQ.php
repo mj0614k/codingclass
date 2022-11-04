@@ -29,7 +29,7 @@
     <div class="notice__header top__container">
         <h2>FAQ</h2>
         <div class="home">
-            <a href="../main/main.php"><span class="home_icon"></span></a>
+            <a class="home_iconBox" href="../main/main.php"><span class="home_icon"></span></a>
             <span>FAQ</span>
         </div>
         <div class="menu">
