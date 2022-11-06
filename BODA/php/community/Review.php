@@ -1,6 +1,14 @@
-<?php
+<?php 
     include "../connect/connect.php";
     include "../connect/session.php";
+
+    if(isset($_GET['page'])){
+        $page = (int) $_GET['page'];
+    } else {
+        $page = 1;
+    }
+    $viewNum = 10;
+    $viewLimit = ($viewNum * $page) - $viewNum;
 ?>
 
 <!DOCTYPE html>

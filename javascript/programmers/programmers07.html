@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로그래머스 1단계</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="../index.html">프로그래머스 1단계</a></h1>
+    </header>
+    <!-- //header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">프로그래머스 1단계 : 자연수 뒤집어 배열로 만들기
+            </h2>
+            <p class="t_desc">코딩테스트 연습 > 
+                연습문제 > 
+                자연수 뒤집어 배열로 만들기
+                </p>
+                <hr>
+            <h2 class="t_tit2">💩 문제 설명</h1>
+            <p class="t_desc">
+                자연수 n을 뒤집어 각 자리 숫자를 원소로 가지는 배열 형태로 리턴해주세요. 예를 들어 n이 12345이면 [5,4,3,2,1]을 리턴합니다.
+            </p>
+            <h2 class="t_tit2">💩 제한 조건</h2>
+            <p class="t_box">
+                ☝️ n은 10,000,000,000이하인 자연수입니다.
+            </p>
+            <h2 class="t_tit2">💩 문제 풀이</h2>
+            <div class="t_code">
+<pre><code class="language-js">function solution(n) {
+    answer = (n + "").split('').reverse();
+    for(i=0; i&lt;answer.length; i++){
+        answer[i] = answer[i]/1
+    }
+    return answer;
+}
+</code></pre></div>
+<p class="t_desc">n을 문자열로 바꾼 뒤, 거꾸로 정렬해 줍니다. 또, 각각의 원소들을 for문으로 다시 숫자로 만들어 주었습니다. 이 부분이 어려워서 머리를 쥐어짜냈네요.
+</p>
+<h2 class="t_tit2">💩 다른 풀이</h2>
+<div class="t_code">
+<pre><code class="language-js">function solution(n) {
+    var arr = [];
+    do {
+        arr.push(n%10);
+        n = Math.floor(n/10);
+    } while (n>0);
+    return arr;
+}
+</code></pre>
+</div>
+<p class="t_desc">
+    수박 문제에서와 같은 천재적인 발상이네요...
+</p>
+<div class="t_code">
+    <pre><code class="language-js">function solution(n) {
+    return (n + '').split('').reverse().map(n => parseInt(n));
+}</code></pre>
+</div>
+<p class="t_desc">다른 풀이들을 살펴보니 이게 정석적인 방법인 것 같습니다.
+    각 원소들을 숫자로 바꿀 때, map을 사용했습니다. 저는 저 map이 너무 어려워요...
+</p>
+<div class="t_link">
+    <a href="https://school.programmers.co.kr/learn/courses/30/lessons/12932">문제 풀어보기</a>
+</div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

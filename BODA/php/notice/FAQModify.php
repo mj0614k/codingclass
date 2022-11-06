@@ -27,9 +27,9 @@
         <!-- //header -->
 
         <main id="main">
-            <h2 class="blind">공지사항 게시판 글쓰기 페이지입니다.</h2>
+            <h2 class="blind">FAQ 게시판 글쓰기 페이지입니다.</h2>
             <div class="notice__header top__container">
-                <h2>NOTICE</h2>
+                <h2>FAQ</h2>
                 <div class="home">
                     <a class="home_iconBox" href="../main/main.php"><span class="home_icon"></span></a>
                     <span>NOTICE</span>
@@ -38,15 +38,15 @@
                     <li><a href="notice.php" class="active">NOTICE</a></li>
                     <li><a href="FAQ.php">FAQ</a></li>
                 </div>
-            </div>  
+            </div>
             <section class="mid__container">
-                <form action="noticeWriteSave.php" name="noticeWrite" method="post" enctype="multipart/form-data">
+                <form action="FAQModifySave.php" name="FAQModify" method="post" enctype="multipart/form-data">
                     <fieldset>
                         <legend class="blind">공지사항 게시글 작성 영역</legend>
                         <div class="mid__icon">
-                            <div class="link">
-                                <input type="file" class="pt" name="noticeFile" id="noticeFile" accept=".jpg, .jpeg, .png, .gif" placeholder="jpg(jpeg), png, gif 파일만 첨부 가능합니다.">
-                                <label for="noticeFile" class="photo">                               </label>
+                        <div class="link">
+                                <input type="file" class="pt" name="FAQFile" id="FAQFile" accept=".jpg, .jpeg, .png, .gif" placeholder="jpg(jpeg), png, gif 파일만 첨부 가능합니다.">
+                                <label for="FAQFile" class="photo"></label>
                             </div>
                             <div class="center__icon">
                                 <div class="center"></div>
@@ -61,22 +61,30 @@
                         <div class="review__write__board">
                             <div class="review__write">
                                 <div class="writeBox">
+                                    <?php
+                                        $myFAQID = $_GET['myFAQID'];
+                                        $sql = "SELECT myFAQID, FAQTitle, FAQSubTitle, FAQContents FROM myFAQ WHERE myFAQID = {$myFAQID}";
+                                        $result = $connect -> query($sql);
+                                        
+                                        if($result){ 
+                                            $info = $result -> fetch_array(MYSQLI_ASSOC);?>
                                     <div>
-                                        <label class="blind" for="noticeTitle">제목</label>
-                                        <input type="text" name="noticeTitle" id="noticeTitle" class="notice__Title" placeholder="제목을 입력해 주세요." required>
+                                        <label class="blind" for="FAQTitle"></label>
+                                        <input type="text" name="FAQTitle" id="FAQTitle" class="notice__Title" value="<?=$info['FAQTitle']?>" placeholder="제목을 입력해 주세요." required>
                                     </div>
                                     <div style="margin-top: 20px;">
-                                        <label class="blind" for="noticeSubTitle">부제목</label>
-                                        <input type="text" name="noticeSubTitle" id="noticeSubTitle" class="notice__SubTitle" placeholder="부제목을 입력해 주세요." required>
+                                        <label class="blind" for="FAQSubTitle"></label>
+                                        <input type="text" name="FAQSubTitle" id="FAQSubTitle" class="notice__SubTitle" value="<?=$info['FAQSubTitle']?>" placeholder="부제목을 입력해 주세요." required>
                                     </div>
                                     <div>
-                                        <label class="blind" for="noticeContents">내용</label>
-                                        <textarea name="noticeContents" id="noticeContents" class="Contents" rows="20" required></textarea>
+                                        <label class="blind" for="FAQContents"></label>
+                                        <textarea name="FAQContents" id="FAQContents" class="Contents" rows="20" required><?=$info['FAQContents']?></textarea>
                                     </div>
+                                        <?php } ?>
                                 </div>
                             </div>
                             <div class="review__writeBtn">
-                                <a id="rListBtn" href="notice.php">목록</a>
+                                <a id="rListBtn" href="FAQ.php">목록</a>
                                 <button id="rSaveBtn" type="submit" value="저장">저장</button>
                             </div>
                         </div>

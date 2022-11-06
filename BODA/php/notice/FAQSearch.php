@@ -1,6 +1,14 @@
 <?php 
     include "../connect/connect.php";
     include "../connect/session.php";
+
+    if(isset($_GET['page'])){
+        $page = (int) $_GET['page'];
+    } else {
+        $page = 1;
+    }
+    $viewNum = 10;
+    $viewLimit = ($viewNum * $page) - $viewNum;
 ?>
 
 <!DOCTYPE html>
@@ -74,12 +82,6 @@
             <div class="notice__board">
                 <p class="board__total">총 <em>
 <?php
-    if(isset($_GET['page'])){
-        $page = (int)$_GET['page'];
-    } else {
-        $page = 1;
-    } 
-
     function msg($alert){
         echo $alert;
     }
@@ -126,9 +128,6 @@
                     </thead>
                     <tbody>
 <?php
-    $viewNum = 10;
-    $viewLimit = ($viewNum * $page) - $viewNum;
-
     $sql = $sql."LIMIT {$viewLimit}, {$viewNum}";
     $result = $connect -> query($sql);
     
@@ -158,12 +157,13 @@
                     </tbody>
                 </table>
             </div>
-            <div class="board__btn">
+            <div class="notice__btn">
 <?php
                 if($_SESSION['myMemberID'] == 24){
                     echo "<a href='FAQWrite.php'>글쓰기</a>";
                 }
 ?>
+            </div>
             </div>
         </div>
         <div class="board__pages">

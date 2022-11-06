@@ -1,6 +1,14 @@
 <?php 
     include "../connect/connect.php";
     include "../connect/session.php";
+
+    if(isset($_GET['page'])){
+        $page = (int) $_GET['page'];
+    } else {
+        $page = 1;
+    }
+    $viewNum = 10;
+    $viewLimit = ($viewNum * $page) - $viewNum;
 ?>
 
 <!DOCTYPE html>
@@ -74,12 +82,6 @@
             <div class="notice__board">
                 <p class="board__total">총 <em>
 <?php
-    if(isset($_GET['page'])){
-        $page = (int)$_GET['page'];
-    } else {
-        $page = 1;
-    } 
-
     function msg($alert){
         echo $alert;
     }
@@ -148,7 +150,7 @@
                 // 내용
                 echo "<tr>";
                 echo "<td colspan='4' class='content blind'><img src=../assets/img/Notice/".$info['NoticeImgFile'].">".$info['NoticeSubTitle'];
-                echo "<p class='box'>".$info['NoticeContents']."</p></td></tr>";
+                echo "<p class='box'>".$info['NoticeContents']."</p><div class='content__Btn'><a class='notice_Del'>삭제</a><a class='notice_Mod'>수정</a></div></td></tr>";
             }
         } else {
             echo "<tr><td colspan='4'>검색된 결과가 없습니다.</td></tr>";
@@ -190,7 +192,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="board__btn">
+            <div class="notice__btn">
 <?php
                 if($_SESSION['myMemberID'] == 24){
                     echo "<a href='noticeWrite.php'>글쓰기</a>";

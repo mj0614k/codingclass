@@ -1,6 +1,14 @@
 <?php 
     include "../connect/connect.php";
     include "../connect/session.php";
+
+    if(isset($_GET['page'])){
+        $page = (int) $_GET['page'];
+    } else {
+        $page = 1;
+    }
+    $viewNum = 10;
+    $viewLimit = ($viewNum * $page) - $viewNum;
 ?>
 
 <!DOCTYPE html>
@@ -97,15 +105,6 @@
                     </thead>
                     <tbody>
 <?php
-    if(isset($_GET['page'])){
-        $page = (int)$_GET['page'];
-    } else {
-        $page = 1;
-    } 
-    
-    $viewNum = 10;
-    $viewLimit = ($viewNum * $page) - $viewNum;
-    
     // 두 개의 테이블 join
     $sql = "SELECT n.myNoticeID, n.NoticeTitle, n.NoticeSubTitle, n.NoticeImgFile, n.NoticeContents, m.myMemberID, n.NoticeregTime FROM myNotice n JOIN myMember m ON(n.myMemberID = m.myMemberID) ORDER BY myNoticeID DESC LIMIT ${viewLimit}, ${viewNum}";
     $result = $connect -> query($sql);
@@ -126,7 +125,13 @@
                 // 내용
                 echo "<tr>";
                 echo "<td colspan='4' class='content blind'><img src=../assets/img/Notice/".$info['NoticeImgFile'].">".$info['NoticeSubTitle'];
-                echo "<p class='box'>".$info['NoticeContents']."</p></td></tr>";
+                echo "<p class='box'>".$info['NoticeContents']."</p>";
+                if($_SESSION['myMemberID'] == 24){
+                    echo "<div class='content__Btn'>";
+                    echo "<a href='noticeDelete.php?myNoticeID=".$info['myNoticeID'].">' class='notice_Del'>삭제</a>";
+                    echo "<a href='noticeModify.php?myNoticeID=".$info['myNoticeID'].">' class='notice_Mod'>수정</a></div>";
+                }
+                echo "</td></tr>";
             }
         } else {
             echo "<tr><td colspan='4'>게시글이 없습니다.</td></tr>";

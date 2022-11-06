@@ -1,6 +1,14 @@
 <?php 
     include "../connect/connect.php";
     include "../connect/session.php";
+
+    if(isset($_GET['page'])){
+        $page = (int) $_GET['page'];
+    } else {
+        $page = 1;
+    }
+    $viewNum = 10;
+    $viewLimit = ($viewNum * $page) - $viewNum;
 ?>
 
 <!DOCTYPE html>
@@ -63,7 +71,7 @@ $ExhibitionResult = $connect -> query($ExhibitionSql);
         <div class="board__pages">
             <ul>
 <?php
-    $sql = "SELECT count(myExhibitionID) FROM myExhibition";
+    $sql = "SELECT count(myExhibitionID) FROM myExhibition WHERE (StartDate > $todaydate)";
     $result = $connect -> query($sql);
     $viewNum = 5;
 

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로그래머스 1단계</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="../index.html">프로그래머스 1단계</a></h1>
+    </header>
+    <!-- //header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">프로그래머스 1단계 : 두 정수 사이의 합
+            </h2>
+            <p class="t_desc">코딩테스트 연습 > 
+                연습문제 > 
+                두 정수 사이의 합
+                </p>
+                <hr>
+            <h2 class="t_tit2">💩 문제 설명</h1>
+            <p class="t_desc">
+                두 정수 a, b가 주어졌을 때 a와 b 사이에 속한 모든 정수의 합을 리턴하는 함수, solution을 완성하세요. 예를 들어 a = 3, b = 5인 경우, 3 + 4 + 5 = 12이므로 12를 리턴합니다.
+            </p>
+            <h2 class="t_tit2">💩 제한 조건</h2>
+            <p class="t_box">
+                ☝️ a와 b가 같은 경우는 둘 중 아무 수나 리턴하세요.<br>
+                ✌️ a와 b는 -10,000,000 이상 10,000,000 이하인 정수입니다.<br>
+                👌 a와 b의 대소관계는 정해져있지 않습니다.
+            </p>
+            <h2 class="t_tit2">💩 문제 풀이</h2>
+            <div class="t_code">
+<pre><code class="language-js">function solution(a, b) {
+    let answer = 0;
+    if(a==b){answer = a}
+    else if (a>b){
+        for(i=b; i&lt;=a; i++){
+            answer += i
+    }
+    } else if (b>a){
+        for(i=a; i&lt;=b; i++){
+            answer += i
+        }
+    }
+    return answer;
+}
+</code></pre></div>
+<p class="t_desc">저는 아는 게 for문 뿐인 말하는 감자인지라... 약간 노가다 작업을 해 주었습니다.
+</p>
+<h2 class="t_tit2">💩 다른 풀이</h2>
+<div class="t_code">
+<pre><code class="language-js">function adder(a, b){
+    var result = 0
+    return (a+b)*(Math.abs(b-a)+1)/2;
+}
+</code></pre>
+</div>
+<p class="t_desc">
+    이게 한 줄 작성이 되네요... 등차수열의 합 공식이라는 것을 알아채고 소름 돋았습니다.
+    천재가 아닐까요?
+</p>
+<div class="t_link">
+    <a href="https://school.programmers.co.kr/learn/courses/30/lessons/12912">문제 풀어보기</a>
+</div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

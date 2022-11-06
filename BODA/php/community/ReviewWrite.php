@@ -35,10 +35,10 @@
                     <a class="home_iconBox" href="../main/main.php"><span class="home_icon"></span></a>
                     <span>REVIEW</span>
                 </div>
-            </div>
-            <div class="menu">
-                <li><a href="Review.php" class="active">REVIEW</a></li>
-                <li><a href="Talk.php">TALK</a></li>
+                <div class="menu">
+                    <li><a href="Review.php" class="active">REVIEW</a></li>
+                    <li><a href="Talk.php">TALK</a></li>
+                </div>
             </div>
             <section class="mid__container">
                 <form action="ReviewWriteSave.php" name="ReviewWrite" method="post" enctype="multipart/form-data">

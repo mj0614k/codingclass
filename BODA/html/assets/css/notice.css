@@ -213,12 +213,37 @@
   margin: 20px 0;
   background: transparent;
   cursor: pointer;
+  font-weight: 300;
   color: #666;
 }
 .notice_Del {
   margin-left: 10px;
   padding-left: 10px;
   border-left: 1px solid #b0b0b0;
+}
+
+/* notice__write */
+.writeBox .notice__Title {
+	border-left: 0;
+	border-right: 0;
+	border-top: 0;
+	border-bottom: 1px solid #d0d0d0;
+	width: 100%;
+	padding: 30px 80px;
+	font-size: 24px;
+	box-sizing: border-box;
+	outline: none;
+}
+.writeBox .notice__SubTitle {
+	border-left: 0;
+	border-right: 0;
+	border-top: 0;
+	border-bottom: 1px solid #d0d0d0;
+	width: 100%;
+	padding: 30px 80px;
+	font-size: 24px;
+	box-sizing: border-box;
+	outline: none;
 }
 
 /* 미디어쿼리 */

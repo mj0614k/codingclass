@@ -28,7 +28,7 @@
 
         <main id="main">
         <h2 class="blind">리뷰 게시글 수정 페이지입니다.</h2>
-            <div class="main__header top__container">
+            <div class="main__header top__container reviewWrite__header">
                 <h2>TODAY's</h2>
                 <h2>Review</h2>
                 <div class="home">

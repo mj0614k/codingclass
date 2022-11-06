@@ -93,7 +93,7 @@
                             <div class="view__btn">
                         <?php if($_SESSION['myMemberID'] == $info['myMemberID']){ ?>
                                 <a href='ReviewModify.php?myReviewID=<?=$myReviewID?>'>수정</a>
-                                <a href='ReviewRemove.php?myReviewID=<?=$myReviewID?>' onclick="alert('정말로 삭제할까요?')">삭제</a>
+                                <a href='ReviewRemove.php?myReviewID=<?=$myReviewID?>' onclick="alert('게시글을 삭제합니다. 😥')">삭제</a>
                                 <a href='Review.php'>목록</a>
                             <? } else { ?>
                                 <a href='Review.php'>목록</a>

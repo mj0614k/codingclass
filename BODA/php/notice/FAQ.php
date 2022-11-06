@@ -1,6 +1,14 @@
 <?php 
     include "../connect/connect.php";
     include "../connect/session.php";
+
+    if(isset($_GET['page'])){
+        $page = (int) $_GET['page'];
+    } else {
+        $page = 1;
+    }
+    $viewNum = 10;
+    $viewLimit = ($viewNum * $page) - $viewNum;
 ?>
 
 <!DOCTYPE html>
@@ -126,7 +134,13 @@
                 // 내용
                 echo "<tr>";
                 echo "<td colspan='4' class='content blind'><img src=../assets/img/FAQ/".$info['FAQImgFile'].">".$info['FAQSubTitle'];
-                echo "<p class='box'>".$info['FAQContents']."</p></td></tr>";
+                echo "<p class='box'>".$info['FAQContents']."</p>";
+                if($_SESSION['myMemberID'] == 24){
+                    echo "<div class='content__Btn'>";
+                    echo "<a href='FAQDelete.php?myFAQID=".$info['myFAQID']."' class='notice_Del'>삭제</a>";
+                    echo "<a href='FAQModify.php?myFAQID=".$info['myFAQID']."' class='notice_Mod'>수정</a></div>";
+                }
+                echo "</td></tr>";
             }
         } else {
             echo "<tr><td colspan='4'>게시글이 없습니다.</td></tr>";

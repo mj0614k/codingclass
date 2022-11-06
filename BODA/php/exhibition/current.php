@@ -1,6 +1,14 @@
 <?php 
     include "../connect/connect.php";
     include "../connect/session.php";
+
+    if(isset($_GET['page'])){
+        $page = (int) $_GET['page'];
+    } else {
+        $page = 1;
+    }
+    $viewNum = 10;
+    $viewLimit = ($viewNum * $page) - $viewNum;
 ?>
 
 <!DOCTYPE html>
@@ -67,7 +75,7 @@ $ExhibitionResult = $connect -> query($ExhibitionSql);
         <div class="board__pages">
             <ul>
 <?php
-    $sql = "SELECT count(myExhibitionID) FROM myExhibition";
+    $sql = "SELECT count(myExhibitionID) FROM myExhibition WHERE (StartDate <= $todaydate AND EndDate >= $todaydate)";
     $result = $connect -> query($sql);
     $viewNum = 5;
 
@@ -92,7 +100,7 @@ $ExhibitionResult = $connect -> query($ExhibitionSql);
         echo "<li><a href='current.php?page=1'><svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <path d='M17.2498 18L11.2498 12L17.2498 6' stroke='#323232' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/>
         <path d='M11.25 18L5.25 12L11.25 6' stroke='#323232' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/>
-        </svg></a></li>";
+        </svg></a></li>"; 
         echo "<li><a href='current.php?page={$prevPage}'><svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <path d='M14.25 6L8.25 12L14.25 18' stroke='#323232' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/>
         </svg></a></li>";

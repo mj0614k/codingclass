@@ -15,8 +15,6 @@
 
 <!-- exhibition -->
 <link rel="stylesheet" href="../../html/assets/css/current.css">
-<link rel="stylesheet" href="../../html/assets/css/upcomming.css">
-<link rel="stylesheet" href="../../html/assets/css/recommended.css">
 <link rel="stylesheet" href="../../html/assets/css/detail.css">
 
 <!-- community -->
