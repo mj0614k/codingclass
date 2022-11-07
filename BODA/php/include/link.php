@@ -11,7 +11,10 @@
 <!-- login -->
 <link rel="stylesheet" href="../../html/assets/css/login.css">
 <link rel="stylesheet" href="../../html/assets/css/loginPopup.css">
-<link rel="stylesheet" href="../../html/assets/css//agree.css">
+<link rel="stylesheet" href="../../html/assets/css/agree.css">
+
+<!-- mypage -->
+<link rel="stylesheet" href="../../html/assets/css/mypage.css">
 
 <!-- exhibition -->
 <link rel="stylesheet" href="../../html/assets/css/current.css">

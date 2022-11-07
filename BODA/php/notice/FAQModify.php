@@ -63,6 +63,7 @@
                                 <div class="writeBox">
                                     <?php
                                         $myFAQID = $_GET['myFAQID'];
+                                        echo $myFAQID;
                                         $sql = "SELECT myFAQID, FAQTitle, FAQSubTitle, FAQContents FROM myFAQ WHERE myFAQID = {$myFAQID}";
                                         $result = $connect -> query($sql);
                                         

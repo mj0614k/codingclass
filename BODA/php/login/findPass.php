@@ -38,7 +38,7 @@
             </ul>
             <div class="find__contents">
                 <form name="findForm" action="findPassSave.php" class="findForm"  method="post">
-                    <fieldset>
+                    <fieldset class="findBox">
                         <legend class="blind">비밀번호 찾기 작성 란</legend>
                         <div class="find-name">
                             <label for="youName">이름</label>

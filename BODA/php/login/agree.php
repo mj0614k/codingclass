@@ -79,7 +79,7 @@
                     <p class="checkbox_p">모든 약관에 동의합니다.</p>
                 </div>
                 <div class="btn_box">
-                    <a href="#" class="Btn">메인으로</a>
+                    <a href="../main/main.php" class="Btn">메인으로</a>
                     <button type="button" class="next_button" onclick="newPage()" disabled="disabled">확인</button>
                 </div>
             </form>

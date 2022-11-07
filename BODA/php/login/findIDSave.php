@@ -26,12 +26,11 @@
     <?php include "../login/login.php" ?>
     <!-- //header -->
     
-    <main id="infoType" class="info__wrap agree">
-        <div class="alert">
-            <div class="modal">
-                <div class="bg"></div>
-                <div class="modalBox">
+    <main id="main" class="login__container">
+                <div class="find__header">
                     <h2>계정 찾기</h2>
+</div>
+<div class="find__contents">
 <?php    
     $youName = $_POST['youName'];
     $youEmail = $_POST['youEmail'];
@@ -44,15 +43,16 @@
         $count = $result -> num_rows;
         if($count == 0){
             echo ("<p>등록된 회원 정보가 없습니다.</p>");
+            echo ("<a href='../main/main.php' class='find-mainBtn'>메인으로</a>");
         } else {
             $info = $result -> fetch_array(MYSQLI_ASSOC);
             echo ("<p>회원님의 아이디는 ".$info['youID']."입니다.</p>");
+            echo ("<a href='../main/main.php' class='find-mainBtn'>메인으로</a>");
         }
     } else {
         echo("<p>에러발생02 - 관리자에게 문의하세요.</p>");
     }
 ?>
-                </div>
             </div>
         </div>
     </main>

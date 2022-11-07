@@ -26,12 +26,11 @@
     <?php include "../login/login.php" ?>
     <!-- //header -->
     
-    <main id="infoType" class="info__wrap agree">
-        <div class="alert">
-            <div class="modal">
-                <div class="bg"></div>
-                <div class="modalBox">
+    <main id="main" class="login__container">
+                <div class="find__header">
                     <h2>계정 찾기</h2>
+                </div>
+                <div class="find__contents">
                     <p>비밀번호가 성공적으로 변경되었습니다.<br>
                         새로운 비밀번호로 로그인해 주세요.</p>
 <?php
@@ -42,10 +41,8 @@
     $sql = "UPDATE myMember SET youPass = '$youPass' WHERE youID = '$youID'";
     $result = $connect -> query($sql);
 ?>
-                    <a href="../main/main.php" class="btn1">메인으로</a>
+                    <a href="../main/main.php" class="find-mainBtn">메인으로</a>
                 </div>
-            </div>
-        </div>
     </main>
     <!-- //main -->
     <?php include "../include/footer.php" ?>

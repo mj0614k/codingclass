@@ -28,12 +28,12 @@
     <?php include "../login/login.php" ?>
     <!-- //header -->
     
-    <main id="infoType" class="info__wrap agree">
-        <div class="alert">
-            <div class="modal">
-                <div class="bg"></div>
-                <div class="modalBox">
-                    <h2>계정 찾기</h2>
+    <main id="main" class="login__container">
+        <div class="find__header">
+            <h2>계정 찾기</h2>
+        </div>
+        <div class="find__ID">
+            <div class="find__contents">
 <?php    
     $youName = $_POST['youName'];
     $youID = $_POST['youID'];
@@ -47,13 +47,14 @@
         $count = $result -> num_rows;
         if($count == 0){
             echo ("<p>등록된 회원 정보가 없습니다.</p>");
+            echo ("<a href='../main/main.php' class='find-mainBtn'>메인으로</a>");
         } else {
             $info = $result -> fetch_array(MYSQLI_ASSOC);
             $_SESSION['youID'] = $youID;
             echo ("<p>새로운 비밀번호로 변경해 주세요.</p>"); ?>
 
             <form name="findForm" action="findPassModify.php" class="findForm"  method="post" onclick="return joinChecks()">
-                <fieldset>
+                <fieldset class="findBox">
                     <legend class="blind">새로운 비밀번호 작성 란</legend>
                     <div class="find-name">
                         <label for="youPass" class="blind">새로운 비밀번호</label>
@@ -73,7 +74,6 @@
         echo("<p>에러발생02 - 관리자에게 문의하세요.</p>");
     }
 ?>
-                </div>
             </div>
         </div>
     </main>

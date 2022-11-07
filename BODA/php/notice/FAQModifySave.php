@@ -32,7 +32,7 @@
             if($fileExtension == "jpg" || $fileExtension == "jpeg" || $fileExtension == "png" || $fileExtension == "gif"){
                 $FAQImgDir = "../assets/img/FAQ/";
                 $FAQImgName = "Img_".time().rand(1,99999)."."."{$fileExtension}";
-                // echo "이미지 파일이 맞네요!";
+                echo "이미지 파일이 맞네요!";
                 // 이미지 파일
                 $sql = "UPDATE myFAQ SET FAQTitle = '{$FAQTitle}', FAQSubTitle = '{$FAQSubTitle}', FAQContents = '{$FAQContents}', FAQImgFile = '{$FAQImgName}' WHERE myFAQID = '{$myFAQID}'";
             } else {
@@ -40,7 +40,7 @@
             }
         }
     } else {
-        // echo "이미지 파일이 첨부되지 않았습니다.";
+        echo "이미지 파일이 첨부되지 않았습니다.";
         $sql = "UPDATE myFAQ SET FAQTitle = '{$FAQTitle}', FAQSubTitle = '{$FAQSubTitle}', FAQContents = '{$FAQContents}' WHERE myFAQID = '{$myFAQID}'";
     }
     //이미지 사이즈 확인
