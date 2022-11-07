@@ -7,13 +7,12 @@ const modalCont = document.querySelector(".modal__cont");
 const iframeCont = document.querySelector(".modal__cont .cont .iframe")
 
 modalBtn.addEventListener("click", () => {
-    modalCont.classList.add("show");
-    modalCont.classList.remove("hide");
-    iframeCont.classList.remove("blind");
+    modalCont.style.display = "flex";
+    modalClose.style.display = "block";
 })
 modalClose.addEventListener("click", () => {
-    modalCont.classList.add("hide");
-    iframeCont.classList.add("blind");
+    modalCont.style.display = "none";
+    modalClose.style.display = "none";
 })
 
 // 탭 메뉴

@@ -70,56 +70,13 @@
       <div class="modal__wrap">
         <div class="modal__btn">소스 보기</div>
         <div class="modal__cont">
-          <div class="modal__box">
-            <div class="title">
-              <span class="dot" aria-label="true"></span>
-            </div>
-            <div class="cont">
-              <div class="active">
-                <div class="iframe blind">
-                  <iframe
-                    src="https://github1s.com/mj0614k/codingclass/blob/main/javascript/effect/gameEffect01.html"
-                  ></iframe>
-                </div>
-              </div>
-              <div>
-                <!-- <div class="iframe">
-                                    <iframe src="https://github1s.com/mj0614k/Coding/blob/main/javascript/effect/gameEffect01.html"></iframe>
-                                </div> -->
-              </div>
-              <div>
-                <!-- <div class="iframe">
-                                    <iframe src="https://github1s.com/mj0614k/Coding/blob/main/javascript/effect/gameEffect01.html"></iframe>
-                                </div> -->
-              </div>
-            </div>
-          </div>
-          <div class="modal__close">
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-              aria-hidden="true"
-              focusable="false"
-            >
-              <path
-                d="M12.5 3.5L3.5 12.5"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              ></path>
-              <path
-                d="M12.5 12.5L3.5 3.5"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              ></path>
-            </svg>
-          </div>
+          <ul>
+            <li class="modal__music"><a targer="_blank" href="https://github.com/mj0614k/codingclass/blob/main/javascript/assets/js/music.js">Music</a></li>
+            <li class="modal__search"><a targer="_blank" href="https://github.com/mj0614k/codingclass/blob/main/javascript/assets/js/searchGame.js">Search</a></li>
+            <li class="modal__memory"><a targer="_blank" href="https://github.com/mj0614k/codingclass/blob/main/javascript/assets/js/memory.js">Memory</a></li>
+          </ul>
         </div>
+        <div class="modal__close">X</div>
       </div>
     </footer>
     <!-- //footer -->
@@ -340,7 +297,7 @@
             </ul>
             <!-- memory__card -->
           </div>
-          <div class="memoryGameRestart">다시하기</div>
+          <div class="memoryGameRestart">닫기</div>
         </div>
       </div>
       <!-- //memory game -->
@@ -1380,7 +1337,16 @@
         document.querySelector(".searchGame").style.display = "none";
         // 시작 버튼 만들기
         searchStart.style.display = "block";
-        searchStart.style.pointerEvents = "none";
+        searchStart.style.pointerEvents = "auto";
+        searchAnswers.innerHTML = "";
+        searchMissAnswers.innerHTML = "";
+
+        timeReamining = 5;  // 시간
+        searchTime.innerText = displayTime();
+        score = 0;
+        searchAnswers.style.display = "none";
+        searchList.style.display = "block";
+        searchScoreNow.innerText = 0;
 
         // 음악 끄기
         searchAudio.pause();
