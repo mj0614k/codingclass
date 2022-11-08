@@ -7,12 +7,16 @@ const modalCont = document.querySelector(".modal__cont");
 const iframeCont = document.querySelector(".modal__cont .cont .iframe")
 
 modalBtn.addEventListener("click", () => {
-    modalCont.style.display = "flex";
-    modalClose.style.display = "block";
+    modalCont.classList.add("show");
+    modalClose.classList.add("show");
+    modalCont.classList.remove("hide");
+    modalClose.classList.remove("hide");
 })
 modalClose.addEventListener("click", () => {
-    modalCont.style.display = "none";
-    modalClose.style.display = "none";
+    modalCont.classList.remove("show");
+    modalClose.classList.remove("show");
+    modalCont.classList.add("hide");
+    modalClose.classList.add("hide");
 })
 
 // 탭 메뉴

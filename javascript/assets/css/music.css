@@ -17,13 +17,14 @@
 .music__wrap {
     z-index: 10;
     display: none;
+    position: absolute;
+    top: 20%;
+    left: 40%;
+    width: 350px;
 }
 .music__inner {
-    width: 450px;
+    width: 350px;
     background: black;
-    position: absolute;
-    right: 100px;
-    top: 100px;
     padding: 0 10px 10px 10px;
 }
 .music__header {

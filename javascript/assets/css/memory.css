@@ -6,8 +6,8 @@
   height: 530px;
   background: black;
   position: absolute;
-  left: 300px;
-  top: 100px;
+  top: 75%;
+  left: 35%;
   border-radius: 20px;
   animation: flicker 1.5s infinite alternate;
   display: flex;

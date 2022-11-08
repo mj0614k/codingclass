@@ -150,6 +150,13 @@ body {
   justify-content: center;
 }
 
+.modal__cont.show {
+
+}
+.modal__cont.hide {
+  display: none;
+}
+
 .modal__cont li {
   list-style: none;
   padding: 10px;
@@ -166,8 +173,8 @@ body {
   width: 30px;
   background-color: black;
   height: 30px;
-  right: 60px;
-  bottom: 255px;
+  right: 25px;
+  bottom: 185px;
   padding: 0.5rem 0.4rem 0.25rem 0.4rem;
   border-radius: 5px;
   cursor: pointer;
@@ -175,7 +182,8 @@ body {
 }
 
 .modal__close:hover {
-  background-color: #292c61;
+  background-color: rgba(255,255,255,0.6);
+  color: black;
 }
 
 /* 모달 애니메이션 */
