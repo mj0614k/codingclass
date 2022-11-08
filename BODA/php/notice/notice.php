@@ -128,8 +128,7 @@
                 echo "<p class='box'>".$info['NoticeContents']."</p>";
                 if($_SESSION['myMemberID'] == 24){
                     echo "<div class='content__Btn'>";
-                    echo "<a href='noticeDelete.php?myNoticeID=".$info['myNoticeID'].">' class='notice_Del'>삭제</a>";
-                    echo "<a href='noticeModify.php?myNoticeID=".$info['myNoticeID'].">' class='notice_Mod'>수정</a></div>";
+                    echo "<a href='noticeDelete.php?myNoticeID=".$info['myNoticeID'].">' class='notice_Mod'>삭제</a></div>";
                 }
                 echo "</td></tr>";
             }

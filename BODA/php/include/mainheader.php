@@ -22,7 +22,7 @@
             </ul>
             <ul>
                 <li>
-                    <a class="main__menu" href="#">ABOUT</a>
+                    <a class="main__menu" href="../notice/notice.php">NOTICE</a>
                 </li>
             </ul>
         </div>
@@ -30,6 +30,7 @@
             <ul class="sub">
                 <li><a href="../exhibition/current.php">현재전시</a></li>
                 <li><a href="../exhibition/upcomming.php">예정전시</a></li>
+                <li><a href="../exhibition/last.php">지난전시</a></li>
             </ul>
             <ul class="sub">
                 <li><a href="#">키워드별 검색</a></li>
@@ -40,8 +41,8 @@
                 <li><a href="../community/Talk.php">TALK</a></li>
             </ul>
             <ul class="sub">
-                <li><a href="#">ABOUT BODA</a></li>
-                <li><a href="#">CONTACT US</a></li>
+                <li><a href="../notice/notice.php">NOTICE</a></li>
+                <li><a href="../notice/FAQ.php">FAQ</a></li>
             </ul>
         </div>
         <div class="header__right">
@@ -70,12 +71,12 @@
             <?php if (isset($_SESSION['myMemberID'])) { ?>
                 <li><a href="../login/logout.php">LOGOUT</a></li>
                 <li><a href="../login/agree.php">SIGN UP</a></li>
-                <li><a href="#">MYPAGE</a></li>
+                <li><a href="../mypage/mypage.php">MYPAGE</a></li>
                 <li><a href="../notice/notice.php">NOTICE</a></li>
             <?php } else { ?>
                 <li><a href="#" id="login__btn">LOGIN</a></li>
                 <li><a href="../login/agree.php">SIGN UP</a></li>
-                <li><a href="#">MYPAGE</a></li>
+                <li><a href="../mypage/mypage.php">MYPAGE</a></li>
                 <li><a href="../notice/notice.php">NOTICE</a></li>
             <?php } ?>
             <div class="mobilemenu">
@@ -84,6 +85,7 @@
                     <ul>
                         <li><a href="../exhibition/current.php">현재전시</a></li>
                         <li><a href="../exhibition/upcomming.php">예정전시</a></li>
+                        <li><a href="../exhibition/last.php">지난전시</a></li>
                     </ul>
                 </li>
                 <li><a href="#">SEARCH</a>
@@ -98,10 +100,10 @@
                         <li><a href="../community/Talk.php">TALK</a></li>
                     </ul>
                 </li>
-                <li><a href="#">ABOUT</a>
+                <li><a href="../notice/notice.php">NOTICE</a>
                     <ul>
-                        <li><a href="#">ABOUT BODA</a></li>
-                        <li><a href="#">CONTACT US</a></li></li>
+                        <li><a href="../notice/notice.php">NOTICE</a></li>
+                        <li><a href="../notice/FAQ.php">FAQ</a></li></li>
                     </ul>
                 </li>
                 <ul class="small">

@@ -137,8 +137,7 @@
                 echo "<p class='box'>".$info['FAQContents']."</p>";
                 if($_SESSION['myMemberID'] == 24){
                     echo "<div class='content__Btn'>";
-                    echo "<a href='FAQDelete.php?myFAQID=".$info['myFAQID']."' class='notice_Del'>삭제</a>";
-                    echo "<a href='FAQModify.php?myFAQID=".$info['myFAQID']."' class='notice_Mod'>수정</a></div>";
+                    echo "<a href='FAQDelete.php?myFAQID=".$info['myFAQID']."' class='notice_Mod'>삭제</a></div>";
                 }
                 echo "</td></tr>";
             }

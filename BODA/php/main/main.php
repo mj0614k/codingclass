@@ -68,7 +68,7 @@
     <section class="mainContent__wrap">
         <h2 class="blind">콘텐츠 영역</h2>
         <!-- mainContent1 -->
-        <article id="mainContent1" class="mainCS__wrap">
+        <article id="mainContent1" class="mainCS__wrap taget item1">
             <h2 class="blind">mainContent1</h2>
             <div class="mainCS__header">
                 <h2>BODA <em>PICK !</em></h2>
@@ -114,7 +114,7 @@
                 <div class="cardScrollbar">
                     <div class="swiper-scrollbar"></div>
                 </div>
-                </div>
+            </div>
             
         </article>
         <!-- //mainContent1 -->
@@ -122,16 +122,16 @@
         <!-- mainContent2 -->
         <article id="mainContent2" class="mainBanner__wrap">
             <h2 class="mainContent2"></h2>
-            <div class="mainB__desc">
+            <div class="mainB__desc item1">
                 <p>Exhibition </p>
                 <p>Information</p>
                 <p>BODA</p>
             </div>
             <div class="mainBanner__btm main__container">
-                <div class="mainBanner__iconBox">
+                <div class="mainBanner__iconBox bannerItem">
                     <div class="mainBanner__icon"></div>
                 </div>
-                <form action="" class="mainSearch__wrap">
+                <form action="" class="mainSearch__wrap bannerItem">
                     <label for="mainSearch" class="blind">검색</label>
                     <div class="mainSearchTop">
                         <p class="click">click !</p>
@@ -146,29 +146,29 @@
         <!-- //mainContent2 -->
 
         <!-- mainContent3 -->
-        <div id="mainContent3" class="mainCard__Wrap">
+        <div id="mainContent3" class="mainCard__Wrap offsetTop">
             <div class="mainCard__inner main__container">
                 <div class="mainCard1">
-                    <figure class="mainCardImg__box">
+                    <figure class="mainCardImg__box item1">
                         <img src="../assets/img/main__card__bg01.jpg" alt="">                        
                     </figure>
-                    <div class="mainCard__desc">
+                    <div class="mainCard__desc item1">
                         <h3>EXHIBITOIN</h3>
                         <p>현재 운영중이거나 예정인 전시를 다양하게 구성하여 빠른 전시 정보를 얻을 수 있습니다.</p>
-                        <div class="mainCard__btn">
+                        <div class="mainCard__btn item1">
                             <a href="#">view more</a>
                         </div>
                     </div>
                 </div>
                 <div class="mainCard2">
-                    <div class="mainCard__desc2">
+                    <div class="mainCard__desc2 item1">
                         <h3>SEARCH</h3>
                         <p>원하는 키워드에 맞게 선택하여 원하는 전시 정보를 쉽고 빠르게 얻을 수 있습니다.</p>
-                        <div class="mainCard__btn">
+                        <div class="mainCard__btn item1">
                             <a href="#">view more</a>
                         </div>
                     </div>
-                    <figure class="mainCardImg__box">
+                    <figure class="mainCardImg__box item1">
                         <img src="../assets/img/main__card__bg02.jpg" alt="">                        
                     </figure>
                 </div>
@@ -177,11 +177,11 @@
         <!-- //mainContent3 -->
         
         <div class="bodaText">
-            <img src="../assets/img/mainBoda.svg" alt="">
+            <div class="bodaTextImg"></div>
         </div>
 
         <!-- mainContent4 -->
-        <article id="mainContent4" class="best__wrap">
+        <article id="mainContent4" class="best__wrap item1">
             <h3 class="blind">maincontent4</h3>
             <div class="mainBest__inner main__container">
                 <div class="mainCS__header">
@@ -195,6 +195,10 @@
                                 <img src="../assets/img/main__reviewCard__bg01.jpg" alt="">                        
                             </a>
                         </figure>
+                        <div class="bestDesc">
+                            <p>반 고흐 일생전 후기</p>
+                            <a href="../community/ReviewView.html">view more</a>
+                        </div>
                     </div>
                     <div class="Best B-two">
                         <figure class="BestImg">
@@ -202,13 +206,21 @@
                                 <img src="../assets/img/main__reviewCard__bg04.jpg" alt="">                        
                             </a>                   
                         </figure>
+                        <div class="bestDesc">
+                            <p>반 고흐 일생전 후기</p>
+                            <a href="../community/ReviewView.html">view more</a>
+                        </div>
                     </div>
                     <div class="Best B-thr">
-                            <figure class="BestImg">
+                        <figure class="BestImg">
                             <a href="#">
                                 <img src="../assets/img/main__reviewCard__bg03.jpg" alt="">                        
                             </a>                  
                         </figure>
+                        <div class="bestDesc">
+                            <p>반 고흐 일생전 후기</p>
+                            <a href="../community/ReviewView.html">view more</a>
+                        </div>
                     </div>
                     <div class="Best B-fou">
                             <figure class="BestImg">
@@ -216,6 +228,10 @@
                                 <img src="../assets/img/main__reviewCard__bg04.jpg" alt="">                        
                             </a>      
                         </figure>
+                        <div class="bestDesc">
+                            <p>반 고흐 일생전 후기</p>
+                            <a href="../community/ReviewView.html">view more</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -232,5 +248,32 @@
 <!-- //footer -->
 <?php include "../include/script.php" ?>
 <!-- //login -->
+<script>
+
+    // cardSlider
+    function scroll(){
+        let scrollTop = document.documentElement.scrollTop || window.scrollY;
+
+        const offset = document.querySelectorAll(".offsetTop");
+        const item1 = document.querySelectorAll(".item1");
+        const bannerItem = document.querySelectorAll(".bannerItem");
+        const item2 = document.querySelectorAll(".item2");
+
+        item1.forEach((el, i) => {
+            if(scrollTop > el.offsetTop - window.innerHeight/2){
+                el.classList.add("show");
+            }
+        });
+
+        bannerItem.forEach((el) => {
+            if(scrollTop > el.offsetTop - window.innerHeight){
+                el.classList.add("show");
+            }
+        });
+
+        requestAnimationFrame(scroll);
+    }
+    scroll();
+</script>
 </body>
 </html>
