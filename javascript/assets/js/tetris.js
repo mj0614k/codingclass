@@ -70,7 +70,9 @@ function init() {
   // 블록 정보를 tempMovingItem에 입력
   tempMovingItem = { ...movingItem };
 
-
+  allCannes.forEach((e) => {
+    e.removeAttribute("class");
+  })
 
   // renderBlocks(); //블록 출력하기
   // moveBlock();
