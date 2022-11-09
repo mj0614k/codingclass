@@ -26,6 +26,8 @@
 .memory__main {
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
+  padding: 80px;
 }
 .memory__main h3 {
   font-size: 56px;
@@ -41,6 +43,14 @@
   border-radius: 10px;
   height: 60px;
   line-height: 60px;
+}
+.memory__main .memory__desc {
+  margin-top: 50px;
+  color: white;
+  line-height: 1.2;
+}
+.memory__main .memory__desc li {
+  margin-bottom: 10px;
 }
 .memory__card {
   padding: 30px;
