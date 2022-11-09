@@ -71,12 +71,12 @@
             <?php if (isset($_SESSION['myMemberID'])) { ?>
                 <li><a href="../login/logout.php">LOGOUT</a></li>
                 <li><a href="../login/agree.php">SIGN UP</a></li>
-                <li><a href="../mypage/mypage.php">MYPAGE</a></li>
+                <li><a href="../mypage/mypage__main.php">MYPAGE</a></li>
                 <li><a href="../notice/notice.php">NOTICE</a></li>
             <?php } else { ?>
                 <li><a href="#" id="login__btn">LOGIN</a></li>
                 <li><a href="../login/agree.php">SIGN UP</a></li>
-                <li><a href="../mypage/mypage.php">MYPAGE</a></li>
+                <li><a href="../mypage/mypage__main.php">MYPAGE</a></li>
                 <li><a href="../notice/notice.php">NOTICE</a></li>
             <?php } ?>
             <div class="mobilemenu">
@@ -110,12 +110,12 @@
                 <?php if (isset($_SESSION['myMemberID'])) { ?>
                     <li><a href="../login/logout.php">LOGOUT</a></li>
                     <li><a href="../login/agree.php">SIGN UP</a></li>
-                    <li><a href="#">MYPAGE</a></li>
+                    <li><a href="../mypage/mypage__main.php">MYPAGE</a></li>
                     <li><a href="../notice/notice.php">NOTICE</a></li>
                 <?php } else { ?>
                     <li><a href="../login/loginmobile.php">LOGIN</a></li>
                     <li><a href="../login/agree.php">SIGN UP</a></li>
-                    <li><a href="#">MYPAGE</a></li>
+                    <li><a href="../mypage/mypage__main.php">MYPAGE</a></li>
                     <li><a href="../notice/notice.php">NOTICE</a></li>
                 <?php } ?>
                 </ul>

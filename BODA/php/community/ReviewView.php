@@ -7,10 +7,11 @@
     $ReviewSql = "SELECT * FROM myReview WHERE myReviewID = {$myReviewID}";
     $ReviewResult = $connect -> query($ReviewSql);
     $ReviewInfo = $ReviewResult -> fetch_array(MYSQLI_ASSOC);
-    $ReviewCommentSql = "SELECT * FROM myReviewComment WHERE myReviewID = {$myReviewID} ORDER BY myReviewCommentID DESC";
+    $ReviewCommentSql = "SELECT r.youNickName, r.ReviewComment, r.ReviewCommentregTime, m.youProfile FROM myReviewComment r JOIN myMember m ON(r.myMemberID = m.myMemberID) WHERE r.myReviewID = {$myReviewID} ORDER BY myReviewCommentID DESC";
     $ReviewCommentResult = $connect -> query($ReviewCommentSql);
     $ReviewCommentInfo = $ReviewResult -> fetch_array(MYSQLI_ASSOC);
-    echo $ReviewCommentInfo;
+
+    $sql = "SELECT r.ReviewTitle, m.myMemberID, m.youNickName, r.ReviewregTime, r.ReviewView, r.ReviewImgFile, r.ReviewContents, r.ReviewLike FROM myReview r JOIN myMember m ON(r.myMemberID = m.myMemberID) WHERE r.myReviewID = {$myReviewID}";
 ?>
 
 <!DOCTYPE html>
@@ -121,7 +122,7 @@
                     <div class="commentsList">
 <?php foreach($ReviewCommentResult as $comment){ ?>
     <div class="comment" id="<?=$comment['myReviewCommentID']?>">
-        <div class="profile">
+        <div class="profile" style="background-image:url(../assets/img/Profile/<?=$comment['youProfile']?>)">
         </div>
         <div class="contents">
             <div class="contents__top">

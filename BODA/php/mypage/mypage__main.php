@@ -67,21 +67,27 @@
             </ul>
           </div>
         </article>
-        <article class="MP__right ">
+        <article class="MP__right">
           <div class="MP__box">
-            <div class="MP__img">
+<?php
+    $myMemberID = $_SESSION['myMemberID'];
+    $Profilesql = "SELECT youProfile FROM myMember WHERE myMemberID = $myMemberID";
+    $Profileresult = $connect -> query($Profilesql);
+    $info = $Profileresult -> fetch_array(MYSQLI_ASSOC);
+?>
+            <div class="MP__img" style="background-image: url(../assets/img/Profile/<?=$info['youProfile']?>)">
             </div>
             <div class="MP__main__title"><?php echo $_SESSION['youNickName'] ?>님<br>어서오세요!</div>
           </div>
           <div class="MP__tit">닉네임 변경</div>
           <fieldset>
             <div class="MP__nickname">
-                <input type="text" class="MP__ID" id="youNickName" name="youNickName" placeholder="닉네임을 입력해 주세요." autocomplete="off"
+                <input type="text" class="MP__ID" id="youNickName" name="youNickName" placeholder="닉네임을 입력해 주세요." autocomplete="off" maxlength="10"
                 required>
-                <a class="MP__btn" onclick="nickChecking()">확인</a>
+                <a class="MP__btn" onclick="nickChecking()">변경</a>
                 <p class="msg" id="youNickNameComment"></p>
             </div>
-        </fieldset>
+          </fieldset>
           <div class="MP__grout"> 
             <div class="MP__review">
               <div class="MP__review__title">
@@ -90,7 +96,6 @@
               <div class="MP__review__desc">
                 <ul>
 <?php
-  $myMemberID = $_SESSION['myMemberID'];
   $myReviewSql = "SELECT * FROM myReview WHERE myMemberID = $myMemberID ORDER BY myReviewID DESC LIMIT 5";
   $myReviewSqlResult = $connect -> query($myReviewSql);
 
@@ -118,9 +123,23 @@
             </div>
           </div>
         </article>
-
       </div>
     </section>
+    <div class="talk__modify__modal" style='display: none;'>
+            <form action="mypage__profileModifySave.php" name="ProfileFile" method="post" enctype="multipart/form-data">
+                <fieldset>
+                    <legend class="blind">프로필 사진 수정 영역</legend>
+                    <span class="mark__modify"></span>
+                    <h2>변경할 프로필 사진을 첨부해 주세요. 😊</h2>
+                    <label for="ProfileFile">첨부 파일</label>
+                    <input type="file" class="file" name="ProfileFile" id="ProfileFile" accept=".jpg, .jpeg, .png, .gif" placeholder="jpg(jpeg), png, gif 파일만 첨부 가능합니다.">
+                    <div class="TalkModifyBtn">
+                        <button id="ProfileModifyCancel">취소</button>
+                        <button id="ProfileModifyButton">수정</button>
+                    </div>
+                </fieldset>
+            </form>
+    </div>
   </main>
   <!-- //main -->
 <!-- //main -->
@@ -133,14 +152,16 @@
 <?php include "../include/script.php" ?>
 <!-- //login -->
 <script>
+
+    let nickCheck = false;
     function nickChecking(){
         let youNickName = $("#youNickName").val();
         if(youNickName == null || youNickName == ''){
-            $("#youNickNameComment").text("* 닉네임을 입력해 주세요.")
+            $("#youNickNameComment").text("* 닉네임을 입력해 주세요.");
         }else {
             $.ajax({
                 type : "POST",
-                url : "mypage.php",
+                url : "mypage__NickNameModify.php",
                 data : {"youNickName" : youNickName, "type" : "nickCheck"},
                 dataType : "json",
                 success : function(data){
@@ -160,6 +181,36 @@
             })
         }
     }
+
+    $(".MP__img").click(function(e) {
+        e.preventDefault();
+        $(".talk__modify__modal").fadeIn(500);
+    })
+
+    // 수정 클릭하고 취소
+    $("#ProfileModifyCancel").click(function(e) {
+            e.preventDefault();
+            $(".talk__modify__modal").fadeOut(500);
+        });
+        // 수정 클릭하고 수정
+        $("#ProfileModifyButton").click(function(e) {
+            // e.preventDefault();
+            // if($("#ProfileModifyMsg").val() == ''){
+            //     alert("파일이 첨부되지 않았습니다.");
+            //     $("#ProfileModifyMsg").focus();
+            // }
+            // location.href = "ProfileModify.php";
+
+            // $.ajax({
+            //     url: "ProfileModify.php",
+            //     method: "POST",
+            //     dataType: "json",
+            //     data: {
+            //         "ProfileModifyMsg": $("#ProfileModifyMsg").val(),
+            //         "commentID": commentID
+            //     }
+            // })
+        });
 </script>
 </body>
 </html>

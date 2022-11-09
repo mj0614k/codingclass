@@ -68,6 +68,19 @@
     width: 250px;
     height: 250px;
     border-radius: 50%;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.MP__img::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 250px;
+    background-color: rgba(255,255,255,0.3);
     background: url(../img/add.svg) center center no-repeat;
     cursor: pointer;
 }
@@ -133,15 +146,15 @@
     margin-right: 10px;
 }
 
-.MP__review__title::after {
+/* .MP__review__title::after {
     display: inline-block;
-    width: 15px;
-    height: 15px;
-    margin-left: 200px;
-    background: url(../img/mypage_icon.png) center center no-repeat;
+    width: 16px;
+    height: 16px;
+    background: url(../img/main__icon.png) center center no-repeat;
     content: "";
-    vertical-align: middle;
-}
+    float: right;
+    padding: 5px 0 5px;
+} */
 
 .MP__review__desc ul li {
     font-size: 14px;
@@ -167,16 +180,32 @@
 }
 
 .MP__talk__title::before {
-    content: url(../img/add01.png);
+    content: url(../img/add02.png);
     margin-right: 10px;
 }
 
-.MP__talk__title::after {
+/* .MP__talk__title::after {
     display: inline-block;
-    width: 15px;
-    height: 15px;
-    margin-left: 245px;
+    width: 16px;
+    height: 16px;
     background: url(../img/mypage_icon.png) center center no-repeat;
     content: "";
-    vertical-align: middle;
+    float: right;
+    padding: 5px 0 5px;
+} */
+
+.talk__modify__modal input.file {
+  width: auto;
+  height: 70px;
+  font-weight: 300;
+  border-radius: 10px;
+  line-height: 1;
+  margin-bottom: 15px;
+  padding-top: 20px;
+  padding-left: 30px;
+  color: #323232;
+  border: 1px solid #b0b0b0;
+  box-sizing: border-box;
+  font-size: 18px;
+  font-family: "SCoreDream";
 }

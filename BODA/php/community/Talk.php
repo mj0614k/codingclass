@@ -68,7 +68,7 @@
     $viewLimit = ($viewNum * $page) - $viewNum;
 
     // 두 개의 테이블 join
-    $sql = "SELECT t.myTalkID, m.myMemberID, m.youNickName, t.TalkContents, t.TalkregTime FROM myTalk t JOIN myMember m ON(t.myMemberID = m.myMemberID) ORDER BY myTalkID DESC LIMIT ${viewLimit}, ${viewNum}";
+    $sql = "SELECT t.myTalkID, m.myMemberID, m.youNickName, m.youProfile, t.TalkContents, t.TalkregTime FROM myTalk t JOIN myMember m ON(t.myMemberID = m.myMemberID) ORDER BY myTalkID DESC LIMIT ${viewLimit}, ${viewNum}";
     $result = $connect -> query($sql);
 
     if($result){
@@ -77,7 +77,7 @@
         if($count > 0){
             for($i=1; $i <= $count; $i++){
                 $info = $result -> fetch_array(MYSQLI_ASSOC);
-                echo "<tr id='".$info['myTalkID']."'><td class='comment comment_1'><div class='profile'></div><div class='contents'><div class='contents__top'>";
+                echo "<tr id='".$info['myTalkID']."'><td class='comment comment_1'><div class='profile' style='background-image:url(../assets/img/Profile/".$info['youProfile'].")'></div><div class='contents'><div class='contents__top'>";
                 echo "<p class='name'><span class='ir'>작성자</span><span>".$info['youNickName']."</span></p>";
                 echo "<div class='contents__topBox'><p class='date'><span class='ir'>작성일</span><span>| ".date('Y-m-d H:i', $info['TalkregTime'])."</span></p>";
                 if($_SESSION['myMemberID'] == $info['myMemberID']){
