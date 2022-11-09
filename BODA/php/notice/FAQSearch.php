@@ -231,9 +231,9 @@
     //     MobileTableTd.forEach((e) => {e.innerHTML = "";});
     // }
 
-    let NoticeImg = document.querySelectorAll(".board__table .notice__table tbody .content img");
+    let NoticeImg = document.querySelectorAll(".notice__table tbody .content img");
     NoticeImg.forEach(e => {
-        if(e.getAttribute("src") == "../assets/img/Notice/Img_default.jpg"){
+        if(e.getAttribute("src") == "../assets/img/FAQ/Img_default.jpg"){
             e.style.display = "none";
         }
     });

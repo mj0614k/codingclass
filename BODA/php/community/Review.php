@@ -99,7 +99,7 @@
                         <?php forEach($ReviewBestResult as $ReviewBestSql){ ?>
                             <div class="swiper-slide">
                                 <div class="card">
-                                    <figure>
+                                    <figure class="cardImgBoxMobile">
                                         <img src="../assets/img/Review/<?=$ReviewBestSql['ReviewImgFile']?>" alt="review01" />
                                     </figure>
                                     <div class="card__desc">
@@ -353,5 +353,19 @@
         <!-- //footer -->
 
         <?php include "../include/script.php" ?>
+        <script>
+            let BestImgMobile = document.querySelectorAll(".card .cardImgBoxMobile img");
+            BestImgMobile.forEach((e) => {
+                if(e.getAttribute("src") == "../assets/img/Review/Img_default.jpg"){
+                    e.setAttribute("src", "../assets/img/Review/img_boda.jpg")
+                }
+            })
+            let BestImg = document.querySelectorAll(".card .cardImgBox img");
+            BestImg.forEach((e) => {
+                if(e.getAttribute("src") == "../assets/img/Review/Img_default.jpg"){
+                    e.setAttribute("src", "../assets/img/Review/img_boda.jpg")
+                }
+            })
+        </script>
     </body>
 </html>

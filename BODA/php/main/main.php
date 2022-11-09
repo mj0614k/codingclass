@@ -12,6 +12,23 @@
     <!-- CSS -->
     <?php include "../include/link.php" ?>
     <title>BODA 사이트 만들기</title>
+    <style>
+        .BestImg {
+            position: relative;
+            width: 300px;
+            height: 300px;
+        }
+        .BestImg img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: translate(50, 50);
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            margin: auto;
+        }
+    </style>
 </head>
 <body>
     <div id="skip">
@@ -189,50 +206,23 @@
                     <p>BODA의 다양한 전시 리뷰를 확인해보세요!</p>
                 </div>
                 <div class="MainBest">
-                    <div class="Best B-one">
-                        <figure class="BestImg">
-                            <a href="#">
-                                <img src="../assets/img/main__reviewCard__bg01.jpg" alt="">                        
-                            </a>
-                        </figure>
-                        <div class="bestDesc">
-                            <p>반 고흐 일생전 후기</p>
-                            <a href="../community/ReviewView.html">view more</a>
-                        </div>
-                    </div>
-                    <div class="Best B-two">
-                        <figure class="BestImg">
-                            <a href="#">
-                                <img src="../assets/img/main__reviewCard__bg04.jpg" alt="">                        
-                            </a>                   
-                        </figure>
-                        <div class="bestDesc">
-                            <p>반 고흐 일생전 후기</p>
-                            <a href="../community/ReviewView.html">view more</a>
-                        </div>
-                    </div>
-                    <div class="Best B-thr">
-                        <figure class="BestImg">
-                            <a href="#">
-                                <img src="../assets/img/main__reviewCard__bg03.jpg" alt="">                        
-                            </a>                  
-                        </figure>
-                        <div class="bestDesc">
-                            <p>반 고흐 일생전 후기</p>
-                            <a href="../community/ReviewView.html">view more</a>
-                        </div>
-                    </div>
-                    <div class="Best B-fou">
-                            <figure class="BestImg">
-                            <a href="#">
-                                <img src="../assets/img/main__reviewCard__bg04.jpg" alt="">                        
-                            </a>      
-                        </figure>
-                        <div class="bestDesc">
-                            <p>반 고흐 일생전 후기</p>
-                            <a href="../community/ReviewView.html">view more</a>
-                        </div>
-                    </div>
+                <?php
+    $ReviewBestSql = "SELECT r.myReviewID, r.ReviewTitle, m.youNickName, r.ReviewImgFile, r.ReviewregTime, r.ReviewView FROM myReview r JOIN myMember m ON(r.myMemberID = m.myMemberID) ORDER BY ReviewView DESC LIMIT 4";
+    $ReviewBestResult = $connect -> query($ReviewBestSql);
+
+    forEach($ReviewBestResult as $ReviewBestSql){ ?>
+        <div class="Best">
+            <figure class="BestImg">
+                <a href="../community/ReviewView.php?myReviewID=<?=$ReviewBestSql['myReviewID']?>">
+                    <img src="../assets/img/Review/<?=$ReviewBestSql['ReviewImgFile']?>" alt="베스트 리뷰 이미지">                        
+                </a>
+            </figure>
+            <div class="bestDesc">
+                <p><?=$ReviewBestSql['ReviewTitle']?></p>
+                <a href="ReviewView.php?myReviewID=<?=$ReviewBestSql['myReviewID']?>">view more</a>
+            </div>
+        </div>
+<?php } ?>
                 </div>
             </div>
         </article>
@@ -274,6 +264,13 @@
         requestAnimationFrame(scroll);
     }
     scroll();
+
+    let mainBestImg = document.querySelectorAll(".Best .BestImg a img");
+    mainBestImg.forEach((e) => {
+        if(e.getAttribute("src") == "../assets/img/Review/Img_default.jpg"){
+            e.setAttribute("src", "../assets/img/Review/img_boda.jpg")
+        }
+    })
 </script>
 </body>
 </html>
