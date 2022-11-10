@@ -232,7 +232,7 @@
     }
     
     // 다음 페이지, 마지막 페이지 이동
-    if($page != $endPage){
+    if($page != $endPage && $page != 1){
         $nextPage = $page + 1;
         echo "<li><a href='noticeSearch.php?page={$nextPage}&searchKeyword={$searchKeyword}&searchOption={$searchOption}'><svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M9 18L15 12L9 6' stroke='#323232' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg></a></li>";
         echo "<li><a href='noticeSearch.php?page={$NoticeCount}&searchKeyword={$searchKeyword}&searchOption={$searchOption}'><svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M6.75024 6L12.7502 12L6.75024 18' stroke='#323232' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/><path d='M12.75 6L18.75 12L12.75 18' stroke='#323232' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg></a></li>";

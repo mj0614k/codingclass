@@ -1,6 +1,5 @@
-<div class="mainEffect">
 <header id="header" class="header__container">
-    <div class="header__area overlay headerEffect">
+    <div class="header__area overlay">
         <div class="header__logo">
             <a href="../main/main.php">BODA</a>
         </div>
@@ -8,41 +7,39 @@
             <ul>
                 <li>
                     <a class="main__menu" href="../exhibition/current.php">EXHIBITION</a>
+                    <ul class="sub blind">
+                        <li><a href="../exhibition/current.php">현재전시</a></li>
+                        <li><a href="../exhibition/upcomming.php">예정전시</a></li>
+                        <li><a href="../exhibition/last.php">지난전시</a></li>
+                    </ul>
                 </li>
             </ul>
             <ul>
                 <li>
-                    <a class="main__menu" href="../">SEARCH</a>
+                    <a class="main__menu" href="../search/search01.php">SEARCH</a>
+                    <ul class="sub blind">
+                        <li><a href="../search/search01.php">키워드별 검색</a></li>
+                        <li><a href="#">직접 검색</a></li>
+                    </ul>
                 </li>
             </ul>
             <ul>
                 <li>
                     <a class="main__menu" href="../community/Review.php">COMMUNITY</a>
+                    <ul class="sub blind">
+                        <li><a href="../community/Review.php">REVIEW</a></li>
+                        <li><a href="../community/Talk.php">TALK</a></li>
+                    </ul>
                 </li>
             </ul>
             <ul>
                 <li>
-                    <a class="main__menu" href="../notice/notice.php">ABOUT</a>
+                    <a class="main__menu" href="../notice/notice.php">NOTICE</a>
+                    <ul class="sub blind">
+                        <li><a href="../notice/notice.php">NOTICE</a></li>
+                        <li><a href="../notice/FAQ.php">FAQ</a></li>
+                    </ul>
                 </li>
-            </ul>
-        </div>
-        <div class="subMenu hide">
-            <ul class="sub">
-                <li><a href="../exhibition/current.php">현재전시</a></li>
-                <li><a href="../exhibition/upcomming.php">예정전시</a></li>
-                <li><a href="../exhibition/last.php">지난전시</a></li>
-            </ul>
-            <ul class="sub">
-                <li><a href="#">키워드별 검색</a></li>
-                <li><a href="#">직접 검색</a></li>
-            </ul>
-            <ul class="sub">
-                <li><a href="../community/Review.php">REVIEW</a></li>
-                <li><a href="../community/Talk.php">TALK</a></li>
-            </ul>
-            <ul class="sub">
-                <li><a href="../notice/notice.php">NOTICE</a></li>
-                <li><a href="../notice/FAQ.php">FAQ</a></li>
             </ul>
         </div>
         <div class="header__right">
@@ -54,43 +51,36 @@
             <svg class="ham" width="35" height="32" viewBox="0 0 40 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d ="M6.25 5.94922H33.75M6.25 15.8979H33.7 8M6.25 25.8467H33.75"stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-
             <svg class="ham__close blind" width="20" height="23" viewBox="0 0 29 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1 31L27.9483 1M27.9483 31L1 1" stroke="#323232" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
-
             <svg class="ham__mobile" width="35" height="32" viewBox="0 0 40 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d ="M6.25 5.94922H33.75M6.25 15.8979H33.7 8M6.25 25.8467H33.75"stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-
             <svg class="ham__mobile__close blind" width="20" height="23" viewBox="0 0 29 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1 31L27.9483 1M27.9483 31L1 1" stroke="#323232" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
-
             <div class="smallmenu blind">
             <?php if (isset($_SESSION['myMemberID'])) { ?>
                 <li><a href="../login/logout.php">LOGOUT</a></li>
-                <li><a href="../login/agree.php">SIGN UP</a></li>
                 <li><a href="../mypage/mypage__main.php">MYPAGE</a></li>
-                <li><a href="../notice/notice.php">NOTICE</a></li>
             <?php } else { ?>
                 <li><a href="#" id="login__btn">LOGIN</a></li>
                 <li><a href="../login/agree.php">SIGN UP</a></li>
-                <li><a href="../mypage/mypage__main.php">MYPAGE</a></li>
-                <li><a href="../notice/notice.php">NOTICE</a></li>
             <?php } ?>
+            </div>
             <div class="mobilemenu">
                 <li>
                     <a href="../exhibition/current.php">EXHIBITION</a>
                     <ul>
                         <li><a href="../exhibition/current.php">현재전시</a></li>
-                        <li><a href="../exhibition/upcomming.php">예정전시</a></li>
+                        <li><a href="../exhibition/recommended.php">예정전시</a></li>
                         <li><a href="../exhibition/last.php">지난전시</a></li>
                     </ul>
                 </li>
-                <li><a href="#">SEARCH</a>
+                <li><a href="../search/search01.php">SEARCH</a>
                     <ul>
-                        <li><a href="#">키워드별 검색</a></li>
+                        <li><a href="../search/search01.php">키워드별 검색</a></li>
                         <li><a href="#">직접 검색</a></li>
                     </ul>
                 </li>
@@ -109,18 +99,13 @@
                 <ul class="small">
                 <?php if (isset($_SESSION['myMemberID'])) { ?>
                     <li><a href="../login/logout.php">LOGOUT</a></li>
-                    <li><a href="../login/agree.php">SIGN UP</a></li>
                     <li><a href="../mypage/mypage__main.php">MYPAGE</a></li>
-                    <li><a href="../notice/notice.php">NOTICE</a></li>
                 <?php } else { ?>
                     <li><a href="../login/loginmobile.php">LOGIN</a></li>
                     <li><a href="../login/agree.php">SIGN UP</a></li>
-                    <li><a href="../mypage/mypage__main.php">MYPAGE</a></li>
-                    <li><a href="../notice/notice.php">NOTICE</a></li>
                 <?php } ?>
                 </ul>
             </div>
         </div>
     </div>
 </header>
-                </div>

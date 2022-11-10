@@ -55,7 +55,9 @@
     forEach($ReviewBestResult as $ReviewBestSql){ ?>
         <div class="card">
             <figure class="cardImgBox">
-                <img src="../assets/img/Review/<?=$ReviewBestSql['ReviewImgFile']?>">
+                <a href="ReviewView.php?myReviewID=<?=$ReviewBestSql['myReviewID']?>">
+                    <img src="../assets/img/Review/<?=$ReviewBestSql['ReviewImgFile']?>">
+                </a>
             </figure>
             <div class="card__desc">
                 <h3><a href="ReviewView.php?myReviewID=<?=$ReviewBestSql['myReviewID']?>"><?=$ReviewBestSql['ReviewTitle']?></a></h3>
@@ -100,7 +102,9 @@
                             <div class="swiper-slide">
                                 <div class="card">
                                     <figure class="cardImgBoxMobile">
-                                        <img src="../assets/img/Review/<?=$ReviewBestSql['ReviewImgFile']?>" alt="review01" />
+                                        <a href="ReviewView.php?myReviewID=<?=$ReviewBestSql['myReviewID']?>">
+                                            <img src="../assets/img/Review/<?=$ReviewBestSql['ReviewImgFile']?>" alt="review01" />
+                                        </a>
                                     </figure>
                                     <div class="card__desc">
                                         <h3><a href="ReviewView.php?myReviewID=<?=$ReviewBestSql['myReviewID']?>"><?=$ReviewBestSql['ReviewTitle']?></a></h3>

@@ -1,41 +1,18 @@
-// // header hover
-// const header = document.querySelector(".header__menu .main__menu");
-// const submenu = document.querySelectorAll(".header__menu ul li .subMenu");
+// header hover
+const header = document.querySelector(".header__menu");
+const submenu = document.querySelectorAll(".header__menu ul li .sub");
 
-// header.addEventListener("mouseover", () => {
-//     submenu.forEach((el) => {
-//         el.classList.remove("blind");
-//         el.style.transform = "translateY(0px)";
-//     });
-// });
-// header.addEventListener("mouseout", () => {
-//     submenu.forEach((el) => {
-//         el.classList.add("blind");
-//         el.style.transform = "translateY(-30px)";
-//     });
-// });
-
-//mainHeaderEffect Main header hover
-const header1 = document.querySelectorAll(".header__menu .main__menu");
-const submenu1 = document.querySelector(".headerEffect .subMenu");
-
-header1.forEach((el) => {
-    el.addEventListener("mouseover", () => {
-        submenu1.classList.remove("hide");
+header.addEventListener("mouseover", () => {
+    submenu.forEach((el) => {
+        el.classList.remove("blind");
+        el.style.transform = "translateY(0px)";
     });
 });
-
-header1.forEach((el) => {
-    el.addEventListener("mouseleave", () => {
-        submenu1.classList.add("hide");
+header.addEventListener("mouseout", () => {
+    submenu.forEach((el) => {
+        el.classList.add("blind");
+        el.style.transform = "translateY(-30px)";
     });
-});
-
-submenu1.addEventListener("mouseover", () => {
-    submenu1.classList.remove("hide");
-});
-submenu1.addEventListener("mouseleave", () => {
-    submenu1.classList.add("hide");
 });
 
 // smallmenu
@@ -80,3 +57,22 @@ MBHamClose.addEventListener("click", () => {
     bodyScroll.classList.remove("scroll");
 });
 
+//search
+// const searchBtn = document.querySelector(".header__right .search");
+// let i = 0;
+
+const taget = document.querySelector('.mainContent__wrap .taget');
+const mHeaderArea2 = document.querySelector(".headerEffect");
+
+function headerScroll(){
+    //스크롤 탑 값 구하기
+    let scrollTop = document.documentElement.scrollTop || window.scrollY;
+
+    if(scrollTop >= taget.offsetTop - 50){
+        mHeaderArea2.style.background = "#fff";
+    } else {
+        mHeaderArea2.style.background = "transparent";
+    }
+    requestAnimationFrame(headerScroll);
+  }
+  headerScroll();

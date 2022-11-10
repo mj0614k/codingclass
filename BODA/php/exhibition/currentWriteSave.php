@@ -136,20 +136,4 @@
     VALUES ('$ExhibitionTitle', '$ExhibitionArtist','$ExhibitionArtistEng','$MainImgFileName','$startdate','$enddate','$SubImgFileName','$MainTitle','$MainDesc','$Artist1Name','$Artist1Eng','$Artist1WorkName','$Artist1WorkPhotoName','$Artist1WorkDesc','$Artist1ModalPhotoName','$Artist1ModalDesc','$Artist1PhotoName','$Artist2Name','$Artist2Eng','$Artist2WorkName','$Artist2WorkPhotoName','$Artist2WorkDesc','$Artist2ModalPhotoName','$Artist2ModalDesc','$Artist2PhotoName','$Artist3Name','$Artist3Eng','$Artist3WorkName','$Artist3WorkPhotoName','$Artist3WorkDesc','$Artist3ModalPhotoName','$Artist3ModalDesc','$Artist3PhotoName','$DetailImgFileName','$Location','$ViewTime','$ViewAge','$AdLink','$Closed','$Contact','$Category1','$Category2')";
 
     $result = $connect -> query($sql);
-    $result = move_uploaded_file($MainImgFileTmp, $MainImgFileDir.$MainImgFileName);
-    $result = move_uploaded_file($SubImgFileTmp, $SubImgFileDir.$SubImgFileName);
-
-    $result = move_uploaded_file($Artist1WorkPhotoTmp, $Artist1WorkPhotoDir.$Artist1WorkPhotoName);
-    $result = move_uploaded_file($Artist1ModalPhotoTmp, $Artist1ModalPhotoDir.$Artist1ModalPhotoName);
-    $result = move_uploaded_file($Artist1PhotoTmp, $Artist1PhotoDir.$Artist1PhotoName);
-
-    $result = move_uploaded_file($Artist2WorkPhotoTmp, $Artist2WorkPhotoDir.$Artist2WorkPhotoName);
-    $result = move_uploaded_file($Artist2ModalPhotoTmp, $Artist2ModalPhotoDir.$Artist2ModalPhotoName);
-    $result = move_uploaded_file($Artist2PhotoTmp, $Artist2PhotoDir.$Artist2PhotoName);
-
-    $result = move_uploaded_file($Artist3WorkPhotoTmp, $Artist3WorkPhotoDir.$Artist3WorkPhotoName);
-    $result = move_uploaded_file($Artist3ModalPhotoTmp, $Artist3ModalPhotoDir.$Artist3ModalPhotoName);
-    $result = move_uploaded_file($Artist3PhotoTmp, $Artist3PhotoDir.$Artist3PhotoName);
-    $result = move_uploaded_file($DetailImgFileTmp, $DetailImgFileDir.$DetailImgFileName);
-
 ?>

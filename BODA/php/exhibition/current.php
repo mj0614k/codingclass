@@ -36,7 +36,7 @@
       <h2 class="blind">현재전시 게시판입니다.</h2>
       <div class="current__header container">
         <h2>
-          현재전시 <span class="sp">현재 진행 중인 전시를 확인할 수 있습니다.</span><a href="currentWrite.php">지옥의링크</a>
+          현재전시 <span class="sp">현재 진행 중인 전시를 확인할 수 있습니다.</span>
         </h2>
         <div class="current__home">
           <a class="current__home_iconBox" href="../main/main.php">

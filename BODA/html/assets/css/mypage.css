@@ -6,7 +6,7 @@
 
 .MP_Main_container {
     max-width: 1200px;
-    padding: 0 20px 1206px 20px;
+    padding: 0 20px 1000px 20px;
     margin: 0 auto;
 }
 
@@ -105,7 +105,7 @@
     width: 90%;
     height: 71px;
     border-radius: 10px;
-    border: 0;
+    border: 1px solid #d9d9d9;
     background: #f5f5f5;
     padding: 0 25px;
     font-weight: 300;
@@ -124,8 +124,7 @@
     cursor: pointer;
 }
 .MP__review {
-    width: 43%;
-    float: left;
+    width: 100%;
 }
 
 .MP__review__title {
@@ -209,4 +208,36 @@
   box-sizing: border-box;
   font-size: 18px;
   font-family: "SCoreDream";
+}
+
+.NickNameModifyBtn {
+  width: 107px;
+  height: 70px;
+  color: white;
+  background-color: #000;
+  display: inline-block;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 70px;
+  margin-left: 15px;
+  float: right;
+  font-weight: 300;
+  font-family: "scoredream";
+  font-size: 16px;
+  margin-bottom: 60px;
+  cursor: pointer;
+}
+#NickNameModifyCancel {
+    width: 120px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    background-color: #323232;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    font-weight: 200;
+    cursor: pointer;
+    margin-left: 40px;
+    margin-right: 30px;
 }

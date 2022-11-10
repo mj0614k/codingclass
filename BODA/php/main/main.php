@@ -151,11 +151,12 @@
                 <form action="" class="mainSearch__wrap bannerItem">
                     <label for="mainSearch" class="blind">검색</label>
                     <div class="mainSearchTop">
-                        <p class="click">click !</p>
-                        <input type="text" class="mainSearch" id="mainSearch" name="mainSearch" placeholder="여러분이 원하는 정보를 찾아보세요!" autocomplete="off" required>
-                        <button class="mainSearch__btn">
+                        <!-- <p class="click">click !</p> -->
+                        <p class="mainSearch">BODA에서 원하는 전시 정보를 찾아보세요!</p>
+                        <!-- <input type="text" class="mainSearch" id="mainSearch" name="mainSearch" placeholder="여러분이 원하는 정보를 찾아보세요!" autocomplete="off" required> -->
+                        <!-- <button class="mainSearch__btn">
                             <div class="mainSearch__icon"></div>
-                        </button>
+                        </button> -->
                     </div>
                 </form>
             </div>
@@ -229,9 +230,7 @@
         <!-- //maincontent4 -->
 
     </section>
-    <?php if (!isset($_SESSION['myMemberID'])) { ?>
-    <a href="../login/agree.php"><div class="smileAgree ir">btn</div></a>
-    <?php } ?>
+    <a href="../community/Review.php"><div class="smileAgree ir">btn</div></a>
     <div class="topBtn ir">top</div>
 </main>
 <!-- //main -->

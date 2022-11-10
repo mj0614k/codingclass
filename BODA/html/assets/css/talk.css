@@ -173,6 +173,7 @@
 }
 .talk__modify__modal .mark__modify {
   width: 62px;
+  left: 45%;
   height: 62px;
   position: absolute;
   top: -31px;
@@ -215,6 +216,72 @@
   cursor: pointer;
 }
 .talk__modify__modal button:nth-child(1) {
+  margin-right: 40px;
+}
+
+.talk__modify__modal2 {
+  width: 60%;
+  max-width: 600px;
+  height: 350px;
+  position: fixed;
+  transform: translate(-50%, 0);
+  box-shadow: 10px 10px 10px 10px rgba(48, 49, 51, 6%);
+  background-color: #fff;
+  border-radius: 20px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.talk__modify__modal2 label {
+  display: none;
+}
+.talk__modify__modal2 .mark__modify {
+  width: 62px;
+  height: 62px;
+  left: 45%;
+  position: absolute;
+  top: -31px;
+  background-image: url("data:image/svg+xml,%0A%3Csvg width='62' height='62' viewBox='0 0 62 62' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='31' cy='31' r='30' fill='white' stroke='black' stroke-width='2'/%3E%3Cpath d='M37.1417 18.3761L42.5179 13L50 20.4821L44.6239 25.8582L37.1417 18.3761Z' fill='%23323232'/%3E%3Cpath d='M15 48.0006L24.2116 45.3514L17.6492 38.7891L15 48.0006Z' fill='%23323232'/%3E%3Cpath d='M26.3342 44.1482L18.8521 36.6661L35.4791 20.0391L42.9613 27.5212L26.3342 44.1482Z' fill='%23323232'/%3E%3C/svg%3E");
+}
+.talk__modify__modal2 h2 {
+  margin-top: 80px;
+  font-size: 20px;
+  text-align: center;
+  font-weight: 300;
+  margin-bottom: 35px;
+}
+.talk__modify__modal2 input {
+  width: 60%;
+  height: 70px;
+  font-weight: 300;
+  border-radius: 10px;
+  line-height: 1;
+  margin-bottom: 35px;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: #323232;
+  border: 1px solid #b0b0b0;
+  box-sizing: border-box;
+  font-size: 18px;
+  font-family: "SCoreDream";
+}
+.talk__modify__modal2 button {
+  width: 120px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 20px;
+  background-color: #323232;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+  font-weight: 200;
+  cursor: pointer;
+}
+.talk__modify__modal2 button:nth-child(1) {
   margin-right: 40px;
 }
 

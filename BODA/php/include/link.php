@@ -20,6 +20,9 @@
 <link rel="stylesheet" href="../../html/assets/css/current.css">
 <link rel="stylesheet" href="../../html/assets/css/detail.css">
 
+<!-- search -->
+<link rel="stylesheet" href="../../html/assets/css/search.css">
+
 <!-- community -->
 <link rel="stylesheet" href="../../html/assets/css/Review.css">
 <link rel="stylesheet" href="../../html/assets/css/ReviewWrite.css">

@@ -7,7 +7,7 @@
     $ReviewSql = "SELECT * FROM myReview WHERE myReviewID = {$myReviewID}";
     $ReviewResult = $connect -> query($ReviewSql);
     $ReviewInfo = $ReviewResult -> fetch_array(MYSQLI_ASSOC);
-    $ReviewCommentSql = "SELECT r.youNickName, r.ReviewComment, r.ReviewCommentregTime, m.youProfile FROM myReviewComment r JOIN myMember m ON(r.myMemberID = m.myMemberID) WHERE r.myReviewID = {$myReviewID} ORDER BY myReviewCommentID DESC";
+    $ReviewCommentSql = "SELECT r.myReviewCommentID, r.youNickName, r.ReviewComment, r.ReviewCommentregTime, m.myMemberID, m.youProfile FROM myReviewComment r JOIN myMember m ON(r.myMemberID = m.myMemberID) WHERE r.myReviewID = {$myReviewID} ORDER BY myReviewCommentID DESC";
     $ReviewCommentResult = $connect -> query($ReviewCommentSql);
     $ReviewCommentInfo = $ReviewResult -> fetch_array(MYSQLI_ASSOC);
 
@@ -129,8 +129,10 @@
                 <p class="name"><span class="ir">작성자</span><span><?=$comment['youNickName']?></span></p>
                 <div class="dateBox">
                     <p class="date"><span class="ir">작성일</span><span>| <?=date('Y-m-d H:i', $comment['ReviewCommentregTime'])?></span></p>
-                    <button class="modify">| 수정</button>
-                    <button class="remove">| 삭제</button>
+                    <?php if($_SESSION['myMemberID'] == $comment['myMemberID']){
+                        echo "<button class='modify'>| 수정</button>";
+                        echo "<button class='remove'>| 삭제</button>";
+                    } ?>
                 </div>
             </div>
             <div class="contents__bottom">
@@ -238,6 +240,7 @@
                 $(".talk__modify__modal").fadeOut(500);
 
                 ReviewCommentID = $(this).parent().parent().parent().parent().attr("id");
+                console.log(ReviewCommentID);
             });
             // 삭제 클릭하고 취소
             $("#ReviewCommentDeleteCancel").click(function(e) {

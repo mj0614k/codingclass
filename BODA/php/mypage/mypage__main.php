@@ -34,22 +34,22 @@
           <div class="MP__menu">
             <ul>
               <li>
-                <a class="MP__menu__main" href="../mypage/mypage.php">프로필 설정</a>
+                <a class="MP__menu__main" href="../mypage/mypage__main.php">프로필 설정</a>
               </li>
               <div class="MP__menu__main__area">
                 <li>
-                  <a class="MP__menu__main__sub" href="../mypage/mypage.php">∙ 프로필 수정</a>
+                  <a class="MP__menu__main__sub" href="../mypage/mypage__main.php">∙ 프로필 수정</a>
                 </li>
                 <li>
-                  <a class="MP__menu__main__sub" href="../mypage/mypage.php">∙ 닉네임 변경</a>
+                  <a class="MP__menu__main__sub" href="../mypage/mypage__main.php">∙ 닉네임 변경</a>
                 </li>
                 <li>
-                  <a class="MP__menu__main__sub" href="../mypage/mypage.php">∙ 내가 쓴 글</a>
+                  <a class="MP__menu__main__sub" href="../mypage/mypage__main.php">∙ 내가 쓴 글</a>
                 </li>
               </div>
 
             </ul>
-            <ul>
+            <!-- <ul>
               <li>
                 <a class="MP__menu__main" href="/">보안 설정</a>
               </li>
@@ -62,9 +62,7 @@
                   <a class="MP__menu__main__sub" href="#">∙ 탈퇴하기</a>
                 </li>
               </div>
-
-
-            </ul>
+            </ul> -->
           </div>
         </article>
         <article class="MP__right">
@@ -83,6 +81,22 @@
             <div class="MP__nickname">
                 <input type="text" class="MP__ID" placeholder="닉네임을 입력해 주세요." autocomplete="off" maxlength="10">
             </div>
+            <div class="talk__modify__modal2" style='display: none;'>
+                <form action="mypage__NickNameModifySave.php" name="youNickName" method="post" onsubmit="return ModifyChecks()">
+                    <fieldset>
+                        <legend class="blind">닉네임 수정 영역</legend>
+                        <span class="mark__modify"></span>
+                        <h2>변경할 닉네임을 입력해 주세요. 😊</h2>
+                        <input type="text" id="youNickName" name="youNickName" placeholder="닉네임을 입력해 주세요." maxlength="10" autocomplete="off" required>
+                        <a href="#" class="NickNameModifyBtn" onclick="nickChecking()">중복확인</a>
+                        <p class="msg" id="youNickNameComment"></p>
+                        <div class="TalkModifyBtn">
+                            <span id="NickNameModifyCancel">취소</span>
+                            <button id="NickNameModifyButton">수정</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
           <div class="MP__grout"> 
             <div class="MP__review">
               <div class="MP__review__title">
@@ -93,26 +107,14 @@
 <?php
   $myReviewSql = "SELECT * FROM myReview WHERE myMemberID = $myMemberID ORDER BY myReviewID DESC LIMIT 5";
   $myReviewSqlResult = $connect -> query($myReviewSql);
+  $myReviewCount = $myReviewSqlResult -> num_rows;
 
   forEach($myReviewSqlResult as $myReviewSql){ ?>
-    <li><?=$myReviewSql['ReviewTitle']?></li>
-<?php } ?>
-                </ul>
-              </div>
-            </div>
-            <div class="MP__talk">
-              <div class="MP__talk__title">
-                MY TALK
-              </div>
-              <div class="MP__review__desc">
-                <ul>
-<?php
-  $myTalkSql = "SELECT * FROM myTalk WHERE myMemberID = $myMemberID ORDER BY myTalkID DESC LIMIT 5";
-  $myTalkSqlResult = $connect -> query($myTalkSql);
-
-  forEach($myTalkSqlResult as $myTalkSql){ ?>
-    <li><?=$myTalkSql['TalkContents']?></li>
-<?php } ?>
+    <li><a href="../community/ReviewView.php?myReviewID=<?=$myReviewSql['myReviewID']?>"><?=$myReviewSql['ReviewTitle']?></li>
+<?php } 
+    if($myReviewCount == 0){
+        echo "<li style='text-align:center;'>게시글 작성 내역이 없습니다.</li>";
+    }?>
                 </ul>
               </div>
             </div>
@@ -121,21 +123,6 @@
       </div>
     </section>
     <div class="talk__modify__modal" style='display: none;'>
-        <form action="mypage__profileModifySave.php" name="ProfileFile" method="post" enctype="multipart/form-data">
-            <fieldset>
-                <legend class="blind">프로필 사진 수정 영역</legend>
-                <span class="mark__modify"></span>
-                <h2>변경할 프로필 사진을 첨부해 주세요. 😊</h2>
-                <label for="ProfileFile">첨부 파일</label>
-                <input type="file" class="file" name="ProfileFile" id="ProfileFile" accept=".jpg, .jpeg, .png, .gif" placeholder="jpg(jpeg), png, gif 파일만 첨부 가능합니다.">
-                <div class="TalkModifyBtn">
-                    <button id="ProfileModifyCancel">취소</button>
-                    <button id="ProfileModifyButton">수정</button>
-                </div>
-            </fieldset>
-        </form>
-    </div>
-    <div class="talk__modify__modal2" style='display: none;'>
         <form action="mypage__profileModifySave.php" name="ProfileFile" method="post" enctype="multipart/form-data">
             <fieldset>
                 <legend class="blind">프로필 사진 수정 영역</legend>
@@ -225,15 +212,24 @@
     $(".MP__nickname").click(function(e) {
         e.preventDefault();
         $(".talk__modify__modal2").fadeIn(500);
-        alert("ㅎㅇ")
     })
 
-    function joinChecks(){
+    $("#NickNameModifyCancel").click(function(){
+        $(".talk__modify__modal2").fadeOut(500);
+    })
+
+    function ModifyChecks(){
         // 닉네임 중복 검사
         if($("#youNickName").val() == ""){
             $("#youNickNameComment").text("* 닉네임을 입력해 주세요.");
             return false;
         }
+
+        // 닉네임 중복 검사
+        if(nickCheck == false){
+                $("#youNickNameComment").text("* 닉네임 중복확인을 해주세요.");
+                return false;
+            }
     }
 </script>
 </body>
