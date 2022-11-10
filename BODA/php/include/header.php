@@ -1,5 +1,6 @@
+<div class="mainEffect">
 <header id="header" class="header__container">
-    <div class="header__area overlay">
+    <div class="header__area overlay headerEffect">
         <div class="header__logo">
             <a href="../main/main.php">BODA</a>
         </div>
@@ -7,39 +8,41 @@
             <ul>
                 <li>
                     <a class="main__menu" href="../exhibition/current.php">EXHIBITION</a>
-                    <ul class="sub blind">
-                        <li><a href="../exhibition/current.php">현재전시</a></li>
-                        <li><a href="../exhibition/upcomming.php">예정전시</a></li>
-                        <li><a href="../exhibition/last.php">지난전시</a></li>
-                    </ul>
                 </li>
             </ul>
             <ul>
                 <li>
                     <a class="main__menu" href="../">SEARCH</a>
-                    <ul class="sub blind">
-                        <li><a href="#">키워드별 검색</a></li>
-                        <li><a href="#">직접 검색</a></li>
-                    </ul>
                 </li>
             </ul>
             <ul>
                 <li>
                     <a class="main__menu" href="../community/Review.php">COMMUNITY</a>
-                    <ul class="sub blind">
-                        <li><a href="../community/Review.php">REVIEW</a></li>
-                        <li><a href="../community/Talk.php">TALK</a></li>
-                    </ul>
                 </li>
             </ul>
             <ul>
                 <li>
-                    <a class="main__menu" href="../notice/notice.php">NOTICE</a>
-                    <ul class="sub blind">
-                        <li><a href="../notice/notice.php">NOTICE</a></li>
-                        <li><a href="../notice/FAQ.php">FAQ</a></li>
-                    </ul>
+                    <a class="main__menu" href="../notice/notice.php">ABOUT</a>
                 </li>
+            </ul>
+        </div>
+        <div class="subMenu hide">
+            <ul class="sub">
+                <li><a href="../exhibition/current.php">현재전시</a></li>
+                <li><a href="../exhibition/upcomming.php">예정전시</a></li>
+                <li><a href="../exhibition/last.php">지난전시</a></li>
+            </ul>
+            <ul class="sub">
+                <li><a href="#">키워드별 검색</a></li>
+                <li><a href="#">직접 검색</a></li>
+            </ul>
+            <ul class="sub">
+                <li><a href="../community/Review.php">REVIEW</a></li>
+                <li><a href="../community/Talk.php">TALK</a></li>
+            </ul>
+            <ul class="sub">
+                <li><a href="../notice/notice.php">NOTICE</a></li>
+                <li><a href="../notice/FAQ.php">FAQ</a></li>
             </ul>
         </div>
         <div class="header__right">
@@ -76,13 +79,12 @@
                 <li><a href="../mypage/mypage__main.php">MYPAGE</a></li>
                 <li><a href="../notice/notice.php">NOTICE</a></li>
             <?php } ?>
-            </div>
             <div class="mobilemenu">
                 <li>
                     <a href="../exhibition/current.php">EXHIBITION</a>
                     <ul>
                         <li><a href="../exhibition/current.php">현재전시</a></li>
-                        <li><a href="../exhibition/recommended.php">예정전시</a></li>
+                        <li><a href="../exhibition/upcomming.php">예정전시</a></li>
                         <li><a href="../exhibition/last.php">지난전시</a></li>
                     </ul>
                 </li>
@@ -121,3 +123,4 @@
         </div>
     </div>
 </header>
+                </div>

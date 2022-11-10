@@ -57,6 +57,7 @@
 .MP__box {
     display: flex;
     height: 362px;
+    border-radius: 10px;
     justify-content: space-evenly;
     align-items: center;
     background: #f5f5f5;
@@ -101,7 +102,7 @@
 }
 
 .MP__ID {
-    width: 67%;
+    width: 90%;
     height: 71px;
     border-radius: 10px;
     border: 0;
@@ -110,21 +111,18 @@
     font-weight: 300;
     font-size: 18px;
 }
-
 .MP__btn {
-    width: 22%;
+    width: 35%;
     height: 70px;
     line-height: 70px;
     display: inline-block;
     background-color: black;
-    float: right;
     border-radius: 10px;
     color: white;
     text-align: center;
     font-weight: 300;
     cursor: pointer;
 }
-
 .MP__review {
     width: 43%;
     float: left;
@@ -137,7 +135,6 @@
     font-weight: 400;
     padding: 0 0 10px;
     position: relative;
-    overflow: hidden;
     border-bottom: 1px solid #000;
 }
 
@@ -161,6 +158,10 @@
     font-weight: 300;
     padding: 22px 0;
     border-bottom: 1px solid #ededed;
+    overflow: hidden;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .MP__talk {

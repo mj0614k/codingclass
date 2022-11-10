@@ -80,14 +80,9 @@
             <div class="MP__main__title"><?php echo $_SESSION['youNickName'] ?>님<br>어서오세요!</div>
           </div>
           <div class="MP__tit">닉네임 변경</div>
-          <fieldset>
             <div class="MP__nickname">
-                <input type="text" class="MP__ID" id="youNickName" name="youNickName" placeholder="닉네임을 입력해 주세요." autocomplete="off" maxlength="10"
-                required>
-                <a class="MP__btn" onclick="nickChecking()">변경</a>
-                <p class="msg" id="youNickNameComment"></p>
+                <input type="text" class="MP__ID" placeholder="닉네임을 입력해 주세요." autocomplete="off" maxlength="10">
             </div>
-          </fieldset>
           <div class="MP__grout"> 
             <div class="MP__review">
               <div class="MP__review__title">
@@ -126,19 +121,34 @@
       </div>
     </section>
     <div class="talk__modify__modal" style='display: none;'>
-            <form action="mypage__profileModifySave.php" name="ProfileFile" method="post" enctype="multipart/form-data">
-                <fieldset>
-                    <legend class="blind">프로필 사진 수정 영역</legend>
-                    <span class="mark__modify"></span>
-                    <h2>변경할 프로필 사진을 첨부해 주세요. 😊</h2>
-                    <label for="ProfileFile">첨부 파일</label>
-                    <input type="file" class="file" name="ProfileFile" id="ProfileFile" accept=".jpg, .jpeg, .png, .gif" placeholder="jpg(jpeg), png, gif 파일만 첨부 가능합니다.">
-                    <div class="TalkModifyBtn">
-                        <button id="ProfileModifyCancel">취소</button>
-                        <button id="ProfileModifyButton">수정</button>
-                    </div>
-                </fieldset>
-            </form>
+        <form action="mypage__profileModifySave.php" name="ProfileFile" method="post" enctype="multipart/form-data">
+            <fieldset>
+                <legend class="blind">프로필 사진 수정 영역</legend>
+                <span class="mark__modify"></span>
+                <h2>변경할 프로필 사진을 첨부해 주세요. 😊</h2>
+                <label for="ProfileFile">첨부 파일</label>
+                <input type="file" class="file" name="ProfileFile" id="ProfileFile" accept=".jpg, .jpeg, .png, .gif" placeholder="jpg(jpeg), png, gif 파일만 첨부 가능합니다.">
+                <div class="TalkModifyBtn">
+                    <button id="ProfileModifyCancel">취소</button>
+                    <button id="ProfileModifyButton">수정</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <div class="talk__modify__modal2" style='display: none;'>
+        <form action="mypage__profileModifySave.php" name="ProfileFile" method="post" enctype="multipart/form-data">
+            <fieldset>
+                <legend class="blind">프로필 사진 수정 영역</legend>
+                <span class="mark__modify"></span>
+                <h2>변경할 프로필 사진을 첨부해 주세요. 😊</h2>
+                <label for="ProfileFile">첨부 파일</label>
+                <input type="file" class="file" name="ProfileFile" id="ProfileFile" accept=".jpg, .jpeg, .png, .gif" placeholder="jpg(jpeg), png, gif 파일만 첨부 가능합니다.">
+                <div class="TalkModifyBtn">
+                    <button id="ProfileModifyCancel">취소</button>
+                    <button id="ProfileModifyButton">수정</button>
+                </div>
+            </fieldset>
+        </form>
     </div>
   </main>
   <!-- //main -->
@@ -161,13 +171,13 @@
         }else {
             $.ajax({
                 type : "POST",
-                url : "mypage__NickNameModify.php",
+                url : "mypage__NickNameCheck.php",
                 data : {"youNickName" : youNickName, "type" : "nickCheck"},
                 dataType : "json",
                 success : function(data){
                     if(data.result == "good"){
                         $("#youNickNameComment").text("* 사용 가능한 닉네임입니다.");
-                        nickCheck = true;
+                            nickCheck = true;
                     }else {
                         $("#youNickNameComment").text("* 이미 동일한 닉네임이 존재합니다.");
                         nickCheck = false;
@@ -192,25 +202,39 @@
             e.preventDefault();
             $(".talk__modify__modal").fadeOut(500);
         });
-        // 수정 클릭하고 수정
-        $("#ProfileModifyButton").click(function(e) {
-            // e.preventDefault();
-            // if($("#ProfileModifyMsg").val() == ''){
-            //     alert("파일이 첨부되지 않았습니다.");
-            //     $("#ProfileModifyMsg").focus();
-            // }
-            // location.href = "ProfileModify.php";
+    // 수정 클릭하고 수정
+    $("#ProfileModifyButton").click(function(e) {
+        // e.preventDefault();
+        // if($("#ProfileModifyMsg").val() == ''){
+        //     alert("파일이 첨부되지 않았습니다.");
+        //     $("#ProfileModifyMsg").focus();
+        // }
+        // location.href = "ProfileModify.php";
 
-            // $.ajax({
-            //     url: "ProfileModify.php",
-            //     method: "POST",
-            //     dataType: "json",
-            //     data: {
-            //         "ProfileModifyMsg": $("#ProfileModifyMsg").val(),
-            //         "commentID": commentID
-            //     }
-            // })
-        });
+        // $.ajax({
+        //     url: "ProfileModify.php",
+        //     method: "POST",
+        //     dataType: "json",
+        //     data: {
+        //         "ProfileModifyMsg": $("#ProfileModifyMsg").val(),
+        //         "commentID": commentID
+        //     }
+        // })
+    });
+
+    $(".MP__nickname").click(function(e) {
+        e.preventDefault();
+        $(".talk__modify__modal2").fadeIn(500);
+        alert("ㅎㅇ")
+    })
+
+    function joinChecks(){
+        // 닉네임 중복 검사
+        if($("#youNickName").val() == ""){
+            $("#youNickNameComment").text("* 닉네임을 입력해 주세요.");
+            return false;
+        }
+    }
 </script>
 </body>
 </html>

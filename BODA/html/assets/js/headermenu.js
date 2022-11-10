@@ -1,18 +1,41 @@
-// header hover
-const header = document.querySelector(".header__menu");
-const submenu = document.querySelectorAll(".header__menu ul li .sub");
+// // header hover
+// const header = document.querySelector(".header__menu .main__menu");
+// const submenu = document.querySelectorAll(".header__menu ul li .subMenu");
 
-header.addEventListener("mouseover", () => {
-    submenu.forEach((el) => {
-        el.classList.remove("blind");
-        el.style.transform = "translateY(0px)";
+// header.addEventListener("mouseover", () => {
+//     submenu.forEach((el) => {
+//         el.classList.remove("blind");
+//         el.style.transform = "translateY(0px)";
+//     });
+// });
+// header.addEventListener("mouseout", () => {
+//     submenu.forEach((el) => {
+//         el.classList.add("blind");
+//         el.style.transform = "translateY(-30px)";
+//     });
+// });
+
+//mainHeaderEffect Main header hover
+const header1 = document.querySelectorAll(".header__menu .main__menu");
+const submenu1 = document.querySelector(".headerEffect .subMenu");
+
+header1.forEach((el) => {
+    el.addEventListener("mouseover", () => {
+        submenu1.classList.remove("hide");
     });
 });
-header.addEventListener("mouseout", () => {
-    submenu.forEach((el) => {
-        el.classList.add("blind");
-        el.style.transform = "translateY(-30px)";
+
+header1.forEach((el) => {
+    el.addEventListener("mouseleave", () => {
+        submenu1.classList.add("hide");
     });
+});
+
+submenu1.addEventListener("mouseover", () => {
+    submenu1.classList.remove("hide");
+});
+submenu1.addEventListener("mouseleave", () => {
+    submenu1.classList.add("hide");
 });
 
 // smallmenu
@@ -57,36 +80,3 @@ MBHamClose.addEventListener("click", () => {
     bodyScroll.classList.remove("scroll");
 });
 
-//search
-// const searchBtn = document.querySelector(".header__right .search");
-// let i = 0;
-
-//mainHeaderEffect Main header hover
-const header2 = document.querySelectorAll(".mainEffect .main__menu");
-const submenu2 = document.querySelector(".mainEffect .headerEffect .subMenu");
-
-// header2.addEventListener("mouseover", () => {
-//     submenu2.classList.remove("hide");
-// });
-// header2.addEventListener("mouseleave", () => {
-//     submenu2.classList.add("hide");
-// });
-
-header2.forEach((el) => {
-    el.addEventListener("mouseover", () => {
-        submenu2.classList.remove("hide");
-    });
-});
-
-header2.forEach((el) => {
-    el.addEventListener("mouseleave", () => {
-        submenu2.classList.add("hide");
-    });
-});
-
-submenu2.addEventListener("mouseover", () => {
-    submenu2.classList.remove("hide");
-});
-submenu2.addEventListener("mouseleave", () => {
-    submenu2.classList.add("hide");
-});
