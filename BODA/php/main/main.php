@@ -1,6 +1,10 @@
 <?php 
     include "../connect/connect.php";
     include "../connect/session.php";
+
+    $ExhibitionSql = "SELECT * FROM myExhibition ORDER BY myExhibitionID DESC";
+    $ExhibitionResult = $connect -> query($ExhibitionSql);
+    $ExhibitionInfo = $ExhibitionResult -> fetch_array(MYSQLI_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -47,36 +51,23 @@
         <div class="slider__inner">
             <div class="swiper mySwiper mySwiper1">
                 <div class="swiper-wrapper">
+<?php forEach($ExhibitionResult as $ExhibitionSql){ ?>
                     <div class="swiper-slide mainSlide1">
                         <figure class="mainSliderImg">
-                            <img src="../assets/img/main__slider__bg01.jpg" alt="mainSliderImg">
+                            <img src="../assets/img/Exhibition/<?=$ExhibitionSql['MainImgFile']?>" alt="mainSliderImg">
                         </figure>
                         <div class="mainSlider_desc">
                             <span>2022.09.28.~2022.12.31.</span>
                             <p class="main__sliderHeading">
-                                추상의 현상
+                                <?=$ExhibitionSql['ExhibitionTitle']?>
                             </p>
                             <div class="mainSlider__btn">
-                                <a href="#">view more</a>
+                                <a href="../exhibition/detail.php?myExhibitionID=<?=$ExhibitionSql['myExhibitionID']?>">view more</a>
                             </div>
                         </div>
                     </div>
+<?php } ?>
                     <!-- //slider1 -->
-                    <div class="swiper-slide mainSlide2">
-                        <figure class="mainSliderImg">
-                            <img src="../assets/img/main__slider__bg02.jpg" alt="mainSliderImg">
-                        </figure>
-                        <div class="mainSlider_desc">
-                            <span>2022.09.28.~2022.12.31.</span>
-                            <p class="main__sliderHeading">
-                                권소영 개인전
-                            </p>
-                            <div class="mainSlider__btn">
-                                <a href="#">view more</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- //slider2 -->
                 </div>
             </div>
         </div>
@@ -174,7 +165,7 @@
                         <h3>EXHIBITOIN</h3>
                         <p>현재 운영중이거나 예정인 전시를 다양하게 구성하여 빠른 전시 정보를 얻을 수 있습니다.</p>
                         <div class="mainCard__btn item1">
-                            <a href="#">view more</a>
+                            <a href="../exhibition/current.php">view more</a>
                         </div>
                     </div>
                 </div>
@@ -183,7 +174,7 @@
                         <h3>SEARCH</h3>
                         <p>원하는 키워드에 맞게 선택하여 원하는 전시 정보를 쉽고 빠르게 얻을 수 있습니다.</p>
                         <div class="mainCard__btn item1">
-                            <a href="#">view more</a>
+                            <a href="../search/search01.php">view more</a>
                         </div>
                     </div>
                     <figure class="mainCardImg__box item1">

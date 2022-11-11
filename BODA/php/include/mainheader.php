@@ -34,7 +34,6 @@
                 </ul>
                 <ul class="sub">
                     <li><a href="../search/search01.php">키워드별 검색</a></li>
-                    <li><a href="#">직접 검색</a></li>
                 </ul>
                 <ul class="sub">
                     <li><a href="../community/Review.php">REVIEW</a></li>
@@ -87,7 +86,6 @@
                     <li><a href="../search/search01.php">SEARCH</a>
                         <ul>
                             <li><a href="../search/search01.php">키워드별 검색</a></li>
-                            <li><a href="#">직접 검색</a></li>
                         </ul>
                     </li>
                     <li><a class="main__menu" href="../community/Review.php">COMMUNITY</a>

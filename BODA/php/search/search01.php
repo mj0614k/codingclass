@@ -92,7 +92,7 @@
 <?php foreach($ExhibitionResult as $exhibi){ ?>
                 <div class="keyword__imgBox">
                     <figure class="keyword__img">
-                        <a href="../exhibition/detail.php"><img src="../assets/img/Exhibition/<?=$exhibi['DetailImgFile']?>" alt="전시 이미지">
+                        <a href="../exhibition/detail.php?myExhibitionID=<?=$exhibi['myExhibitionID']?>"><img src="../assets/img/Exhibition/<?=$exhibi['DetailImgFile']?>" alt="전시 이미지">
                         <div class="keword__desc">
                             <p># <?=$exhibi['Category1']?></p>
                             <p># <?=$exhibi['Category2']?></p>

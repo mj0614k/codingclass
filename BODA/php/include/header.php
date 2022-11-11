@@ -19,7 +19,6 @@
                     <a class="main__menu" href="../search/search01.php">SEARCH</a>
                     <ul class="sub blind">
                         <li><a href="../search/search01.php">키워드별 검색</a></li>
-                        <li><a href="#">직접 검색</a></li>
                     </ul>
                 </li>
             </ul>
@@ -81,7 +80,6 @@
                 <li><a href="../search/search01.php">SEARCH</a>
                     <ul>
                         <li><a href="../search/search01.php">키워드별 검색</a></li>
-                        <li><a href="#">직접 검색</a></li>
                     </ul>
                 </li>
                 <li><a class="main__menu" href="../community/Review.php">COMMUNITY</a>

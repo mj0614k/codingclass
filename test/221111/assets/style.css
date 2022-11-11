@@ -1,0 +1,219 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+li {
+    list-style: none;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* header */
+.header__container {
+    max-width: 1200px;
+    margin: 30px auto;
+    display: flex;
+    justify-content: space-between;
+}
+.header__left {
+    margin-left: 20px;
+}
+.header__logo {
+    color: rgb(173, 94, 107);
+    font-weight: 1000;
+    font-size: 32px;
+}
+.header__right {
+    margin-right: 20px;
+}
+.header__right ul {
+    display: flex;
+}
+.header__right ul li {
+    padding: 10px 50px;
+    font-weight: 800;
+    cursor: pointer;
+}
+.header__right ul li:hover {
+    background-color: rgb(150, 75, 75);
+}
+.header__right ul li:hover a {
+    color: white;
+}
+
+/* main */
+.slider__wrap {
+    width: 1200px;
+    height: 350px;
+    overflow: hidden;
+}
+.slider__inner {
+    width: 1200px;
+    height: 350px;
+    transition: all 0.3s;
+}
+.main__top {
+    width: 100%;
+    background-color: gray;
+    height: 350px;
+    position: relative;
+}
+.main__top::after {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    content: "슬라이드내용1";
+    background-color: white;
+    padding: 10px;
+}
+.main__top:nth-child(2) {
+    width: 100%;
+    background-color: pink;
+    height: 350px;
+    position: relative;
+}
+.main__top:nth-child(2)::after {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    content: "슬라이드내용2";
+    background-color: white;
+    padding: 10px;
+}
+.main__top:nth-child(3) {
+    width: 100%;
+    background-color: black;
+    height: 350px;
+    position: relative;
+}
+.main__top:nth-child(3)::after {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    content: "슬라이드내용3";
+    background-color: white;
+    padding: 10px;
+}
+.main__bottom {
+    display: flex;
+    height: 220px;
+}
+.main__bottom__left {
+    background-color: pink;
+    width: 33.333333%;
+}
+.main__bottom__left__tap {
+    height: 50px;
+    line-height: 50px;
+    background-color: white;
+}
+.main__bottom__left__tap .notice {
+    padding: 15px;
+    background-color: pink;
+    cursor: pointer;
+}
+.main__bottom__left__tap .gallery {
+    padding: 15px;
+    background-color: white;
+    cursor: pointer;
+}
+.main__bottom__left__tap .box {}
+.main__bottom__left__cont1 {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.main__bottom__left__cont1 li {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.main__bottom__left__cont1 li:hover {
+    text-decoration: underline;
+}
+.main__bottom__left__cont2 {
+    display: none;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.main__bottom__left__cont2 li {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    box-sizing: border-box;
+}
+.main__bottom__left__cont1 li span {
+
+}
+.notice__popup {
+    position: fixed;
+    top: 40%;
+    display: none;
+    left: 30%;
+    margin: 0 auto;
+    background-color: white;
+    width: 600px;
+    height: 100px;
+    padding: 50px;
+
+}
+.main__bottom__center {
+    background-color: rgb(160, 160, 255);
+    width: 33.3333333%;
+    position: relative;
+}
+.main__bottom__center::after {
+    position: absolute;
+    content: "배너";
+    top: 40%;
+    left: 45%;
+    background-color: white;
+    padding: 10px;
+}
+.main__bottom__right {
+    background-color: rgb(160, 255, 157);
+    width: 33.33333333%;
+}
+.main__bottom__right::after {
+    content: "바로가기";
+    top: 45%;
+    left: 45%;
+    background-color: white;
+    padding: 10px;
+    position: relative;
+}
+
+/* footer */
+.footer__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 0;
+    display: flex;
+    background-color: rgb(212, 212, 212);
+    justify-content: space-between;
+}
+.footer__logo {
+    color: gray;
+    font-weight: 1000;
+    font-size: 32px;
+    margin-left: 20px;
+}
+.footer__copy {
+    margin-top: 10px;
+}
+.footer__social {
+    margin-top: 10px;
+    margin-right: 20px;
+}
