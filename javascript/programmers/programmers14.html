@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로그래머스 1단계</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="../index.html">프로그래머스 1단계</a></h1>
+    </header>
+    <!-- //header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">프로그래머스 1단계 : 나누어 떨어지는 숫자 배열
+            </h2>
+            <p class="t_desc">코딩테스트 연습 > 
+                연습문제 > 
+                나누어 떨어지는 숫자 배열
+                </p>
+                <hr>
+            <h2 class="t_tit2">💩 문제 설명</h1>
+            <p class="t_desc">
+                array의 각 element 중 divisor로 나누어 떨어지는 값을 오름차순으로 정렬한 배열을 반환하는 함수, solution을 작성해주세요. divisor로 나누어 떨어지는 element가 하나도 없다면 배열에 -1을 담아 반환하세요.
+            </p>
+            <h2 class="t_tit2">💩 제한 조건</h2>
+            <p class="t_box">
+                ☝️ arr은 자연수를 담은 배열입니다.<br>
+                ✌️ 정수 i, j에 대해 i ≠ j 이면 arr[i] ≠ arr[j] 입니다.<br>
+                🤘 divisor는 자연수입니다.<br>
+                🤟 array는 길이 1 이상인 배열입니다.
+            </p>
+            <h2 class="t_tit2">💩 문제 풀이</h2>
+            <div class="t_code">
+<pre><code class="language-js">function solution(arr, divisor) {
+    var answer = [];
+    for(i=0; i&lt;arr.length; i++){
+        if(arr[i] % divisor == 0){answer.push(arr[i])}
+    }
+    answer.sort(function(a,b){return a-b});
+    if(!answer.length){answer.push(-1)}
+    return answer;
+}
+</code></pre></div>
+<p class="t_desc">
+    divisor로 나누어 떨어지는 값은 push()로 answer 배열 내에 삽입해 주었습니다.
+    for문과 if문을 사용하면 무엇이든 출력할 수 있는 자바스크립트... 굉장하지 않나요.
+    그나저나 드디어 sort()를 처음 써본 나 칭찬해!
+</p>
+<h2 class="t_tit2">💩 다른 풀이</h2>
+<div class="t_code">
+<pre><code class="language-js">function solution(arr, divisor) {
+    var answer = arr.filter(v => v % divisor == 0);
+    return answer.length == 0 ? [-1] : answer.sort((a,b) => a-b);
+}
+</code></pre>
+</div>
+<p class="t_desc">
+    filter() 메서드를 사용하여 나누어 떨어지는 값만 answer에 담아준 뒤, 정렬해 주었네요. 간단하군요.
+</p>
+<div class="t_link">
+    <a href="https://school.programmers.co.kr/learn/courses/30/lessons/12910">문제 풀어보기</a>
+</div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

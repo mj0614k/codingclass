@@ -758,6 +758,11 @@
           <p class="tetris__score">Score : <span>0</span></p>
           <p class="tetris-close">Close</p>
         </div>
+        <div class="tetris__gameover">
+          점수 : <span>0</span>점
+          <p class="tetris-restart">다시하기</p>
+          <p class="tetris-close2">종료</p>
+        </div>
       </div>
       <!-- //tetris game -->
     </div>
@@ -950,7 +955,20 @@
         document.querySelector(".tetris__main").style.display = "block";
         document.querySelector(".tetris__inner").style.display = "none";
         document.querySelector(".tetris__info").style.display = "none";
-
+        document.querySelector(".tetris__gameover").style.display = "none";
+        gameover = true;
+        TsoundBg.pause();
+        document.querySelector(".tetris__line span").innerHTML = 0;
+        document.querySelector(".tetris__score span").innerHTML = 0;
+      });
+      document.querySelector(".tetris-close2").addEventListener("click", () => {
+        document.querySelector(".tetris__wrap").style.display = "none";
+        document.querySelector(".tetris__main").style.display = "block";
+        document.querySelector(".tetris__inner").style.display = "none";
+        document.querySelector(".tetris__info").style.display = "none";
+        document.querySelector(".tetris__gameover").style.display = "none";
+        gameover = true;
+        TsoundBg.pause();
         document.querySelector(".tetris__line span").innerHTML = 0;
         document.querySelector(".tetris__score span").innerHTML = 0;
       });

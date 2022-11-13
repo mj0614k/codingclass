@@ -9,9 +9,19 @@ let tetrisLine = 0;
 let duration = 500;
 let downInterval;
 let tempMovingItem;
+let gameover = false;
+
+let Tsound = [
+  "../assets/audio/gamebg.mp3",
+  "../assets/audio/search_good.m4a",
+  "../assets/audio/over.mp3",
+];
+let TsoundBg = new Audio(Tsound[0]);
+let TsoundMatch = new Audio(Tsound[1]);
+let TsoundUnMatch = new Audio(Tsound[2]);
 // 블록 정보
 const movingItem = {
-  type: "Imino", // 블록 이름
+  type: "", // 블록 이름
   direction: 0, //블록 모양
   top: 0,
   left: 6,
@@ -61,18 +71,23 @@ const blocks = {
     [ [0, 1], [1, 1], [2, 0], [2, 1] ],
   ],
 };
-
-for (let i = 0; i < rows; i++) {
-  prependNewLine(); //블록 라인 만들기
-}
 // 시작하기
 function init() {
+  gameover = false;
+  tetrisScore = 0;
+  tetrisLine = 0;
+  TsoundBg.play();
+  playground.innerHTML = "";
   // 블록 정보를 tempMovingItem에 입력
   tempMovingItem = { ...movingItem };
 
   allCannes.forEach((e) => {
     e.removeAttribute("class");
   })
+
+  for (let i = 0; i < rows; i++) {
+    prependNewLine(); //블록 라인 만들기
+  }
 
   // renderBlocks(); //블록 출력하기
   // moveBlock();
@@ -93,6 +108,7 @@ function prependNewLine() {
 }
 // 블록 출력하기
 function renderBlocks(moveType = "") {
+  if(gameover) return;
   // moveType 매개변수를 추후에 추가했음. 만약 전달할 값이 없으면 위처럼 적으면 됨
 
   // const ty = tempMovingItem.type;
@@ -148,7 +164,20 @@ function seizeBlock() {
     moving.classList.remove("moving");
     moving.classList.add("seized");
   });
+  checkLose();
   checkMatch();
+}
+
+function checkLose() {
+  const childNodes = Array.from(playground.children)[0].querySelectorAll(
+    "ul li"
+  );
+  childNodes.forEach((ch) => {
+    if (ch.classList.contains("seized")) {
+      gameover = true;
+      TsoundUnMatch.play();
+    }
+  });
 }
 
 // 한줄 제거하기
@@ -162,6 +191,7 @@ function checkMatch() {
       }
     });
     if (matched) {
+      TsoundMatch.play();
       child.remove();
       prependNewLine();
       tetrisScore+=10;
@@ -175,6 +205,14 @@ function checkMatch() {
 
 //새로운 블록 만들기
 function generateNewBlock() {
+  if (gameover) {
+    TsoundBg.pause();
+    setTimeout(() => {
+      document.querySelector(".tetris__gameover").style.display = "block";
+    }, 2000);
+    document.querySelector(".tetris__gameover span").innerHTML = tetrisScore;
+    return;
+  }
   clearInterval(downInterval);
 
   downInterval = setInterval(() => {
@@ -257,5 +295,14 @@ document.querySelector(".tetris-start").addEventListener("click", () => {
   document.querySelector(".tetris__main").style.display = "none";
   document.querySelector(".tetris__inner").style.display = "block";
   document.querySelector(".tetris__info").style.display = "block";
+  init();
+})
+document.querySelector(".tetris-restart").addEventListener("click", () => {
+  document.querySelector(".tetris__main").style.display = "none";
+  document.querySelector(".tetris__inner").style.display = "block";
+  document.querySelector(".tetris__info").style.display = "block";
+  document.querySelector(".tetris__gameover").style.display = "none";
+  document.querySelector(".tetris__score span").innerHTML = 0;
+      document.querySelector(".tetris__line span").innerHTML = 0;
   init();
 })

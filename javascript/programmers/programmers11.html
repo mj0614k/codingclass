@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로그래머스 1단계</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="../index.html">프로그래머스 1단계</a></h1>
+    </header>
+    <!-- //header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">프로그래머스 1단계 : 정수 제곱근 판별
+            </h2>
+            <p class="t_desc">코딩테스트 연습 > 
+                연습문제 > 
+                정수 제곱근 판별
+                </p>
+                <hr>
+            <h2 class="t_tit2">💩 문제 설명</h1>
+            <p class="t_desc">
+                임의의 양의 정수 n에 대해, n이 어떤 양의 정수 x의 제곱인지 아닌지 판단하려 합니다.
+                n이 양의 정수 x의 제곱이라면 x+1의 제곱을 리턴하고, n이 양의 정수 x의 제곱이 아니라면 -1을 리턴하는 함수를 완성하세요.
+            </p>
+            <h2 class="t_tit2">💩 제한 조건</h2>
+            <p class="t_box">
+                ☝️ n은 1이상, 50000000000000 이하인 양의 정수입니다.
+            </p>
+            <h2 class="t_tit2">💩 문제 풀이</h2>
+            <div class="t_code">
+<pre><code class="language-js">function solution(n) {
+    let answer;
+    for(x=1; x&lt;=n; x++){
+        if(n == x * x){
+            answer = (x + 1) * (x + 1);
+            break;
+        } else { answer = -1 }
+    }
+    return answer;
+}
+</code></pre></div>
+<p class="t_desc">
+    for문을 사용하여, n이 x의 제곱이면 ( x+1 )의 제곱을 answer에 입력하고,
+    아니라면 answer에 -1을 입력해 주었습니다.
+</p>
+<h2 class="t_tit2">💩 다른 풀이</h2>
+<div class="t_code">
+<pre><code class="language-js">function nextSqaure(n){
+    switch(n % Math.sqrt(n)){
+      case 0:
+        return Math.pow(Math.sqrt(n) + 1, 2);
+      default:
+        return -1;
+    }
+}
+</code></pre>
+</div>
+<p class="t_desc">
+    Math.sqrt()는 제곱근을 리턴하는 메서드라고 합니다. Math.pow()는 (a, b)의 값이 주어졌을 때, a의 b제곱을 리턴하는 메서드라고 합니다.
+    역시 머리가 좋으면 손가락이 덜 힘드네요. 전 아직은 손가락이 아주 바쁩니다.
+</p>
+<div class="t_link">
+    <a href="https://school.programmers.co.kr/learn/courses/30/lessons/12934">문제 풀어보기</a>
+</div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

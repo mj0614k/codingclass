@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로그래머스 1단계</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="../index.html">프로그래머스 1단계</a></h1>
+    </header>
+    <!-- //header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">프로그래머스 1단계 : x만큼 간격이 있는 n개의 숫자
+            </h2>
+            <p class="t_desc">코딩테스트 연습 > 
+                연습문제 > 
+                x만큼 간격이 있는 n개의 숫자
+                </p>
+                <hr>
+            <h2 class="t_tit2">💩 문제 설명</h1>
+            <p class="t_desc">
+                함수 solution은 정수 x와 자연수 n을 입력 받아, x부터 시작해 x씩 증가하는 숫자를 n개 지니는 리스트를 리턴해야 합니다. 다음 제한 조건을 보고, 조건을 만족하는 함수, solution을 완성해주세요.
+            </p>
+            <h2 class="t_tit2">💩 제한 조건</h2>
+            <p class="t_box">
+                ☝️ x는 -10000000 이상, 10000000 이하인 정수입니다.<br>
+                ✌️ n은 1000 이하인 자연수입니다.
+            </p>
+            <h2 class="t_tit2">💩 문제 풀이</h2>
+            <div class="t_code">
+<pre><code class="language-js">function solution(x, n) {
+    var answer = [];
+    for(i=1; i&lt;=n; i++){
+        answer.push(x * i)
+    }
+    return answer;
+}
+</code></pre></div>
+<p class="t_desc">
+    for문으로 n의 개수만큼의 길이를 가진 배열을 만들어 주었습니다. 아주 간단해서 더 쓸 말이 없네요.
+</p>
+<h2 class="t_tit2">💩 다른 풀이</h2>
+<div class="t_code">
+<pre><code class="language-js">function solution(x, n) {
+    return Array(n).fill(x).map((v, i) => (i + 1) * v)
+}
+</code></pre>
+</div>
+<p class="t_desc">
+    여기에서 Array(n)은 n개의 길이를 가진 배열을 만듭니다. fill(x)는 그 배열의 요소를 x로 채웁니다.
+    이후, map() 메서드를 사용하여 각각의 요소에 index + 1에 해당하는 값을 더해주면 됩니다. 천재적인 발상!
+</p>
+<div class="t_link">
+    <a href="https://school.programmers.co.kr/learn/courses/30/lessons/12954">문제 풀어보기</a>
+</div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

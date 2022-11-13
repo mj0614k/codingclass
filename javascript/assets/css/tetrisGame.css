@@ -76,6 +76,28 @@
 }
 .tetris__play {
 }
+.tetris__gameover {
+  position: absolute;
+  top: 160px;
+  text-align: center;
+  background-color: rgba(0,0,0,0.4);
+  color: white;
+  padding: 30px;
+  border-radius: 10px;
+  display: none;
+  left: 105px;
+}
+.tetris__gameover p {
+  margin-top: 20px;
+  background-color: white;
+  color: black;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+.tetris__gameover p:hover {
+  transform: scale(1.2);
+  transition: all 0.3s;
+}
 .playground {
 }
 .playground > ul {
