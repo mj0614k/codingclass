@@ -1,13 +1,16 @@
 .memory__wrap {
   display: none;
+  width: 500px;
+  height: 530px;
+  position: absolute;
+  top: 20%;
+  left: 35%;
 }
 .memory__inner {
   width: 500px;
   height: 530px;
   background: black;
-  position: absolute;
-  top: 75%;
-  left: 35%;
+  
   border-radius: 20px;
   animation: flicker 1.5s infinite alternate;
   display: flex;

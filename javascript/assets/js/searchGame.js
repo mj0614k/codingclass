@@ -551,3 +551,25 @@ function restart(){
 searchStart.addEventListener("click", startQuiz); // 게임 시작
 searchInput.addEventListener("input", checkInput);
 searchRestart.addEventListener("click", restart); 
+
+function searchClose(){
+    document.querySelector(".searchGame").style.display = "none";
+    // 시작 버튼 만들기
+    searchStart.style.display = "block";
+    searchStart.style.pointerEvents = "auto";
+    searchAnswers.innerHTML = "";
+    searchMissAnswers.innerHTML = "";
+
+    timeReamining = 120; // 시간
+    searchTime.innerText = displayTime();
+    score = 0;
+    searchAnswers.style.display = "none";
+    searchList.style.display = "block";
+    searchScoreNow.innerText = 0;
+
+    // 음악 끄기
+    searchAudio.pause();
+
+    // 시간 정지
+    clearInterval(timeInterval);
+}

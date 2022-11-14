@@ -158,3 +158,15 @@ document.querySelector(".memoryGameRestart").addEventListener("click", () => {
   });
   document.querySelector(".memoryGameRestart").style.transform = "scale(0)";
 })
+
+function memoryClose(){
+  document.querySelector(".memory__wrap").style.display = "none";
+  memoryMain.style.display = "block";
+  memoryGame.style.display = "none";
+  memoryGameBg.pause();
+  endCardGame = 100;
+  document.querySelector(".memory__card__rest").innerHTML = matchedCard;
+  matchedCard = 16;
+  document.querySelector(".memory__card__score").innerHTML = endCardGame;
+  document.querySelector(".memoryGameRestart").style.transform = "scale(0)";
+}

@@ -317,3 +317,11 @@ window.addEventListener("load", () => {
     loadMusic(musicIndex);  // 음악 재생
     playListMusic();  // 리스트 초기화(리스트를 클릭하면 음악 재생)
 });
+
+function musicClose(){
+    document.querySelector(".music__wrap").style.display = "none";
+    musicWrap.classList.remove("paused");
+    musicPlayBtn.setAttribute("id", "control-play");
+    musicPlayBtn.setAttribute("class", "play");
+    musicAudio.pause();
+}

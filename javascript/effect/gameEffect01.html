@@ -876,101 +876,68 @@
 
       $(".music__wrap, .searchGame, .memory__wrap, .tetris__wrap").draggable();
 
-      $(".music__wrap, .searchGame, .memory__wrap, .tetris__wrap").mousedown(function () {
-        var maxZIndex = 0;
-        var curZIndex = 0;
-        $(".music__wrap, .searchGame, .memory__wrap, .tetris__wrap").each(function (index) {
-          //숫자변환
-          curZIndex = parseInt($(this).css("z-index"));
-          if (maxZIndex < curZIndex) {
-            maxZIndex = curZIndex;
-          }
-        });
-        // 드래그 팝업이 항상 위
-        $(this).css("z-index", maxZIndex + 2);
-        $(".icon1").click(function () {
-          var maxZIndex = 0;
-          var curZIndex = 0;
-          $(".music__wrap").css("z-index", maxZIndex + 2);
-        });
-      });
+      // $(".music__wrap, .searchGame, .memory__wrap, .tetris__wrap").mousedown(function () {
+      //   var maxZIndex = 0;
+      //   var curZIndex = 0;
+      //   $(".music__wrap, .searchGame, .memory__wrap, .tetris__wrap").each(function (index) {
+      //     //숫자변환
+      //     curZIndex = parseInt($(this).css("z-index"));
+      //     if (maxZIndex < curZIndex) {
+      //       maxZIndex = curZIndex;
+      //     }
+      //   });
+      //   // 드래그 팝업이 항상 위
+      //   $(this).css("z-index", maxZIndex + 2);
+      //   $(".icon1").click(function () {
+      //     var maxZIndex = 0;
+      //     var curZIndex = 0;
+      //     $(".music__wrap").css("z-index", maxZIndex + 2);
+      //   });
+      // });
 
       // 폴더 클릭
       document.querySelector(".icon1").addEventListener("click", () => {
         document.querySelector(".music__wrap").style.display = "block";
+        searchClose();
+        memoryClose();
+        tetrisClose();
+
       });
       document.querySelector(".musicP__close").addEventListener("click", () => {
-        document.querySelector(".music__wrap").style.display = "none";
-        musicWrap.classList.remove("paused");
-        musicPlayBtn.setAttribute("id", "control-play");
-        musicPlayBtn.setAttribute("class", "play");
-        musicAudio.pause();
+        musicClose();
       });
 
       document.querySelector(".icon2").addEventListener("click", () => {
         document.querySelector(".searchGame").style.display = "block";
+        musicClose();
+        memoryClose();
+        tetrisClose();
       });
       document.querySelector(".search-close").addEventListener("click", () => {
-        document.querySelector(".searchGame").style.display = "none";
-        // 시작 버튼 만들기
-        searchStart.style.display = "block";
-        searchStart.style.pointerEvents = "auto";
-        searchAnswers.innerHTML = "";
-        searchMissAnswers.innerHTML = "";
-
-        timeReamining = 120; // 시간
-        searchTime.innerText = displayTime();
-        score = 0;
-        searchAnswers.style.display = "none";
-        searchList.style.display = "block";
-        searchScoreNow.innerText = 0;
-
-        // 음악 끄기
-        searchAudio.pause();
-
-        // 시간 정지
-        clearInterval(timeInterval);
+        searchClose();
       });
 
       document.querySelector(".icon3").addEventListener("click", () => {
         document.querySelector(".memory__wrap").style.display = "block";
+        musicClose();
+        searchClose();
+        tetrisClose();
       });
       document.querySelector(".memory-close").addEventListener("click", () => {
-        document.querySelector(".memory__wrap").style.display = "none";
-        memoryMain.style.display = "block";
-        memoryGame.style.display = "none";
-        memoryGameBg.pause();
-        endCardGame = 100;
-        document.querySelector(".memory__card__rest").innerHTML = matchedCard;
-        matchedCard = 16;
-        document.querySelector(".memory__card__score").innerHTML = endCardGame;
-        document.querySelector(".memoryGameRestart").style.transform = "scale(0)";
+        memoryClose();
       });
 
       document.querySelector(".icon4").addEventListener("click", () => {
         document.querySelector(".tetris__wrap").style.display = "block";
+        musicClose();
+        searchClose();
+        memoryClose();
       });
       document.querySelector(".tetris-close").addEventListener("click", () => {
-        document.querySelector(".tetris__wrap").style.display = "none";
-        document.querySelector(".tetris__main").style.display = "block";
-        document.querySelector(".tetris__inner").style.display = "none";
-        document.querySelector(".tetris__info").style.display = "none";
-        document.querySelector(".tetris__gameover").style.display = "none";
-        gameover = true;
-        TsoundBg.pause();
-        document.querySelector(".tetris__line span").innerHTML = 0;
-        document.querySelector(".tetris__score span").innerHTML = 0;
+        tetrisClose();
       });
       document.querySelector(".tetris-close2").addEventListener("click", () => {
-        document.querySelector(".tetris__wrap").style.display = "none";
-        document.querySelector(".tetris__main").style.display = "block";
-        document.querySelector(".tetris__inner").style.display = "none";
-        document.querySelector(".tetris__info").style.display = "none";
-        document.querySelector(".tetris__gameover").style.display = "none";
-        gameover = true;
-        TsoundBg.pause();
-        document.querySelector(".tetris__line span").innerHTML = 0;
-        document.querySelector(".tetris__score span").innerHTML = 0;
+       tetrisClose();
       });
 
       window.onload = function () {
