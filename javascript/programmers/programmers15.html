@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로그래머스 1단계</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="../index.html">프로그래머스 1단계</a></h1>
+    </header>
+    <!-- //header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">프로그래머스 1단계 : 내적
+            </h2>
+            <p class="t_desc">코딩테스트 연습 > 
+                월간 코드 챌린지 시즌1 > 
+                내적
+                </p>
+                <hr>
+            <h2 class="t_tit2">💩 문제 설명</h1>
+            <p class="t_desc">
+                길이가 같은 두 1차원 정수 배열 a, b가 매개변수로 주어집니다. a와 b의 내적을 return 하도록 solution 함수를 완성해주세요. 
+                이때, a와 b의 내적은
+                <p class="t_box">
+                a[0]*b[0] + a[1]*b[1] + ... + a[n-1]*b[n-1]</p>입니다. (n은 a, b의 길이)
+            </p>
+            <h2 class="t_tit2">💩 제한 조건</h2>
+            <p class="t_box">
+                ☝️ a, b의 길이는 1 이상 1,000 이하입니다.<br>
+                ✌️ a, b의 모든 수는 -1,000 이상 1,000 이하입니다.
+            </p>
+            <h2 class="t_tit2">💩 문제 풀이</h2>
+            <div class="t_code">
+<pre><code class="language-js">function solution(a, b) {
+    let answer = 0;
+    for(i=0; i&lt;a.length; i++){
+        answer += a[i]*b[i];
+    }
+    return answer;
+}
+</code></pre></div>
+<p class="t_desc">
+    내적이라는 용어가 원래 있는 것인지는 모르겠지만 내적에 나온 설명 그대~로 for문을 사용해 작업해 주었습니다.
+</p>
+<h2 class="t_tit2">💩 다른 풀이</h2>
+<div class="t_code">
+<pre><code class="language-js">function solution(a, b) {
+    return a.reduce((acc, _, i) => acc += a[i] * b[i], 0);
+}
+</code></pre>
+</div>
+<p class="t_desc">
+    reduce() 메서드는 네 개의 인자를 가진다고 합니다. 누산기(acc), 현재 값(cur), 현재 인덱스(idx), src(원본 배열)입니다.
+    리듀서 함수의 반환 값은 누산기에 할당되고, 누산기는 순회 중 유지되므로 결국 최종 결과는 하나의 값이 됩니다. 설명이 더 필요가 없네요.
+</p>
+<div class="t_link">
+    <a href="https://school.programmers.co.kr/learn/courses/30/lessons/70128">문제 풀어보기</a>
+</div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>
