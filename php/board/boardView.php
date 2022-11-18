@@ -59,7 +59,7 @@
                 </div>
                 <div class="board__btn">
                     <a href="boardModify.php">수정하기</a>
-                    <a href="#">삭제하기</a>
+                    <a href="boardDelete.php">삭제하기</a>
                     <a href="board.php">목록보기</a>
                 </div>
         </section>

@@ -2,6 +2,11 @@
     include "../connect/connect.php";
     include "../connect/session.php";
     include "../connect/sessionCheck.php";
+
+    $MemberID = $_SESSION['memberID'];
+    $sql = "SELECT * FROM Member WHERE memberID = $MemberID";
+    $result = $connect -> query($sql);
+    $info = $result -> fetch_array(MYSQLI_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -33,37 +38,24 @@
                         <img src="assets/img/imgDefault.svg" alt="s">
                     </div>
                     <div class="intro">
-                        웹과 코딩에 관심이 많은 웹스토리보이입니다.
                     </div>
                     <div class="info">
                         <ul>
                             <li>
                                 <strong>이메일</strong>
-                                <span>webstoryboy@naver.com</span>
+                                <span><?=$info['youEmail']?></span>
                             </li>
                             <li>
                                 <strong>이름</strong>
-                                <span>황상연</span>
-                            </li>
-                            <li>
-                                <strong>닉네임</strong>
-                                <span>리치클럽</span>
+                                <span><?=$info['youName']?></span>
                             </li>
                             <li>
                                 <strong>생일</strong>
-                                <span>1999-09-03</span>
+                                <span><?=$info['youBirth']?></span>
                             </li>
                             <li>
                                 <strong>연락처</strong>
-                                <span>010-0333-0444</span>
-                            </li>
-                            <li>
-                                <strong>성별</strong>
-                                <span>남자</span>
-                            </li>
-                            <li>
-                                <strong>웹 사이트</strong>
-                                <span></span>
+                                <span><?=$info['youPhone']?></span>
                             </li>
                         </ul>
                     </div>

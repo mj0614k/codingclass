@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/fonts.css" />
+    <title></title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        list-style: none;
+      }
+      body {
+        background-color: #000;
+      }
+      img {
+        width: 100%;
+      }
+      .container {
+        max-width: 1720px;
+        margin: 0 auto;
+      }
+      .section {
+        margin: 150px 0;
+      }
+      .detail {
+        display: flex;
+        justify-content: space-between;
+      }
+      .detail__left {
+        width: 65%;
+      }
+      .detail__left .main__img {
+        margin-bottom: 50px;
+      }
+      .detail__left .sub__img {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+      }
+      .detail__left .sub__img a {
+        width: 24%;
+      }
+      .detail__right {
+        width: 30%;
+        position: relative;
+      }
+      .detail__right .detail__title {
+        color: #fff;
+        font-size: 32px;
+        line-height: 1.4;
+        font-family: "Rokkitt";
+        margin-bottom: 20px;
+        font-weight: 500;
+      }
+      .detail__right .detail__desc {
+        color: #fff;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 1.6;
+        font-family: "Rokkitt", sans-serif;
+      }
+      .detail__right .detail__info {
+        background-color: #f6f5fa;
+        color: #636363;
+        font-weight: 700;
+        border-radius: 10px;
+        position: absolute;
+        font-family: "GowunBatang";
+        box-sizing: border-box;
+        padding: 30px 40px;
+        bottom: 0;
+        width: 383px;
+        height: 135px;
+        right: 0;
+      }
+      .detail__right .detail__info li {
+        display: flex;
+        justify-content: space-between;
+        line-height: 1.5;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <section class="section detail">
+        <div class="detail__left">
+          <figure class="main__img">
+            <a href="#"><img src="assets/img/detail__bg01.jpg" alt="이미지1" /></a>
+          </figure>
+          <figure class="sub__img">
+            <a href="#"><img src="assets/img/detail__bg02.jpg" alt="이미지2" /></a>
+            <a href="#"><img src="assets/img/detail__bg03.jpg" alt="이미지3" /></a>
+            <a href="#"><img src="assets/img/detail__bg04.jpg" alt="이미지4" /></a>
+            <a href="#"><img src="assets/img/detail__bg05.jpg" alt="이미지5" /></a>
+          </figure>
+        </div>
+        <div class="detail__right">
+          <h2 class="detail__title">Browse APIs</h2>
+          <p class="detail__desc">
+            One of the most popular websites at NASA is the Astronomy Picture of the Day. In fact, this website is one of the most popular websites across all federal agencies. It has the popular
+            appeal of a Justin Bieber video. This endpoint structures the APOD imagery and associated metadata so that it can be repurposed for other applications. In addition, if the concept_tags
+            parameter is set to True, then keywords derived from the image explanation are returned. These keywords could be used as auto-generated hashtags for twitter or instagram feeds; but
+            generally help with discoverability of relevant imagery.
+            <br />
+            The full documentation for this API can be found in the APOD API Github repository.
+          </p>
+          <div class="detail__info">
+            <li><span>유형 : </span><span>jpg</span></li>
+            <li><span>해상도 : </span><span>1200 * 1200</span></li>
+            <li><span>게시일 : </span><span>2022.12.12</span></li>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

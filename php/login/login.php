@@ -50,7 +50,7 @@
             
             <div class="desc">
                 <ul>
-                    <li>회원이 아니신가요? <a href="#" class="link">회원가입</a></li>
+                    <li>회원이 아니신가요? <a href="../join/join.php" class="link">회원가입</a></li>
                     <li>아이디가 기억이 나지 않는다면? <a href="#" class="link">아이디 찾기</a></li>
                     <li>비밀번호가 기억이 나지 않는다면? <a href="#" class="link">비밀번호 찾기</a></li>
                 </ul>

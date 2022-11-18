@@ -62,10 +62,14 @@
                         <input type="password" id="youPassC" name="youPassC" class="input_style1" placeholder="비밀번호 확인을 입력해 주세요." required>
                     </div>
                     <div>
-                        <label for="youPhone">휴대폰번호</label>
-                        <input type="text" id="youPhone" name="youPhone" class="input_style1" placeholder="휴대폰번호를 입력해 주세요." required>
+                        <label for="youBirth">생년월일</label>
+                        <input type="text" id="youBirth" name="youBirth" class="input_style1" placeholder="ex) YYYY-MM-DD" required>
                     </div>
-                    <button class="btn_style1 mt20" type="submit">회원가입 완료</button>
+                    <div>
+                        <label for="youPhone">휴대폰번호</label>
+                        <input type="text" id="youPhone" name="youPhone" class="input_style1" placeholder="ex) 010-0000-0000" required>
+                    </div>
+                    <button class="btn_style1 mt40" type="submit">회원가입 완료</button>
                 </fieldset>
             </form>
         </div>

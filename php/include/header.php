@@ -1,7 +1,7 @@
 <header id="header">
     <div class="header__inner container">
         <div class="left">
-            <a href="../index.php" class="star"><span class="ir">메인으로</span></a>
+            <a href="../index.html" class="star"><span class="ir">메인으로</span></a>
         </div>
         <h1>
             <a href="../main/main.php">PHP BLOG</a>
@@ -20,12 +20,20 @@
             <?php } ?>
         </div>
         <nav class="nav">
-            <ul>
+        <?php if(isset($_SESSION['memberID'])){ ?>
+                <ul>
+                    <li><a href="../mypage/mypage.php"><span>마이페이지</span></a></li>
+                    <li><a href="../login/logout.php"><span>로그아웃</span></a></li>
+                    <li><a href="../board/board.php"><span>게시판</span></a></li>
+                    <li><a href="../blog/blog.php"><span>블로그</span></a></li>
+                </ul>
+            <?php } else { ?>
                 <li><a href="../join/join.php"><span>회원가입</span></a></li>
                 <li><a href="../login/login.php"><span>로그인</span></a></li>
                 <li><a href="../board/board.php"><span>게시판</span></a></li>
                 <li><a href="../blog/blog.php"><span>블로그</span></a></li>
             </ul>
+        <?php } ?>
         </nav>
     </div>
 </header>

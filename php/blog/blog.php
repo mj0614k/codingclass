@@ -89,7 +89,7 @@
                             <img src="../assets/img/banner_bg01.jpg" alt="배너 이미지">
                         </div>
                         <div class="desc">
-                            어떤 일이라도 <em>노력</em>하고 즐기면 그 결과는 <em>빛</em>을 바란다고 생각합니다.
+                            어떤 일이라도 <em>노력</em>하고 즐기면 그 결과는 <em>빛</em>을 발한다고 생각합니다.
                         </div>
                     </div>
                     <article class="aside__cate">

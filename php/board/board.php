@@ -42,7 +42,15 @@
             <div class="board__inner">
                 <div class="board__search">
                     <div class="left">
-                        * 총 <em>1111</em>건의 게시물이 등록되어 있습니다.
+                        * 총 <em>
+<?php
+    $sql = "SELECT count(boardID) FROM Board";
+    $result = $connect -> query($sql);
+    $boardCount = $result -> fetch_array(MYSQLI_ASSOC);
+    $boardCount = $boardCount['count(boardID)'];
+    echo $boardCount;
+?>
+                        </em>건의 게시물이 등록되어 있습니다.
                     </div>
                     <div class="right">
                         <form action="boardSearch.php" name="boardSearch" method="get">
@@ -108,10 +116,6 @@
                 <div class="board__pages">
                     <ul>
                     <?php
-    $sql = "SELECT count(boardID) FROM Board";
-    $result = $connect -> query($sql);
-    $boardCount = $result -> fetch_array(MYSQLI_ASSOC);
-    $boardCount = $boardCount['count(boardID)'];
     // 총 페이지 갯수
     $boardCount = ceil($boardCount/$viewNum);
     // echo $boardCount;

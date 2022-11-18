@@ -23,7 +23,7 @@
 <!-- //header -->
 <main id="main">
     <section id="banner" class="container section">
-        <h2 class="blind">회원가입을 축하드립니다.</h2>
+        <h2 class="blind">회원가입 결과입니다.</h2>
         <div class="banner__inner style2">
             <div class="img">
                 <img src="../assets/img/banner_img03.svg" alt="배너 이미지">
@@ -36,12 +36,12 @@
     $youName = $_POST['youName'];
     $youPass = $_POST['youPass'];
     $youPassC = $_POST['youPassC'];
+    $youBirth = $_POST['youBirth'];
     $youPhone = $_POST['youPhone'];
     $regTime = time();
     // 메세지 출력
     function msg($alert){
         echo "<p class='alert'>${alert}</p>";
-        echo "<a class='btn btn_style1 mt30' href='../login/login.php'>로그인</a>";
     }
     // echo $youEmail, $youName, $youPass, $youPhone, $regTime;
     // $sql = "INSERT INTO hwangMember(youEmail, youName, youPass, youPhone, regTime) VALUES('$youEmail', '$youName', '$youPass', '$youPhone', '$regTime')";
@@ -50,22 +50,25 @@
     // 이메일 체크(정규식 표현)
     // $check_email = preg_match("/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i", $youEmail);
     // if($check_email == false){
-    //     echo "이메일이 잘모되었습니다.<br> 올바른 이메일을 작성해주세요";
+    //     echo "이메일이 잘못되었습니다.<br> 올바른 이메일을 작성해주세요";
     // }
     // 이메일 체크(내장 함수)
     $check_email = filter_var($youEmail, FILTER_VALIDATE_EMAIL);
     if($check_email == false){
         msg("이메일이 잘못되었습니다.<br> 올바른 이메일을 작성해주세요");
+        echo "<a class='btn btn_style1 mt30' href='javascript:history.back();'>이전으로</a>";
     }
     // 이름 유효성 검사 : 정규식 표현, 한글만, 3-5글자
     $check_name = preg_match("/^[가-힣]{3,15}$/", $youName);
     if($check_name == false){
         msg("이름은 한글(3~5글자)로만 작성할 수 있습니다.<br> 올바른 이름을 작성해 주세요.");
+        echo "<a class='btn btn_style1 mt30' href='javascript:history.back();'>이전으로</a>";
         exit;
     }
     // 비밀번호 유효성 검사
     if($youPass !== $youPassC){
-        msg("비밀번호가 일치하지 않습니다. <br> 다시 한번 확인해주세요!");
+        msg("비밀번호가 일치하지 않습니다. <br> 다시 한번 확인해 주세요.");
+        echo "<a class='btn btn_style1 mt30' href='javascript:history.back();'>이전으로</a>";
         exit;
     }
     // 비밀번호 암호화
@@ -73,7 +76,15 @@
     // 휴대폰 번호 유효성 검사
     $check_number = preg_match("/^(010|011|016|017|018|019)-[0-9]{3,4}-[0-9]{4}$/", $youPhone);
     if($check_number == false){
-        msg("번호가 정확하지 않습니다..<br> 올바른 번호(000-0000-0000)를 작성해주세요");
+        msg("휴대폰 번호를 올바르게(000-0000-0000)를 작성해 주세요.");
+        echo "<a class='btn btn_style1 mt30' href='javascript:history.back();'>이전으로</a>";
+        exit;
+    }
+    // 생년월일 유효성 검사
+    $check_birth = preg_match("/^(19[0-9][0-9]|20\d{2})-(0[0-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/", $youBirth);
+    if($check_birth == false){
+        msg("생년월일(YYYY-MM-DD)을 올바르게 입력해 주세요.");
+        echo "<a class='btn btn_style1 mt30' href='javascript:history.back();'>이전으로</a>";
         exit;
     }
     // 회원가입 데이터 입력 --> 유효성 검사 --> 이메일주소/핸드폰(중복X) --> 회원가입(데이터베이스 입력)
@@ -89,11 +100,12 @@
             $isEmailCheck = true;
         } else {
             //회원가입 불가능
-            msg("이미 회원가입이 되어 있습니다. 로그인 해주세요!!");
+            msg("이미 등록되어 있는 이메일 정보입니다.");
+            echo "<a class='btn btn_style1 mt30' href='javascript:history.back();'>이전으로</a>";
             exit;
         }
     } else {
-        msg("에러발생1 : 관리자에게 문의하세요!");
+        msg("에러발생1 : 관리자에게 문의하세요.");
         exit;
     }
     // 핸드폰 중복 검사
@@ -107,31 +119,34 @@
             $isPhoneCheck = true;
         } else {
             //회원가입 불가능
-            msg("이미 회원가입이 되어 있습니다. 로그인 해주세요!!");
+            msg("이미 등록되어 있는 핸드폰 번호 정보입니다.");
+            echo "<a class='btn btn_style1 mt30' href='javascript:history.back();'>이전으로</a>";
             exit;
         }
     } else {
-        msg("에러발생2 : 관리자에게 문의하세요!");
+        msg("에러발생2 : 관리자에게 문의하세요.");
         exit;
     }
+    
     // 회원가입
     if($isEmailCheck == true && $isPhoneCheck == true){
-        $sql = "INSERT INTO Member(youEmail, youName, youPass, youPhone, regTime) VALUES('$youEmail', '$youName', '$youPass', '$youPhone', '$regTime')";
+        $sql = "INSERT INTO Member(youEmail, youName, youPass, youPhone, youBirth, regTime) VALUES('$youEmail', '$youName', '$youPass', '$youPhone', '$youBirth', '$regTime')";
         $result = $connect -> query($sql);
         if($result){
-            msg("회원가입을 축하합니다. 로그인 해주세요!");
+            msg("회원가입이 성공적으로 완료되었습니다!");
+            echo "<a class='btn btn_style1 mt30' href='../login/login.php'>로그인</a>";
             exit;
         } else {
-            msg("에러발생3 : 관리자에게 문의하세요!");
+            msg("에러발생3 : 관리자에게 문의하세요.");
             exit;
         }
     } else {
-        msg("이미 가입되어 있습니다. 로그인 해주세요!!");
+        msg("이미 회원가입이 되어 있습니다. 로그인을 해주세요.");
+        echo "<a class='btn btn_style1 mt30' href='../login/login.php'>로그인</a>";
         exit;
     }
 ?>
             </div>
-            <a class="btn btn_style1 mt30" href="main.html">메인으로</a>
         </div>
     </section>
     <!-- //banner -->
