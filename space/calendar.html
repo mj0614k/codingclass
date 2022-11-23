@@ -5,153 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="assets/css/fonts.css" />
-    <title></title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-      }
-      body {
-        background-color: #000;
-      }
-      img {
-        width: 100%;
-      }
-      .bg__moon {
-        position: absolute;
-        top: -110px;
-        width: auto;
-        left: -145px;
-        z-index: -1;
-      }
-      .bg__astro {
-        width: auto;
-        position: absolute;
-        bottom: 110px;
-        right: 170px;
-        z-index: -1;
-      }
-      .container {
-        max-width: 1720px;
-        margin: 0 auto;
-      }
-      .section {
-        margin: 150px 0;
-      }
-      /* section calendar */
-      .sec_cal {
-        font-family: "Bai Jamjuree";
-        max-width: 1030px;
-        margin: 0 auto;
-      }
-      .sec_cal .cal_nav {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-weight: 300;
-        color: #fff;
-        height: 95px;
-      }
-
-      .sec_cal .cal_nav .year-month {
-        width: 500px;
-        text-align: center;
-        line-height: 1;
-        font-size: 24px;
-        font-weight: 400;
-      }
-
-      .sec_cal .cal_nav .nav {
-        display: flex;
-        border: 1px solid #333333;
-        border-radius: 5px;
-      }
-
-      .sec_cal .cal_nav .go-prev,
-      .sec_cal .cal_nav .go-next {
-        display: block;
-        width: 50px;
-        height: 78px;
-        font-size: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .sec_cal .cal_nav .go-prev::before,
-      .sec_cal .cal_nav .go-next::before {
-        content: "";
-        display: block;
-        width: 12px;
-        height: 12px;
-        border: 3px solid #fff;
-        border-width: 3px 3px 0 0;
-        transition: border 0.1s;
-      }
-
-      .sec_cal .cal_nav .go-prev:hover::before,
-      .sec_cal .cal_nav .go-next:hover::before {
-        border-color: rgb(190, 190, 190);
-      }
-
-      .sec_cal .cal_nav .go-prev::before {
-        transform: rotate(-135deg);
-      }
-
-      .sec_cal .cal_nav .go-next::before {
-        transform: rotate(45deg);
-      }
-
-      .sec_cal .cal_wrap {
-        position: relative;
-      }
-
-      .sec_cal .cal_wrap .days {
-        display: flex;
-      }
-
-      .sec_cal .cal_wrap::after {
-        top: 368px;
-      }
-
-      .sec_cal .cal_wrap .day {
-        width: calc(100% / 7);
-        margin-bottom: 50px;
-        text-align: left;
-        color: #fff;
-        font-size: 16px;
-        text-align: center;
-        font-weight: 400;
-      }
-
-      /* .current.today {
-        background: rgb(242 242 242);
-      } */
-
-      .sec_cal .cal_wrap .dates {
-        display: flex;
-        flex-flow: wrap;
-      }
-      .sec_cal .cal_wrap .dates .day.current {
-        text-align: left;
-        font-size: 12px;
-        margin-bottom: 0px;
-        box-sizing: border-box;
-        padding: 10px;
-        font-weight: 300;
-        height: 120px;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-      }
-      .sec_cal .cal_wrap .dates .day.current:nth-child(3) {
-        background-image: url(../assets/img/alpaca.jpg);
-      }
-      .sec_cal .cal_wrap .dates,
-      .sec_cal .cal_wrap .day.disable {
-        font-size: 0;
-      }
-    </style>
+    <link rel="stylesheet" href="assets/css/common.css" />
+    <link rel="stylesheet" href="assets/css/calendar.css" />
+    <title>CALENDAR</title>
   </head>
   <body>
     <img class="bg__moon" src="assets/img/calender_bg01.png" alt="달 이미지" />
@@ -198,6 +54,7 @@
         let utc = date.getTime() + date.getTimezoneOffset() * 60 * 1000; // uct 표준시 도출
         let kstGap = 9 * 60 * 60 * 1000; // 한국 kst 기준시간 더하기
         let today = new Date(utc + kstGap); // 한국 시간으로 date 객체 만들기(오늘)
+        const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
         let thisMonth = new Date(today.getFullYear(), today.getMonth(), today.getDate());
         // 달력에서 표기하는 날짜 객체
@@ -205,9 +62,6 @@
         let currentYear = thisMonth.getFullYear(); // 달력에서 표기하는 연
         let currentMonth = thisMonth.getMonth(); // 달력에서 표기하는 월
         let currentDate = thisMonth.getDate(); // 달력에서 표기하는 일
-
-        // 월 이름 출력하기
-        let monthName = date.toLocaleString("en-US", { month: "long" });
 
         // kst 기준 현재시간
         // console.log(thisMonth);
@@ -234,7 +88,7 @@
           // console.log(prevDate, prevDay, nextDate, nextDay);
 
           // 현재 월 표기
-          $(".year-month").text(currentMonth + " " + currentYear);
+          $(".year-month").text(monthNames[currentMonth] + " " + currentYear);
 
           // 렌더링 html 요소 생성
           calendar = document.querySelector(".dates");
@@ -246,7 +100,7 @@
           }
           // 이번달
           for (let i = 1; i <= nextDate; i++) {
-            calendar.innerHTML = calendar.innerHTML + '<div class="day current">' + i + "</div>";
+            calendar.innerHTML = calendar.innerHTML + '<div class="day current" style="background-image:url(assets/img/calendar_' + i + '.jpg)">' + i + "</div>";
           }
           // 다음달
           for (let i = 1; i <= (7 - nextDay == 7 ? 0 : 7 - nextDay); i++) {
