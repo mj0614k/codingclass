@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로그래머스 1단계</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="../index.html">프로그래머스 1단계</a></h1>
+    </header>
+    <!-- //header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">프로그래머스 1단계 : 두 개 뽑아서 더하기
+            </h2>
+            <p class="t_desc">코딩테스트 연습 > 
+                월간 코드 챌린지 시즌1 > 
+                두 개 뽑아서 더하기
+                </p>
+                <hr>
+            <h2 class="t_tit2">💩 문제 설명</h1>
+            <p class="t_desc">
+                정수 배열 numbers가 주어집니다. numbers에서 서로 다른 인덱스에 있는 두 개의 수를 뽑아 더해서 만들 수 있는 모든 수를 배열에 오름차순으로 담아 return 하도록 solution 함수를 완성해주세요.
+            </p>
+            <h2 class="t_tit2">💩 제한 조건</h2>
+            <p class="t_box">
+                ☝️ numbers의 길이는 2 이상 100 이하입니다.<br>
+                ✌ numbers의 모든 수는 0 이상 100 이하입니다.
+            </p>
+            <h2 class="t_tit2">💩 문제 풀이</h2>
+            <div class="t_code">
+<pre><code class="language-js">function solution(numbers) {
+    let result = [];
+    for(i=0; i&lt;numbers.length; i++){
+        for(j=0; j&lt;numbers.length; j++){
+            if(j==i){
+                continue;
+            }
+            result.push(numbers[i]+numbers[j])
+        }
+    }
+    return result.map(e => e).sort((a, b) => a - b).filter((e, i, arr) => arr[i] !== arr[i+1])
+}
+</code></pre></div>
+<p class="t_desc">
+    for문을 두 개 만들어 모든 수를 더해주었습니다. 서로 다른 인덱스의 숫자를 더해야 하므로, i와 j가 동일할 때는 건너뛰어 줍니다.
+    더한 값들의 총집합인 result 배열은, 예쁘게 정렬시킨 뒤 중복을 제거해 줍니다.
+</p>
+<h2 class="t_tit2">💩 다른 풀이</h2>
+<div class="t_code">
+<pre><code class="language-js">function solution(numbers) {
+    const temp = []
+    for (let i = 0; i &lt; numbers.length; i++) {
+        for (let j = i + 1; j &lt; numbers.length; j++) {
+            temp.push(numbers[i] + numbers[j])
+        }
+    }
+    const answer = [...new Set(temp)]
+    return answer.sort((a, b) => a - b)
+}
+</code></pre>
+</div>
+<p class="t_desc">
+    Set은 중복을 허용하지 않는 객체로, 안에 이미 같은 값이 존재한다면 알아서 걸러준다고 합니다.
+    이런 좋은 걸 왜 우리는 배우지 않았죠?
+</p>
+<div class="t_link">
+    <a href="https://school.programmers.co.kr/learn/courses/30/lessons/68644">문제 풀어보기</a>
+</div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

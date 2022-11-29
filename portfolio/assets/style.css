@@ -1,0 +1,215 @@
+@import "../assets/fonts.css";
+@import "../assets/reset.css";
+@import "../assets/common.css";
+
+body {
+  background-color: #1b9142;
+}
+
+.intro__decoration {
+  color: #107531;
+  font-family: "OKDdung";
+  font-size: 200px;
+  margin: 160px 0 60px 0;
+  line-height: 1.2;
+  z-index: -1;
+  width: 100%;
+  overflow: hidden;
+}
+.intro__decoration span {
+  display: block;
+}
+/* intro__img */
+.intro__img img {
+  width: 724px;
+  height: 724px;
+  position: absolute;
+  top: 276px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.intro__img__decoration {
+  position: absolute;
+  top: 210px;
+  left: 50%;
+  width: 300px;
+  height: 160px;
+  transform: translateX(-50%);
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+}
+.intro__img__decoration .eye__white {
+  background-color: #fff;
+  width: 135px;
+  height: 135px;
+  border-radius: 50%;
+}
+.intro__img__decoration .eye__white.left {
+  position: relative;
+}
+.intro__img__decoration .eye__white.right {
+  position: relative;
+  margin-top: 20px;
+}
+.intro__img__decoration .eye__black {
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #46152a;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  position: absolute;
+}
+.intro__img__decoration .eye {
+  background-color: #fff;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+}
+/* intro__main */
+.intro__main h2 {
+  font-size: 200px;
+  font-family: "OKDdung";
+  color: #f7e8d6;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  justify-content: center;
+  display: flex;
+}
+.intro__main h2 span {
+  display: block;
+  opacity: 0;
+  transform: scale(1.2);
+}
+.intro__main .arrow {
+  background-image: url("data:image/svg+xml,%3Csvg width='90' height='123' viewBox='0 0 90 123' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_325_112)'%3E%3Cpath d='M44.996 16.4477L77.8393 0.152604C78.9288 -0.387948 80.1526 0.591216 79.8691 1.77652L62.965 72.4117C62.7 73.5192 63.7636 74.4813 64.8351 74.1031L88.0828 65.8967C89.4488 65.4144 90.585 67.0359 89.6697 68.1612L45.4927 122.471C44.914 123.183 43.8275 123.175 43.2585 122.456L0.317902 68.1543C-0.578752 67.0204 0.568871 65.4184 1.92667 65.9086L24.5068 74.0595C25.5901 74.4506 26.6678 73.4661 26.3806 72.3482L8.247 1.80101C7.94202 0.614475 9.16235 -0.386213 10.2615 0.149127L43.7339 16.4523C44.1327 16.6465 44.5986 16.6448 44.996 16.4477Z' fill='%23F7E8D6' stroke='%23F7E8D6'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_325_112'%3E%3Crect width='90' height='123' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+  width: 90px;
+  height: 123px;
+  margin: 0 auto;
+  margin-bottom: 120px;
+}
+
+/* monster */
+.st0 {
+  fill: #e6e7e8;
+}
+.st1 {
+  fill: #259146;
+}
+.st2 {
+  fill: #6abc47;
+}
+.st3 {
+  fill: #5aa545;
+}
+.st4 {
+  fill: #ffffff;
+}
+.st5 {
+  fill: #262c15;
+}
+.st6 {
+  fill: #484a21;
+}
+.st7 {
+  fill: #428c41;
+}
+.st8 {
+  fill: #e184b2;
+}
+.st9 {
+  fill: #f1f1f2;
+}
+.st10 {
+  fill: #f89f29;
+}
+.st11 {
+  fill: #fcb626;
+}
+.st12 {
+  fill: #eaa122;
+}
+.st13 {
+  fill: #422e13;
+}
+.st14 {
+  fill: #e08726;
+}
+.st15 {
+  fill: #451124;
+}
+.st16 {
+  fill: #ba2356;
+}
+.st17 {
+  fill: #29c1e3;
+}
+.st18 {
+  fill: #ee436e;
+}
+.st19 {
+  fill: #dd3768;
+}
+.st20 {
+  fill: #461529;
+}
+.st21 {
+  fill: #680a2c;
+}
+#monsters {
+  display: block;
+  margin: 0 auto;
+  width: 80%;
+}
+#first-monster-eye,
+#first-monster-hand,
+#first-monster-eye-in,
+#first-monster-mouth,
+#second-monster-hand,
+#second-monster-sec-hand,
+#second-monster-eye,
+#second-monster,
+#third-monster-leg,
+#third-monster-leg-left,
+#third-monster,
+#third-monster-face,
+.monsters,
+.monster {
+  animation-iteration-count: infinite !important;
+  animation-direction: alternate !important;
+}
+
+.monsters {
+  animation-timing-function: linear;
+  animation: monsters;
+  animation-duration: 3s;
+}
+@keyframes monsters {
+  from {
+    transform: rotate(-2deg) translateX(2px) translateY(2px);
+    transform-origin: bottom;
+  }
+  to {
+    transform: rotate(2deg) translateX(-2px) translateY(-2px);
+    transform-origin: bottom;
+  }
+}
+.monster {
+  animation-timing-function: linear;
+  animation: monster;
+  animation-duration: 3s;
+}
+@keyframes monster {
+  from {
+    transform: rotate(2deg) translateX(-2px) translateY(-2px);
+    transform-origin: bottom;
+  }
+  to {
+    transform: rotate(-2deg) translateX(2px) translateY(2px);
+    transform-origin: bottom;
+  }
+}

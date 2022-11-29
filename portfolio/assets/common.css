@@ -1,0 +1,14 @@
+body {
+  background-color: #1b9142;
+}
+
+.decoration {
+  color: #107531;
+  font-family: "OKDdung";
+  font-size: 200px;
+  margin-top: 160px;
+  line-height: 1.2;
+  z-index: -1;
+  width: 100%;
+  overflow: hidden;
+}
