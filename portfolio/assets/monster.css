@@ -1,0 +1,120 @@
+/* monster */
+.st0 {
+  fill: #e6e7e8;
+}
+.st1 {
+  fill: #259146;
+}
+.st2 {
+  fill: #6abc47;
+}
+.st3 {
+  fill: #5aa545;
+}
+.st4 {
+  fill: #ffffff;
+}
+.st5 {
+  fill: #262c15;
+}
+.st6 {
+  fill: #484a21;
+}
+.st7 {
+  fill: #428c41;
+}
+.st8 {
+  fill: #e184b2;
+}
+.st9 {
+  fill: #f1f1f2;
+}
+.st10 {
+  fill: #f89f29;
+}
+.st11 {
+  fill: #fcb626;
+}
+.st12 {
+  fill: #eaa122;
+}
+.st13 {
+  fill: #422e13;
+}
+.st14 {
+  fill: #e08726;
+}
+.st15 {
+  fill: #451124;
+}
+.st16 {
+  fill: #ba2356;
+}
+.st17 {
+  fill: #29c1e3;
+}
+.st18 {
+  fill: #ee436e;
+}
+.st19 {
+  fill: #dd3768;
+}
+.st20 {
+  fill: #461529;
+}
+.st21 {
+  fill: #680a2c;
+}
+#monsters {
+  display: block;
+  margin: 0 auto;
+  width: 80%;
+}
+#first-monster-eye,
+#first-monster-hand,
+#first-monster-eye-in,
+#first-monster-mouth,
+#second-monster-hand,
+#second-monster-sec-hand,
+#second-monster-eye,
+#second-monster,
+#third-monster-leg,
+#third-monster-leg-left,
+#third-monster,
+#third-monster-face,
+.monsters,
+.monster {
+  animation-iteration-count: infinite !important;
+  animation-direction: alternate !important;
+}
+
+.monsters {
+  animation-timing-function: linear;
+  animation: monsters;
+  animation-duration: 3s;
+}
+@keyframes monsters {
+  from {
+    transform: rotate(-2deg) translateX(2px) translateY(2px);
+    transform-origin: bottom;
+  }
+  to {
+    transform: rotate(2deg) translateX(-2px) translateY(-2px);
+    transform-origin: bottom;
+  }
+}
+.monster {
+  animation-timing-function: linear;
+  animation: monster;
+  animation-duration: 3s;
+}
+@keyframes monster {
+  from {
+    transform: rotate(2deg) translateX(-2px) translateY(-2px);
+    transform-origin: bottom;
+  }
+  to {
+    transform: rotate(-2deg) translateX(2px) translateY(2px);
+    transform-origin: bottom;
+  }
+}
