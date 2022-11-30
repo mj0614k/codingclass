@@ -5,18 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MJ's portfolio</title>
-    <link rel="stylesheet" href="assets/style.css" />
+    <link rel="stylesheet" href="assets/style2.css" />
   </head>
   <body>
-    <section id="section1" class="section">
-      <div class="intro__decoration">
-        <span>POTFOLIOPOTFOLIO</span>
-        <span>POTFOLIOPOTFOLIO</span>
-        <span>POTFOLIOPOTFOLIO</span>
-        <span>POTFOLIOPOTFOLIO</span>
+    <header id="header">
+      <nav>
+        <span>포트폴리오</span>
+        <span>메뉴</span>
+      </nav>
+    </header>
+    <section id="section1" class="section1">
+      <div class="section1__decoration" aria-hidden="true">
+        <span>PORTFOLIOPORTFOLIOPORTFOLIOPORTFOLIO</span>
+        <span>PORTFOLIOPORTFOLIOPORTFOLIOPORTFOLIO</span>
+        <span>PORTFOLIOPORTFOLIOPORTFOLIOPORTFOLIO</span>
+        <span>PORTFOLIOPORTFOLIOPORTFOLIOPORTFOLIO</span>
       </div>
-      <div class="intro__img">
-        <div class="intro__img__decoration">
+      <div class="section1__img">
+        <div class="section1__img__decoration">
           <div class="eye__white left">
             <div class="eye__black left">
               <div class="eye"></div>
@@ -30,9 +36,9 @@
         </div>
         <img src="assets/img/portfolio__01.png" alt="이미지1" />
       </div>
-      <div class="intro__main">
+      <div class="section1__main">
         <h2><span>포</span><span>폴</span><span>이</span><span>얌</span><span>!</span></h2>
-        <p class="arrow"></p>
+        <span class="arrow"></span>
         <svg id="monsters" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1374 486">
           <ellipse class="st0" cx="199" cy="412.4" rx="160.3" ry="11.8" />
           <g class="monsters">
@@ -194,105 +200,8 @@
             />
           </g>
         </svg>
+        <span class="finger"> </span>
       </div>
     </section>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@latest/bundled/lenis.js"></script>
-    <script>
-      // eye 움직임
-      document.addEventListener("mousemove", eyeMoving);
-      function eyeMoving() {
-        const introEye = document.querySelectorAll(".intro__img__decoration .eye__white");
-        introEye.forEach((eye) => {
-          let x = eye.getBoundingClientRect().left + eye.clientWidth / 2;
-          let y = eye.getBoundingClientRect().top + eye.clientHeight / 2;
-          // console.log(x);
-
-          let radian = Math.atan2(event.clientX - x, event.clientY - y);
-          let rotation = radian * (180 / Math.PI) * -1 + 180;
-          eye.style.transform = "rotate(" + rotation + "deg)";
-        });
-      }
-
-      gsap.registerPlugin(ScrollTrigger);
-
-      const lenis = new Lenis({
-        duration: 1.5,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
-      });
-
-      function raf(time) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-      }
-
-      requestAnimationFrame(raf);
-
-      ScrollTrigger.create({
-        trigger: ".panel",
-        start: "top",
-
-        markers: true,
-        toggleClass: { targets: "nav", className: "not-active" },
-        onEnter: () => console.log("onEnter"),
-        onLeave: () => console.log("onLeave"),
-        onEnterBack: () => console.log("onEnterBack"),
-        onLeaveBack: () => console.log("onLeaveBack"),
-      });
-
-      const sections = gsap.utils.toArray(".section");
-
-      gsap.to(".intro__decoration span:nth-child(odd)", {
-        scrollTrigger: {
-          trigger: ".intro__decoration span",
-          toggleActions: "restart none reverse none",
-          start: "top",
-          end: () => `+=${document.querySelector(".intro__decoration span:nth-child(odd)").offsetHeight}`,
-        },
-
-        duration: 40,
-        markers: true,
-        xPercent: -100,
-        scrub: true,
-        stagger: 0.2,
-      });
-
-      gsap.to(".intro__decoration span:nth-child(even)", {
-        scrollTrigger: {
-          trigger: ".intro__decoration span",
-          toggleActions: "restart none reverse none",
-          start: "top",
-        },
-        duration: 40,
-        markers: true,
-        xPercent: 100,
-        scrub: true,
-        stagger: 0.2,
-      });
-
-      gsap.to(".intro__main h2 span", {
-        scrollTrigger: {
-          trigger: ".intro__main h2 span",
-          toggleActions: "restart none reverse none",
-        },
-        opacity: 1,
-        scale: 1,
-        duration: 1,
-        scrub: true,
-        stagger: 0.2,
-      });
-
-      gsap.to(".intro__main .arrow", {
-        scrollTrigger: {
-          trigger: ".intro__main .arrow",
-          toggleActions: "restart none reverse none",
-        },
-        y: 80,
-        opacity: 1,
-        scale: 1,
-        duration: 2,
-      });
-    </script>
   </body>
 </html>
