@@ -18,6 +18,7 @@
 }
 #header h1 {
   font-size: 1.5vw;
+  cursor: pointer;
 }
 #header nav {
   cursor: pointer;
@@ -149,6 +150,12 @@
   bottom: -120px;
   right: 0;
 } */
+.section1 .sec2 .finger {
+  width: 10%;
+  position: absolute;
+  bottom: 0px;
+  right: 0;
+}
 
 /* section2 */
 .section2 .sec1 {
@@ -156,23 +163,33 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.section2 .sec1 .monster {
-  width: 20%;
-  margin: 0 auto;
+.section2 .sec1 .box {
+  position: relative;
+}
+.section2 .sec1 #monsters {
+  width: 60%;
   position: absolute;
-  z-index: 0;
+  top: 10%;
+  z-index: 1;
+  left: 50%;
+  transition: translateX(-50%);
 }
 .section2 .sec1 h2 {
   color: #f7e8d6;
   font-family: "OKDdung";
   text-align: center;
-  z-index: 1;
+  z-index: 2;
+  margin-top: 160px;
+  margin-bottom: 30px;
   font-size: 9vw;
 }
 .section2 .sec1 p {
+  z-index: 2;
   color: #f7e8d6;
-  font-size: 30px;
+  font-size: 1.5vw;
   text-align: center;
   font-family: "BMJua";
 }
@@ -180,10 +197,15 @@
 @media (max-width: 1200px) {
   #header h1 {
     font-size: 16px;
-    cursor: pointer;
   }
   #header nav {
     font-size: 16px;
-    cursor: pointer;
+  }
+  .section2 .sec1 h2 {
+    margin-top: 0px;
+    margin-bottom: 15px;
+  }
+  .section2 .sec1 p {
+    font-size: 16px;
   }
 }
