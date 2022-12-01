@@ -469,6 +469,45 @@
   line-height: 1.4;
 }
 
+.section3 .sec7 {
+  background-color: #ff6235;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.section3 .sec7 .box {
+  position: relative;
+}
+.section3 .sec7 #monsters {
+  width: 100%;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  position: absolute;
+  top: -15%;
+  margin: 0 auto;
+}
+.section3 .sec7 h2 {
+  color: #f7e8d6;
+  font-family: "OKDdung";
+  text-align: center;
+  z-index: 2;
+  position: relative;
+  margin-top: 160px;
+  margin-bottom: 30px;
+  font-size: 9vw;
+}
+.section3 .sec7 p {
+  z-index: 2;
+  color: #f7e8d6;
+  position: relative;
+  font-size: 1.5vw;
+  text-align: center;
+  font-family: "BMJua";
+}
+
 @media (max-width: 1200px) {
   #header h1 {
     font-size: 16px;
