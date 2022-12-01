@@ -127,6 +127,10 @@
   transform: scale(1.2); */
 }
 .section1 .sec2 .arrow {
+  width: 5%;
+  margin: 0 auto;
+}
+/* .section1 .sec2 .arrow {
   background-image: url("data:image/svg+xml,%3Csvg width='90' height='123' viewBox='0 0 90 123' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_325_112)'%3E%3Cpath d='M44.996 16.4477L77.8393 0.152604C78.9288 -0.387948 80.1526 0.591216 79.8691 1.77652L62.965 72.4117C62.7 73.5192 63.7636 74.4813 64.8351 74.1031L88.0828 65.8967C89.4488 65.4144 90.585 67.0359 89.6697 68.1612L45.4927 122.471C44.914 123.183 43.8275 123.175 43.2585 122.456L0.317902 68.1543C-0.578752 67.0204 0.568871 65.4184 1.92667 65.9086L24.5068 74.0595C25.5901 74.4506 26.6678 73.4661 26.3806 72.3482L8.247 1.80101C7.94202 0.614475 9.16235 -0.386213 10.2615 0.149127L43.7339 16.4523C44.1327 16.6465 44.5986 16.6448 44.996 16.4477Z' fill='%23F7E8D6' stroke='%23F7E8D6'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_325_112'%3E%3Crect width='90' height='123' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
   background-position: center;
   background-repeat: no-repeat;
@@ -134,7 +138,7 @@
   width: 90px;
   height: 123px;
   margin: 20px auto;
-}
+} */
 .section1 .sec2 #monsters {
   justify-content: center;
 }
@@ -170,18 +174,20 @@
   position: relative;
 }
 .section2 .sec1 #monsters {
-  width: 60%;
-  position: absolute;
-  top: 10%;
+  width: 40%;
+  left: 0;
+  right: 0;
   z-index: 1;
-  left: 50%;
-  transition: translateX(-50%);
+  position: absolute;
+  top: -15%;
+  margin: 0 auto;
 }
 .section2 .sec1 h2 {
   color: #f7e8d6;
   font-family: "OKDdung";
   text-align: center;
   z-index: 2;
+  position: relative;
   margin-top: 160px;
   margin-bottom: 30px;
   font-size: 9vw;
@@ -189,9 +195,18 @@
 .section2 .sec1 p {
   z-index: 2;
   color: #f7e8d6;
+  position: relative;
   font-size: 1.5vw;
   text-align: center;
   font-family: "BMJua";
+}
+.section2 .sec2 {
+  background-color: #1b9142;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (max-width: 1200px) {
@@ -202,7 +217,6 @@
     font-size: 16px;
   }
   .section2 .sec1 h2 {
-    margin-top: 0px;
     margin-bottom: 15px;
   }
   .section2 .sec1 p {
