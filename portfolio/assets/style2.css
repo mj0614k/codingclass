@@ -24,8 +24,6 @@
   cursor: pointer;
 }
 /* section1 */
-.section1 {
-}
 .section1 .sec1 {
   position: relative;
   background-color: #1b9142;
@@ -790,7 +788,7 @@
 }
 .section4 .sec3__contents .input__button button {
   width: 100%;
-  background-color: rgba(254, 110, 59, 0.8);
+  background-color: rgba(255, 102, 49, 0.8);
   color: #f7e8d6;
   padding: 10px 15px;
   box-sizing: border-box;
@@ -801,13 +799,14 @@
   border-radius: 10px;
 }
 .section4 .sec3__contents .input__button button:hover {
-  background-color: rgba(254, 110, 59, 1);
+  background-color: #ff6631;
 }
 
 .section4 .sec3__contents .comments {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 2%;
 }
 .section4 .sec3__contents .comments div {
   width: 24%;
@@ -834,13 +833,71 @@
   font-size: 1.5vw;
 }
 .section4 .sec3__contents .comments__date {
-  margin-top: 5%;
+  margin: 5% 0;
   display: block;
   font-size: 1.2vw;
   color: #888;
   text-align: right;
 }
 .section4 .sec3__contents .comments__page {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+.section4 .sec3__contents .comments__page a {
+  width: 3.8%;
+  padding-bottom: 4.2%;
+  background-image: url(../assets/img/portfolio__07.png);
+  background-size: cover;
+  background-position: center;
+}
+.section4 .sec3__contents .comments__page a:nth-child(2) {
+  transform: rotate(180deg);
+}
+
+/* section5 */
+.section5 .sec1 {
+  position: relative;
+  background-color: #1b9142;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.section5 .sec1__decoration {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: #107531;
+  z-index: 0;
+  font-size: 8vw;
+  line-height: 1.1;
+  text-transform: uppercase;
+  font-family: "OKDdung";
+}
+.section5 .sec1__decoration div:nth-child(odd) {
+  margin-left: -10vw;
+}
+.section5 h2 {
+  background-color: #1b9142;
+  font-size: 8vw;
+  line-height: 1.2;
+  transform: translate(-50%, -50%);
+  color: #f7e8d6;
+  font-family: "OKDdung";
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  position: absolute;
+}
+.section5 .sec2 {
+  background-color: #1b9142;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (max-width: 1200px) {
@@ -875,6 +932,9 @@
     font-size: 16px;
   }
   .section4 .sec3 h2 {
+    margin-bottom: 15px;
+  }
+  .section4 .sec3__contents .input {
     margin-bottom: 15px;
   }
 }
