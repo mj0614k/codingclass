@@ -880,7 +880,7 @@
 .section5 .sec1__decoration div:nth-child(odd) {
   margin-left: -10vw;
 }
-.section5 h2 {
+.section5 .sec1 h2 {
   background-color: #1b9142;
   font-size: 8vw;
   line-height: 1.2;
@@ -895,10 +895,245 @@
 .section5 .sec2 {
   background-color: #1b9142;
   height: 100vh;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+.section5 .sec2 .cursor {
+  position: absolute;
+  width: 8%;
+  right: 0;
+  bottom: 30%;
+  z-index: 5;
+}
+.section5 .sec2 .coin {
+  width: 30%;
+  position: relative;
+  margin: 5%;
+}
+.section5 .sec2 .coin .bg {
+  position: absolute;
+  width: 140%;
+  top: -20%;
+  z-index: 1;
+  left: -20%;
+}
+.section5 .sec2 .coin .arrow1 {
+  position: absolute;
+  width: 30%;
+  top: -20%;
+  opacity: 0;
+  transition: opacity 0.5s;
+  left: 20%;
+}
+.section5 .sec2 .coin .arrow1__text {
+  position: absolute;
+  font-size: 2vw;
+  top: -22.5%;
+  opacity: 0;
+  transition: opacity 0.5s;
+  color: #f7e8d6;
+}
+.section5 .sec2 .coin .arrow1.right{
+  position: absolute;
+  transform: scaleX(-1);
+  width: 30%;
+  top: -20%;
+  left: 50%;
+}
+.section5 .sec2 .coin .arrow1__text.right{
+  position: absolute;
+  font-size: 2vw;
+  top: -22.5%;
+  right: 0;
+  color: #f7e8d6;
+}
+.section5 .sec2 .coin .arrow2 {
+  position: absolute;
+  width: 30%;
+  opacity: 0;
+  transition: opacity 0.5s;
+  top: 90%;
+  transform: rotate(180deg);
+  left: 70%;
+}
+.section5 .sec2 .coin .arrow2__text {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.5s;
+  font-size: 2vw;
+  top: 110%;
+  left: -20%;
+  color: #f7e8d6;
+}
+.section5 .sec2 .coin .arrow3 {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.5s;
+  width: 30%;
+  transform: scaleX(-1) rotate(180deg);
+  top: 90%;
+}
+.section5 .sec2 .coin .arrow3__text {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.5s;
+  font-size: 2vw;
+  top: 110%;
+  right: -20%;
+  color: #f7e8d6;
+}
+.section5 .sec2 .coin .front {
+  background-color: #F7E8D6;
+  position: absolute;
+  z-index: 3;
+  width: 100%;
+  padding-bottom: 100%;
+  border-radius: 50%;
+  transition: transform 1s;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+.section5 .sec2 .coin .back {
+  z-index: 2;
+  position: relative;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+.section5 .sec2 .coin .front {
+  transform: rotateY(0deg);
+}
+.section5 .sec2 .coin:hover .front {
+  transform: rotateY(180deg);
+}
+.section5 .sec2 .coin:hover .arrow1 {
+  opacity: 1;
+}
+.section5 .sec2 .coin:hover .arrow1__text {
+  opacity: 1;
+}
+.section5 .sec2 .coin:hover .arrow2 {
+  opacity: 1;
+}
+.section5 .sec2 .coin:hover .arrow2__text {
+  opacity: 1;
+}
+.section5 .sec2 .coin:hover .arrow3 {
+  opacity: 1;
+}
+.section5 .sec2 .coin:hover .arrow3__text {
+  opacity: 1;
+}
+.section5 .sec2 .coin .back {
+  transform: rotateY(-180deg);
+}
+.section5 .sec2 .coin:hover .back {
+  transform: rotateY(0deg);
+}
+.section5 .sec3 {
+  background-color: #1b9142;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.section5 .sec3 .sec3__contents {
+  background-color: #f7e8d6;
+  width: 90%;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  box-sizing: border-box;
+  border-radius: 20px;
+}
+.section5 .sec3 .sec3__contents h2{
+  color: #1b9142;
+  font-family: "OKDdung";
+  font-size: 5vw;
+  text-align: center;
+  margin-bottom: 5%;
+}
+.section5 .sec3 .sec3__contents img:nth-child(2) {
+  width: 50%;
+  position: relative;
+  margin-bottom: 5%;
+  z-index: 2;
+}
+.section5 .sec3 .sec3__contents img:nth-child(3) {
+  position: absolute;
+  width: 49%;
+  top: 22%;
+}
+.section5 .sec3 .sec3__contents .sec3__text {
+  position: absolute;
+}
+.section5 .sec3 .sec3__contents .sec3__text.text1{
+  top: 17%;
+}
+.section5 .sec3 .sec3__contents .sec3__text.text2{
+  top: 36%;
+  left: 19%;
+}
+.section5 .sec3 .sec3__contents .sec3__text.text3{
+  top: 70%;
+  left: 10%;
+}
+.section5 .sec3 .sec3__contents .sec3__text.text4{
+  bottom: 5%;
+}
+.section5 .sec3 .sec3__contents .sec3__text.text5{
+  top: 70%;
+  right: 19%;
+}
+.section5 .sec3 .sec3__contents .sec3__text.text6{
+  top: 36%;
+  right: 19%;
+}
+.section5 .sec3 .sec3__contents .sec3__text span:nth-child(1) {
+  color: #1b9142;
+  font-size: 2vw;
+}
+.section5 .sec3 .sec3__contents .sec3__text span:nth-child(2) {
+  color: #FF6235;
+  font-size: 2vw;
+}
+.section5 .sec4 {
+  display: flex;
+  flex-direction: column;
+  background-color: #1b9142;
+  align-items: center;
+  height: 100vh;
+  justify-content: center;
+}
+.section5 .sec4 p {
+  font-size: 9vw;
+  display: block;
+  line-height: 1.2;
+  font-family: "OKDdung";
+  color: #f7e8d6;
+}
+.section5 .sec4 a {
+  margin-top: 2%;
+  color: #107531;
+  font-family: "OKDdung";
+  font-size: 4vw;
+}
+.section5 .sec4 a:hover {
+  color: #f7e8d6;
+}
+/* .section5 .sec2 .coin::after {
+  position: absolute;
+  top: 0;
+  content: '';
+  z-index: 1;
+  background: url(img/portfolio__10.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+} */
 
 @media (max-width: 1200px) {
   #header h1 {
