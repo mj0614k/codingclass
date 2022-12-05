@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로그래머스 1단계</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="../index.html">프로그래머스 2단계</a></h1>
+    </header>
+    <!-- //header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">프로그래머스 2단계 : 최솟값 만들기
+            </h2>
+            <p class="t_desc">코딩테스트 연습 > 
+                연습문제 > 
+                최솟값 만들기
+                </p>
+                <hr>
+            <h2 class="t_tit2">💩 문제 설명</h1>
+            <p class="t_desc">
+                길이가 같은 배열 A, B 두개가 있습니다. 각 배열은 자연수로 이루어져 있습니다.<br>
+배열 A, B에서 각각 한 개의 숫자를 뽑아 두 수를 곱합니다. 이러한 과정을 배열의 길이만큼 반복하며, 두 수를 곱한 값을 누적하여 더합니다. 이때 최종적으로 누적된 값이 최소가 되도록 만드는 것이 목표입니다. (단, 각 배열에서 k번째 숫자를 뽑았다면 다음에 k번째 숫자는 다시 뽑을 수 없습니다.)<br>
+예를 들어 A = [1, 4, 2] , B = [5, 4, 4] 라면
+            </p>
+            <p class="t_box">
+✔️ A에서 첫번째 숫자인 1, B에서 첫번째 숫자인 5를 뽑아 곱하여 더합니다. (누적된 값 : 0 + 5(1x5) = 5)<br>
+✔️ A에서 두번째 숫자인 4, B에서 세번째 숫자인 4를 뽑아 곱하여 더합니다. (누적된 값 : 5 + 16(4x4) = 21)<br>
+✔️ A에서 세번째 숫자인 2, B에서 두번째 숫자인 4를 뽑아 곱하여 더합니다. (누적된 값 : 21 + 8(2x4) = 29)
+            </p>
+            <p class="t_desc">
+                즉, 이 경우가 최소가 되므로 29를 return 합니다.<br>
+배열 A, B가 주어질 때 최종적으로 누적된 최솟값을 return 하는 solution 함수를 완성해 주세요.
+            </p>
+            <h2 class="t_tit2">💩 제한 조건</h2>
+            <p class="t_box">
+                ☝️ 배열 A, B의 크기 : 1,000 이하의 자연수<br>
+                ✌ 배열 A, B의 원소의 크기 : 1,000 이하의 자연수
+            </p>
+            <h2 class="t_tit2">💩 문제 풀이</h2>
+            <div class="t_code">
+<pre><code class="language-js">function solution(A,B){
+    A.sort((a,b)=>a-b)
+    B.sort((a,b)=>a-b)
+    let sum = 0;
+    for(i=0; i&lt;A.length; i++){
+        sum += A[i] * B[A.length-1-i]
+    }
+    return sum;
+}
+</code></pre></div>
+<p class="t_desc">
+    최솟값 만들기라면 뭐... A에서 가장 작은 수와 B에서 가장 큰 수를 곱하는 식으로 하면 되겠죠.
+</p>
+<h2 class="t_tit2">💩 다른 풀이</h2>
+<div class="t_code">
+<pre><code class="language-js">function solution(A,B){
+    A.sort((a, b) => a - b)
+    B.sort((a, b) => b - a)
+    return A.reduce((total, val, idx) => total + val * B[idx], 0)
+}</code></pre>
+</div>
+<p class="t_desc">
+    이제는 reduce를 공부해야겠습니다. 잘 알아두면 유용하게 쓸 수 있겠어요.
+</p>
+<div class="t_link">
+    <a href="https://school.programmers.co.kr/learn/courses/30/lessons/12941">문제 풀어보기</a>
+</div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>
