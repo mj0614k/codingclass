@@ -819,17 +819,26 @@
 }
 .section4 .sec3__contents .comments__name {
   margin-top: 5%;
+  max-width: 100%;
   display: inline-block;
   background-color: #ff6631;
   border-radius: 50px;
   color: #f7e8d6;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   box-sizing: border-box;
-  padding: 5px 10px;
+  padding: 7px 12px;
   font-size: 1.5vw;
 }
 .section4 .sec3__contents .comments__comment {
   margin-top: 5%;
   text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
   font-size: 1.5vw;
 }
 .section4 .sec3__contents .comments__date {
@@ -935,14 +944,14 @@
   transition: opacity 0.5s;
   color: #f7e8d6;
 }
-.section5 .sec2 .coin .arrow1.right{
+.section5 .sec2 .coin .arrow1.right {
   position: absolute;
   transform: scaleX(-1);
   width: 30%;
   top: -20%;
   left: 50%;
 }
-.section5 .sec2 .coin .arrow1__text.right{
+.section5 .sec2 .coin .arrow1__text.right {
   position: absolute;
   font-size: 2vw;
   top: -22.5%;
@@ -985,7 +994,7 @@
   color: #f7e8d6;
 }
 .section5 .sec2 .coin .front {
-  background-color: #F7E8D6;
+  background-color: #f7e8d6;
   position: absolute;
   z-index: 3;
   width: 100%;
@@ -1049,7 +1058,7 @@
   box-sizing: border-box;
   border-radius: 20px;
 }
-.section5 .sec3 .sec3__contents h2{
+.section5 .sec3 .sec3__contents h2 {
   color: #1b9142;
   font-family: "OKDdung";
   font-size: 5vw;
@@ -1070,25 +1079,25 @@
 .section5 .sec3 .sec3__contents .sec3__text {
   position: absolute;
 }
-.section5 .sec3 .sec3__contents .sec3__text.text1{
+.section5 .sec3 .sec3__contents .sec3__text.text1 {
   top: 17%;
 }
-.section5 .sec3 .sec3__contents .sec3__text.text2{
+.section5 .sec3 .sec3__contents .sec3__text.text2 {
   top: 36%;
   left: 19%;
 }
-.section5 .sec3 .sec3__contents .sec3__text.text3{
+.section5 .sec3 .sec3__contents .sec3__text.text3 {
   top: 70%;
   left: 10%;
 }
-.section5 .sec3 .sec3__contents .sec3__text.text4{
+.section5 .sec3 .sec3__contents .sec3__text.text4 {
   bottom: 5%;
 }
-.section5 .sec3 .sec3__contents .sec3__text.text5{
+.section5 .sec3 .sec3__contents .sec3__text.text5 {
   top: 70%;
   right: 19%;
 }
-.section5 .sec3 .sec3__contents .sec3__text.text6{
+.section5 .sec3 .sec3__contents .sec3__text.text6 {
   top: 36%;
   right: 19%;
 }
@@ -1097,7 +1106,7 @@
   font-size: 2vw;
 }
 .section5 .sec3 .sec3__contents .sec3__text span:nth-child(2) {
-  color: #FF6235;
+  color: #ff6235;
   font-size: 2vw;
 }
 .section5 .sec4 {

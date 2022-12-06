@@ -907,41 +907,39 @@
         </div>
         <div class="sec2">
           <div class="coin">
-            <img class="bg" src="assets/img/portfolio__10.png" alt="배경 이미지">
+            <img class="bg" src="assets/img/portfolio__10.png" alt="배경 이미지" />
             <span class="arrow1__text">성실함</span>
-            <img class="arrow1" src="assets/img/portfolio__arrow__04.png" alt="화살표">
+            <img class="arrow1" src="assets/img/portfolio__arrow__04.png" alt="화살표" />
             <span class="arrow2__text">꼼꼼함</span>
-            <img class="arrow2" src="assets/img/portfolio__arrow__04.png" alt="화살표">
+            <img class="arrow2" src="assets/img/portfolio__arrow__04.png" alt="화살표" />
             <span class="arrow3__text">책임감</span>
-            <img class="arrow3" src="assets/img/portfolio__arrow__04.png" alt="화살표">
-            <div class="front">
-            </div>
+            <img class="arrow3" src="assets/img/portfolio__arrow__04.png" alt="화살표" />
+            <div class="front"></div>
             <div class="back">
               <img src="assets/img/portfolio__08.png" />
             </div>
           </div>
           <div class="coin">
-            <img class="bg" src="assets/img/portfolio__10.png" alt="배경 이미지">
+            <img class="bg" src="assets/img/portfolio__10.png" alt="배경 이미지" />
             <span class="arrow1__text right">뭘쓸까</span>
-            <img class="arrow1 right" src="assets/img/portfolio__arrow__04.png" alt="화살표">
+            <img class="arrow1 right" src="assets/img/portfolio__arrow__04.png" alt="화살표" />
             <span class="arrow2__text">좀부끄</span>
-            <img class="arrow2" src="assets/img/portfolio__arrow__04.png" alt="화살표">
+            <img class="arrow2" src="assets/img/portfolio__arrow__04.png" alt="화살표" />
             <span class="arrow3__text">러운데</span>
-            <img class="arrow3" src="assets/img/portfolio__arrow__04.png" alt="화살표">
-            <img class="bg" src="assets/img/portfolio__10.png" alt="배경 이미지">
-            <div class="front">
-            </div>
+            <img class="arrow3" src="assets/img/portfolio__arrow__04.png" alt="화살표" />
+            <img class="bg" src="assets/img/portfolio__10.png" alt="배경 이미지" />
+            <div class="front"></div>
             <div class="back">
               <img src="assets/img/portfolio__09.png" />
             </div>
           </div>
-          <img class="cursor" src="assets/img/portfolio__arrow__05.png" alt="커서">
+          <img class="cursor" src="assets/img/portfolio__arrow__05.png" alt="커서" />
         </div>
         <div class="sec3">
           <div class="sec3__contents">
             <h2>나의 능력치</h2>
-            <img src="assets/img/portfolio__11.png" alt="능력치">
-            <img src="assets/img/portfolio__12.png" alt="능력치">
+            <img src="assets/img/portfolio__11.png" alt="능력치" />
+            <img src="assets/img/portfolio__12.png" alt="능력치" />
             <p class="sec3__text text1"><span>HTML </span><span>90%</span></p>
             <p class="sec3__text text2"><span>CSS </span><span>90%</span></p>
             <p class="sec3__text text3"><span>JAVASCRIPT </span><span>80%</span></p>
@@ -951,11 +949,29 @@
           </div>
         </div>
         <div class="sec4">
-            <p>채용하고 싶으면</p>
-            <p>연락해주세요!</p>
-            <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+          <p>채용하고 싶으면</p>
+          <p>연락해주세요!</p>
+          <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
         </div>
       </section>
     </main>
   </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@latest/bundled/lenis.js"></script>
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    const lenis = new Lenis({
+      duration: 1.5,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+  </script>
 </html>
