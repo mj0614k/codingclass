@@ -19,15 +19,24 @@
 
     <main id="main">
         <div class="document">
+<<<<<<< HEAD
             <h2 class="t_tit">프로그래머스 1단계 : 명예의 전당 (1)
             </h2>
             <p class="t_desc">코딩테스트 연습 > 
                 연습문제 > 
                 명예의 전당 (1)
+=======
+            <h2 class="t_tit">프로그래머스 1단계 : 가장 가까운 같은 글자
+            </h2>
+            <p class="t_desc">코딩테스트 연습 > 
+                연습문제 > 
+                가장 가까운 같은 글자
+>>>>>>> b81ca8ff65d95252685fe31fba2dd7d90bef284f
                 </p>
                 <hr>
             <h2 class="t_tit2">💩 문제 설명</h1>
             <p class="t_desc">
+<<<<<<< HEAD
                 "명예의 전당"이라는 TV 프로그램에서는 매일 1명의 가수가 노래를 부르고, 시청자들의 문자 투표수로 가수에게 점수를 부여합니다. 매일 출연한 가수의 점수가 지금까지 출연 가수들의 점수 중 상위 k번째 이내이면 해당 가수의 점수를 명예의 전당이라는 목록에 올려 기념합니다. 즉 프로그램 시작 이후 초기에 k일까지는 모든 출연 가수의 점수가 명예의 전당에 오르게 됩니다. k일 다음부터는 출연 가수의 점수가 기존의 명예의 전당 목록의 k번째 순위의 가수 점수보다 더 높으면, 출연 가수의 점수가 명예의 전당에 오르게 되고 기존의 k번째 순위의 점수는 명예의 전당에서 내려오게 됩니다.<br>
                 이 프로그램에서는 매일 "명예의 전당"의 최하위 점수를 발표합니다. 예를 들어, k = 3이고, 7일 동안 진행된 가수의 점수가 [10, 100, 20, 150, 1, 100, 200]이라면, 명예의 전당에서 발표된 점수는 아래의 그림과 같이 [10, 10, 10, 20, 20, 100, 100]입니다.
                 <img style="display:block; width: 60%; margin: 0 auto;" src="https://grepp-programmers.s3.ap-northeast-2.amazonaws.com/files/production/b0893853-7471-47c0-b7e5-1e8b46002810/%EA%B7%B8%EB%A6%BC1.png" alt="이미지1">
@@ -87,16 +96,79 @@
         a.push(stack[0])
         return a
     },[])
+=======
+                문자열 s가 주어졌을 때, s의 각 위치마다 자신보다 앞에 나왔으면서, 자신과 가장 가까운 곳에 있는 같은 글자가 어디 있는지 알고 싶습니다.<br>
+                예를 들어, s="banana"라고 할 때,  각 글자들을 왼쪽부터 오른쪽으로 읽어 나가면서 다음과 같이 진행할 수 있습니다.
+            </p>
+            <p class="t_box">
+                ✔️ b는 처음 나왔기 때문에 자신의 앞에 같은 글자가 없습니다. 이는 -1로 표현합니다.<br>
+                ✔️ a는 처음 나왔기 때문에 자신의 앞에 같은 글자가 없습니다. 이는 -1로 표현합니다.<br>
+                ✔️ n은 처음 나왔기 때문에 자신의 앞에 같은 글자가 없습니다. 이는 -1로 표현합니다.<br>
+                ✔️ a는 자신보다 두 칸 앞에 a가 있습니다. 이는 2로 표현합니다.<br>
+                ✔️ n도 자신보다 두 칸 앞에 n이 있습니다. 이는 2로 표현합니다.<br>
+                ✔️ a는 자신보다 두 칸, 네 칸 앞에 a가 있습니다. 이 중 가까운 것은 두 칸 앞이고, 이는 2로 표현합니다.
+            </p>
+            <p class="t_desc">
+                따라서 최종 결과물은 [-1, -1, -1, 2, 2, 2]가 됩니다.<br>
+문자열 s이 주어질 때, 위와 같이 정의된 연산을 수행하는 함수 solution을 완성해주세요.
+            </p>
+            <h2 class="t_tit2">💩 제한 조건</h2>
+            <p class="t_box">
+                ☝️ 1 ≤ s의 길이 ≤ 10,000<br>
+                ✌ s은 영어 소문자로만 이루어져 있습니다.
+            </p>
+            <h2 class="t_tit2">💩 문제 풀이</h2>
+            <div class="t_code">
+<pre><code class="language-js">function solution(s) {
+    let answer = ""; // s의 알파벳들을 한 글자씩 넣어줄 빈 문자열
+    let answer2 = [];
+    for(i=0; i&lt;s.length; i++){
+        if(answer.includes(s[i])){ // 중복된 알파벳을 마주칠 경우
+            answer2.push(i - answer.lastIndexOf(s[i])) // 가장 가까운 중복된 알파벳과의 거리
+            answer += s[i]
+        } else { // 중복되지 않을 경우
+            answer += (s[i]); answer2.push(-1)
+        }
+    }
+    return answer2;
+}
+</code></pre></div>
+<p class="t_desc">
+    여러분!! 제가 이 문제를 100명도 안 됐을 때 풀었어요!! 굉장하죠?? 사실 완료한 사람이 아니라 도전한 사람 수 100명으로 보고, 정답률이 0%길래 1빠인 줄 알고 신나서 집중했는데 100명이 이미 완료한 사람이었더군요...
+    정답률이 낮은 따끈따끈한 문제를 풀면 점수 따기에 좋다는 이야기를 들어서 열심히 풀어봤는데 그것도 아니었어요. 그냥 속은 기분이네요. 아무튼 되게 헷갈리는 문제였습니다.
+</p>
+<h2 class="t_tit2">💩 다른 풀이</h2>
+<div class="t_code">
+<pre><code class="language-js">function solution(s) {
+    var answer = Array(s.length).fill(-1);
+    for (let i = s.length - 1; i > 0; i--){
+        for (let j = i - 1; j >= 0; j--){
+            if (s[i] == s[j]){  
+                answer[i] = i-j;
+                break;
+            }
+        }
+    }
+    return answer;
+>>>>>>> b81ca8ff65d95252685fe31fba2dd7d90bef284f
 }
 </code></pre>
 </div>
 <p class="t_desc">
+<<<<<<< HEAD
     stack 배열 원소의 개수가 k보다 작을 경우, 점수를 push해 주고, 원소의 개수가 k보다 크거나 같을 경우, 
     가장 낮은 점수를 빼주는 방법입니다.<br>
     그것까지만 알겠네요... reduce()와 더 멀어지는 기분이에요...
 </p>
 <div class="t_link">
     <a href="https://school.programmers.co.kr/learn/courses/30/lessons/138477">문제 풀어보기</a>
+=======
+    코드 모양새가 깔끔해 보여서 가져왔습니다. -1이라는 원소로 가득 찬 배열을 먼저 만들고,
+    s 문자열을 뒤에서부터 샅샅이 파헤쳤네요. 같은 문자열을 마주치면 -1 원소를 인덱스의 차로 바꿔주었습니다. 예쁘네요.
+</p>
+<div class="t_link">
+    <a href="https://school.programmers.co.kr/learn/courses/30/lessons/142086">문제 풀어보기</a>
+>>>>>>> b81ca8ff65d95252685fe31fba2dd7d90bef284f
 </div>
         </div>
     </main>
