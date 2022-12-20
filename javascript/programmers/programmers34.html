@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로그래머스 1단계</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="../index.html">프로그래머스 1단계</a></h1>
+    </header>
+    <!-- //header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">프로그래머스 1단계 : 명예의 전당 (1)
+            </h2>
+            <p class="t_desc">코딩테스트 연습 > 
+                연습문제 > 
+                명예의 전당 (1)
+                </p>
+                <hr>
+            <h2 class="t_tit2">💩 문제 설명</h1>
+            <p class="t_desc">
+                "명예의 전당"이라는 TV 프로그램에서는 매일 1명의 가수가 노래를 부르고, 시청자들의 문자 투표수로 가수에게 점수를 부여합니다. 매일 출연한 가수의 점수가 지금까지 출연 가수들의 점수 중 상위 k번째 이내이면 해당 가수의 점수를 명예의 전당이라는 목록에 올려 기념합니다. 즉 프로그램 시작 이후 초기에 k일까지는 모든 출연 가수의 점수가 명예의 전당에 오르게 됩니다. k일 다음부터는 출연 가수의 점수가 기존의 명예의 전당 목록의 k번째 순위의 가수 점수보다 더 높으면, 출연 가수의 점수가 명예의 전당에 오르게 되고 기존의 k번째 순위의 점수는 명예의 전당에서 내려오게 됩니다.<br>
+                이 프로그램에서는 매일 "명예의 전당"의 최하위 점수를 발표합니다. 예를 들어, k = 3이고, 7일 동안 진행된 가수의 점수가 [10, 100, 20, 150, 1, 100, 200]이라면, 명예의 전당에서 발표된 점수는 아래의 그림과 같이 [10, 10, 10, 20, 20, 100, 100]입니다.
+                <img style="display:block; width: 60%; margin: 0 auto;" src="https://grepp-programmers.s3.ap-northeast-2.amazonaws.com/files/production/b0893853-7471-47c0-b7e5-1e8b46002810/%EA%B7%B8%EB%A6%BC1.png" alt="이미지1">
+명예의 전당 목록의 점수의 개수 k, 1일부터 마지막 날까지 출연한 가수들의 점수인 score가 주어졌을 때, 매일 발표된 명예의 전당의 최하위 점수를 return하는 solution 함수를 완성해주세요.
+            </p>
+            <h2 class="t_tit2">💩 제한 조건</h2>
+            <p class="t_box">
+                ☝️ 3 ≤ k ≤ 100<br>
+                ✌ 7 ≤ score의 길이 ≤ 1,000<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;➕ 0 ≤ score[i] ≤ 2,000<br>
+            </p>
+            <h2 class="t_tit2">💩 문제 풀이</h2>
+            <div class="t_code">
+<pre><code class="language-js">function solution(k, score) {
+    let last = []; // 최하 점수 목록
+    let answer = [];
+    if(k&lt;score.length){
+        for(i=0; i&lt;k; i++){
+            answer.push(score[i]); // 다음날의 점수 넣어주기
+            answer.sort((a,b) => {return a-b}); // 정렬
+            last.push(answer[0]); // 최하위 점수 넣어주기
+        }
+        for(i=k; i&lt;score.length; i++){
+            answer.push(score[i]); // 다음날의 점수 넣어주기
+            answer.sort((a,b) => {return a-b}); // 정렬
+            answer.shift(); // 가장 작은 수 제거(탈락)
+            last.push(answer[0]); // 최하위 점수 넣어주기
+        }
+    } else {
+        for(i=0; i&lt;score.length; i++){
+            answer.push(score[i]); // 다음날의 점수 넣어주기
+            answer.sort((a,b) => {return a-b}); // 정렬
+            last.push(answer[0]); // 최하위 점수 넣어주기
+        }
+    }
+    return last;
+}
+</code></pre></div>
+<p class="t_desc">
+    for문의 연발! 테스트 케이스는 통과인데 자꾸 실패해서 보니까, k가 score보다 클 경우를 고려하지 않았더라고요.
+    그래서 if문으로 경우의 수를 만들어 때려박으니까 바로 통과했는데... 이래도 되나 싶고 지저분하네요.
+</p>
+<h2 class="t_tit2">💩 다른 풀이</h2>
+<div class="t_code">
+<pre><code class="language-js">function solution(k, score) {
+    const stack = []
+    return score.reduce((a,c) => {
+        if(stack.length &lt; k) {
+            stack.push(c)
+            stack.sort((a,b) => a - b)
+        }
+        else {
+            stack.push(c)
+            stack.sort((a,b) => a - b)
+            stack.shift()
+        }
+        a.push(stack[0])
+        return a
+    },[])
+}
+</code></pre>
+</div>
+<p class="t_desc">
+    stack 배열 원소의 개수가 k보다 작을 경우, 점수를 push해 주고, 원소의 개수가 k보다 크거나 같을 경우, 
+    가장 낮은 점수를 빼주는 방법입니다.<br>
+    그것까지만 알겠네요... reduce()와 더 멀어지는 기분이에요...
+</p>
+<div class="t_link">
+    <a href="https://school.programmers.co.kr/learn/courses/30/lessons/138477">문제 풀어보기</a>
+</div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:mo0647@naver.com">mo0647@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>
